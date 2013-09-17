@@ -1,6 +1,9 @@
 $ = window.jQuery
 $.noConflict()
 
+t7e = require 't7e'
+t7e.load require './lib/en-us'
+
 Api = require 'zooniverse/lib/api'
 api = new Api project: 'worms'
 
@@ -19,5 +22,9 @@ topBar.el.appendTo document.body
 User = require 'zooniverse/models/user'
 User.fetch()
 
-window.app = {api, stack, topBar}
+SiteNavigation = require './controllers/site-navigation'
+siteNavigation = new SiteNavigation
+siteNavigation.el.appendTo document.body
+
+window.app = {api, stack, topBar, siteNavigation}
 module.exports = window.app

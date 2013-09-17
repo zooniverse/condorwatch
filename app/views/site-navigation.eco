@@ -1,0 +1,15 @@
+<% translate = require 't7e' %>
+
+<div class="container">
+  <%- translate 'a.logo', 'siteNavigation.projectName', href: '#/' %>
+
+  <div class="links">
+    <%- translate 'a', 'siteNavigation.home', href: '#/' %>
+    <%- translate 'a', 'siteNavigation.about', href: '#/about' %>
+    <%- translate 'a', 'siteNavigation.classify', href: '#/classify' %>
+    <%- translate 'a', 'siteNavigation.profile', href: '#/profile' %>
+    <%- translate 'a', 'siteNavigation.education', href: '#/education' %>
+    <%- translate 'a', 'siteNavigation.talk', href: '#/talk' %>
+    <%- translate 'a', 'siteNavigation.blog', href: '#/blog' %>
+  </div>
+</div>

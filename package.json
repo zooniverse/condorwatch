@@ -4,6 +4,7 @@
   "dependencies": {
     "haw": "~0.2.4",
     "stack-of-pages": "0.0.3",
+    "t7e": "~0.2.3",
     "zooniverse": "zooniverse/Zooniverse#no-deps"
   },
   "scripts": {

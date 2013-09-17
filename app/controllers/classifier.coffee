@@ -2,11 +2,7 @@ BaseController = require 'zooniverse/controllers/base-controller'
 User = require 'zooniverse/models/user'
 Subject = require 'zooniverse/models/subject'
 Classification = require 'zooniverse/models/classification'
-
-loadImage = (src, cb) ->
-  img = new Image
-  img.onload = -> cb img.src
-  img.src = src
+loadImage = require '../lib/load-image'
 
 class Classifier extends BaseController
   className: 'classifier'
@@ -30,7 +26,7 @@ class Classifier extends BaseController
   onSubjectSelect: (e, subject) =>
     @classification = new Classification {subject}
 
-    loadImage subject.location.standard, (src) =>
+    loadImage subject.location.standard, ({src}) =>
       @subjectImg.attr 'src', src
       @stopLoading()
 

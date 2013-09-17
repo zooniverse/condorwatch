@@ -1,9 +1,16 @@
 @import "../node_modules/zooniverse/css/top-bar.css"
 @import "../node_modules/zooniverse/css/dialog.css"
 
-FONT_FAMILY = "Helvetica Neue", sans-serif
+MAIN_FONT_FAMILY = Lato, sans-serif
+
+SITE_WIDTH = 90%
+SITE_NAVIGATION_HEIGHT = 12.5%
 
 html
-  font: 16px FONT_FAMILY
+  font: 16px MAIN_FONT_FAMILY
 
+a
+  text-decoration: none
+
+@import "./site-navigation"
 @import "./classifier"
