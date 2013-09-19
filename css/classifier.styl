@@ -10,7 +10,7 @@
     top: 0
     bottom: 12.5%
     left: 0
-    overflow: auto
+    overflow: hidden
     right: 0
 
   .subject-for-size
@@ -43,10 +43,11 @@
     font-size: inherit
     pointer-events: none
 
-  .instructions
+  .marking-instructions
     bottom: 0
     height: 12.5%
     left: 0
+    overflow: hidden
     position: absolute
     right: 0
 
@@ -64,27 +65,3 @@
 
     button
       @extends #_STANDARD_BUTTON
-
-.still-present
-  background: rgba(#000, 0.8)
-  bottom: 0
-  color: #fff
-  left: 0
-  position: absolute
-  right: 0
-  top: 0
-
-  .images
-    bottom: 25%
-    overflow: hidden
-    left: 0
-    position: absolute
-    right: 0
-    top: 0
-    white-space: nowrap
-
-    img
-      float: left
-
-  .instructions
-    bottom: 12.5%

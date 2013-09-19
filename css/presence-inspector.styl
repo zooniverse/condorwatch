@@ -1,0 +1,35 @@
+.presence-inspector
+  background: rgba(#000, 0.8)
+  bottom: 0
+  color: #fff
+  left: 0
+  overflow: hidden
+  position: absolute
+  right: 0
+  top: 0
+
+  .all-images
+    white-space: nowrap
+    width: 500%
+
+  .individual-image
+    display: table
+    height: 100%
+    float: left
+    width: 20%
+
+    &.before
+      left: -100%
+
+    &.current
+      left: 0
+
+    &.after
+      left: 100%
+
+    img
+      max-height: 100%
+      max-width: 100%
+
+  .image-container
+    display: table-row

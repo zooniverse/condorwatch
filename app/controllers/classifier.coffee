@@ -1,17 +1,19 @@
 BaseController = require 'zooniverse/controllers/base-controller'
 User = require 'zooniverse/models/user'
 Subject = require 'zooniverse/models/subject'
+
 loadImage = require '../lib/load-image'
 Classification = require 'zooniverse/models/classification'
 MarkingSurface = require 'marking-surface'
 CondorTool = require './condor-tool'
+PresenceInspector = require './presence-inspector'
 
 class Classifier extends BaseController
   className: 'classifier'
   template: require '../views/classifier'
 
   events:
-    'click button[name="continue"]': 'onClickContinue'
+    'click button[name="finish-marking"]': 'onClickFinishMarking'
 
   elements:
     '.subject-for-size': 'imgForSize'
@@ -62,7 +64,7 @@ class Classifier extends BaseController
         width: scaledWidth
         height: scaledHeight
 
-  onClickContinue: =>
+  onClickFinishMarking: =>
     @askAboutIndividuals()
 
   startLoading: ->
@@ -75,8 +77,7 @@ class Classifier extends BaseController
     # Switch to the "mark all the tags" view
 
   askAboutIndividuals: ->
-
-  askAbout: (annotation) ->
-
+    presenceInspector = new PresenceInspector marks: @markingSurface.marks
+    presenceInspector.el.appendTo @el
 
 module.exports = Classifier

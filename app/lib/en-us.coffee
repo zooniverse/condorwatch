@@ -30,7 +30,7 @@ module.exports =
       done: 'Done'
       delete: 'Delete'
 
-    stillPresent:
+    presenceInspector:
       inThisPhoto: 'Is condor no. $tag present in this photo?'
       yes: 'Yes'
       no: 'No'
