@@ -2,10 +2,8 @@
   background: #999
   color: #fff
   height: SITE_NAVIGATION_HEIGHT
-  left: 0
-  position: absolute
-  right: 0
-  top: 0
+  // min-height: 70px
+  position: relative
 
   a
     color: inherit
@@ -34,3 +32,9 @@
     a
       display: inline-block
       padding: 5px 10px 0
+
+  [data-location-hash="#/classify"] &
+    left: 0
+    position: absolute
+    right: 0
+    top: 0

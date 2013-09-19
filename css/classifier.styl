@@ -8,23 +8,44 @@
   .subject-container
     position: absolute
     top: 0
-    bottom: 100px
+    bottom: 12.5%
     left: 0
     overflow: auto
     right: 0
 
-  .subject
-    display: block
+  .subject-for-size
+    height: auto
     left: 50%
     max-height: 90%
+    max-width: 100%
     min-height: 100px
     position: absolute
     top: 50%
     transform: translate(-50%, -50%)
+    visibility: hidden
+    width: auto
+
+  .subject
+    left: 50%
+    position: absolute
+    top: 50%
+    transform: translate(-50%, -50%)
+
+  .tag-marker
+    fill: rgba(#fff, 0.8)
+
+    &:hover
+      fill: #fff
+
+  .tag-label
+    fill: #666
+    font-family: inherit
+    font-size: inherit
+    pointer-events: none
 
   .instructions
     bottom: 0
-    height: 100px
+    height: 12.5%
     left: 0
     position: absolute
     right: 0
@@ -40,3 +61,30 @@
     right: 5%
     top: 50%
     transform: translateY(-50%)
+
+    button
+      @extends #_STANDARD_BUTTON
+
+.still-present
+  background: rgba(#000, 0.8)
+  bottom: 0
+  color: #fff
+  left: 0
+  position: absolute
+  right: 0
+  top: 0
+
+  .images
+    bottom: 25%
+    overflow: hidden
+    left: 0
+    position: absolute
+    right: 0
+    top: 0
+    white-space: nowrap
+
+    img
+      float: left
+
+  .instructions
+    bottom: 12.5%

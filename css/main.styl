@@ -9,8 +9,32 @@ SITE_NAVIGATION_HEIGHT = 12.5%
 html
   font: 16px MAIN_FONT_FAMILY
 
+body
+  margin: 0
+
 a
   text-decoration: none
 
+button
+  appearance: none
+  background: transparent
+  border: 0
+  color: inherit
+  cursor: pointer
+  font: inherit
+  margin: 0
+  padding: 0
+
+  &:disabled
+    cursor: auto
+    opacity: 0.5
+
+#_STANDARD_BUTTON
+  border: 1px solid
+  border-radius: 0.3em
+  margin: 0 0.2em
+  padding: 0.4em 1.6em
+
 @import "./site-navigation"
 @import "./classifier"
+@import "./condor-tool-controls"

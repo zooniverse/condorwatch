@@ -5,4 +5,18 @@ class SiteNavigation extends BaseController
   className: 'site-navigation'
   template: require '../views/site-navigation'
 
+  activeClass: 'active'
+
+  elements:
+    'a': 'links'
+
+  constructor: ->
+    super
+    addEventListener 'hashchange', @onHashChange, false
+    @onHashChange()
+
+  onHashChange: =>
+    @links.removeClass @activeClass
+    @links.filter("[href='#{location.hash}']").addClass @activeClass
+
 module.exports = SiteNavigation

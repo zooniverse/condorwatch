@@ -1,0 +1,44 @@
+<% translate = require 't7e' %>
+<% {ToolControls} = require 'marking-surface' %>
+
+<div class="identification step">
+  <%- translate 'header', 'classifier.marker.identification' %>
+
+  <div class="part">
+    <label class="enclosed">
+      <%- translate 'span', 'classifier.marker.tagNo' %>
+      <input type="text" name="tag" />
+    </label>
+  </div>
+
+  <div class="part">
+    <label>
+      <input type="checkbox" name="tag-hidden" />
+      <%- translate 'span', 'classifier.marker.tagHidden' %>
+    </label>
+  </div>
+
+  <footer>
+    <%- translate 'button', 'classifier.marker.delete', name: 'delete' %>
+    <%- translate 'button', 'classifier.marker.next', name: 'next' %>
+  </footer>
+</div>
+
+<div class="proximity step">
+  <%- translate 'header', 'classifier.marker.proximity' %>
+
+  <%- translate 'div.part', 'classifier.marker.proximityExplanation' %>
+
+  <div class="part">
+    <label>
+      <%- translate 'span', 'classifier.marker.proximityNear' %>
+      <input type="range" name="proximity" min="0" max="1" step="0.25" value="0.5" />
+      <%- translate 'span', 'classifier.marker.proximityFar' %>
+    </label>
+  </div>
+
+  <footer>
+    <%- translate 'button', 'classifier.marker.delete', name: 'delete' %>
+    <%- translate 'button', 'classifier.marker.done', name: 'done' %>
+  </footer>
+</div>

@@ -1,0 +1,53 @@
+{Tool} = require 'marking-surface'
+
+class CondorTool extends Tool
+  @Controls: require './condor-tool-controls'
+
+  tagRadius: 25
+
+  cursors:
+    'tag': 'move'
+
+  initialize: ->
+    @tag = @addShape 'polygon.tag-marker'
+    @label = @addShape 'text.tag-label', transform: 'translate(0, -3)'
+
+  onInitialClick: (e) ->
+    @onInitialDrag e
+
+  onInitialDrag: (e) ->
+    @['on *drag tag'] e
+
+  'on *drag tag': (e) ->
+    offset = @pointerOffset e
+    @mark.set offset
+
+  render: ->
+    @group.attr 'transform', "translate(#{@mark.x}, #{@mark.y})"
+
+    length = @tagRadius - ((@tagRadius / 2) * (@mark.proximity || 0.5))
+    angledLength = Math.sqrt Math.pow(length, 2) / 2
+
+    @tag.attr 'points', """
+      0, -#{length}
+      #{angledLength}, -#{angledLength}
+      #{length}, 0
+      #{angledLength}, #{angledLength}
+      0, #{length}
+      -#{angledLength}, #{angledLength}
+      -#{length}, 0
+      -#{angledLength}, -#{angledLength}
+    """
+
+    @label.attr 'textContent', if @mark.tagHidden
+      '?'
+    else
+      @mark.tag || '···'
+
+    @label.attr
+      x: @label.el.clientWidth / -2
+      y: @label.el.clientHeight / 2
+
+    @controls.moveTo @mark.x, @mark.y
+
+module.exports = CondorTool

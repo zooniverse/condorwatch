@@ -1,0 +1,53 @@
+.marking-tool-controls
+  font-size: 12px
+  text-align: center
+  margin: 20px
+
+  .step
+    background: rgba(#fff, 0.8)
+    border-radius: 5px
+    box-shadow: 0 3px 10px rgba(#000, 0.2)
+    width: 200px
+
+  header
+    font-size: 10px
+    font-weight: bold
+    letter-spacing: 1px
+    padding: 10px
+    text-transform: uppercase
+
+  .part
+    margin: 5px
+
+  label.enclosed
+    background: #fff
+    border: 1px solid rgba(#000, 0.5)
+    border-radius: 3px
+    display: inline-block
+    padding: 5px
+
+    > span
+      font-size: 10px
+      font-weight: bold
+      opacity: 0.5
+      text-transform: uppercase
+
+    > input
+      background: transparent
+      border: 0
+      font-size: 20px
+      margin: 0
+      padding: 0 5px
+      text-align: right
+      width: 60px
+
+  footer
+    padding: 10px
+
+    button
+      @extends #_STANDARD_BUTTON
+      background: #fff
+
+      &[name="delete-marking-tool"]
+        background: transparent
+        border-color: transparent

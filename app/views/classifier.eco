@@ -1,0 +1,35 @@
+<% translate = require 't7e' %>
+<% ifTouch = require '../lib/if-touch' %>
+
+<div class="subject-container">
+  <img class="subject-for-size" />
+  <div class="subject"></div>
+</div>
+
+<div class="marking instructions">
+  <% action = ifTouch 'tapping', 'clicking' %>
+  <%- translate 'div.question', 'classifier.markTags', $action: action %>
+
+  <div class="options">
+    <%- translate 'button', 'classifier.finished', name: 'continue', value: 'finished' %>
+    <%- translate 'button', 'classifier.noTags', name: 'continue', value: 'no-tags' %>
+  </div>
+</div>
+
+<!--<div class="still-present">
+  <div class="images">
+    <img src="//placehold.it/400.png" />
+    <img src="//placehold.it/400.png" />
+    <img src="//placehold.it/400.png" />
+    <img src="//placehold.it/400.png" />
+  </div>
+
+  <div class="instructions">
+    <%- translate 'div.question', 'classifier.stillPresent.inThisPhoto' %>
+
+    <div class="options">
+      <%- translate 'button', 'classifier.stillPresent.yes', name: 'continue', value: 'yes' %>
+      <%- translate 'button', 'classifier.stillPresent.no', name: 'continue', value: 'no' %>
+    </div>
+  </div>
+</div>-->
