@@ -8,28 +8,35 @@
   right: 0
   top: 0
 
+  IMAGES_TO_COMPARE = 4
+  INDIVIDUAL_WIDTH = 75
+  INDIVIDUAL_MARGIN = 5
+
   .all-images
-    white-space: nowrap
-    width: 500%
+    bottom: 3%
+    left: 50%
+    outline: 1px dashed red
+    position: absolute
+    top: 3%
+    transition: transform 0.25s ease-in-out
+    transform: translateX(-50%)
+    width: (INDIVIDUAL_WIDTH)%
+
+    for i in 0...IMAGES_TO_COMPARE
+      &[data-on-image={s('"%s"', i)}]
+        transform: translateX((-50 - (i * (100 + INDIVIDUAL_MARGIN)))%)
 
   .individual-image
-    display: table
-    height: 100%
-    float: left
-    width: 20%
+    bottom: 0
+    left: 0
+    outline: 1px dashed green
+    position: absolute
+    top: 0
+    width: 100%
 
-    &.before
-      left: -100%
-
-    &.current
-      left: 0
-
-    &.after
-      left: 100%
+    for i in 0...IMAGES_TO_COMPARE
+      &:nth-child({i + 1})
+        left: (i * (100 + INDIVIDUAL_MARGIN))%
 
     img
-      max-height: 100%
-      max-width: 100%
-
-  .image-container
-    display: table-row
+      display: none

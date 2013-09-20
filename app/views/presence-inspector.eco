@@ -1,21 +1,25 @@
 <% translate = require 't7e' %>
 
-<div class="all-images">
+<div class="all-images" data-on-image="0">
   <% for image, i in [{}, {}, {}, {}]: %>
     <div class="individual-image">
-      <div class="image-container">
-        <img src="//placehold.it/400.png" />
+      <div>
+        <div class="image-container">
+          <img src="//placehold.it/400.png" />
+        </div>
       </div>
 
-      <div class="image-options">
-        <table>
-          <% for mark in [{tag: 'TAG'}, {tag: 'TAG'}] when mark.tag and not mark.tagHidden: %>
-            <tr>
-              <td>No. <%- mark.tag %></td>
-              <td><input type="checkbox" name="<%= mark.tag %>-present-<%= i %>" /> Present</td>
-            </tr>
-          <% end %>
-        </table>
+      <div>
+        <div class="image-options">
+          <table>
+            <% for mark in [{tag: 'TAG'}, {tag: 'TAG'}] when mark.tag and not mark.tagHidden: %>
+              <tr>
+                <td>No. <%- mark.tag %></td>
+                <td><input type="checkbox" name="<%= mark.tag %>-present-<%= i %>" /> Present</td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
       </div>
     </div>
   <% end %>
