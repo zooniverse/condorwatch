@@ -18,7 +18,7 @@
     outline: 1px dashed red
     position: absolute
     top: 3%
-    transition: transform 0.25s ease-in-out
+    transition: transform 0.5s ease-in-out
     transform: translateX(-50%)
     width: (INDIVIDUAL_WIDTH)%
 
@@ -26,17 +26,46 @@
       &[data-on-image={s('"%s"', i)}]
         transform: translateX((-50 - (i * (100 + INDIVIDUAL_MARGIN)))%)
 
+        > .individual-image:nth-child({i + 1})
+          opacity: 1
+          pointer-events: auto
+
   .individual-image
-    bottom: 0
+    display: table
+    height: 100%
     left: 0
-    outline: 1px dashed green
+    opacity: 0.33
+    pointer-events: none
     position: absolute
     top: 0
     width: 100%
+    transition: opacity 0.5s ease-in-out
 
     for i in 0...IMAGES_TO_COMPARE
       &:nth-child({i + 1})
         left: (i * (100 + INDIVIDUAL_MARGIN))%
 
+    > div
+      display: table-row
+
+      > div
+        display: table-cell
+
+  .image-container
+    text-align: center
+
+  .image-wrapper
+    height: 100%
+    outline: 1px solid blue
+    position: relative
+    width: 100%
+
     img
-      display: none
+      position: absolute
+      left: 50%
+      top: 50%
+      max-height: 100%
+      transform: translate(-50%, -50%)
+
+  .image-options
+    height: 1%

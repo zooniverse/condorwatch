@@ -5,7 +5,9 @@
     <div class="individual-image">
       <div>
         <div class="image-container">
-          <img src="//placehold.it/400.png" />
+          <div class="image-wrapper">
+            <img src="//placehold.it/400.png" />
+          </div>
         </div>
       </div>
 
