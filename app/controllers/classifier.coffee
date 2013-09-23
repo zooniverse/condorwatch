@@ -77,7 +77,16 @@ class Classifier extends BaseController
     # Switch to the "mark all the tags" view
 
   askAboutIndividuals: ->
-    presenceInspector = new PresenceInspector marks: @markingSurface.marks
+    presenceInspector = new PresenceInspector
+      marks: @markingSurface.marks
+      otherTimes: @classification?.subject?.other_times || [
+        '//placehold.it/640x480.png&text=Ten minutes before'
+        '//placehold.it/640x480.png&text=Five minutes before'
+        '//placehold.it/640x480.png&text=Five minutes after'
+        '//placehold.it/640x480.png&text=Ten minutes after'
+      ]
+
     presenceInspector.el.appendTo @el
+    setTimeout -> presenceInspector.show()
 
 module.exports = Classifier

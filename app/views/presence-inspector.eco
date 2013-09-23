@@ -1,12 +1,12 @@
 <% translate = require 't7e' %>
 
 <div class="all-images" data-on-image="0">
-  <% for image, i in [{}, {}, {}, {}]: %>
+  <% for image, imageIndex in @otherTimes: %>
     <div class="individual-image">
       <div>
         <div class="image-container">
           <div class="image-wrapper">
-            <img src="//placehold.it/400.png" />
+            <img src="<%- image %>" />
           </div>
         </div>
       </div>
@@ -14,13 +14,26 @@
       <div>
         <div class="image-options">
           <table>
-            <% for mark in [{tag: 'TAG'}, {tag: 'TAG'}] when mark.tag and not mark.tagHidden: %>
+            <% for mark, markIndex in @marks when mark.tag and not mark.tagHidden: %>
               <tr>
-                <td>No. <%- mark.tag %></td>
-                <td><input type="checkbox" name="<%= mark.tag %>-present-<%= i %>" /> Present</td>
+                <%- translate 'td', 'presenceInspector.inThisPhoto', $tag: mark.tag %>
+                <td class="toggle-button-group">
+                  <%- translate 'button', 'presenceInspector.yes', name: "tag-present", value: "#{markIndex}-#{imageIndex}" %>
+                  <%- translate 'button', 'presenceInspector.no', name: "tag-not-present", value: "#{markIndex}-#{imageIndex}" %>
+                </td>
               </tr>
             <% end %>
           </table>
+
+          <div class="progress">
+            <span class="step"><%= imageIndex + 1 %>/<%= @otherTimes.length %></span>
+
+            <% if imageIndex + 1 < @otherTimes.length: %>
+              <%- translate 'button', 'presenceInspector.continue', name: 'continue' %>
+            <% else: %>
+              <%- translate 'button', 'presenceInspector.finish', name: 'finish' %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
