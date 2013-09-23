@@ -1,3 +1,5 @@
+INSTRUCTIONS_HEIGHT = 12.5%
+
 .classifier
   bottom: 0
   left: 0
@@ -6,30 +8,24 @@
   right: 0
   top: SITE_NAVIGATION_HEIGHT
 
-  .subject-container
-    position: absolute
-    top: 0
-    bottom: 12.5%
-    left: 0
-    overflow: hidden
-    right: 0
-
   .subject-for-size
     height: auto
-    left: 50%
-    max-height: 90%
+    max-height: ((100 - INSTRUCTIONS_HEIGHT) - 5)
     max-width: 100%
     position: absolute
-    top: 50%
-    transform: translate(-50%, -50%)
     visibility: hidden
     width: auto
 
   .subject
     left: 50%
     position: absolute
-    top: 50%
+    top: ((100 - INSTRUCTIONS_HEIGHT) / 2)
     transform: translate(-50%, -50%)
+    transition:
+      opacity 0.75s ease-in-out,
+      top 0.75s ease-in-out,
+      transform 0.75s ease-in-out
+    z-index: 1
 
   .tag-marker
     fill: rgba(#fff, 0.8)
@@ -45,11 +41,11 @@
 
   .marking-instructions
     bottom: 0
-    height: 12.5%
+    height: INSTRUCTIONS_HEIGHT
     left: 0
-    overflow: hidden
     position: absolute
     right: 0
+    transition: bottom 0.75s ease-in-out
 
   .question
     position: absolute
@@ -65,3 +61,17 @@
 
     button
       @extends #_STANDARD_BUTTON
+
+.inspecting-individuals
+  .subject
+    opacity: 0.5
+    top: 95%
+    transform: translate(-50%, 0)
+
+    &:hover
+      opacity: 1
+      top: ((100 - INSTRUCTIONS_HEIGHT) / 2)
+      transform: translate(-50%, -50%)
+
+  .marking-instructions
+    bottom: (12.5 - 90)%

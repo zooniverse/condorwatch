@@ -20,7 +20,7 @@
   INDIVIDUAL_MARGIN = 5
 
   .all-images
-    bottom: 3%
+    bottom: 7.5%
     left: 50%
     position: absolute
     top: 3%
@@ -70,7 +70,28 @@
       left: 50%
       top: 50%
       max-height: 100%
+      max-width: 100%
       transform: translate(-50%, -50%)
 
   .image-options
     height: 1%
+    text-align: center
+
+    table
+      margin: 0 auto
+
+    td
+      padding: 3px 5px
+
+  .progress
+    text-align: center
+
+    button
+      @extends #_STANDARD_BUTTON
+
+      margin: 0
+      width: 100%
+
+  .step
+    font-size: 12px
+    opacity: 0.5

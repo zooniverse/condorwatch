@@ -7,6 +7,7 @@ Classification = require 'zooniverse/models/classification'
 MarkingSurface = require 'marking-surface'
 CondorTool = require './condor-tool'
 PresenceInspector = require './presence-inspector'
+ClassificationSummary = require './classification-summary'
 
 class Classifier extends BaseController
   className: 'classifier'
@@ -55,14 +56,14 @@ class Classifier extends BaseController
     @rescale()
 
   rescale: ->
-      scaledWidth = @imgForSize.width()
-      scaledHeight = @imgForSize.height()
+    scaledWidth = @imgForSize.width()
+    scaledHeight = @imgForSize.height()
 
-      @markingSurface.resize scaledWidth, scaledHeight
+    @markingSurface.resize scaledWidth, scaledHeight
 
-      @subjectImage.attr
-        width: scaledWidth
-        height: scaledHeight
+    @subjectImage.attr
+      width: scaledWidth
+      height: scaledHeight
 
   onClickFinishMarking: =>
     @askAboutIndividuals()
@@ -87,6 +88,22 @@ class Classifier extends BaseController
       ]
 
     presenceInspector.el.appendTo @el
-    setTimeout -> presenceInspector.show()
+
+    @el.addClass 'inspecting-individuals'
+
+    presenceInspector.on 'destroying', =>
+      @el.removeClass 'inspecting-individuals'
+      # @classification.send()
+      @showSummary()
+
+    setTimeout =>
+      presenceInspector.show()
+
+  showSummary: ->
+    classificationSummary = new ClassificationSummary {@classification}
+    classificationSummary.el.appendTo @el
+
+    classificationSummary.on 'destroying', =>
+      Subject.next()
 
 module.exports = Classifier

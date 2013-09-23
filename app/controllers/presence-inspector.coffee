@@ -59,8 +59,8 @@ class PresenceInspector extends BaseController
       for mark, markIndex in @marks
         yesButton = @el.find "button[name='tag-present'][value='#{markIndex}-#{imageIndex}']"
         noButton = @el.find "button[name='tag-not-present'][value='#{markIndex}-#{imageIndex}']"
-        yesButton.toggleClass 'selected', mark.presence[imageIndex] is true
-        noButton.toggleClass 'selected', mark.presence[imageIndex] is false
+        yesButton.toggleClass 'selected', mark.presence?[imageIndex] is true
+        noButton.toggleClass 'selected', mark.presence?[imageIndex] is false
 
   next: ->
     @onImage += 1

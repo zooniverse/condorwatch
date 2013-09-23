@@ -1,0 +1,5 @@
+<% translate = require 't7e' %>
+
+<% translate 'header', 'classificationSummary.title' %>
+
+<div class="marks"></div>

@@ -23,17 +23,20 @@
                 </td>
               </tr>
             <% end %>
+
+            <tr class="progress">
+              <td>
+                <span class="step"><%= imageIndex + 1 %>/<%= @otherTimes.length %></span>
+              </td>
+              <td>
+                <% if imageIndex + 1 < @otherTimes.length: %>
+                  <%- translate 'button', 'presenceInspector.continue', name: 'continue' %>
+                <% else: %>
+                  <%- translate 'button', 'presenceInspector.finish', name: 'finish' %>
+                <% end %>
+              </td>
+            </tr>
           </table>
-
-          <div class="progress">
-            <span class="step"><%= imageIndex + 1 %>/<%= @otherTimes.length %></span>
-
-            <% if imageIndex + 1 < @otherTimes.length: %>
-              <%- translate 'button', 'presenceInspector.continue', name: 'continue' %>
-            <% else: %>
-              <%- translate 'button', 'presenceInspector.finish', name: 'finish' %>
-            <% end %>
-          </div>
         </div>
       </div>
     </div>
