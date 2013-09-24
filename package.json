@@ -9,7 +9,7 @@
     "zooniverse": "zooniverse/Zooniverse#no-deps"
   },
   "scripts": {
-    "start": "haw serve --port 3416"
+    "start": "haw serve --port 3416",
+    "deploy-to-staging": "haw build && publisssh ./build zooniverse-demo/condors && rm -rf ./build"
   }
 }
-
