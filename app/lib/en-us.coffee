@@ -36,3 +36,12 @@ module.exports =
     no: 'No'
     continue: 'Continue'
     finish: 'Finish'
+
+  classificationSummary:
+    title: 'Summary'
+    relativeAge: 'Relative age'
+    born: 'Born'
+    died: 'Died'
+    share: 'Share the story <br />of <small>No.</small> $tag'
+    readyForNext: 'Image classified! Ready for the next one?'
+    ready: 'Ready'

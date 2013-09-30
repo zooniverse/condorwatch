@@ -93,17 +93,29 @@ class Classifier extends BaseController
 
     presenceInspector.on 'destroying', =>
       @el.removeClass 'inspecting-individuals'
-      # @classification.send()
+      @sendClassification()
       @showSummary()
 
     setTimeout =>
       presenceInspector.show()
 
+  sendClassification: ->
+    @classification.set 'marks', [@markingSurface.marks...]
+    console?.log JSON.stringify @classification
+    # @classification.send()
+
   showSummary: ->
     classificationSummary = new ClassificationSummary {@classification}
+
     classificationSummary.el.appendTo @el
 
+    @el.addClass 'showing-summary'
+
     classificationSummary.on 'destroying', =>
+      @el.removeClass 'showing-summary'
       Subject.next()
+
+    setTimeout =>
+      classificationSummary.show()
 
 module.exports = Classifier

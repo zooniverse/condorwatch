@@ -3,7 +3,75 @@
   bottom: 0
   color: #fff
   left: 0
+  opacity: 1
   position: absolute
   right: 0
+  text-align: center
   top: 0
+  transition: opacity 0.5s ease-in-out
   z-index: 2
+
+  &.offscreen
+    opacity: 0
+
+  > header
+    letter-spacing: 1px
+    margin: 2em 0 1em
+    text-transform: uppercase
+
+  .marks
+    display: table
+    margin: 0 auto
+    max-width: 100%
+
+  .mark
+    display: table-cell
+    padding: 0 1em
+
+  .tag
+    > svg
+      height: 80px
+      width: 80px
+
+  polygon
+    fill: rgba(#fff, 0.8)
+    stroke-width: 0
+
+  .tag-number
+    color: #000
+    height: 67px
+    line-height: 1
+    margin: -67px auto 0
+    width: 100px
+
+    > small
+      display: block
+
+    > strong
+      display: block
+      font-size:  30px
+
+  .stat
+    margin: 1em 0
+
+  .share
+    border-top: 1px solid
+    visibility: hidden
+
+    strong
+      font-size: 12px
+
+  .sharing-links
+    font-size: 24px
+
+    i
+      margin: 0 2px
+
+  .mark:hover .share
+    visibility: visible
+
+.instructions
+  position: relative
+
+  button
+    @extends #_STANDARD_BUTTON

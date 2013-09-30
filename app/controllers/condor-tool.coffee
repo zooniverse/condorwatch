@@ -1,4 +1,5 @@
 {Tool} = require 'marking-surface'
+getOctagonPoints = require '../lib/get-octagon-points'
 
 class CondorTool extends Tool
   @Controls: require './condor-tool-controls'
@@ -26,18 +27,8 @@ class CondorTool extends Tool
     @group.attr 'transform', "translate(#{@mark.x}, #{@mark.y})"
 
     length = @tagRadius - ((@tagRadius / 2) * (@mark.proximity || 0.5))
-    angledLength = Math.sqrt Math.pow(length, 2) / 2
 
-    @tag.attr 'points', """
-      0, -#{length}
-      #{angledLength}, -#{angledLength}
-      #{length}, 0
-      #{angledLength}, #{angledLength}
-      0, #{length}
-      -#{angledLength}, #{angledLength}
-      -#{length}, 0
-      -#{angledLength}, -#{angledLength}
-    """
+    @tag.attr 'points', getOctagonPoints length
 
     @label.attr 'textContent', if @mark.tagHidden
       '?'
