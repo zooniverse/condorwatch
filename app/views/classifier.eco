@@ -11,7 +11,7 @@
   <%- translate 'div.question', 'classifier.markTags', $action: action %>
 
   <div class="options">
-    <%- translate 'button', 'classifier.finished', name: 'finish-marking', value: 'finished' %>
-    <%- translate 'button', 'classifier.noTags', name: 'finish-marking', value: 'no-tags' %>
+    <%- translate 'button', 'classifier.finished', name: 'finish-marking' %>
+    <%- translate 'button', 'classifier.noTags', name: 'no-tags' %>
   </div>
 </div>

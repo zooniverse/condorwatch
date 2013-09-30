@@ -4,7 +4,7 @@
 <%- translate 'header', 'classificationSummary.title' %>
 
 <div class="marks">
-  <% for mark in [@classification.get('marks')..., @classification.get('marks')..., @classification.get('marks')...]: %>
+  <% for mark in @classification.get 'marks': %>
     <div class="mark" data-tag="<%= mark.tag %>">
       <div class="tag">
         <svg viewBox="0 0 100 100">
@@ -44,6 +44,10 @@
         </div>
       </div>
     </div>
+  <% end %>
+
+  <% if @classification.get('marks').length is 0: %>
+    <%- translate 'p.no-tags', 'classificationSummary.noTags' %>
   <% end %>
 </div>
 

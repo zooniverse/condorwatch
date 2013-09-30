@@ -1,8 +1,7 @@
 ifTouch = (touch, notTouch) ->
-  try
-    document.createEvent 'TouchEvent'
+  if 'ontouchstart' of document.body
     touch
-  catch e
+  else
     notTouch
 
 module.exports = ifTouch

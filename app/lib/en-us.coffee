@@ -39,6 +39,7 @@ module.exports =
 
   classificationSummary:
     title: 'Summary'
+    noTags: '(No tags visible)'
     relativeAge: 'Relative age'
     born: 'Born'
     died: 'Died'

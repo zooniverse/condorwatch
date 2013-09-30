@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "dependencies": {
     "haw": "~0.2.4",
-    "marking-surface": "~0.2.0",
+    "marking-surface": "~0.2.3",
     "stack-of-pages": "~0.0.3",
     "t7e": "~0.2.3",
     "zooniverse": "zooniverse/Zooniverse#no-deps"

@@ -15,16 +15,22 @@ class Classifier extends BaseController
 
   events:
     'click button[name="finish-marking"]': 'onClickFinishMarking'
+    'click button[name="no-tags"]': 'onClickNoTags'
 
   elements:
     '.subject-for-size': 'imgForSize'
     '.subject': 'subjectElement'
+    'button[name="finish-marking"]': 'finishButton'
+    'button[name="no-tags"]': 'noTagsButton'
 
   constructor: ->
     super
     window.classifier = @
 
     @markingSurface = new MarkingSurface tool: CondorTool, width: 0, height: 0
+    @markingSurface.on 'create-mark', @onChangeMarkCount
+    @markingSurface.on 'destroy-mark', @onChangeMarkCount
+
     @subjectImage = @markingSurface.addShape 'image'
     @subjectElement.append @markingSurface.el
 
@@ -33,6 +39,12 @@ class Classifier extends BaseController
     Subject.on 'select', @onSubjectSelect
     addEventListener 'resize', @onResize, false
 
+    @onChangeMarkCount()
+
+  onChangeMarkCount: =>
+    @finishButton.prop 'disabled', @markingSurface.marks.length is 0
+    @noTagsButton.prop 'disabled', @markingSurface.marks.length isnt 0
+
   onUserChange: (e, user) =>
     Subject.next() unless @classification?
 
@@ -40,6 +52,8 @@ class Classifier extends BaseController
     @startLoading()
 
   onSubjectSelect: (e, subject) =>
+    @markingSurface.reset()
+
     @classification = new Classification {subject}
 
     loadImage subject.location.standard, (img) =>
@@ -51,6 +65,8 @@ class Classifier extends BaseController
 
       @askForTags()
       @stopLoading()
+
+      @markingSurface.enable()
 
   onResize: =>
     @rescale()
@@ -65,8 +81,11 @@ class Classifier extends BaseController
       width: scaledWidth
       height: scaledHeight
 
-  onClickFinishMarking: =>
+  onClickFinishMarking: ->
     @askAboutIndividuals()
+
+  onClickNoTags: ->
+    @showSummary()
 
   startLoading: ->
     @el.addClass 'loading'
@@ -78,6 +97,8 @@ class Classifier extends BaseController
     # Switch to the "mark all the tags" view
 
   askAboutIndividuals: ->
+    @markingSurface.disable()
+
     presenceInspector = new PresenceInspector
       marks: @markingSurface.marks
       otherTimes: @classification?.subject?.other_times || [
@@ -93,18 +114,14 @@ class Classifier extends BaseController
 
     presenceInspector.on 'destroying', =>
       @el.removeClass 'inspecting-individuals'
-      @sendClassification()
       @showSummary()
 
     setTimeout =>
       presenceInspector.show()
 
-  sendClassification: ->
-    @classification.set 'marks', [@markingSurface.marks...]
-    console?.log JSON.stringify @classification
-    # @classification.send()
-
   showSummary: ->
+    @sendClassification()
+
     classificationSummary = new ClassificationSummary {@classification}
 
     classificationSummary.el.appendTo @el
@@ -117,5 +134,10 @@ class Classifier extends BaseController
 
     setTimeout =>
       classificationSummary.show()
+
+  sendClassification: ->
+    @classification.set 'marks', [@markingSurface.marks...]
+    console?.log JSON.stringify @classification
+    # @classification.send()
 
 module.exports = Classifier
