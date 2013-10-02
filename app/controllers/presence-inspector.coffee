@@ -32,19 +32,30 @@ class PresenceInspector extends BaseController
     for mark in @marks
       mark.on 'change', @onMarkChange
 
-    @magnifier.hide()
     @hide()
     @next()
 
   onMouseMove: (e) ->
-    currentImageContainerNode = @imageContainers.get @onImage
-    {left, right, top, bottom} = currentImageContainerNode.getBoundingClientRect()
+    image = @otherImages.eq @onImage
+    {left, top} = image.offset()
+    width = image.width()
+    height = image.height()
 
-    if left < e.pageX < right and top < e.pageY < bottom
-      @magnifier.fadeIn 100
-      @moveMagnifier e.pageX, e.pageY
-    else
-      @magnifier.fadeOut 100
+    x = (e.pageX - left) / width
+    y = (e.pageY - top) / height
+
+    inImage = 0 <= x <= 1 and 0 <= y <= 1
+
+    if inImage
+      @magnifier.offset
+        left: e.pageX - (@magnifier.width() / 2)
+        top: e.pageY - (@magnifier.height() / 2)
+
+      @magnifiedImage.offset
+        left: left - ((@magnifiedImage.width() - width) * x)
+        top: top - ((@magnifiedImage.height() - height) * y)
+
+    @magnifier.toggleClass 'active', inImage
 
   onClickTagPresent: (e) ->
     [mark, image] = $(e.currentTarget).val().split '-'
@@ -65,17 +76,6 @@ class PresenceInspector extends BaseController
 
   show: ->
     @el.removeClass 'offscreen'
-
-  moveMagnifier: (left, top) ->
-    @magnifier.offset
-      left: left - (@magnifier.width() / 2)
-      top: top - (@magnifier.height() / 2)
-
-    currentImage = @otherImages.eq @onImage
-    currentImageOffset = currentImage.offset()
-    @magnifiedImage.offset
-      left: currentImageOffset.left - ((@magnifiedImage.width() - currentImage.width()) / 2)
-      top: currentImageOffset.top - ((@magnifiedImage.height() - currentImage.height()) / 2)
 
   markPresence: (mark, image, present) ->
     @marks[mark].presence ?= []

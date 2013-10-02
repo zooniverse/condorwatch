@@ -16,7 +16,6 @@
     transform: translateX(100%)
 
   IMAGES_TO_COMPARE = 4
-  INDIVIDUAL_WIDTH = 75
   INDIVIDUAL_MARGIN = 5
 
   .all-images
@@ -26,7 +25,7 @@
     top: 3%
     transition: transform 0.5s ease-in-out
     transform: translateX(-50%)
-    width: (INDIVIDUAL_WIDTH)%
+    width: 75%
 
     for i in 0...IMAGES_TO_COMPARE
       &[data-on-image={s('"%s"', i)}]
@@ -99,11 +98,16 @@
   .magnifier
     border: 2px solid #999
     border-radius: 50%
+    box-shadow: 0 3px 10px rgba(#000, 0.25)
     cursor: crosshair
+    display: none
     height: 150px
     overflow: hidden
     position: absolute
     width: 150px
+
+    &.active
+      display: block
 
   .magnified-image
     position: absolute
