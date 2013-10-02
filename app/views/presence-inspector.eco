@@ -6,7 +6,7 @@
       <div>
         <div class="image-container">
           <div class="image-wrapper">
-            <img src="<%- image %>" />
+            <img src="<%- image %>" class="other-image" />
           </div>
         </div>
       </div>
@@ -29,7 +29,7 @@
                 <span class="step"><%= imageIndex + 1 %>/<%= @otherTimes.length %></span>
               </td>
               <td>
-                <% if imageIndex + 1 < @otherTimes.length: %>
+                <% if imageIndex < @otherTimes.length - 1: %>
                   <%- translate 'button', 'presenceInspector.continue', name: 'continue' %>
                 <% else: %>
                   <%- translate 'button', 'presenceInspector.finish', name: 'finish' %>
@@ -41,4 +41,8 @@
       </div>
     </div>
   <% end %>
+</div>
+
+<div class="magnifier">
+  <img class="magnified-image" />
 </div>

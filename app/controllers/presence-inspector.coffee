@@ -8,18 +8,23 @@ class PresenceInspector extends BaseController
   className: 'presence-inspector'
   template: require '../views/presence-inspector'
 
-  onImage: 0
+  onImage: -1
 
   destroyDelay: 500
 
   events:
+    'mousemove': 'onMouseMove'
     'click button[name="tag-present"]': 'onClickTagPresent'
     'click button[name="tag-not-present"]': 'onClickTagNotPresent'
     'click button[name="continue"]': 'onClickContinue'
     'click button[name="finish"]': 'onClickFinish'
 
   elements:
-    '.all-images': 'imagesContainer'
+    '.all-images': 'allImagesContainer'
+    '.image-container': 'imageContainers'
+    '.other-image': 'otherImages'
+    '.magnifier': 'magnifier'
+    '.magnified-image': 'magnifiedImage'
 
   constructor: ->
     super
@@ -27,7 +32,19 @@ class PresenceInspector extends BaseController
     for mark in @marks
       mark.on 'change', @onMarkChange
 
+    @magnifier.hide()
     @hide()
+    @next()
+
+  onMouseMove: (e) ->
+    currentImageContainerNode = @imageContainers.get @onImage
+    {left, right, top, bottom} = currentImageContainerNode.getBoundingClientRect()
+
+    if left < e.pageX < right and top < e.pageY < bottom
+      @magnifier.fadeIn 100
+      @moveMagnifier e.pageX, e.pageY
+    else
+      @magnifier.fadeOut 100
 
   onClickTagPresent: (e) ->
     [mark, image] = $(e.currentTarget).val().split '-'
@@ -49,6 +66,17 @@ class PresenceInspector extends BaseController
   show: ->
     @el.removeClass 'offscreen'
 
+  moveMagnifier: (left, top) ->
+    @magnifier.offset
+      left: left - (@magnifier.width() / 2)
+      top: top - (@magnifier.height() / 2)
+
+    currentImage = @otherImages.eq @onImage
+    currentImageOffset = currentImage.offset()
+    @magnifiedImage.offset
+      left: currentImageOffset.left - ((@magnifiedImage.width() - currentImage.width()) / 2)
+      top: currentImageOffset.top - ((@magnifiedImage.height() - currentImage.height()) / 2)
+
   markPresence: (mark, image, present) ->
     @marks[mark].presence ?= []
     @marks[mark].presence[image] = present
@@ -64,7 +92,8 @@ class PresenceInspector extends BaseController
 
   next: ->
     @onImage += 1
-    @imagesContainer.attr 'data-on-image', @onImage
+    @allImagesContainer.attr 'data-on-image', @onImage
+    @magnifiedImage.attr 'src', @otherTimes[@onImage]
 
   finish: ->
     @hide()
