@@ -20,11 +20,15 @@ stack = new StackOfPages
   '#/education': "<h1>Education</h1>#{(new Array 100).join '<p>Lorem ipsum dolor sit amet</p>'}"
   DEFAULT: '#/classify'
 
+document.body.appendChild stack.el
+
 TopBar = require 'zooniverse/controllers/top-bar'
 topBar = new TopBar
 
-document.body.appendChild stack.el
 topBar.el.appendTo document.body
+
+browserDialog = require 'zooniverse/controllers/browser-dialog'
+browserDialog.check msie: 9
 
 User = require 'zooniverse/models/user'
 User.fetch()
