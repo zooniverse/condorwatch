@@ -101,12 +101,7 @@ class Classifier extends BaseController
 
     presenceInspector = new PresenceInspector
       marks: @markingSurface.marks
-      otherTimes: @classification?.subject?.other_times || [
-        '//placehold.it/640x480.png&text=Ten minutes before'
-        '//placehold.it/640x480.png&text=Five minutes before'
-        '//placehold.it/640x480.png&text=Five minutes after'
-        '//placehold.it/640x480.png&text=Ten minutes after'
-      ]
+      otherTimes: @classification?.subject?.other_times || Subject.instances.map (subject) -> subject.location.standard
 
     presenceInspector.el.appendTo @el
 
