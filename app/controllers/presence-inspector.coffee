@@ -8,7 +8,7 @@ class PresenceInspector extends BaseController
   className: 'presence-inspector'
   template: require '../views/presence-inspector'
 
-  onImage: -1
+  onImage: -1 # Get next on init
 
   destroyDelay: 500
 
@@ -84,16 +84,21 @@ class PresenceInspector extends BaseController
 
   updatePresenceToggles: ->
     for image, imageIndex in @otherTimes
+      continueButton = @el.find("button[name='continue']").eq imageIndex
+
       for mark, markIndex in @marks
         yesButton = @el.find "button[name='tag-present'][value='#{markIndex}-#{imageIndex}']"
         noButton = @el.find "button[name='tag-not-present'][value='#{markIndex}-#{imageIndex}']"
         yesButton.toggleClass 'selected', mark.presence?[imageIndex] is true
         noButton.toggleClass 'selected', mark.presence?[imageIndex] is false
 
+        continueButton.attr 'disabled', not continueButton.attr('disabled') and not mark.presence?[imageIndex]?
+
   next: ->
     @onImage += 1
     @allImagesContainer.attr 'data-on-image', @onImage
     @magnifiedImage.attr 'src', @otherTimes[@onImage]
+    @updatePresenceToggles()
 
   finish: ->
     @hide()
