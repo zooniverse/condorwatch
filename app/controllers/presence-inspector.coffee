@@ -84,7 +84,7 @@ class PresenceInspector extends BaseController
 
   updatePresenceToggles: ->
     for image, imageIndex in @otherTimes
-      continueButton = @el.find("button[name='continue']").eq imageIndex
+      continueButton = @el.find('button[name="continue"], button[name="finish"]').eq imageIndex
 
       for mark, markIndex in @marks
         yesButton = @el.find "button[name='tag-present'][value='#{markIndex}-#{imageIndex}']"
