@@ -6,7 +6,8 @@
     "marking-surface": "~0.2.3",
     "stack-of-pages": "~0.0.3",
     "t7e": "~0.2.3",
-    "zooniverse": "zooniverse/Zooniverse#no-deps"
+    "zooniverse": "zooniverse/Zooniverse#no-deps",
+    "image-magnifier": "0.0.1"
   },
   "scripts": {
     "start": "haw serve --port 3416",

@@ -1,4 +1,5 @@
 BaseController = require 'zooniverse/controllers/base-controller'
+ImageMagnifier = require 'image-magnifier'
 $ = window.jQuery
 
 class PresenceInspector extends BaseController
@@ -12,8 +13,9 @@ class PresenceInspector extends BaseController
 
   destroyDelay: 500
 
+  magnifiers: null
+
   events:
-    'mousemove': 'onMouseMove'
     'click button[name="tag-present"]': 'onClickTagPresent'
     'click button[name="tag-not-present"]': 'onClickTagNotPresent'
     'click button[name="continue"]': 'onClickContinue'
@@ -21,41 +23,17 @@ class PresenceInspector extends BaseController
 
   elements:
     '.all-images': 'allImagesContainer'
-    '.image-container': 'imageContainers'
     '.other-image': 'otherImages'
-    '.magnifier': 'magnifier'
-    '.magnified-image': 'magnifiedImage'
 
   constructor: ->
     super
 
-    for mark in @marks
-      mark.on 'change', @onMarkChange
+    @magnifiers = (new ImageMagnifier image for image in @otherImages)
+
+    mark.on 'change', @onMarkChange for mark in @marks
 
     @hide()
     @next()
-
-  onMouseMove: (e) ->
-    image = @otherImages.eq @onImage
-    {left, top} = image.offset()
-    width = image.width()
-    height = image.height()
-
-    x = (e.pageX - left) / width
-    y = (e.pageY - top) / height
-
-    inImage = 0 <= x <= 1 and 0 <= y <= 1
-
-    if inImage
-      @magnifier.offset
-        left: e.pageX - (@magnifier.width() / 2)
-        top: e.pageY - (@magnifier.height() / 2)
-
-      @magnifiedImage.offset
-        left: left - ((@magnifiedImage.width() - width) * x)
-        top: top - ((@magnifiedImage.height() - height) * y)
-
-    @magnifier.toggleClass 'active', inImage
 
   onClickTagPresent: (e) ->
     [mark, image] = $(e.currentTarget).val().split '-'
@@ -97,7 +75,6 @@ class PresenceInspector extends BaseController
   next: ->
     @onImage += 1
     @allImagesContainer.attr 'data-on-image', @onImage
-    @magnifiedImage.attr 'src', @otherTimes[@onImage]
     @updatePresenceToggles()
 
   finish: ->
@@ -108,9 +85,8 @@ class PresenceInspector extends BaseController
     @el.addClass 'offscreen'
 
   destroy: ->
-    for mark in @marks
-      mark.off 'change', @onMarkChange
-
+    @magnifiers.pop().destroy() until @magnifiers.length is 0
+    mark.off 'change', @onMarkChange for mark in @marks
     super
 
 module.exports = PresenceInspector
