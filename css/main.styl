@@ -2,71 +2,8 @@
 @import "../node_modules/zooniverse/src/css/dialog"
 @import "../node_modules/image-magnifier/image-magnifier.css"
 
-MAIN_FONT_FAMILY = Lato, sans-serif
-
-SITE_WIDTH = 90%
-SITE_NAVIGATION_HEIGHT = 12.5%
-
-html
-  font: 16px MAIN_FONT_FAMILY
-  height: 100%
-  min-height: 480px
-  position: relative
-
-body
-  margin: 0
-
-a
-  color: inherit
-  text-decoration: none
-
-button
-  appearance: none
-  background: transparent
-  border: 0
-  color: inherit
-  cursor: pointer
-  font: inherit
-  margin: 0
-  padding: 0
-
-  &:disabled
-    opacity: 0.5
-    pointer-events: none
-
-#_STANDARD_BUTTON
-  border: 1px solid
-  border-radius: 0.3em
-  margin: 0 0.2em
-  padding: 0.4em 1.6em
-
-  &:hover
-    box-shadow: 0 0 3px 1px #06f inset
-
-  &:active
-    box-shadow: 0 0 3px 3px #06f inset
-
-.toggle-button-group
-  overflow: hidden
-
-  button
-    @extends #_STANDARD_BUTTON
-
-    border-right-width: 0
-    border-radius: 0
-    float: left
-    margin: 0
-
-    &:first-child
-      border-radius: 0.3em 0 0 0.3em
-
-    &:last-child
-      border-radius: 0 0.3em 0.3em 0
-      border-right-width: 1px
-
-    &.selected
-      box-shadow: 0 0 1.5em inset
-
+@import "./common"
+@import "./layout"
 @import "./site-navigation"
 @import "./classifier"
 @import "./condor-tool-controls"
