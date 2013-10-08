@@ -1,57 +1,59 @@
 <% translate = require 't7e' %>
 <% getOctagonPoints = require '../lib/get-octagon-points' %>
 
-<%- translate 'header', 'classificationSummary.title' %>
+<div class="centerer">
+  <%- translate 'header.classification-summary-header', 'classificationSummary.title' %>
 
-<div class="marks">
-  <% for mark in @classification.get 'marks': %>
-    <div class="mark" data-tag="<%= mark.tag %>">
-      <div class="tag">
-        <svg viewBox="0 0 100 100">
-          <g transform="translate(50, 50)">
-          <polygon points="<%= getOctagonPoints 50 %>" />
-        </svg>
+  <div class="marks">
+    <% for mark in @classification.get 'marks': %>
+      <div class="mark" data-tag="<%= mark.tag %>">
+        <div class="tag">
+          <svg viewBox="0 0 100 100">
+            <g transform="translate(50, 50)">
+            <polygon points="<%= getOctagonPoints 50 %>" />
+          </svg>
 
-        <div class="tag-number">
-          <small>No.</small>
-          <strong><%= mark.tag %></strong>
+          <div class="tag-number">
+            <small>No.</small>
+            <strong><%= mark.tag %></strong>
+          </div>
         </div>
-      </div>
 
-      <div class="stat">
-        <div><%- translate 'strong', 'classificationSummary.relativeAge' %></div>
-        <div class="age-value">· · ·</div>
-      </div>
+        <div class="stat">
+          <div><%- translate 'strong', 'classificationSummary.relativeAge' %></div>
+          <div class="age-value">· · ·</div>
+        </div>
 
-      <div class="stat">
-        <div><%- translate 'strong', 'classificationSummary.born' %></div>
-        <div class="born-value">· · ·</div>
-      </div>
+        <div class="stat">
+          <div><%- translate 'strong', 'classificationSummary.born' %></div>
+          <div class="born-value">· · ·</div>
+        </div>
 
-      <div class="stat">
-        <div><%- translate 'strong', 'classificationSummary.died' %></div>
-        <div class="died-value">· · ·</div>
-      </div>
+        <div class="stat">
+          <div><%- translate 'strong', 'classificationSummary.died' %></div>
+          <div class="died-value">· · ·</div>
+        </div>
 
-      <div class="share">
-        <div>
-          <%- translate 'strong', 'classificationSummary.share', $tag: mark.tag %>
-          <div class="sharing-links">
-            <a href="#_TODO_FACEBOOK"><i class="icon-facebook-sign"></i></a>
-            <a href="#_TODO_TWITTER"><i class="icon-twitter"></i></a>
-            <a href="#_TODO_PINTEREST"><i class="icon-pinterest"></i></a>
+        <div class="share">
+          <div>
+            <%- translate 'strong', 'classificationSummary.share', $tag: mark.tag %>
+            <div class="sharing-links">
+              <a href="#_TODO_FACEBOOK"><i class="icon-facebook-sign"></i></a>
+              <a href="#_TODO_TWITTER"><i class="icon-twitter"></i></a>
+              <a href="#_TODO_PINTEREST"><i class="icon-pinterest"></i></a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
 
-  <% if @classification.get('marks').length is 0: %>
-    <%- translate 'p.no-tags', 'classificationSummary.noTags' %>
-  <% end %>
-</div>
+    <% if @classification.get('marks').length is 0: %>
+      <%- translate 'p.no-tags', 'classificationSummary.noTags' %>
+    <% end %>
+  </div>
 
-<div class="instructions">
-  <%- translate 'span', 'classificationSummary.readyForNext' %>
-  <%- translate 'button', 'classificationSummary.ready', name: 'ready-for-next' %>
+  <div class="instructions">
+    <%- translate 'span', 'classificationSummary.readyForNext' %>
+    <%- translate 'button', 'classificationSummary.ready', name: 'ready-for-next' %>
+  </div>
 </div>
