@@ -33,5 +33,17 @@ browserDialog.check msie: 9
 User = require 'zooniverse/models/user'
 User.fetch()
 
+# Don't wait for a double-tap check on buttons.
+PREVENTED_DEFAULT_ATTR = 'touchstart-default-prevented'
+$(document).on 'touchstart', 'button', (e) ->
+  e.preventDefault()
+  button = $(@)
+  button.attr PREVENTED_DEFAULT_ATTR, true
+  $(document).one 'touchend', -> setTimeout -> button.attr PREVENTED_DEFAULT_ATTR, false
+
+$(document).on 'touchend', 'button', (e) ->
+  button = $(@)
+  button.trigger 'click' if button.attr PREVENTED_DEFAULT_ATTR
+
 window.app = {api, siteNavigation, stack, topBar}
 module.exports = window.app
