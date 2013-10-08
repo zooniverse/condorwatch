@@ -10,6 +10,7 @@ module.exports =
     blog: 'Blog'
 
   classifier:
+    title: 'Classify'
     markTags: 'Mark each condor\'s numbered tag visible in this photo by $action.'
     clicking: 'clicking'
     tapping: 'tapping'

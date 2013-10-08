@@ -1,6 +1,8 @@
 <% translate = require 't7e' %>
 <% ifTouch = require '../lib/if-touch' %>
 
+<%- translate 'header.page-header', 'classifier.title' %>
+
 <div class="subject-container">
   <img class="subject-for-size" />
   <div class="subject"></div>
