@@ -1,19 +1,24 @@
 MAIN_FONT_FAMILY = Lato, sans-serif
 
-SITE_WIDTH = 90%
+SITE_WIDTH = 80%
 SITE_NAVIGATION_HEIGHT = 12.5%
+
+DARK_GRAY = rgb(39, 48, 56)
+MEDIUM_GRAY = rgb(76, 83, 93)
 
 #_STANDARD_BUTTON
   border: 1px solid
   border-radius: 0.3em
+  display: inline-block
   margin: 0 0.2em
   padding: 0.4em 1.6em
 
   &:hover
-    box-shadow: 0 0 3px 1px #06f inset
+    box-shadow: 0 1px 2px rgba(#000, 0.5)
 
   &:active
-    box-shadow: 0 0 3px 3px #06f inset
+    transform: translateY(1px)
+    box-shadow: none
 
 #_TOGGLE_BUTTON
   @extends #_STANDARD_BUTTON
@@ -35,3 +40,11 @@ SITE_NAVIGATION_HEIGHT = 12.5%
 
 #_TOGGLE_BUTTON_GROUP
   overflow: hidden
+
+COLUMNS = 16
+COLUMN_WIDTH = 40
+GUTTER_WIDTH = 20
+GRID_WIDTH = ((COLUMN_WIDTH + GUTTER_WIDTH) * COLUMNS) - GUTTER_WIDTH
+
+columns(cols)
+  unit(((cols * (COLUMN_WIDTH / GRID_WIDTH)) + ((cols - 1) * (GUTTER_WIDTH / GRID_WIDTH))) * 100, '%')

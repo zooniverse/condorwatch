@@ -9,6 +9,22 @@ module.exports =
     talk: 'Discuss'
     blog: 'Blog'
 
+  home:
+    header:
+      title: 'The California condors need your help!'
+      content: '''
+        The California condor is a critically endangered species and the population is suffering from the affects of lead poisoning.
+        By tracking the location and social behavior of the creatures we can better detect early warning signs of the illness.
+      '''
+      start: 'Get started!'
+    whatDo:
+      title: 'What can you do?'
+      content: '''
+        We need you to look at some photos of condors taken by our motion-activated cameras.
+        By identifying the tag number of each condor and their behavior around the feeding carcass,
+        we can judge if the bird's eating or social problems can reveal lead poisoning.
+      '''
+
   classifier:
     title: 'Classify'
     markTags: 'Mark each condor\'s numbered tag visible in this photo by $action.'

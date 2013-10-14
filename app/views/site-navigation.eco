@@ -13,3 +13,14 @@
     <%- translate 'a', 'siteNavigation.blog', href: '#/blog' %>
   </div>
 </div>
+
+<div class="for-home-page">
+  <header>
+    <%- translate 'h1', 'home.header.title' %>
+    <%- translate 'p', 'home.header.content' %>
+
+    <p class="action">
+      <%- translate 'a.call-to-action', 'home.header.start', href: '#/classify' %>
+    </p>
+  </header>
+</div>
