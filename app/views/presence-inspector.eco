@@ -3,40 +3,30 @@
 <div class="all-images" data-on-image="0">
   <% for image, imageIndex in @otherTimes: %>
     <div class="individual-image">
-      <div>
-        <div class="image-container">
-          <div class="image-wrapper">
-            <img src="<%- image %>" class="other-image" />
-          </div>
-        </div>
+      <div class="image-container">
+        <img src="<%- image %>" class="other-image" />
       </div>
 
-      <div>
-        <div class="image-options">
-          <table>
-            <% for mark, markIndex in @marks when mark.tag and not mark.tagHidden: %>
-              <tr>
-                <%- translate 'td', 'presenceInspector.inThisPhoto', $tag: mark.tag %>
-                <td class="toggle-button-group">
-                  <%- translate 'button', 'presenceInspector.yes', name: "tag-present", value: "#{markIndex}-#{imageIndex}" %>
-                  <%- translate 'button', 'presenceInspector.no', name: "tag-not-present", value: "#{markIndex}-#{imageIndex}" %>
-                </td>
-              </tr>
-            <% end %>
+      <div class="image-options">
+        <% for mark, markIndex in @marks when mark.tag and not mark.tagHidden: %>
+          <div class="instructions">
+            <%- translate 'div.question', 'presenceInspector.inThisPhoto', $tag: mark.tag %>
+            <div class="answers toggle-button-group">
+              <%- translate 'button', 'presenceInspector.yes', name: "tag-present", value: "#{markIndex}-#{imageIndex}" %><!--
+              --><%- translate 'button', 'presenceInspector.no', name: "tag-not-present", value: "#{markIndex}-#{imageIndex}" %>
+            </div>
+          </div>
+        <% end %>
 
-            <tr class="progress">
-              <td>
-                <span class="step"><%= imageIndex + 1 %>/<%= @otherTimes.length %></span>
-              </td>
-              <td>
-                <% if imageIndex < @otherTimes.length - 1: %>
-                  <%- translate 'button', 'presenceInspector.continue', name: 'continue' %>
-                <% else: %>
-                  <%- translate 'button', 'presenceInspector.finish', name: 'finish' %>
-                <% end %>
-              </td>
-            </tr>
-          </table>
+        <div class="instructions">
+          <div class="question step"><%= imageIndex + 1 %>/<%= @otherTimes.length %></div>
+          <div class="answers">
+            <% if imageIndex < @otherTimes.length - 1: %>
+              <%- translate 'button', 'presenceInspector.continue', name: 'continue' %>
+            <% else: %>
+              <%- translate 'button', 'presenceInspector.finish', name: 'finish' %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
