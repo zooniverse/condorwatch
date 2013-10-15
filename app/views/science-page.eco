@@ -1,0 +1,7 @@
+<% translate = require 't7e' %>
+
+<div class="content-block">
+  <div class="content-container">
+    <%- translate 'h2', 'science.title' %>
+  </div>
+</div>

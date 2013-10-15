@@ -14,10 +14,13 @@ siteNavigation.el.appendTo document.body
 StackOfPages = require 'stack-of-pages/src/stack-of-pages'
 stack = new StackOfPages
   '#/': require './controllers/home-page'
-  '#/about': "<h1>About</h1>#{(new Array 100).join '<p>Lorem ipsum dolor sit amet</p>'}"
+  '#/about': require './controllers/about-page'
   '#/classify': require './controllers/classifier'
+  '#/science': require './controllers/science-page'
   '#/profile': "<h1>Profile</h1>#{(new Array 100).join '<p>Lorem ipsum dolor sit amet</p>'}"
-  '#/education': "<h1>Education</h1>#{(new Array 100).join '<p>Lorem ipsum dolor sit amet</p>'}"
+  '#/education': require './controllers/education-page'
+  NOT_FOUND: 'Page not found!'
+  ERROR: 'There was an error!'
 
 for pageEl in stack.el.children
   $(pageEl).addClass 'page-in-stack'
