@@ -4,7 +4,8 @@
   color: #fff
   left: 0
   opacity: 1
-  position: absolute
+  overflow: auto
+  position: fixed
   right: 0
   text-align: center
   top: 0
@@ -16,9 +17,10 @@
 
   .centerer
     left: 50%
+    margin-top: -1em
     position: absolute
     top: 50%
-    transform: translate(-50%, -55%)
+    transform: translate(-50%, -50%)
 
   .classification-summary-header
     letter-spacing: 1px
@@ -27,7 +29,7 @@
 
   .no-tags
     font-style: italic
-    margin: 2em 0
+    margin-bottom: 100px
     opacity: 0.5
 
   .marks
@@ -80,3 +82,6 @@
 
   .mark:hover .share
     visibility: visible
+
+  .instructions
+    margin-top: 1em

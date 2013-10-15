@@ -42,7 +42,3 @@
     </div>
   <% end %>
 </div>
-
-<div class="magnifier">
-  <img class="magnified-image" />
-</div>

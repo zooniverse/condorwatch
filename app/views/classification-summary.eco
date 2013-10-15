@@ -2,7 +2,7 @@
 <% getOctagonPoints = require '../lib/get-octagon-points' %>
 
 <div class="centerer">
-  <%- translate 'header.classification-summary-header', 'classificationSummary.title' %>
+  <%- translate 'h2', 'classificationSummary.title' %>
 
   <div class="marks">
     <% for mark in @classification.get 'marks': %>
@@ -53,7 +53,10 @@
   </div>
 
   <div class="instructions">
-    <%- translate 'span', 'classificationSummary.readyForNext' %>
-    <%- translate 'button', 'classificationSummary.ready', name: 'ready-for-next' %>
+    <%- translate 'div.question', 'classificationSummary.readyForNext' %>
+
+    <div class="answers">
+      <%- translate 'button', 'classificationSummary.ready', name: 'ready-for-next' %>
+    </div>
   </div>
 </div>
