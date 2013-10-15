@@ -71,5 +71,8 @@ module.exports =
   about:
     title: 'About the project'
 
+  profile:
+    title: 'Your profile'
+
   education:
     title: 'For educators'

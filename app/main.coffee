@@ -17,7 +17,7 @@ stack = new StackOfPages
   '#/about': require './controllers/about-page'
   '#/classify': require './controllers/classifier'
   '#/science': require './controllers/science-page'
-  '#/profile': "<h1>Profile</h1>#{(new Array 100).join '<p>Lorem ipsum dolor sit amet</p>'}"
+  '#/profile': require './controllers/profile'
   '#/education': require './controllers/education-page'
   NOT_FOUND: 'Page not found!'
   ERROR: 'There was an error!'
