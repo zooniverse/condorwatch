@@ -2,8 +2,9 @@ module.exports =
   siteNavigation:
     projectName: 'Condor Watch'
     home: 'Home'
-    about: 'About'
     classify: 'Classify'
+    science: 'Science'
+    about: 'About'
     profile: 'Profile'
     education: 'Education'
     talk: 'Discuss'
