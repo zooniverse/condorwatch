@@ -1,6 +1,6 @@
 <% translate = require 't7e' %>
 
-<div class="container">
+<div class="content-container">
   <%- translate 'a.logo', 'siteNavigation.projectName', href: '#/' %>
 
   <div class="links">
@@ -9,18 +9,23 @@
     <%- translate 'a', 'siteNavigation.classify', href: '#/classify' %>
     <%- translate 'a', 'siteNavigation.profile', href: '#/profile' %>
     <%- translate 'a', 'siteNavigation.education', href: '#/education' %>
-    <%- translate 'a', 'siteNavigation.talk', href: '#/talk' %>
-    <%- translate 'a', 'siteNavigation.blog', href: '#/blog' %>
+    <%- translate 'a', 'siteNavigation.talk', href: '#_TODO_TALK' %>
+    <%- translate 'a', 'siteNavigation.blog', href: '#_TODO_BLOG' %>
   </div>
 </div>
 
 <div class="for-home-page">
-  <header>
+  <div class="content-block">
     <%- translate 'h1', 'home.header.title' %>
     <%- translate 'p', 'home.header.content' %>
 
     <p class="action">
       <%- translate 'a.call-to-action', 'home.header.start', href: '#/classify' %>
+
+      <span class="social-links">
+        <a href="#_TODO_TWITTER"><i class="social-icon icon-twitter"></i></a>
+        <a href="#_TODO_FACEBOOK"><i class="social-icon icon-facebook-sign"></i></a>
+      </span>
     </p>
-  </header>
+  </div>
 </div>

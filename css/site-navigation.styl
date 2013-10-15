@@ -1,17 +1,17 @@
 .site-navigation
   AVERAGE_BG = ((DARK_GRAY + MEDIUM_GRAY) / 2)
 
-  background: AVERAGE_BG url("./images/nav-bg.jpg") 33% 10%
+  background: AVERAGE_BG url("./images/nav-bg.jpg") bottom right
   background-size: cover
   color: #fff
+  min-height: 80px
   overflow: hidden
   position: relative
 
-  .container
-    margin: 50px auto 1em
+  .content-container
+    margin-top: 50px
     line-height: 1
     text-align: right
-    width: SITE_WIDTH
 
   .logo
     float: left
@@ -20,7 +20,7 @@
     text-transform: uppercase
 
   .links
-    display: inline-block
+    margin-left: -10px
 
     a
       display: inline-block
@@ -30,16 +30,13 @@
       &.active
         border-bottom: 1px solid
 
-  // TODO: Move theis to clasify.styl
-  [data-location-hash="#/classify"] &
-    left: 0
-    position: absolute
-    right: 0
-    top: 0
-
 .zooniverse-top-bar
   background: transparent
-  margin-top: 5px
+  margin-top: 15px
+  margin-right: unit((100 - SITE_WIDTH) / 2, '%')
 
   .corner
     display: none
+
+  .avatar img
+    border-radius: 50%

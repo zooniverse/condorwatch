@@ -1,19 +1,24 @@
 <% translate = require 't7e' %>
 <% ifTouch = require '../lib/if-touch' %>
 
-<%- translate 'header.page-header', 'classifier.title' %>
+<section class="content-container">
+  <%- translate 'h2', 'classifier.title' %>
+</section>
 
-<div class="subject-container">
-  <img class="subject-for-size" />
+<section class="content-container">
   <div class="subject"></div>
-</div>
+</section>
 
-<div class="marking-instructions">
-  <% action = ifTouch 'tapping', 'clicking' %>
-  <%- translate 'div.question', 'classifier.markTags', $action: action %>
+<section class="content-block">
+  <div class="content-container">
+    <div class="instructions">
+      <% action = ifTouch 'tapping', 'clicking' %><!--TODO: Translate these.-->
+      <%- translate 'div.question', 'classifier.markTags', $action: action %>
 
-  <div class="options">
-    <%- translate 'button', 'classifier.finished', name: 'finish-marking' %>
-    <%- translate 'button', 'classifier.noTags', name: 'no-tags' %>
+      <div class="answers">
+        <%- translate 'button', 'classifier.finished', name: 'finish-marking' %>
+        <%- translate 'button', 'classifier.noTags', name: 'no-tags' %>
+      </div>
+    </div>
   </div>
-</div>
+</section>

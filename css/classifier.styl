@@ -1,38 +1,22 @@
 INSTRUCTIONS_HEIGHT = 12.5%
 
 .classifier
-  bottom: 0
-  left: 0
-  overflow: hidden
-  position: absolute
-  right: 0
-  top: SITE_NAVIGATION_HEIGHT
-
-  .page-header
-    letter-spacing: 2px
-    margin: 1em auto
-    text-transform: uppercase
-    width: SITE_WIDTH
-
-  .subject-for-size
-    height: auto
-    max-height: ((100 - INSTRUCTIONS_HEIGHT) - 5)
-    max-width: 100%
-    position: absolute
-    visibility: hidden
-    width: auto
+  h2
+    // margin: 0
 
   .subject
+    background: MEDIUM_GRAY
     cursor: crosshair
-    left: 50%
-    position: absolute
-    top: ((100 - INSTRUCTIONS_HEIGHT) / 2)
-    transform: translate(-50%, -50%)
+    position: relative
+    text-align: center
+    transform: translateY(0)
     transition:
       opacity 0.75s ease-in-out,
-      top 0.75s ease-in-out,
       transform 0.75s ease-in-out
     z-index: 1
+
+  .marking-surface
+    position: relative
 
   .tag-marker
     fill: rgba(#fff, 0.8)
@@ -46,39 +30,14 @@ INSTRUCTIONS_HEIGHT = 12.5%
     font-size: inherit
     pointer-events: none
 
-  .marking-instructions
-    bottom: 0
-    height: INSTRUCTIONS_HEIGHT
-    left: 0
-    position: absolute
-    right: 0
-    transition: bottom 0.75s ease-in-out
-
-  .question
-    position: absolute
-    left: 5%
-    top: 50%
-    transform: translateY(-50%)
-
-  .options
-    position: absolute
-    right: 5%
-    top: 50%
-    transform: translateY(-50%)
-
-    button
-      @extends #_STANDARD_BUTTON
-
 .inspecting-individuals
   .subject
     opacity: 0.5
-    top: 95%
-    transform: translate(-50%, 0)
+    transform: translateY(75%)
 
     &:hover
       opacity: 1
-      top: ((100 - INSTRUCTIONS_HEIGHT) / 2)
-      transform: translate(-50%, -50%)
+      transform: translateY(0)
 
   .marking-instructions
     bottom: (12.5 - 90)%

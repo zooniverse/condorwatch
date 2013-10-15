@@ -2,6 +2,8 @@ html
   color: MEDIUM_GRAY
   font: 16px MAIN_FONT_FAMILY
   font-weight: 300
+  height: 100%
+  overflow: auto
   position: relative
 
 body
@@ -17,6 +19,24 @@ body
 .content-container
   margin: 0 auto
   width: SITE_WIDTH
+
+.instructions
+  display: table
+  width: 100%
+
+  .question
+    display: table-cell
+    text-align: left
+    vertical-align: middle
+
+  .answers
+    display: table-cell
+    text-align: right
+    vertical-align: middle
+    white-space: nowrap
+
+    button
+      @extends #_STANDARD_BUTTON
 
 h1
   font-size: 42px

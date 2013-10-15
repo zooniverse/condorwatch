@@ -18,8 +18,7 @@ class Classifier extends BaseController
     'click button[name="no-tags"]': 'onClickNoTags'
 
   elements:
-    '.subject-for-size': 'imgForSize'
-    '.subject': 'subjectElement'
+    '.subject': 'subjectContainer'
     'button[name="finish-marking"]': 'finishButton'
     'button[name="no-tags"]': 'noTagsButton'
 
@@ -27,17 +26,24 @@ class Classifier extends BaseController
     super
     window.classifier = @
 
-    @markingSurface = new MarkingSurface tool: CondorTool, width: 0, height: 0
+    @markingSurface = new MarkingSurface
+      width: 770
+      height: 440
+      tool: CondorTool
+
     @markingSurface.on 'create-mark', @onChangeMarkCount
     @markingSurface.on 'destroy-mark', @onChangeMarkCount
 
-    @subjectImage = @markingSurface.addShape 'image'
-    @subjectElement.append @markingSurface.el
+    @subjectImage = @markingSurface.addShape 'image',
+      width: 770
+      height: 440
+      preserveAspectRatio: 'none'
+
+    @subjectContainer.append @markingSurface.el
 
     User.on 'change', @onUserChange
     Subject.on 'fetch', @onSubjectFetch
     Subject.on 'select', @onSubjectSelect
-    addEventListener 'resize', @onResize, false
 
     @onChangeMarkCount()
 
@@ -57,29 +63,17 @@ class Classifier extends BaseController
     @classification = new Classification {subject}
 
     loadImage subject.location.standard, (img) =>
-      @imgForSize.attr 'src', img.src
+      # @markingSurface.resize img.width, img.height
 
-      @rescale()
-
-      @subjectImage.attr 'xlink:href', img.src
+      @subjectImage.attr
+        'xlink:href': img.src
+        # width: img.width
+        # height: img.height
 
       @askForTags()
       @stopLoading()
 
       @markingSurface.enable()
-
-  onResize: =>
-    @rescale()
-
-  rescale: ->
-    scaledWidth = @imgForSize.width()
-    scaledHeight = @imgForSize.height()
-
-    @markingSurface.resize scaledWidth, scaledHeight
-
-    @subjectImage.attr
-      width: scaledWidth
-      height: scaledHeight
 
   onClickFinishMarking: ->
     @askAboutIndividuals()
