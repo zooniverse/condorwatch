@@ -17,8 +17,17 @@ body
     color: #fff
 
 .content-container
+  clearfix()
   margin: 0 auto
   width: SITE_WIDTH
+
+.quarter-column
+  float: left
+  width: columns(4)
+  margin-left: unit((GUTTER_WIDTH / GRID_WIDTH) * 100, '%')
+
+  &:first-child
+    margin-left: 0
 
 .instructions
   display: table
@@ -58,6 +67,10 @@ h2
   & + p
     font-size: 28px
     margin: 2rem 0
+
+hr
+  border: 1px solid transparent
+  border-top-color: inherit
 
 a
   color: inherit

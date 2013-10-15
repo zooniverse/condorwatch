@@ -10,13 +10,6 @@
 </section>
 
 <section class="reversed content-block">
-  <div class="content-container">
-    <%- translate 'h2', 'home.whatDo.title' %>
-    <%- translate 'p', 'home.whatDo.content' %>
-  </div>
-</section>
-
-<section class="content-block">
   <div class="content-container for-footer">
     <!--Zooniverse footer goes here-->
   </div>

@@ -3,5 +3,36 @@
 <div class="content-block">
   <div class="content-container">
     <%- translate 'h2', 'about.title' %>
+    <p>Lorem ipsum dolor sit amet</p>
+
+    <p>Lorem ipsum dolor sit amet</p>
+
+    <hr />
+
+    <p>Lorem ipsum dolor sit amet</p>
+  </div>
+</div>
+
+<div class="reversed content-block">
+  <div class="content-container">
+    <div class="quarter-column">
+      <hr />
+      <p>Lorem ipsum dolor sit amet</p>
+    </div>
+
+    <div class="quarter-column">
+      <hr />
+      <p>Lorem ipsum dolor sit amet</p>
+    </div>
+
+    <div class="quarter-column">
+      <hr />
+      <p>Lorem ipsum dolor sit amet</p>
+    </div>
+
+    <div class="quarter-column">
+      <hr />
+      <p>Lorem ipsum dolor sit amet</p>
+    </div>
   </div>
 </div>
