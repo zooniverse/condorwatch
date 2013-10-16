@@ -6,7 +6,8 @@ class HomePage extends BaseController
   className: 'home-page'
   template: require '../views/home-page'
 
-  animationDuration: 250
+  headerSlideDelay: 150
+  animationDuration: 333
 
   elements:
     '.for-footer': 'footerContainer'
@@ -19,26 +20,30 @@ class HomePage extends BaseController
     @footer.el.appendTo @footerContainer
 
   activate: ->
-    @showNavigationComponent()
+    setTimeout @showNavigationComponent, @headerSlideDelay
 
-  deactivate: ->
-    @hideNavigationComponent()
+  deactivate: (params) ->
+    if params?
+      setTimeout @hideNavigationComponent, @headerSlideDelay
+    else
+      # This is the on-load deactivation
+      @hideNavigationComponent 0
 
-  showNavigationComponent: ->
-    @navigationComponent.slideDown @animationDuration
+  showNavigationComponent: (duration = @animationDuration) =>
+    @navigationComponent.slideDown duration
     @navigationComponent.animate {
       opacity: 1
     }, {
-      duration: @animationDuration * 1.75
+      duration: duration
       queue: false
     }
 
-  hideNavigationComponent: ->
-    @navigationComponent.slideUp @animationDuration
+  hideNavigationComponent: (duration = @animationDuration) =>
+    @navigationComponent.slideUp duration
     @navigationComponent.animate {
       opacity: 0
     }, {
-      duration: @animationDuration * 0.75
+      duration: duration * 0.5
       queue: false
     }
 
