@@ -3,7 +3,11 @@
 
   font-size: 12px
   text-align: center
-  margin: unit(((ARROW_SIZE * 2) + 10), px) 0
+  margin-top: unit(((ARROW_SIZE * 2) + 10), px)
+  transform: translate(-50%, 0)
+  transition:
+    margin-top 0.5s ease-in-out,
+    transform 0.5s ease-in-out
 
   &:before
     border: unit(ARROW_SIZE, px) solid transparent
@@ -12,21 +16,19 @@
     margin-left: unit((-1 * ARROW_SIZE), px)px
     position: absolute
 
-  &.opens-right
-    transform: translateX(-50%)
-
-  &.opens-left
-    transform: translateX(50%)
-
-  &.opens-up:before
-    border-bottom-width: 0
-    border-top-color: rgba(#fff, 0.8)
-    top: 100%
-
   &.opens-down:before
     border-bottom-color: rgba(#fff, 0.8)
     border-top-width: 0
     bottom: 100%
+
+  &.opens-up
+    margin-top: unit(((ARROW_SIZE * -2) - 10), px)
+    transform: translate(-50%, -100%)
+
+    &:before
+      border-bottom-width: 0
+      border-top-color: rgba(#fff, 0.8)
+      top: 100%
 
   .step
     background: rgba(#fff, 0.8)
