@@ -1,15 +1,17 @@
 <% translate = require 't7e' %>
 <% ifTouch = require '../lib/if-touch' %>
 
-<section class="content-container">
-  <%- translate 'h2', 'classifier.title' %>
-</section>
+<div class="content-block">
+  <div class="content-container">
+    <%- translate 'h2', 'classifier.title' %>
+  </div>
 
-<section class="content-container">
-  <div class="subject"></div>
-</section>
+  <div class="content-container">
+    <div class="subject"></div>
+  </div>
+</div>
 
-<section class="content-block">
+<div class="content-block">
   <div class="content-container">
     <div class="instructions">
       <% action = ifTouch 'tapping', 'clicking' %><!--TODO: Translate these.-->
@@ -21,4 +23,4 @@
       </div>
     </div>
   </div>
-</section>
+</div>

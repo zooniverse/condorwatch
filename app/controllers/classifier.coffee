@@ -27,16 +27,14 @@ class Classifier extends BaseController
     window.classifier = @
 
     @markingSurface = new MarkingSurface
-      width: 770
-      height: 440
       tool: CondorTool
 
     @markingSurface.on 'create-mark', @onChangeMarkCount
     @markingSurface.on 'destroy-mark', @onChangeMarkCount
 
     @subjectImage = @markingSurface.addShape 'image',
-      width: 770
-      height: 440
+      width: '100%'
+      height: '100%'
       preserveAspectRatio: 'none'
 
     @subjectContainer.append @markingSurface.el
@@ -45,7 +43,12 @@ class Classifier extends BaseController
     Subject.on 'fetch', @onSubjectFetch
     Subject.on 'select', @onSubjectSelect
 
+    # addEventListener 'resize', @rescale, false
+
     @onChangeMarkCount()
+
+  activate: ->
+    # setTimeout @rescale, 100
 
   onChangeMarkCount: =>
     @finishButton.prop 'disabled', @markingSurface.marks.length is 0
@@ -67,8 +70,6 @@ class Classifier extends BaseController
 
       @subjectImage.attr
         'xlink:href': img.src
-        # width: img.width
-        # height: img.height
 
       @askForTags()
       @stopLoading()
@@ -80,6 +81,11 @@ class Classifier extends BaseController
 
   onClickNoTags: ->
     @showSummary()
+
+  rescale: =>
+    setTimeout =>
+      over = innerHeight - document.body.clientHeight
+      @subjectContainer.height parseFloat(@subjectContainer.height()) + over
 
   startLoading: ->
     @el.addClass 'loading'
