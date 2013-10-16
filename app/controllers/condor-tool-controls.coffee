@@ -11,14 +11,18 @@ class CondorToolControls extends ToolControls
   constructor: ->
     super
 
-    @el.querySelector('form.identification').addEventListener 'submit', @onSubmitIdentification, false
-    @el.querySelector('form.proximity').addEventListener 'submit', @onSubmitProximity, false
     $el = $(@el)
+    $el.on 'click', 'button[name="close"]', @onClickClose
     $el.on 'input', 'input[name="tag"]', @onChangeTag
     $el.on 'change', 'input[name="tag-hidden"]', @onChangeTagHidden
+    $el.on 'submit', 'form.identification', @onSubmitIdentification
     $el.on 'change', 'input[name="proximity"]', @onChangeProximity
+    $el.on 'submit', 'form.proximity', @onSubmitProximity
     $el.on 'click', 'button[name="delete"]', @onClickDelete
     $el.on 'keydown', @onKeyDown
+
+  onClickClose: =>
+    @tool.deselect()
 
   onChangeTag: =>
     @tool.mark.set 'tag', @el.querySelector('input[name="tag"]').value
@@ -26,23 +30,19 @@ class CondorToolControls extends ToolControls
   onChangeTagHidden: =>
     @tool.mark.set 'tagHidden', @el.querySelector('input[name="tag-hidden"]').checked
 
+  onSubmitIdentification: (e) =>
+    e.preventDefault()
+    @showProximity()
+
   onChangeProximity: =>
     @tool.mark.set 'proximity', @el.querySelector('input[name="proximity"]').value
 
-  onClickDelete: =>
-    @tool.mark.destroy()
-
-  onSubmitIdentification: (e) =>
-    e.preventDefault()
-    e.stopPropagation()
-    @showProximity()
-    false
-
   onSubmitProximity: (e) =>
     e.preventDefault()
-    e.stopPropagation()
     @done()
-    false
+
+  onClickDelete: =>
+    @tool.mark.destroy()
 
   onKeyDown: (e) =>
     switch e.which

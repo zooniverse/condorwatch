@@ -1,6 +1,8 @@
 <% translate = require 't7e' %>
 <% {ToolControls} = require 'marking-surface' %>
 
+<button name="close">&times;</button>
+
 <form class="identification step">
   <%- translate 'header', 'classifier.marker.identification' %>
 
@@ -19,7 +21,7 @@
   </div>
 
   <footer>
-    <%- translate 'button', 'classifier.marker.delete', name: 'delete' %>
+    <%- translate 'button', 'classifier.marker.delete', name: 'delete', type: 'button' %>
     <%- translate 'button', 'classifier.marker.next', name: 'next', type: 'submit' %>
   </footer>
 </form>
@@ -38,7 +40,7 @@
   </div>
 
   <footer>
-    <%- translate 'button', 'classifier.marker.delete', name: 'delete' %>
+    <%- translate 'button', 'classifier.marker.delete', name: 'delete', type: 'button' %>
     <%- translate 'button', 'classifier.marker.done', name: 'done', type: 'submit' %>
   </footer>
 </form>

@@ -3,11 +3,12 @@
   "version": "0.0.1",
   "dependencies": {
     "haw": "~0.2.4",
+    "image-magnifier": "0.0.1",
     "marking-surface": "~0.3.0",
     "stack-of-pages": "~0.0.6",
     "t7e": "~0.2.3",
     "zooniverse": "zooniverse/Zooniverse#no-deps",
-    "image-magnifier": "0.0.1"
+    "zootorial": "~0.3.6"
   },
   "scripts": {
     "start": "haw serve --port 3416",
