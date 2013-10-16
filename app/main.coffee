@@ -19,8 +19,8 @@ stack = new StackOfPages
   '#/science': require './controllers/science-page'
   '#/profile': require './controllers/profile'
   '#/education': require './controllers/education-page'
-  NOT_FOUND: 'Page not found!'
-  ERROR: 'There was an error!'
+  NOT_FOUND: '<div class="content-block"><div class="content-container"><h1>Page not found!</h1></div></div>'
+  ERROR: '<div class="content-block"><div class="content-container"><h1>There was an error!</h1></div></div>'
 
 for pageEl in stack.el.children
   $(pageEl).addClass 'page-in-stack'
