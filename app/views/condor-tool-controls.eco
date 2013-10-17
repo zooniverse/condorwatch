@@ -13,12 +13,12 @@
     </label>
   </div>
 
-  <div class="part">
+  <!--div class="part">
     <label>
       <input type="checkbox" name="tag-hidden" />
       <%- translate 'span', 'classifier.marker.tagHidden' %>
     </label>
-  </div>
+  </div-->
 
   <footer>
     <%- translate 'button', 'classifier.marker.delete', name: 'delete', type: 'button' %>
