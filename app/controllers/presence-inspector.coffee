@@ -64,13 +64,19 @@ class PresenceInspector extends BaseController
     for image, imageIndex in @otherTimes
       continueButton = @el.find('button[name="continue"], button[name="finish"]').eq imageIndex
 
+      allPresencesIndicated = true
+
       for mark, markIndex in @marks
         yesButton = @el.find "button[name='tag-present'][value='#{markIndex}-#{imageIndex}']"
         noButton = @el.find "button[name='tag-not-present'][value='#{markIndex}-#{imageIndex}']"
-        yesButton.toggleClass 'selected', mark.presence?[imageIndex] is true
-        noButton.toggleClass 'selected', mark.presence?[imageIndex] is false
 
-        continueButton.attr 'disabled', not continueButton.attr('disabled') and not mark.presence?[imageIndex]?
+        presence = mark.presence?[imageIndex]
+        yesButton.toggleClass 'selected', presence is true
+        noButton.toggleClass 'selected', presence is false
+
+        allPresencesIndicated &&= presence?
+
+      continueButton.attr 'disabled', not allPresencesIndicated
 
   next: ->
     @onImage += 1
