@@ -67,9 +67,24 @@ module.exports =
 
   science:
     title: 'Science!'
+    summary: 'This page will explain the science end of the project.'
+    content: '''
+      <p>Tell us about condors. Tell us why they're almost extinct, and how we're helping bring them back.</p>
+      <p>Tell us about lead poisoning.</p>
+      <p>Etc.</p>
+    '''
+
+    figures:
+      something:
+        image: '//placehold.it/640x480.png'
+        description: 'This is a feature of condors'
 
   about:
     title: 'About the project'
+    summary: 'Technical details of the project'
+    content: '''
+      <p>Who's doing the science? Who's doing the development? What groups are involved? And links to all these things.</p>
+    '''
 
   profile:
     title: 'Your profile'

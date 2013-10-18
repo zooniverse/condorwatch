@@ -3,5 +3,36 @@
 <div class="content-block">
   <div class="content-container">
     <%- translate 'h2', 'science.title' %>
+    <%- translate 'p.summary', 'science.summary' %>
+  </div>
+
+  <div class="content-container">
+    <%- translate 'p', 'science.content' %>
+  </div>
+
+  <div class="content-container">
+    <div class="quarter-column">
+      <hr />
+      <%- translate 'img', '', src: 'science.figures.something.image' %>
+      <%- translate 'p.caption', 'science.figures.something.description' %>
+    </div>
+
+    <div class="quarter-column">
+      <hr />
+      <%- translate 'img', '', src: 'science.figures.something.image' %>
+      <%- translate 'p.caption', 'science.figures.something.description' %>
+    </div>
+
+    <div class="quarter-column">
+      <hr />
+      <%- translate 'img', '', src: 'science.figures.something.image' %>
+      <%- translate 'p.caption', 'science.figures.something.description' %>
+    </div>
+
+    <div class="quarter-column">
+      <hr />
+      <%- translate 'img', '', src: 'science.figures.something.image' %>
+      <%- translate 'p.caption', 'science.figures.something.description' %>
+    </div>
   </div>
 </div>

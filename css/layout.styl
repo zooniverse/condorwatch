@@ -25,10 +25,15 @@ body
 .quarter-column
   float: left
   width: columns(4)
-  margin-left: unit((GUTTER_WIDTH / GRID_WIDTH) * 100, '%')
+  margin-right: unit((GUTTER_WIDTH / GRID_WIDTH) * 100, '%')
+  margin-bottom: 1rem
 
-  &:first-child
-    margin-left: 0
+  &:nth-child(4n)
+    margin-right: 0
+
+  img,
+  svg
+    max-width: 100%
 
 .instructions
   display: table
@@ -66,10 +71,13 @@ h2
   margin: 2rem 0
   text-transform: uppercase
 
-  & + p
+  & ~ p
     font-size: 28px
     font-weight: 300
     margin: 2rem 0
+
+.caption
+  font-size: 12px
 
 hr
   border: 1px solid transparent
