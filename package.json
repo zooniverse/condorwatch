@@ -8,7 +8,8 @@
     "stack-of-pages": "~0.0.6",
     "t7e": "~0.2.3",
     "zooniverse": "zooniverse/Zooniverse#no-deps",
-    "zootorial": "~0.3.6"
+    "zootorial": "~0.3.6",
+    "faux-range-input": "0.0.1"
   },
   "scripts": {
     "start": "haw serve --port 3416",

@@ -1,4 +1,5 @@
 {ToolControls} = require 'marking-surface'
+FauxRangeInput = require 'faux-range-input'
 $ = window.jQuery
 
 KEYS =
@@ -16,10 +17,13 @@ class CondorToolControls extends ToolControls
     $el.on 'input', 'input[name="tag"]', @onChangeTag
     $el.on 'change', 'input[name="tag-hidden"]', @onChangeTagHidden
     $el.on 'submit', 'form.identification', @onSubmitIdentification
-    $el.on 'change', 'input[name="proximity"]', @onChangeProximity
     $el.on 'submit', 'form.proximity', @onSubmitProximity
     $el.on 'click', 'button[name="delete"]', @onClickDelete
     $el.on 'keydown', @onKeyDown
+
+    @fauxRangeInput = new FauxRangeInput $el.find('input[name="proximity"]').get(0), ticks: true
+    @on 'destroy', => @fauxRangeInput.destroy()
+    $(@fauxRangeInput.el).on 'change', @onChangeProximity
 
   onClickClose: =>
     @tool.deselect()
@@ -69,7 +73,7 @@ class CondorToolControls extends ToolControls
     @focusInput()
 
   focusInput: ->
-    setTimeout => $(@el).find('input:visible').first().focus()
+    setTimeout => $(@el).find('input:visible, [tabindex]:visible').first().focus()
 
   render: ->
     $el = $(@el)
