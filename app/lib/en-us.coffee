@@ -91,3 +91,7 @@ module.exports =
 
   education:
     title: 'For educators'
+    summary: 'This is where educational info will go.'
+    content: '''
+      <p>Includes links to other resources, links to ZooTeach, etc.</p>
+    '''
