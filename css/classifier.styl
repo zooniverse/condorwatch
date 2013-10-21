@@ -5,21 +5,13 @@
     cursor: crosshair
     position: relative
     text-align: center
-    transition:
-      opacity 0.75s ease-in-out,
-      transform 0.75s ease-in-out
-    z-index: 1
 
   .marking-surface
     display: block
     height: 440px
-    // left: 50%
     margin: 0 auto
     max-height: 100%
     max-width: 100%
-    // position: absolute
-    // top: 50%
-    // transform: translate(-50%, -50%)
     width: 770px
 
   .tag-marker
@@ -33,22 +25,3 @@
     font-family: inherit
     font-size: inherit
     pointer-events: none
-
-.inspecting-individuals
-  .subject
-    left: 50%
-    opacity: 0.75
-    position: fixed
-    top: 100%
-    transform: translate(-50%, -10%)
-
-    &:hover
-      opacity: 1
-      transform: translate(-50%, -100%)
-
-  .marking-instructions
-    bottom: (12.5 - 90)%
-
-.showing-summary
-  .marking-instructions
-    bottom: (12.5 - 90)%

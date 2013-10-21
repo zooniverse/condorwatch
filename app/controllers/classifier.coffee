@@ -29,6 +29,8 @@ class Classifier extends BaseController
     @markingSurface = new MarkingSurface
       tool: CondorTool
 
+    @markingSurface.svgRoot.attr 'id', 'classifier-svg-root'
+
     @markingSurface.on 'create-mark', @onChangeMarkCount
     @markingSurface.on 'destroy-mark', @onChangeMarkCount
 
