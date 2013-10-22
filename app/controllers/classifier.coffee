@@ -102,8 +102,8 @@ class Classifier extends BaseController
     @markingSurface.disable()
 
     presenceInspector = new PresenceInspector
+      otherImages: @classification?.subject?.other_times || Subject.instances.map((subject) -> subject.location.standard)[...4]
       marks: @markingSurface.marks
-      otherTimes: @classification?.subject?.other_times || Subject.instances.map((subject) -> subject.location.standard)[...4]
 
     presenceInspector.el.appendTo @el
 

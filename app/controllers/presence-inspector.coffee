@@ -1,47 +1,34 @@
 BaseController = require 'zooniverse/controllers/base-controller'
-ImageMagnifier = require 'image-magnifier'
+IndividualImageReview = require './individual-image-review'
 $ = window.jQuery
 
 class PresenceInspector extends BaseController
+  otherImages: null
   marks: null
-  otherTimes: null
 
   className: 'presence-inspector'
   template: require '../views/presence-inspector'
 
-  onImage: -1 # Get next on init
+  onImage: -1 # Get next (0) on init
 
   destroyDelay: 500
 
-  magnifiers: null
-
   events:
-    'click button[name="tag-present"]': 'onClickTagPresent'
-    'click button[name="tag-not-present"]': 'onClickTagNotPresent'
     'click button[name="continue"]': 'onClickContinue'
     'click button[name="finish"]': 'onClickFinish'
 
   elements:
-    '.all-images': 'allImagesContainer'
-    '.other-image': 'otherImages'
+    '.individual-images': 'individualImagesContainer'
 
   constructor: ->
     super
 
-    @magnifiers = (new ImageMagnifier image for image in @otherImages)
-
-    mark.on 'change', @onMarkChange for mark in @marks
+    for image, i in @otherImages
+      review = new IndividualImageReview {image, @marks, index: i, total: @otherImages.length}
+      @individualImagesContainer.append review.el
 
     @hide()
     @next()
-
-  onClickTagPresent: (e) ->
-    [mark, image] = $(e.currentTarget).val().split '-'
-    @markPresence mark, image, true
-
-  onClickTagNotPresent: (e) ->
-    [mark, image] = $(e.currentTarget).val().split '-'
-    @markPresence mark, image, false
 
   onClickContinue: ->
     @next()
@@ -49,49 +36,21 @@ class PresenceInspector extends BaseController
   onClickFinish: ->
     @finish()
 
-  onMarkChange: =>
-    @updatePresenceToggles()
-
   show: ->
     @el.removeClass 'offscreen'
 
-  markPresence: (mark, image, present) ->
-    @marks[mark].presence ?= []
-    @marks[mark].presence[image] = present
-    @marks[mark].trigger 'change'
-
-  updatePresenceToggles: ->
-    for image, imageIndex in @otherTimes
-      continueButton = @el.find('button[name="continue"], button[name="finish"]').eq imageIndex
-
-      allPresencesIndicated = true
-
-      for mark, markIndex in @marks
-        yesButton = @el.find "button[name='tag-present'][value='#{markIndex}-#{imageIndex}']"
-        noButton = @el.find "button[name='tag-not-present'][value='#{markIndex}-#{imageIndex}']"
-
-        presence = mark.presence?[imageIndex]
-        yesButton.toggleClass 'selected', presence is true
-        noButton.toggleClass 'selected', presence is false
-
-        allPresencesIndicated &&= presence?
-
-      continueButton.attr 'disabled', not allPresencesIndicated
+  hide: ->
+    @el.addClass 'offscreen'
 
   next: ->
     @onImage += 1
-    @allImagesContainer.attr 'data-on-image', @onImage
-    @updatePresenceToggles()
+    @individualImagesContainer.attr 'data-on-image', @onImage
 
   finish: ->
     @hide()
     setTimeout (=> @destroy()), @destroyDelay
 
-  hide: ->
-    @el.addClass 'offscreen'
-
   destroy: ->
-    @magnifiers.pop().destroy() until @magnifiers.length is 0
     mark.off 'change', @onMarkChange for mark in @marks
     super
 

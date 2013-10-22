@@ -1,0 +1,27 @@
+<% translate = require 't7e' %>
+
+<div class="image-container">
+  <img src="<%- @image %>" class="other-image" />
+</div>
+
+<div class="image-options">
+  <% for mark, i in @marks when mark.tag and not mark.tagHidden: %>
+    <div class="instructions">
+      <%- translate 'div.question', 'presenceInspector.inThisPhoto', $tag: mark.tag %>
+      <div class="answers">
+        <input type="range" name="proximity" data-mark="<%= i %>" min="0" max="1" step="0.25" value="<%= mark.proximity %>" data-faux="{&quot;ticks&quot;: true}" />
+      </div>
+    </div>
+  <% end %>
+
+  <div class="instructions">
+    <div class="question step"><%= @index + 1 %>/<%= @total %></div>
+    <div class="answers">
+      <% if @index < @total - 1: %>
+        <%- translate 'button', 'presenceInspector.continue', name: 'continue' %>
+      <% else: %>
+        <%- translate 'button', 'presenceInspector.finish', name: 'finish' %>
+      <% end %>
+    </div>
+  </div>
+</div>

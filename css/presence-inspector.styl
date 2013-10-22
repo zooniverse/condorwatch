@@ -19,7 +19,7 @@
   IMAGES_TO_COMPARE = 6 // Probably only four, though
   INDIVIDUAL_MARGIN = 5
 
-  .all-images
+  .individual-images
     left: 50%
     position: absolute
     text-align: center
@@ -37,39 +37,10 @@
           pointer-events: auto
           z-index: 1
 
-  .individual-image
-    left: 0
-    opacity: 0.33
-    pointer-events: none
-    position: absolute
-    top: 0
-    width: 100%
-    transform: translateY(-50%)
-    transition: opacity 0.5s ease-in-out
-
-    for i in 0...IMAGES_TO_COMPARE
-      &:nth-child({i + 1})
-        left: (i * (100 + INDIVIDUAL_MARGIN))%
-
-  .image-container
-    background: MEDIUM_GRAY
-    border-radius: 5px
-
-  .other-image
-    display: block
-    height: 375px
-    margin: 0 auto
-    width: 675px
-
-  .instructions
-    margin: 0.5em 0
-
-  .toggle-button-group button
-    @extends #_TOGGLE_BUTTON
-
-  .step
-    font-size: 12px
-    opacity: 0.5
+    .individual-image
+      for i in 0...IMAGES_TO_COMPARE
+        &:nth-child({i + 1})
+          left: (i * (100 + INDIVIDUAL_MARGIN))%
 
   .original-image
     border-radius: 5px

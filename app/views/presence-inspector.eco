@@ -1,40 +1,7 @@
 <% translate = require 't7e' %>
 
-<div class="all-images" data-on-image="0">
-  <% for image, imageIndex in @otherTimes: %>
-    <div class="individual-image">
-      <div class="image-container">
-        <img src="<%- image %>" class="other-image" />
-      </div>
-
-      <div class="image-options">
-        <% for mark, markIndex in @marks when mark.tag and not mark.tagHidden: %>
-          <div class="instructions">
-            <%- translate 'div.question', 'presenceInspector.inThisPhoto', $tag: mark.tag %>
-            <div class="answers toggle-button-group">
-              <%- translate 'button', 'presenceInspector.yes', name: "tag-present", value: "#{markIndex}-#{imageIndex}" %><!--
-              --><%- translate 'button', 'presenceInspector.no', name: "tag-not-present", value: "#{markIndex}-#{imageIndex}" %>
-            </div>
-          </div>
-        <% end %>
-
-        <div class="instructions">
-          <div class="question step"><%= imageIndex + 1 %>/<%= @otherTimes.length %></div>
-          <div class="answers">
-            <% if imageIndex < @otherTimes.length - 1: %>
-              <%- translate 'button', 'presenceInspector.continue', name: 'continue' %>
-            <% else: %>
-              <%- translate 'button', 'presenceInspector.finish', name: 'finish' %>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
-  <% end %>
-</div>
+<div class="individual-images"></div>
 
 <div class="original-image">
-  <svg>
-    <use xlink:href="#classifier-svg-root" />
-  </svg>
+  <svg><use xlink:href="#classifier-svg-root" /></svg>
 </div>

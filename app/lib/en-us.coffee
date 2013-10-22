@@ -50,8 +50,6 @@ module.exports =
 
   presenceInspector:
     inThisPhoto: 'Is condor <small>NO</small>. $tag present in this photo?'
-    yes: 'Yes'
-    no: 'No'
     continue: 'Continue'
     finish: 'Finish'
 
