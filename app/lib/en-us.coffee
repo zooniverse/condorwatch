@@ -49,7 +49,7 @@ module.exports =
       delete: 'Delete'
 
   presenceInspector:
-    inThisPhoto: 'Is condor <small>NO</small>. $tag present in this photo?'
+    proximityChange: 'Estimate condor <small>NO</small>. $tag\'s proximity in this photo.'
     continue: 'Continue'
     finish: 'Finish'
 

@@ -7,9 +7,9 @@
 <div class="image-options">
   <% for mark, i in @marks when mark.tag and not mark.tagHidden: %>
     <div class="instructions">
-      <%- translate 'div.question', 'presenceInspector.inThisPhoto', $tag: mark.tag %>
+      <%- translate 'div.question', 'presenceInspector.proximityChange', $tag: mark.tag %>
       <div class="answers">
-        <input type="range" name="proximity" data-mark="<%= i %>" min="0" max="1" step="0.25" value="<%= mark.proximity %>" data-faux="{&quot;ticks&quot;: true}" />
+        <input type="range" name="proximity" data-mark="<%= i %>" min="0" max="1" step="0.25" value="<%= mark.proximity %>" ticks="true" />
       </div>
     </div>
   <% end %>

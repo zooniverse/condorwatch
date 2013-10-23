@@ -21,7 +21,7 @@ class CondorToolControls extends ToolControls
     $el.on 'click', 'button[name="delete"]', @onClickDelete
     $el.on 'keydown', @onKeyDown
 
-    @fauxRangeInput = new FauxRangeInput $el.find('input[name="proximity"]').get(0), ticks: true
+    @fauxRangeInput = new FauxRangeInput $el.find('input[name="proximity"]').get 0
     @on 'destroy', => @fauxRangeInput.destroy()
     $(@fauxRangeInput.el).on 'change', @onChangeProximity
 
