@@ -41,23 +41,3 @@
       for i in 0...IMAGES_TO_COMPARE
         &:nth-child({i + 1})
           left: (i * (100 + INDIVIDUAL_MARGIN))%
-
-  .original-image
-    border-radius: 5px
-    bottom: 0
-    box-shadow: 0 1px 2px #000
-    height: 440px
-    left: 50%
-    overflow: hidden
-    position: absolute
-    transform: translate(-50%, 90%)
-    transition: transform 0.5s ease-in-out
-    width: 770px
-
-    &:hover
-      transform: translate(-50%, 0)
-
-    svg,
-    use
-      height: 100%
-      width: 100%

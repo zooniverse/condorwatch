@@ -1,7 +1,13 @@
 <% translate = require 't7e' %>
 
+<%- translate 'button', 'presenceInspector.toggleOriginal', name: 'toggle-original' %>
+
 <div class="image-container">
   <img src="<%- @image %>" class="other-image" />
+
+  <div class="original-image">
+    <svg><use xlink:href="#classifier-svg-root"></use></svg>
+  </div>
 </div>
 
 <div class="image-options">

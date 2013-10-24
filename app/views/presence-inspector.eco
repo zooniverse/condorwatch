@@ -1,7 +1,1 @@
-<% translate = require 't7e' %>
-
 <div class="individual-images"></div>
-
-<div class="original-image">
-  <svg><use xlink:href="#classifier-svg-root" /></svg>
-</div>

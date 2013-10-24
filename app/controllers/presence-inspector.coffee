@@ -41,6 +41,9 @@ class PresenceInspector extends BaseController
   onClickFinish: ->
     @finish()
 
+  queryCurrentIndividual: (selector) ->
+    @individualImagesContainer.children().eq(@onImage).find selector
+
   show: ->
     @el.removeClass 'offscreen'
 
@@ -52,7 +55,7 @@ class PresenceInspector extends BaseController
     @individualImagesContainer.attr 'data-on-image', @onImage
 
     setTimeout =>
-      @individualImagesContainer.children().eq(@onImage).find('input, [tabindex]').first().focus()
+      @queryCurrentIndividual('input, [tabindex]').first().focus()
 
   finish: ->
     @hide()

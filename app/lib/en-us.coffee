@@ -49,6 +49,7 @@ module.exports =
       delete: 'Delete'
 
   presenceInspector:
+    toggleOriginal: 'Original image'
     proximityChange: 'Estimate condor <small>NO</small>. $tag\'s proximity in this photo.'
     continue: 'Continue'
     finish: 'Finish'
