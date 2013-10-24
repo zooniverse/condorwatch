@@ -37,7 +37,7 @@ class IndividualImageReview extends BaseController
     @el.removeClass 'showing-original'
 
   setProximity: (markIndex, value) ->
-    @marks[markIndex].set "proximity-#{@index}", value
+    @marks[markIndex].set "proximity-in-#{@index}", value
 
   destroy: ->
     @fauxRangeInputs.pop().destroy() until @fauxRangeInputs.length is 0
