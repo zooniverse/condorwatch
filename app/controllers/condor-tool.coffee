@@ -24,6 +24,8 @@ class CondorTool extends Tool
     @mark.set offset
 
   render: ->
+    return unless @tag?
+
     if @mark.x? and @mark.y?
       @group.attr 'transform', "translate(#{@mark.x}, #{@mark.y})"
       @controls.moveTo @mark.x, @mark.y
