@@ -14,6 +14,7 @@ class PresenceInspector extends BaseController
   destroyDelay: 500
 
   events:
+    'focusin': 'onFocusAnything'
     'click button[name="continue"]': 'onClickContinue'
     'click button[name="finish"]': 'onClickFinish'
 
@@ -30,6 +31,10 @@ class PresenceInspector extends BaseController
     @hide()
     @next()
 
+  onFocusAnything: ->
+    # Don't scroll when focusing into inactive reviews.
+    setTimeout => @el.get(0).scrollLeft = 0
+
   onClickContinue: ->
     @next()
 
@@ -45,6 +50,9 @@ class PresenceInspector extends BaseController
   next: ->
     @onImage += 1
     @individualImagesContainer.attr 'data-on-image', @onImage
+
+    setTimeout =>
+      @individualImagesContainer.children().eq(@onImage).find('input, [tabindex]').first().focus()
 
   finish: ->
     @hide()
