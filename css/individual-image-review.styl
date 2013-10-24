@@ -1,3 +1,10 @@
+@keyframes PULSE_BUTTON
+  0%
+    background: rgba(BLUEISH, 0)
+
+  100%
+    background: rgba(BLUEISH, 1)
+
 .individual-image
   IMAGE_WIDTH = 675px
   IMAGE_HEIGHT = 375px
@@ -11,10 +18,14 @@
   transition: opacity 0.5s ease-in-out
 
   button[name="toggle-original"]
-    bottom: 3px
-    padding: 0 3px
+    background: rgba(#000, 0.5)
+    bottom: 5px
+    border-radius: 1em
+    font-size: 12px
+    padding: 0 1em
     position: absolute
-    right: 3px
+    right: 5px
+    text-transform: uppercase;
 
   .image-container
     background: MEDIUM_GRAY
@@ -59,7 +70,7 @@
 
   &.showing-original
     button[name="toggle-original"]
-      background: rgba(BLUEISH, 0.5)
+      animation: PULSE_BUTTON 0.5s infinite alternate
 
     .original-image
       opacity: 1
