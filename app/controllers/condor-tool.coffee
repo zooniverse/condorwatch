@@ -24,11 +24,13 @@ class CondorTool extends Tool
     @mark.set offset
 
   render: ->
-    @group.attr 'transform', "translate(#{@mark.x}, #{@mark.y})"
+    if @mark.x? and @mark.y?
+      @group.attr 'transform', "translate(#{@mark.x}, #{@mark.y})"
+      @controls.moveTo @mark.x, @mark.y
 
-    length = @tagRadius - ((@tagRadius / 2) * (@mark.proximity || 0.5))
-
-    @tag.attr 'points', getOctagonPoints length
+    if @mark.proximity?
+      radius = @tagRadius - ((@tagRadius / 2) * (@mark.proximity))
+      @tag.attr 'points', getOctagonPoints radius
 
     @label.attr 'textContent', if @mark.tagHidden
       '?'
@@ -38,7 +40,5 @@ class CondorTool extends Tool
     @label.attr
       x: @label.el.clientWidth / -2
       y: @label.el.clientHeight / 2
-
-    @controls.moveTo @mark.x, @mark.y
 
 module.exports = CondorTool

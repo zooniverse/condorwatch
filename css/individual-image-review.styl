@@ -12,10 +12,10 @@
   transition: opacity 0.5s ease-in-out
 
   button[name="toggle-original"]
-    bottom: 100%
+    bottom: 3px
     padding: 0 3px
     position: absolute
-    right: 0
+    right: 3px
 
   .image-container
     background: MEDIUM_GRAY
@@ -29,7 +29,11 @@
     width: IMAGE_WIDTH
 
   .instructions
-    margin: 0.5em 0
+    padding: 0.5em 0
+    border-top: 1px solid rgba(#fff, 0.5)
+
+    &:first-child
+      border-top: 0
 
   .step
     font-size: 12px

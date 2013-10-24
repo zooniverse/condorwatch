@@ -16,7 +16,9 @@ class IndividualImageReview extends BaseController
 
   constructor: ->
     super
-    @fauxRangeInputs = FauxRangeInput.find @el.get 0
+
+    # Delay needed to pick up the change event for some reason.
+    setTimeout => @fauxRangeInputs = FauxRangeInput.find @el.get 0
 
   onClickToggleOriginal: ->
     if @el.hasClass 'showing-original'
