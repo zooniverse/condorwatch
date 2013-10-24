@@ -9,6 +9,15 @@ CondorTool = require './condor-tool'
 PresenceInspector = require './presence-inspector'
 ClassificationSummary = require './classification-summary'
 
+DEV_SUBJECT = './dev-subject-images/CDY_0034.JPG'
+
+DEV_OTHERS = [
+  './dev-subject-images/CDY_0030.JPG'
+  './dev-subject-images/CDY_0032.JPG'
+  './dev-subject-images/CDY_0036.JPG'
+  './dev-subject-images/CDY_0038.JPG'
+]
+
 class Classifier extends BaseController
   className: 'classifier'
   template: require '../views/classifier'
@@ -71,7 +80,7 @@ class Classifier extends BaseController
       # @markingSurface.resize img.width, img.height
 
       @subjectImage.attr
-        'xlink:href': img.src
+        'xlink:href': DEV_SUBJECT || img.src
 
       @askForTags()
       @stopLoading()
@@ -102,7 +111,7 @@ class Classifier extends BaseController
     @markingSurface.disable()
 
     presenceInspector = new PresenceInspector
-      otherImages: @classification?.subject?.other_times || Subject.instances.map((subject) -> subject.location.standard)[...4]
+      otherImages: @classification?.subject?.other_times || DEV_OTHERS
       marks: @markingSurface.marks
 
     presenceInspector.el.appendTo @el
