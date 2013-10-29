@@ -78,7 +78,9 @@ class CondorToolControls extends ToolControls
 
   render: ->
     $el = $(@el)
+    $el.find('input[name="tag"]').val @tool.mark.tag
     $el.find('button[name="next"]').attr 'disabled', (not @tool.mark.tag) and (not @tool.mark.tagHidden)
+    @fauxRangeInput?.setValue @tool.mark.proximity
 
   done: ->
     setTimeout => @tool.deselect()
