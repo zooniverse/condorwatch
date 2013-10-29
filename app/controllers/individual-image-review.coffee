@@ -1,5 +1,6 @@
 BaseController = require 'zooniverse/controllers/base-controller'
 FauxRangeInput = require 'faux-range-input'
+$ = window.jQuery
 
 class IndividualImageReview extends BaseController
   image: ''
@@ -13,6 +14,7 @@ class IndividualImageReview extends BaseController
   events:
     'click button[name="toggle-original"]': 'onClickToggleOriginal'
     'change input[name="proximity"]': 'onChangeProximity'
+    'change input[name="cant-tell"]': 'onChangeCantTell'
 
   constructor: ->
     super
@@ -27,8 +29,12 @@ class IndividualImageReview extends BaseController
       @showOriginal()
 
   onChangeProximity: (e) ->
-    markIndex = e.currentTarget.getAttribute 'data-mark'
+    markIndex = $(e.currentTarget).parents('[data-mark]').attr 'data-mark'
     @setProximity markIndex, e.currentTarget.value
+
+  onChangeCantTell: (e) ->
+    markIndex = $(e.currentTarget).parents('[data-mark]').attr 'data-mark'
+    @setCantTell markIndex, e.currentTarget.checked
 
   showOriginal: ->
     @el.addClass 'showing-original'
@@ -38,6 +44,13 @@ class IndividualImageReview extends BaseController
 
   setProximity: (markIndex, value) ->
     @marks[markIndex].set "proximity-in-#{@index}", value
+
+  setCantTell: (markIndex, value) ->
+    @fauxRangeInputs[markIndex].setDisabled value
+    @marks[markIndex].set "proximity-in-#{@index}", if value
+       null
+    else
+      @fauxRangeInputs[markIndex].value
 
   destroy: ->
     @fauxRangeInputs.pop().destroy() until @fauxRangeInputs.length is 0
