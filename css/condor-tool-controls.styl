@@ -1,6 +1,7 @@
 .marking-tool-controls
   ARROW_SIZE = 15
 
+  display: none
   font-size: 12px
   text-align: center
   margin-top: unit(((ARROW_SIZE * 2) + 10), px)
@@ -8,6 +9,9 @@
   transition:
     margin-top 0.5s ease-in-out,
     transform 0.5s ease-in-out
+
+  &.tool-selected
+    display: block
 
   &:before
     border: unit(ARROW_SIZE, px) solid transparent

@@ -12,6 +12,9 @@ class CondorToolControls extends ToolControls
   constructor: ->
     super
 
+    @tool.on 'select', =>
+      @showIdentification()
+
     $el = $(@el)
     $el.on 'click', 'button[name="close"]', @onClickClose
     $el.on 'input', 'input[name="tag"]', @onChangeTag
@@ -26,8 +29,6 @@ class CondorToolControls extends ToolControls
 
     @fauxRangeInput = new FauxRangeInput proximityInput
     @on 'destroy', => @fauxRangeInput.destroy()
-
-    # setTimeout (=> @onChangeProximity()), 500
 
   onClickClose: =>
     @tool.deselect()
@@ -60,10 +61,6 @@ class CondorToolControls extends ToolControls
       when KEYS.esc
         @tool.mark.destroy()
 
-  open: ->
-    @el.style.display = ''
-    @showIdentification()
-
   showIdentification: ->
     $el = $(@el)
     $el.find('.step').hide()
@@ -85,9 +82,6 @@ class CondorToolControls extends ToolControls
 
   done: ->
     setTimeout => @tool.deselect()
-
-  close: ->
-    @el.style.display = 'none'
 
   destroy: ->
     @el.querySelector('form.identification').removeEventListener 'submit', @onSubmitIdentification, false

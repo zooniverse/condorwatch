@@ -39,7 +39,7 @@ User = require 'zooniverse/models/user'
 User.fetch()
 
 # Don't wait for a double-tap check on buttons.
-PREVENTED_DEFAULT_ATTR = 'touchstart-default-prevented'
+PREVENTED_DEFAULT_ATTR = 'data-touchstart-default-prevented'
 $(document).on 'touchstart', 'button', (e) ->
   e.preventDefault()
   button = $(@)
