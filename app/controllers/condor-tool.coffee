@@ -39,8 +39,9 @@ class CondorTool extends Tool
     else
       @mark.tag || '···'
 
+    {width, height} = @label.el.getBBox()
     @label.attr
-      x: @label.el.clientWidth / -2
-      y: @label.el.clientHeight / 2
+      x: width / -2
+      y: height / 2
 
 module.exports = CondorTool
