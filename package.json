@@ -5,6 +5,7 @@
     "haw": "~0.2.4",
     "image-magnifier": "0.0.1",
     "marking-surface": "~0.3.0",
+    "publisssh": "~0.2.1",
     "stack-of-pages": "~0.0.6",
     "t7e": "~0.2.3",
     "zooniverse": "zooniverse/Zooniverse#no-deps",
