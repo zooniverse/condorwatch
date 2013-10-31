@@ -46,7 +46,7 @@ class IndividualImageReview extends BaseController
     @marks[markIndex].set "proximity-in-#{@index}", value
 
   setCantTell: (markIndex, value) ->
-    @fauxRangeInputs[markIndex].setDisabled value
+    @fauxRangeInputs[markIndex].disabled = value
     @marks[markIndex].set "proximity-in-#{@index}", if value
        null
     else
