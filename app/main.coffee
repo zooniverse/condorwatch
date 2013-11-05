@@ -22,9 +22,6 @@ stack = new StackOfPages
   NOT_FOUND: '<div class="content-block"><div class="content-container"><h1>Page not found!</h1></div></div>'
   ERROR: '<div class="content-block"><div class="content-container"><h1>There was an error!</h1></div></div>'
 
-for pageEl in stack.el.children
-  $(pageEl).addClass 'page-in-stack'
-
 document.body.appendChild stack.el
 
 TopBar = require 'zooniverse/controllers/top-bar'
