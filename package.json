@@ -9,7 +9,7 @@
     "publisssh": "~0.2.1",
     "stack-of-pages": "~0.0.6",
     "t7e": "~0.2.3",
-    "zooniverse": "zooniverse/Zooniverse",
+    "zooniverse": "zooniverse/Zooniverse#language-menu",
     "zootorial": "~0.3.6"
   },
   "scripts": {
