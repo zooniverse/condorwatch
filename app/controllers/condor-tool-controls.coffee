@@ -30,7 +30,8 @@ class CondorToolControls extends ToolControls
     @fauxRangeInput = new FauxRangeInput proximityInput
     @on 'destroy', => @fauxRangeInput.destroy()
 
-    @tool.mark.set 'proximity', @fauxRangeInput.value
+    setTimeout =>
+      @tool.mark.set 'proximity', @fauxRangeInput.value
 
   onClickClose: =>
     @tool.deselect()

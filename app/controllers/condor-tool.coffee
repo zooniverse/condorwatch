@@ -1,47 +1,11 @@
 {Tool} = require 'marking-surface'
+MagnifierPointTool = require 'marking-surface/lib/tools/magnifier-point'
 getOctagonPoints = require '../lib/get-octagon-points'
 
-class CondorTool extends Tool
+class CondorTool extends MagnifierPointTool
   @Controls: require './condor-tool-controls'
 
-  tagRadius: 25
-
-  cursors:
-    'tag': 'move'
-
-  initialize: ->
-    @tag = @addShape 'polygon.tag-marker'
-    @label = @addShape 'text.tag-label', transform: 'translate(0, -3)'
-
-  onInitialClick: (e) ->
-    @onInitialDrag e
-
-  onInitialDrag: (e) ->
-    @['on *drag tag'] e
-
-  'on *drag tag': (e) ->
-    offset = @pointerOffset e
-    @mark.set offset
-
-  render: ->
-    return unless @tag?
-
-    if @mark.x? and @mark.y?
-      @group.attr 'transform', "translate(#{@mark.x}, #{@mark.y})"
-      @controls.moveTo @mark.x, @mark.y
-
-    if @mark.proximity?
-      radius = @tagRadius - ((@tagRadius / 2) * (@mark.proximity))
-      @tag.attr 'points', getOctagonPoints radius
-
-    @label.attr 'textContent', if @mark.tagHidden
-      '?'
-    else
-      @mark.tag || '···'
-
-    {width, height} = @label.el.getBBox()
-    @label.attr
-      x: width / -2
-      y: height / 2
+  radius: 50
+  zoom: 1
 
 module.exports = CondorTool
