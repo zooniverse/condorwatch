@@ -5,7 +5,7 @@ Subject = require 'zooniverse/models/subject'
 loadImage = require '../lib/load-image'
 Classification = require 'zooniverse/models/classification'
 MarkingSurface = require 'marking-surface'
-CondorTool = require './condor-tool'
+MarkingTool = require './marking-tool'
 PresenceInspector = require './presence-inspector'
 ClassificationSummary = require './classification-summary'
 
@@ -36,7 +36,7 @@ class Classifier extends BaseController
     window.classifier = @
 
     @markingSurface = new MarkingSurface
-      tool: CondorTool
+      tool: MarkingTool
 
     @markingSurface.svgRoot.attr 'id', 'classifier-svg-root'
 

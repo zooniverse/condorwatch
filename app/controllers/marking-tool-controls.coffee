@@ -6,7 +6,7 @@ KEYS =
   return: 13
   esc: 27
 
-class CondorToolControls extends ToolControls
+class MarkingToolControls extends ToolControls
   template: require('../views/condor-tool-controls')()
 
   constructor: ->
@@ -94,4 +94,4 @@ class CondorToolControls extends ToolControls
     $(@el).off()
     super
 
-module.exports = CondorToolControls
+module.exports = MarkingToolControls
