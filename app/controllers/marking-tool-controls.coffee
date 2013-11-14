@@ -21,6 +21,9 @@ class MarkingToolControlsController extends BaseController
   constructor: ->
     super
 
+    fauxRangeInputs = FauxRangeInput.find @el.get 0
+    @on 'destroy', -> fauxRangeInputs.shift().destroy() until fauxRangeInputs.length is 0
+
     @tool.mark.on 'change', (property, value) =>
       switch property
         when 'animal'
