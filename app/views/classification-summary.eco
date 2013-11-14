@@ -5,7 +5,7 @@
   <%- translate 'h2', 'classificationSummary.title' %>
 
   <div class="marks">
-    <% for mark in @classification.get 'marks': %>
+    <% for mark in @classification.get 'marks' when mark.animal is 'condor': %>
       <div class="mark" data-tag="<%= mark.tag %>">
         <div class="tag">
           <svg viewBox="0 0 100 100">

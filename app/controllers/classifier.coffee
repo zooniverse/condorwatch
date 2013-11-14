@@ -40,9 +40,6 @@ class Classifier extends BaseController
 
     @markingSurface.svgRoot.attr 'id', 'classifier-svg-root'
 
-    @markingSurface.on 'create-mark', @onChangeMarkCount
-    @markingSurface.on 'destroy-mark', @onChangeMarkCount
-
     @subjectImage = @markingSurface.addShape 'image',
       width: '100%'
       height: '100%'
@@ -56,14 +53,8 @@ class Classifier extends BaseController
 
     # addEventListener 'resize', @rescale, false
 
-    @onChangeMarkCount()
-
   activate: ->
     # setTimeout @rescale, 100
-
-  onChangeMarkCount: =>
-    @finishButton.prop 'disabled', @markingSurface.marks.length is 0
-    @noTagsButton.prop 'disabled', @markingSurface.marks.length isnt 0
 
   onUserChange: (e, user) =>
     Subject.next() unless @classification?
@@ -82,15 +73,11 @@ class Classifier extends BaseController
       @subjectImage.attr
         'xlink:href': DEV_SUBJECT || img.src
 
-      @askForTags()
       @stopLoading()
 
       @markingSurface.enable()
 
   onClickFinishMarking: ->
-    @askAboutIndividuals()
-
-  onClickNoTags: ->
     @showSummary()
 
   rescale: =>
@@ -103,27 +90,6 @@ class Classifier extends BaseController
 
   stopLoading: ->
     @el.removeClass 'loading'
-
-  askForTags: ->
-    # Switch to the "mark all the tags" view
-
-  askAboutIndividuals: ->
-    @markingSurface.disable()
-
-    presenceInspector = new PresenceInspector
-      otherImages: @classification?.subject?.other_times || DEV_OTHERS
-      marks: @markingSurface.marks
-
-    presenceInspector.el.appendTo @el
-
-    @el.addClass 'inspecting-individuals'
-
-    presenceInspector.on 'destroying', =>
-      @el.removeClass 'inspecting-individuals'
-      @showSummary()
-
-    setTimeout =>
-      presenceInspector.show()
 
   showSummary: ->
     @sendClassification()

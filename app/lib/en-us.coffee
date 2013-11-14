@@ -42,11 +42,10 @@ module.exports =
 
   classifier:
     title: 'Classify'
-    markTags: 'Mark each condor\'s numbered tag visible in this photo by $action.'
+    markAnimals: 'Mark each animal in this photo by $action.'
     clicking: 'clicking'
     tapping: 'tapping'
     finished: 'Finished'
-    noTags: 'No tags visible'
 
     whatKind: 'What kind of animal is this?'
 
