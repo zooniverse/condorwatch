@@ -11,6 +11,8 @@ class MarkingToolControlsController extends BaseController
 
   tool: null
 
+  state: ''
+
   elements:
     'input[name="selected-animal"]': 'selectedAnimalRadios'
     'input[name="tag"]': 'tagInput'
@@ -34,6 +36,7 @@ class MarkingToolControlsController extends BaseController
           @tagInput.val value
 
         when 'cantSeeTag'
+          @tagInput.prop 'disabled', value
           @cantSeeTagCheckbox.prop 'checked', value
 
         when 'proximity'
@@ -42,6 +45,8 @@ class MarkingToolControlsController extends BaseController
         when 'isOnCarcass'
           @isOnCarcassRadios.prop 'checked', false
           @isOnCarcassRadios.filter("[value='#{value}']").prop 'checked', true
+
+    @setState 'whatKind'
 
   events:
     'change input[name="selected-animal"]': (e) ->
@@ -62,11 +67,54 @@ class MarkingToolControlsController extends BaseController
     'click button[name="delete"]': ->
       @tool.mark.destroy()
 
+    'click button[name="back"]': ->
+      @setState 'what-kind'
+
     'click button[name="next"]': ->
-      console.log 'next'
+      @setState if @tool.mark.animal is 'condor'
+        'condorDetails'
+      else
+        'nonCondorDetails'
 
     'click button[name="done"]': ->
       @tool.deselect()
+
+  setState: (newState) ->
+    if @state
+      @states[@state]?.exit.call @
+    else
+      exit.call @ for state, {exit} of @states when state isnt newState
+
+    @states[newState]?.enter.call @
+    @state = newState
+
+  states:
+    whatKind:
+      enter: ->
+        @el.find('.what-kind').show()
+        @el.find('button[name="next"]').show()
+
+      exit: ->
+        @el.find('.what-kind').hide()
+        @el.find('button[name="next"]').hide()
+
+    condorDetails:
+      enter: ->
+        @el.find('.condor-details').show()
+        @el.find('button[name="done"]').show()
+
+      exit: ->
+        @el.find('.condor-details').hide()
+        @el.find('button[name="done"]').hide()
+
+    nonCondorDetails:
+      enter: ->
+        @el.find('.non-condor-details').show()
+        @el.find('button[name="done"]').show()
+
+      exit: ->
+        @el.find('.non-condor-details').hide()
+        @el.find('button[name="done"]').hide()
 
 class MarkingToolControls extends ToolControls
   constructor: ->
