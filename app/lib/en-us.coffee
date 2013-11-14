@@ -26,27 +26,46 @@ module.exports =
         we can judge if the bird's eating or social problems can reveal lead poisoning.
       '''
 
+  animals:
+    condor:
+      label: 'Condor'
+      image: '//placehold.it/100.png&text=Condor'
+    turkeyVulture:
+      label: 'Turkey vulture'
+      image: '//placehold.it/100.png&text=Turkey vulture'
+    raven:
+      label: 'Raven'
+      image: '//placehold.it/100.png&text=Raven'
+    coyote:
+      label: 'Coyote'
+      image: '//placehold.it/100.png&text=Coyote'
+
   classifier:
     title: 'Classify'
     markTags: 'Mark each condor\'s numbered tag visible in this photo by $action.'
     clicking: 'clicking'
     tapping: 'tapping'
-    proximityNear: 'Near'
-    proximityFar: 'Far'
-    cantTell: 'Can\'t tell'
     finished: 'Finished'
     noTags: 'No tags visible'
 
-    marker:
-      identification: 'Identification'
-      tagNo: 'Tag no.'
-      tagHidden: 'Tag number hidden'
-      proximity: 'Proximity'
-      proximityExplanation: '<strong>How close</strong> is this condor to the carcass or scale?'
-      cancel: 'Cancel'
-      next: 'Next'
-      done: 'Done'
-      delete: 'Delete'
+    whatKind: 'What kind of animal is this?'
+
+    enterTag: 'Enter the condor\'s tag, if you can read it.'
+    tagNo: 'Tag no.'
+    cantSeeTag: 'Can\'t see the tag'
+
+    estimateProximity: 'Estimate how close this condor is to the carcass or scale, relative to the other condors.'
+    proximityNear: 'Near'
+    proximityFar: 'Far'
+
+    isFeeding: 'Is this animal currently feeding on a carcass?'
+    yes: 'Yes'
+    no: 'No'
+
+    cancel: 'Cancel'
+    next: 'Next'
+    done: 'Done'
+    delete: 'Delete'
 
   presenceInspector:
     toggleOriginal: 'Original image'

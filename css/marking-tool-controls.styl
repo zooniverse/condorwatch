@@ -1,14 +1,18 @@
 .marking-tool-controls
   ARROW_SIZE = 15
 
+  background: rgba(#fff, 0.8)
+  border-radius: 5px
+  box-shadow: 0 3px 10px rgba(#000, 0.2)
   display: none
   font-size: 12px
-  text-align: center
   margin-top: unit(((ARROW_SIZE * 2) + 10), px)
+  text-align: left
   transform: translate(-50%, 0)
   transition:
     margin-top 0.5s ease-in-out,
     transform 0.5s ease-in-out
+  width: 300px
 
   &.tool-selected
     display: block
@@ -34,62 +38,24 @@
       border-top-color: rgba(#fff, 0.8)
       top: 100%
 
-  .step
-    background: rgba(#fff, 0.8)
-    border-radius: 5px
-    box-shadow: 0 3px 10px rgba(#000, 0.2)
-    width: 200px
-
   header
-    font-size: 10px
     font-weight: bold
-    letter-spacing: 1px
     padding: 10px
-    text-transform: uppercase
 
-  button[name="close"]
-    height: 1.5em
-    line-height: 1
-    position: absolute
-    right: 0
-    top: 0
-    width: 1.5em
+  section
+    padding: 10px
 
-    &:hover
-      color: #f00
-
-  .part
-    margin: 5px
-
-  label.enclosed
-    background: #fff
-    border: 1px solid rgba(#000, 0.5)
-    border-radius: 3px
+  .selected-animal-example
+    border-radius: 50%
     display: inline-block
-    padding: 5px
-
-    > span
-      font-size: 10px
-      font-weight: bold
-      opacity: 0.5
-      text-transform: uppercase
-
-    > input
-      background: transparent
-      border: 0
-      font-size: 20px
-      margin: 0
-      padding: 0 5px
-      text-align: right
-      width: 60px
+    height: 60px
+    margin: 10px
+    width: 60px
 
   footer
     padding: 10px
+    text-align: center
 
     button
       @extends #_STANDARD_BUTTON
       background: #fff
-
-      &[name="delete-marking-tool"]
-        background: transparent
-        border-color: transparent

@@ -1,97 +1,76 @@
 {ToolControls} = require 'marking-surface'
+BaseController = require 'zooniverse/controllers/base-controller'
 FauxRangeInput = require 'faux-range-input'
-$ = window.jQuery
 
 KEYS =
   return: 13
   esc: 27
 
-class MarkingToolControls extends ToolControls
-  template: require('../views/condor-tool-controls')()
+class MarkingToolControlsController extends BaseController
+  template: require '../views/condor-tool-controls'
+
+  tool: null
+
+  elements:
+    'input[name="selected-animal"]': 'selectedAnimalRadios'
+    'input[name="tag"]': 'tagInput'
+    'input[name="cant-see-tag"]': 'cantSeeTagCheckbox'
+    'input[name="proximity"]': 'proximityInput'
+    'input[name="is-on-carcass"]': 'isOnCarcassRadios'
 
   constructor: ->
     super
 
-    @tool.on 'select', =>
-      @showIdentification()
+    @tool.mark.on 'change', (property, value) =>
+      switch property
+        when 'animal'
+          @selectedAnimalRadios.prop 'checked', false
+          @selectedAnimalRadios.filter("[value='#{value}']").prop 'checked', true
 
-    $el = $(@el)
-    $el.on 'click', 'button[name="close"]', @onClickClose
-    $el.on 'input', 'input[name="tag"]', @onChangeTag
-    $el.on 'change', 'input[name="tag-hidden"]', @onChangeTagHidden
-    $el.on 'submit', 'form.identification', @onSubmitIdentification
-    $el.on 'submit', 'form.proximity', @onSubmitProximity
-    $el.on 'click', 'button[name="delete"]', @onClickDelete
-    $el.on 'keydown', @onKeyDown
+        when 'tag'
+          @tagInput.val value
 
-    proximityInput = $el.find('input[name="proximity"]').get 0
-    $(proximityInput).on 'change', @onChangeProximity
+        when 'cantSeeTag'
+          @cantSeeTagCheckbox.prop 'checked', value
 
-    @fauxRangeInput = new FauxRangeInput proximityInput
-    @on 'destroy', => @fauxRangeInput.destroy()
+        when 'proximity'
+          @proximityInput.val value
 
-    setTimeout =>
-      @tool.mark.set 'proximity', @fauxRangeInput.value
+        when 'isOnCarcass'
+          @isOnCarcassRadios.prop 'checked', false
+          @isOnCarcassRadios.filter("[value='#{value}']").prop 'checked', true
 
-  onClickClose: =>
-    @tool.deselect()
+  events:
+    'change input[name="selected-animal"]': (e) ->
+      @tool.mark.set 'animal', @selectedAnimalRadios.filter(':checked').val()
 
-  onChangeTag: =>
-    @tool.mark.set 'tag', @el.querySelector('input[name="tag"]').value
+    'input input[name="tag"]': (e) ->
+      @tool.mark.set 'tag', e.currentTarget.value
 
-  onChangeTagHidden: =>
-    @tool.mark.set 'tagHidden', @el.querySelector('input[name="tag-hidden"]').checked
+    'change input[name="cant-see-tag"]': (e) ->
+      @tool.mark.set 'cantSeeTag', e.currentTarget.checked
 
-  onSubmitIdentification: (e) =>
-    e.preventDefault()
-    @showProximity()
+    'change input[name="proximity"]': (e) ->
+      @tool.mark.set 'proximity', e.currentTarget.value
 
-  onChangeProximity: =>
-    @tool.mark.set 'proximity', @el.querySelector('input[name="proximity"]').value
+    'change input[name="is-on-carcass"]': (e) ->
+      @tool.mark.set 'isOnCarcass', @isOnCarcassRadios.filter(':checked').val()
 
-  onSubmitProximity: (e) =>
-    e.preventDefault()
-    @done()
+    'click button[name="delete"]': ->
+      @tool.mark.destroy()
 
-  onClickDelete: =>
-    @tool.mark.destroy()
+    'click button[name="next"]': ->
+      console.log 'next'
 
-  onKeyDown: (e) =>
-    switch e.which
-      when KEYS.return
-        e.preventDefault()
-        $(@el).find('[type="submit"]:visible').first().click() # WTF
-      when KEYS.esc
-        @tool.mark.destroy()
+    'click button[name="done"]': ->
+      @tool.deselect()
 
-  showIdentification: ->
-    $el = $(@el)
-    $el.find('.step').hide()
-    $el.find('.identification.step').show()
-    @focusInput()
-
-  showProximity: ->
-    $el = $(@el)
-    $el.find('.step').hide()
-    $el.find('.proximity.step').show()
-    @focusInput()
-
-  focusInput: ->
-    setTimeout => $(@el).find('input:visible, [tabindex]:visible').first().focus()
-
-  render: ->
-    $el = $(@el)
-    $el.find('input[name="tag"]').val @tool.mark.tag
-    $el.find('button[name="next"]').attr 'disabled', (not @tool.mark.tag) and (not @tool.mark.tagHidden)
-    @fauxRangeInput?.value = @tool.mark.proximity
-
-  done: ->
-    setTimeout => @tool.deselect()
-
-  destroy: ->
-    @el.querySelector('form.identification').removeEventListener 'submit', @onSubmitIdentification, false
-    @el.querySelector('form.proximity').removeEventListener 'submit', @onSubmitProximity, false
-    $(@el).off()
+class MarkingToolControls extends ToolControls
+  constructor: ->
     super
+
+    controller = new MarkingToolControlsController tool: @tool
+    @el.appendChild controller.el.get 0
+    @on 'destroy', -> controller.destroy()
 
 module.exports = MarkingToolControls
