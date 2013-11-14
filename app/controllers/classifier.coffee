@@ -6,7 +6,6 @@ loadImage = require '../lib/load-image'
 Classification = require 'zooniverse/models/classification'
 MarkingSurface = require 'marking-surface'
 MarkingTool = require './marking-tool'
-PresenceInspector = require './presence-inspector'
 ClassificationSummary = require './classification-summary'
 
 DEV_SUBJECT = './dev-subject-images/CDY_0034.JPG'
