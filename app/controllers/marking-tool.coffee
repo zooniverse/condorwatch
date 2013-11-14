@@ -6,6 +6,6 @@ class MarkingTool extends MagnifierPointTool
   @Controls: require './marking-tool-controls'
 
   radius: 50
-  zoom: 1
+  zoom: 1.25
 
 module.exports = MarkingTool

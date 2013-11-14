@@ -1,6 +1,7 @@
 {ToolControls} = require 'marking-surface'
 BaseController = require 'zooniverse/controllers/base-controller'
 FauxRangeInput = require 'faux-range-input'
+translate = require 't7e'
 
 KEYS =
   return: 13
@@ -14,6 +15,7 @@ class MarkingToolControlsController extends BaseController
   state: ''
 
   elements:
+    'img.selected-animal-example': 'exampleImage'
     'input[name="selected-animal"]': 'selectedAnimalRadios'
     'input[name="tag"]': 'tagInput'
     'input[name="cant-see-tag"]': 'cantSeeTagCheckbox'
@@ -29,6 +31,7 @@ class MarkingToolControlsController extends BaseController
     @tool.mark.on 'change', (property, value) =>
       switch property
         when 'animal'
+          @exampleImage.attr 'src', translate "animals.#{value}.image"
           @selectedAnimalRadios.prop 'checked', false
           @selectedAnimalRadios.filter("[value='#{value}']").prop 'checked', true
 
@@ -46,9 +49,16 @@ class MarkingToolControlsController extends BaseController
           @isOnCarcassRadios.prop 'checked', false
           @isOnCarcassRadios.filter("[value='#{value}']").prop 'checked', true
 
+      @el.find('button[name="next"]').prop 'disabled', not @tool.mark.animal
+      @el.find('button[name="done-with-condor"]').prop 'disabled', not @tool.mark.tag and not @tool.mark.cantSeeTag
+      @el.find('button[name="done-with-non-condor"]').prop 'disabled', not @tool.mark.isOnCarcass?
+
     @setState 'whatKind'
 
   events:
+    'click button[name="to-select"]': ->
+      @setState 'whatKind'
+
     'change input[name="selected-animal"]': (e) ->
       @tool.mark.set 'animal', @selectedAnimalRadios.filter(':checked').val()
 
@@ -76,7 +86,7 @@ class MarkingToolControlsController extends BaseController
       else
         'nonCondorDetails'
 
-    'click button[name="done"]': ->
+    'click button[name^="done-with-"]': ->
       @tool.deselect()
 
   setState: (newState) ->
@@ -85,36 +95,40 @@ class MarkingToolControlsController extends BaseController
     else
       exit.call @ for state, {exit} of @states when state isnt newState
 
-    @states[newState]?.enter.call @
     @state = newState
+    @states[@state]?.enter.call @
+    @el.attr 'data-state', @state
 
   states:
     whatKind:
       enter: ->
+        @el.find('button[name="to-select"]').css 'opacity', 0
         @el.find('.what-kind').show()
         @el.find('button[name="next"]').show()
 
       exit: ->
+        @el.find('button[name="to-select"]').css 'opacity', 1
         @el.find('.what-kind').hide()
         @el.find('button[name="next"]').hide()
 
     condorDetails:
       enter: ->
         @el.find('.condor-details').show()
-        @el.find('button[name="done"]').show()
+        @el.find('button[name="done-with-condor"]').show()
 
       exit: ->
         @el.find('.condor-details').hide()
-        @el.find('button[name="done"]').hide()
+        @el.find('button[name="done-with-condor"]').hide()
 
     nonCondorDetails:
       enter: ->
         @el.find('.non-condor-details').show()
-        @el.find('button[name="done"]').show()
+        @el.find('button[name="done-with-non-condor"]').show()
 
       exit: ->
         @el.find('.non-condor-details').hide()
-        @el.find('button[name="done"]').hide()
+        @el.find('button[name="done-with-non-condor"]').hide()
+
 
 class MarkingToolControls extends ToolControls
   constructor: ->

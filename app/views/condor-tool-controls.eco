@@ -2,6 +2,10 @@
 <% {ToolControls} = require 'marking-surface' %>
 
 <header>
+  <button type="button" name="to-select">
+    <i class="icon-chevron-left"></i>
+  </button>
+
   <img src="//placehold.it/100.png" class="selected-animal-example" />
 </header>
 
@@ -54,6 +58,7 @@
 
 <footer>
   <%- translate 'button', 'classifier.delete', name: 'delete', type: 'button' %>
-  <%- translate 'button', 'classifier.next', name: 'next', type: 'submit' %>
-  <%- translate 'button', 'classifier.done', name: 'done', type: 'submit' %>
+  <%- translate 'button', 'classifier.next', name: 'next', type: 'button' %>
+  <%- translate 'button', 'classifier.done', name: 'done-with-condor', type: 'button' %>
+  <%- translate 'button', 'classifier.done', name: 'done-with-non-condor', type: 'button' %>
 </footer>
