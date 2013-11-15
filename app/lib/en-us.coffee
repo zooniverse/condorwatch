@@ -43,8 +43,8 @@ module.exports =
   classifier:
     title: 'Classify'
     markAnimals: 'Mark each animal in this photo by $action.'
-    clicking: 'clicking'
-    tapping: 'tapping'
+    clicking: 'clicking your mouse'
+    tapping: 'tapping it'
     finished: 'Finished'
 
     whatKind: 'What kind of animal is this?'

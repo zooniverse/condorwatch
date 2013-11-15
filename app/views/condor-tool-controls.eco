@@ -11,58 +11,66 @@
   <span class="selected-animal-label"></span>
 </header>
 
-<section class="what-kind">
-  <%- translate 'div', 'classifier.whatKind' %>
+<div class="what-kind">
+  <section>
+    <%- translate 'div', 'classifier.whatKind' %>
 
-  <% for animal in ['condor', 'turkeyVulture', 'raven', 'coyote']: %>
-    <div class="animal-menu-item">
-      <label class="as-radio-button">
-        <input type="radio" name="selected-animal" value="<%- animal %>" />
-        <%- translate 'span', "animals.#{animal}.label" %>
-      </label>
-    </div>
-  <% end %>
-</section>
+    <% for animal in ['condor', 'turkeyVulture', 'raven', 'coyote']: %>
+      <div class="animal-menu-item">
+        <label class="as-radio-button">
+          <input type="radio" name="selected-animal" value="<%- animal %>" />
+          <%- translate 'span', "animals.#{animal}.label" %>
+        </label>
+      </div>
+    <% end %>
+  </section>
+</div>
 
-<section class="condor-details">
-  <%- translate 'div', 'classifier.enterTag' %>
+<div class="condor-details">
+  <section>
+    <%- translate 'div', 'classifier.enterTag' %>
 
-  <label class="tag">
-    <%- translate 'span', 'classifier.tagNo' %>
-    <input type="text" name="tag" />
-  </label>
+    <label class="condor-tag">
+      <%- translate 'span', 'classifier.tagNo' %>
+      <input type="text" name="tag" />
+    </label>
 
-  <label>
-    <input type="checkbox" name="cant-see-tag" />
-    <%- translate 'span', 'classifier.cantSeeTag' %>
-  </label>
+    <label>
+      <input type="checkbox" name="cant-see-tag" />
+      <%- translate 'span', 'classifier.cantSeeTag' %>
+    </label>
+  </section>
 
-  <%- translate 'div', 'classifier.estimateProximity' %>
+  <section>
+    <%- translate 'div', 'classifier.estimateProximity' %>
 
-  <label>
-    <%- translate 'span', 'classifier.proximityNear' %>
-    <input type="range" name="proximity" min="0" max="1" step="0.25" data-ticks="true" />
-    <%- translate 'span', 'classifier.proximityFar' %>
-  </label>
-</section>
+    <label>
+      <%- translate 'span', 'classifier.proximityNear' %>
+      <input type="range" name="proximity" min="0" max="1" step="0.25" data-ticks="true" />
+      <%- translate 'span', 'classifier.proximityFar' %>
+    </label>
+  </section>
+</div>
 
-<section class="non-condor-details">
-  <%- translate 'div', 'classifier.isFeeding' %>
+<div class="non-condor-details">
+  <section>
+    <%- translate 'div', 'classifier.isFeeding' %>
 
-  <label class="as-radio-button">
-    <input type="radio" name="is-on-carcass" value="yes" />
-    <%- translate 'span', 'classifier.yes' %>
-  </label>
+    <label class="as-radio-button">
+      <input type="radio" name="is-on-carcass" value="yes" />
+      <%- translate 'span', 'classifier.yes' %>
+    </label>
 
-  <label class="as-radio-button">
-    <input type="radio" name="is-on-carcass" value="no" />
-    <%- translate 'span', 'classifier.no' %>
-  </label>
-</section>
+    <label class="as-radio-button">
+      <input type="radio" name="is-on-carcass" value="no" />
+      <%- translate 'span', 'classifier.no' %>
+    </label>
+  </section>
+</div>
 
 <footer>
-  <%- translate 'button', 'classifier.delete', name: 'delete', type: 'button' %>
-  <%- translate 'button', 'classifier.next', name: 'next', type: 'button' %>
-  <%- translate 'button', 'classifier.done', name: 'done-with-condor', type: 'button' %>
-  <%- translate 'button', 'classifier.done', name: 'done-with-non-condor', type: 'button' %>
+  <%- translate 'button.cancel', 'classifier.delete', name: 'delete', type: 'button' %>
+  <%- translate 'button.default', 'classifier.next', name: 'next', type: 'button' %>
+  <%- translate 'button.default', 'classifier.done', name: 'done-with-condor', type: 'button' %>
+  <%- translate 'button.default', 'classifier.done', name: 'done-with-non-condor', type: 'button' %>
 </footer>
