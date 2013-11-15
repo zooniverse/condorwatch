@@ -3,14 +3,12 @@
 
   background: rgba(#fff, 0.8)
   border-radius: 5px
-  box-shadow: 0 3px 10px rgba(#000, 0.2)
+  box-shadow: 0 3px 10px rgba(#000, 0.5)
   display: none
   font-size: 12px
-  margin-top: unit(((ARROW_SIZE * 2) + 10), px)
   text-align: center
-  transform: translate(-50%, 0)
   transition:
-    margin-top 0.5s ease-in-out,
+    margin-left 0.67s ease-in-out, // Faux-easing
     transform 0.5s ease-in-out
   width: 300px
 
@@ -20,23 +18,27 @@
   &:before
     border: unit(ARROW_SIZE, px) solid transparent
     content: ""
-    left: 50%
-    margin-left: unit((-1 * ARROW_SIZE), px)px
+    margin-top: unit(-1 * ARROW_SIZE, px)
     position: absolute
+    top: 50%
 
-  &.opens-down:before
-    border-bottom-color: rgba(#fff, 0.8)
-    border-top-width: 0
-    bottom: 100%
-
-  &.opens-up
-    margin-top: unit(((ARROW_SIZE * -2) - 10), px)
-    transform: translate(-50%, -100%)
+  &.opens-right
+    margin-left: 30px
+    transform: translate(0, -50%)
 
     &:before
-      border-bottom-width: 0
-      border-top-color: rgba(#fff, 0.8)
-      top: 100%
+      border-right-color: rgba(#fff, 0.8)
+      border-left-width: 0
+      right: 100%
+
+  &.opens-left
+    margin-left: -30px
+    transform: translate(-100%, -50%)
+
+    &:before
+      border-left-color: rgba(#fff, 0.8)
+      border-right-width: 0
+      left: 100%
 
   .marking-tool-controls-controller
     transition: height 0.25s ease-in-out;
