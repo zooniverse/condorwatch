@@ -7,6 +7,8 @@
   </button>
 
   <img src="//placehold.it/100.png" class="selected-animal-example" />
+
+  <span class="selected-animal-label"></span>
 </header>
 
 <section class="what-kind">

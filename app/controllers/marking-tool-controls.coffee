@@ -8,6 +8,7 @@ KEYS =
   esc: 27
 
 class MarkingToolControlsController extends BaseController
+  className: 'marking-tool-controls-controller'
   template: require '../views/condor-tool-controls'
 
   tool: null
@@ -15,7 +16,8 @@ class MarkingToolControlsController extends BaseController
   state: ''
 
   elements:
-    'img.selected-animal-example': 'exampleImage'
+    'img.selected-animal-example': 'selectedAnimalImage'
+    '.selected-animal-label': 'selectedAnimalLabel'
     'input[name="selected-animal"]': 'selectedAnimalRadios'
     'input[name="tag"]': 'tagInput'
     'input[name="cant-see-tag"]': 'cantSeeTagCheckbox'
@@ -31,7 +33,8 @@ class MarkingToolControlsController extends BaseController
     @tool.mark.on 'change', (property, value) =>
       switch property
         when 'animal'
-          @exampleImage.attr 'src', translate "animals.#{value}.image"
+          @selectedAnimalImage.attr 'src', translate "animals.#{value}.image"
+          @selectedAnimalLabel.html translate "animals.#{value}.label"
           @selectedAnimalRadios.prop 'checked', false
           @selectedAnimalRadios.filter("[value='#{value}']").prop 'checked', true
 
@@ -102,12 +105,16 @@ class MarkingToolControlsController extends BaseController
   states:
     whatKind:
       enter: ->
-        @el.find('button[name="to-select"]').css 'opacity', 0
+        @el.find('button[name="to-select"]').addClass 'hidden'
+        @selectedAnimalImage.addClass 'major'
+        @selectedAnimalLabel.addClass 'hidden'
         @el.find('.what-kind').show()
         @el.find('button[name="next"]').show()
 
       exit: ->
-        @el.find('button[name="to-select"]').css 'opacity', 1
+        @el.find('button[name="to-select"]').removeClass 'hidden'
+        @selectedAnimalImage.removeClass 'major'
+        @selectedAnimalLabel.removeClass 'hidden'
         @el.find('.what-kind').hide()
         @el.find('button[name="next"]').hide()
 

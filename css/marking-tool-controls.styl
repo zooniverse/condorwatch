@@ -1,5 +1,5 @@
 .marking-tool-controls
-  ARROW_SIZE = 15
+  ARROW_SIZE = 10
 
   background: rgba(#fff, 0.8)
   border-radius: 5px
@@ -38,6 +38,9 @@
       border-top-color: rgba(#fff, 0.8)
       top: 100%
 
+  .marking-tool-controls-controller
+    transition: height 0.25s ease-in-out;
+
   header
     font-weight: bold
     padding: 10px
@@ -45,21 +48,61 @@
   section
     border-top: 1px solid #999
     padding: 10px
+    position: relative
+    transition:
+      left 0.25s ease-in-out,
+      opacity 0.25s ease-in-out
 
-  .selected-animal-example
-    border-radius: 50%
-    display: inline-block
-    height: 60px
-    margin: 0
-    vertical-align: middle
-    width: 60px
+    &.hidden
+      opacity: 0
+      z-index: -1
+
+      &.before
+        left: -10px
+
+      &.after
+        left: 10px
 
   footer
     border-top: 1px solid #999
     padding: 10px
     text-align: center
 
-
     button
       @extends #_STANDARD_BUTTON
       background: #fff
+
+  button[name="to-select"]
+    height: 1em
+    position: relative
+    transition:
+      margin-left 0.25s ease-in-out,
+      opacity 0.25s ease-in-out
+    width: 1em
+
+    &.hidden
+      margin-left: -20px
+      opacity: 0
+
+  .selected-animal-example
+    border-radius: 50%
+    display: inline-block
+    height: auto
+    margin: 0
+    transition:
+      height 0.5s ease-in-out,
+      width 0.5s ease-in-out
+    vertical-align: middle
+    width: 60px
+
+    &.major
+      width: 100%
+      height: auto
+
+  .selected-animal-label
+    margin: 20px 10px 0
+    transition: opacity 0.25s ease-in-out
+    position: absolute
+
+    &.hidden
+      opacity: 0
