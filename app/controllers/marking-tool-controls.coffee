@@ -38,6 +38,13 @@ class MarkingToolControlsController extends BaseController
           @selectedAnimalRadios.prop 'checked', false
           @selectedAnimalRadios.filter("[value='#{value}']").prop 'checked', true
 
+          if value is 'condor'
+            @tool.mark.set 'isOnCarcass', null
+          else
+            @tool.mark.set 'tag', null
+            @tool.mark.set 'cantSeeTag', null
+            @tool.mark.set 'proximity', null
+
         when 'tag'
           @tagInput.val value
 
@@ -93,7 +100,6 @@ class MarkingToolControlsController extends BaseController
       @tool.deselect()
 
     'keydown': (e) ->
-      console.log 'Keyed', e.which
       switch e.which
         when KEYS.return then @el.find('footer button.default:visible').first().click()
         when KEYS.esc then @el.find('footer button.cancel:visible').first().click()
@@ -153,5 +159,12 @@ class MarkingToolControls extends ToolControls
     controller = new MarkingToolControlsController tool: @tool
     @el.appendChild controller.el.get 0
     @on 'destroy', -> controller.destroy()
+
+    @tool.mark.on 'change', (property, value) =>
+      if property is 'proximity'
+        proximity = @tool.mark.proximity
+        proximity ?= 0.5
+        @tool.radius = (@tool.constructor::radius / 2) * (2 - proximity)
+        @tool.redraw()
 
 module.exports = MarkingToolControls
