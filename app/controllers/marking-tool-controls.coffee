@@ -92,6 +92,12 @@ class MarkingToolControlsController extends BaseController
     'click button[name^="done-with-"]': ->
       @tool.deselect()
 
+    'keydown': (e) ->
+      console.log 'Keyed', e.which
+      switch e.which
+        when KEYS.return then @el.find('footer button.default:visible').first().click()
+        when KEYS.esc then @el.find('footer button.cancel:visible').first().click()
+
   setState: (newState) ->
     if @state
       @states[@state]?.exit.call @
@@ -101,6 +107,9 @@ class MarkingToolControlsController extends BaseController
     @state = newState
     @states[@state]?.enter.call @
     @el.attr 'data-state', @state
+
+    setTimeout =>
+      @el.find('a, button, input, textarea, select').filter('section *:visible').first().focus()
 
   states:
     whatKind:
