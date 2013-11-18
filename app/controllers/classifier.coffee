@@ -8,14 +8,17 @@ MarkingSurface = require 'marking-surface'
 MarkingTool = require './marking-tool'
 ClassificationSummary = require './classification-summary'
 
-DEV_SUBJECT = './dev-subject-images/CDY_0034.JPG'
-
-DEV_OTHERS = [
+DEV_SUBJECTS = [
   './dev-subject-images/CDY_0030.JPG'
   './dev-subject-images/CDY_0032.JPG'
+  './dev-subject-images/CDY_0034.JPG'
   './dev-subject-images/CDY_0036.JPG'
   './dev-subject-images/CDY_0038.JPG'
 ]
+
+NEXT_DEV_SUBJECT = ->
+  DEV_SUBJECTS.push DEV_SUBJECTS.shift()
+  DEV_SUBJECTS[0]
 
 class Classifier extends BaseController
   className: 'classifier'
@@ -70,7 +73,7 @@ class Classifier extends BaseController
       # @markingSurface.resize img.width, img.height
 
       @subjectImage.attr
-        'xlink:href': DEV_SUBJECT || img.src
+        'xlink:href': NEXT_DEV_SUBJECT() || img.src
 
       @stopLoading()
 
