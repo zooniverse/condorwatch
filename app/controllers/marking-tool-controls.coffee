@@ -9,7 +9,7 @@ KEYS =
 
 class MarkingToolControlsController extends BaseController
   className: 'marking-tool-controls-controller'
-  template: require '../views/condor-tool-controls'
+  template: require '../views/marking-tool-controls'
 
   tool: null
 
