@@ -35,7 +35,7 @@ class Classifier extends BaseController
 
   constructor: ->
     super
-    window.classifier = @
+    window.classifier = @ if +location.port > 1023
 
     @markingSurface = new MarkingSurface
       tool: MarkingTool
