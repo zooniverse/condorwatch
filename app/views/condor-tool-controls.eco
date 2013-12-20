@@ -36,8 +36,26 @@
     </label>
 
     <label>
-      <input type="checkbox" name="cant-see-tag" />
-      <%- translate 'span', 'classifier.cantSeeTag' %>
+      <%- translate 'span', 'classifier.color' %>
+      <select name="color">
+        <% POSSIBLE_TAG_COLORS = ['black', 'white', 'red', 'orange', 'yellow', 'green', 'blue', 'purple'] %>
+        <% for tagColor in POSSIBLE_TAG_COLORS: %>
+          <%- translate 'option', "classifier.colors.#{tagColor}", value: tagColor %>
+        <% end %>
+      </select>
+    </label>
+
+    <div>
+      <%- translate 'span', 'classifier.dots' %>
+      <button name="dots" value="0">&times;</button>
+      <% for i in [0...5]: %>
+        <button name="dots" value="<%= i %>" /><%= i %></button>
+      <% end %>
+    </div>
+
+    <label>
+      <input type="checkbox" name="underline" />
+      <%- translate 'span', 'classifier.underline' %>
     </label>
   </section>
 
