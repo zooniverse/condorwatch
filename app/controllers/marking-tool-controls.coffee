@@ -87,9 +87,6 @@ class MarkingToolControlsController extends BaseController
     'click button[name="delete"]': ->
       @tool.mark.destroy()
 
-    'click button[name="back"]': ->
-      @setState 'what-kind'
-
     'click button[name="next"]': ->
       @setState if @tool.mark.animal is 'condor'
         'condorDetails'
@@ -159,12 +156,5 @@ class MarkingToolControls extends ToolControls
     controller = new MarkingToolControlsController tool: @tool
     @el.appendChild controller.el.get 0
     @on 'destroy', -> controller.destroy()
-
-    @tool.mark.on 'change', (property, value) =>
-      if property is 'proximity'
-        proximity = @tool.mark.proximity
-        proximity ?= 0.5
-        @tool.radius = (@tool.constructor::radius / 2) * (2 - proximity)
-        @tool.redraw()
 
 module.exports = MarkingToolControls
