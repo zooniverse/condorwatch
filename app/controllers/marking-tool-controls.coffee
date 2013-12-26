@@ -69,8 +69,8 @@ class MarkingToolControlsController extends BaseController
     'click button[name="to-select"]': ->
       @setState 'whatKind'
 
-    'change input[name="selected-animal"]': (e) ->
-      @tool.mark.set 'animal', @selectedAnimalRadios.filter(':checked').val()
+    'click [name="choose-animal"]': (e) ->
+      @tool.mark.set 'animal', e.currentTarget.value
 
     'input input[name="tag"]': (e) ->
       @tool.mark.set 'tag', e.currentTarget.value

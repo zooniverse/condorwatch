@@ -16,12 +16,7 @@
     <%- translate 'div', 'classifier.whatKind' %>
 
     <% for animal in ['condor', 'turkeyVulture', 'raven', 'coyote']: %>
-      <div class="animal-menu-item">
-        <label class="as-radio-button">
-          <input type="radio" name="selected-animal" value="<%- animal %>" />
-          <%- translate 'span', "animals.#{animal}.label" %>
-        </label>
-      </div>
+      <%- translate 'button', "animals.#{animal}.label", name: 'choose-animal', value: animal %>
     <% end %>
   </section>
 </div>
