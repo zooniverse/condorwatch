@@ -16,7 +16,7 @@
     <%- translate 'div', 'classifier.whatKind' %>
 
     <% for animal in ['condor', 'turkeyVulture', 'raven', 'coyote']: %>
-      <%- translate 'button', "animals.#{animal}.label", name: 'choose-animal', value: animal %>
+      <label><%- translate 'button', "animals.#{animal}.label", name: 'choose-animal', value: animal %></label>
     <% end %>
   </section>
 </div>
