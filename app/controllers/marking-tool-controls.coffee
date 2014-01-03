@@ -18,7 +18,7 @@ class MarkingToolControlsController extends BaseController
   elements:
     'img.selected-animal-example': 'selectedAnimalImage'
     '.selected-animal-label': 'selectedAnimalLabel'
-    'input[name="selected-animal"]': 'selectedAnimalRadios'
+    '[name="choose-animal"]': 'animalChoiceButtons'
     'input[name="tag"]': 'tagInput'
     'input[name="cant-see-tag"]': 'cantSeeTagCheckbox'
     'input[name="proximity"]': 'proximityInput'
@@ -35,8 +35,8 @@ class MarkingToolControlsController extends BaseController
         when 'animal'
           @selectedAnimalImage.attr 'src', translate "animals.#{value}.image"
           @selectedAnimalLabel.html translate "animals.#{value}.label"
-          @selectedAnimalRadios.prop 'checked', false
-          @selectedAnimalRadios.filter("[value='#{value}']").prop 'checked', true
+          @animalChoiceButtons.removeClass 'selected'
+          @animalChoiceButtons.filter("[value='#{value}']").addClass 'selected'
 
           if value is 'condor'
             @tool.mark.set 'isOnCarcass', null

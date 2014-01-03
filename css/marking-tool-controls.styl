@@ -128,8 +128,11 @@
     button
       @extends #_STANDARD_BUTTON
       background: white
-      font-weight: bold
       width: 100%
+
+      &.selected
+        background: MEDIUM_GRAY
+        color: white
 
   .condor-tag
     display: block
