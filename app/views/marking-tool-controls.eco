@@ -49,8 +49,8 @@
     </div>
 
     <label>
-      <input type="checkbox" name="underline" />
-      <%- translate 'span', 'classifier.underline' %>
+      <input type="checkbox" name="underlined" />
+      <%- translate 'span', 'classifier.underlined' %>
     </label>
   </section>
 

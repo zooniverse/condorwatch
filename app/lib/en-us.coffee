@@ -49,9 +49,20 @@ module.exports =
 
     whatKind: 'What kind of animal is this?'
 
-    enterTag: 'Enter the condor\'s tag, if you can read it.'
+    enterTag: 'Describe the condor\'s tag, if you can read it.'
     tagNo: 'Tag no.'
-    cantSeeTag: 'Can\'t see the tag'
+    color: 'Tag color'
+    colors:
+      black: 'Black'
+      white: 'White'
+      red: 'Red'
+      orange: 'Orange'
+      yellow: 'Yellow'
+      green: 'Green'
+      blue: 'Blue'
+      purple: 'Purple'
+    dots: 'Dots'
+    underlined: 'Underlined'
 
     estimateProximity: 'Estimate how close this condor is to the carcass or scale, relative to the other condors.'
     proximityNear: 'Near'
