@@ -15,7 +15,8 @@
   <section>
     <%- translate 'div', 'classifier.whatKind' %>
 
-    <% for animal in ['condor', 'turkeyVulture', 'raven', 'coyote']: %>
+    <% POSSIBLE_ANIMALS = ['condor', 'turkeyVulture', 'raven', 'coyote'] %>
+    <% for animal in POSSIBLE_ANIMALS: %>
       <label><%- translate 'button', "animals.#{animal}.label", name: 'choose-animal', value: animal %></label>
     <% end %>
   </section>
@@ -41,10 +42,10 @@
     </label>
 
     <div>
-      <%- translate 'span', 'classifier.dots' %>
-      <button name="dots" value="0">&times;</button>
-      <% for i in [0...5]: %>
-        <button name="dots" value="<%= i %>" /><%= i %></button>
+      <%- translate 'span', 'classifier.dots' %>&emsp;
+      <%- translate 'button', '×', value: 0, title: 'classifier.none' %>
+      <% for i in [1..5]: %>
+        <button name="dots" value="<%= i %>" title="(<%= i %>)">•</button>
       <% end %>
     </div>
 

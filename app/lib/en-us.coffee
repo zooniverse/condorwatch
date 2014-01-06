@@ -62,6 +62,7 @@ module.exports =
       blue: 'Blue'
       purple: 'Purple'
     dots: 'Dots'
+    none: '(None)'
     underlined: 'Underlined'
 
     estimateProximity: 'Estimate how close this condor is to the carcass or scale, relative to the other condors.'

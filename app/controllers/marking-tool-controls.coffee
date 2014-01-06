@@ -20,7 +20,7 @@ class MarkingToolControlsController extends BaseController
     '.selected-animal-label': 'selectedAnimalLabel'
     '[name="choose-animal"]': 'animalChoiceButtons'
     'input[name="tag"]': 'tagInput'
-    'input[name="cant-see-tag"]': 'cantSeeTagCheckbox'
+    'button[name="dots"]': 'dotsButtons'
     'input[name="proximity"]': 'proximityInput'
     'input[name="is-on-carcass"]': 'isOnCarcassRadios'
 
@@ -48,9 +48,9 @@ class MarkingToolControlsController extends BaseController
         when 'tag'
           @tagInput.val value
 
-        when 'cantSeeTag'
-          @tagInput.prop 'disabled', value
-          @cantSeeTagCheckbox.prop 'checked', value
+        when 'dots'
+          @dotsButtons.removeClass 'selected'
+          @dotsButtons.slice(0, value + 1).addClass 'selected'
 
         when 'proximity'
           @proximityInput.val value
@@ -75,8 +75,8 @@ class MarkingToolControlsController extends BaseController
     'input input[name="tag"]': (e) ->
       @tool.mark.set 'tag', e.currentTarget.value
 
-    'change input[name="cant-see-tag"]': (e) ->
-      @tool.mark.set 'cantSeeTag', e.currentTarget.checked
+    'click button[name="dots"]': (e) ->
+      @tool.mark.set 'dots', parseFloat e.currentTarget.value
 
     'change input[name="proximity"]': (e) ->
       @tool.mark.set 'proximity', e.currentTarget.value
