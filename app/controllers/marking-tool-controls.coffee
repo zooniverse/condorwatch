@@ -1,5 +1,6 @@
 {ToolControls} = require 'marking-surface'
 BaseController = require 'zooniverse/controllers/base-controller'
+Dropdown = require 'zooniverse/controllers/dropdown'
 FauxRangeInput = require 'faux-range-input'
 translate = require 't7e'
 
@@ -29,6 +30,11 @@ class MarkingToolControlsController extends BaseController
 
     fauxRangeInputs = FauxRangeInput.find @el.get 0
     @on 'destroy', -> fauxRangeInputs.shift().destroy() until fauxRangeInputs.length is 0
+
+    @colorMenu = new Dropdown
+      button: @el.find('button[name="color-toggle"]').get 0
+      menu: @el.find('.color-menu').get 0
+    @on 'destroy', => @colorMenu.destroy()
 
     @tool.mark.on 'change', (property, value) =>
       switch property
