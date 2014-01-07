@@ -1,5 +1,6 @@
 {ToolControls} = require 'marking-surface'
 BaseController = require 'zooniverse/controllers/base-controller'
+$ = window.jQuery
 Dropdown = require 'zooniverse/controllers/dropdown'
 FauxRangeInput = require 'faux-range-input'
 translate = require 't7e'
@@ -32,9 +33,13 @@ class MarkingToolControlsController extends BaseController
     @on 'destroy', -> fauxRangeInputs.shift().destroy() until fauxRangeInputs.length is 0
 
     @colorMenu = new Dropdown
-      button: @el.find('button[name="color-toggle"]').get 0
-      menu: @el.find('.color-menu').get 0
+      button: @el.find('button[name="tag-color-toggle"]').get 0
+      menu: @el.find('.tag-color-menu').get 0
     @on 'destroy', => @colorMenu.destroy()
+
+    $(@colorMenu.menu).on 'click button[name="tag-color"]', (e) =>
+      @tool.mark.set 'color', e.target.value || null
+      @colorMenu.close()
 
     @tool.mark.on 'change', (property, value) =>
       switch property
@@ -54,9 +59,12 @@ class MarkingToolControlsController extends BaseController
         when 'tag'
           @tagInput.val value
 
+        when 'color'
+          # TODO: Display the color.
+
         when 'dots'
           @dotsButtons.removeClass 'selected'
-          @dotsButtons.slice(0, value + 1).addClass 'selected'
+          @dotsButtons.slice(0, value).addClass 'selected'
 
         when 'proximity'
           @proximityInput.val value

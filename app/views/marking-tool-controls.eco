@@ -33,14 +33,14 @@
 
     <label>
       <%- translate 'span', 'classifier.color' %>
-      <%- translate 'button', 'classifier.color', name: 'color-toggle' %>
-      <div class="color-menu">
+      <%- translate 'button', 'classifier.color', name: 'tag-color-toggle' %>
+      <div class="tag-color-menu">
         <% POSSIBLE_TAG_COLORS = ['black', 'white', 'red', 'orange', 'yellow', 'green', 'blue', 'purple'] %>
         <% for tagColor, i in POSSIBLE_TAG_COLORS: %>
-          <%- translate 'button', "classifier.colors.#{tagColor}", name: 'color', value: tagColor, title: "classifier.colors.#{tagColor}" %>
+          <%- translate 'button', "classifier.colors.#{tagColor}", name: 'tag-color', value: tagColor, title: "classifier.colors.#{tagColor}" %>
           <% if (i + 1) % 3 is 0: %><span class="set-of-three"></span><% end %>
         <% end %>
-        <%- translate 'button', '&times;', name: 'color', value: '', title: "classifier.colors.clear" %>
+        <%- translate 'button', '&times;', name: 'tag-color', value: '', title: "classifier.colors.clear" %>
       </div>
     </label>
 
