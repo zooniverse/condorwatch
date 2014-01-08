@@ -32,8 +32,10 @@
     </label>
 
     <label>
-      <%- translate 'span', 'classifier.color' %>
-      <%- translate 'button', 'classifier.color', name: 'tag-color-toggle' %>
+      <button name="tag-color-toggle">
+        <%- translate 'span', 'classifier.color' %>
+        <span class="tag-color-swatch"></span>
+      </button>
       <div class="tag-color-menu">
         <% POSSIBLE_TAG_COLORS = ['black', 'white', 'red', 'orange', 'yellow', 'green', 'blue', 'purple'] %>
         <% for tagColor, i in POSSIBLE_TAG_COLORS: %>

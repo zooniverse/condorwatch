@@ -1,3 +1,7 @@
+// TODO: Update haw's version of stylus and use a hash.
+TAG_COLOR_NAMES = 'black' 'white' 'red' 'orange' 'yellow' 'green' 'blue' 'purple'
+TAG_COLORS = black white red orange yellow green blue purple
+
 .marking-tool-controls
   ARROW_SIZE = 10
 
@@ -146,6 +150,23 @@
     &.selected
       opacity: 1
 
+  button[name="tag-color-toggle"]
+    @extends #_STANDARD_BUTTON
+    background: white
+
+    .tag-color-swatch
+      border: 1px solid gray
+      border-radius 50%
+      display: inline-block
+      height: 1em
+      margin-left: 2px
+      vertical-align: middle
+      width: 1em
+
+    for name, i in TAG_COLOR_NAMES
+      &[data-tag-color={s('"%s"', unquote(name))}] .tag-color-swatch
+        background: TAG_COLORS[i]
+
 .tag-color-menu
   background: rgba(white, 0.9)
   border-radius: 3px
@@ -162,38 +183,17 @@
     overflow: hidden
     width: 2em
 
-    &[value="black"]
-      background: rgba(black, 0.9)
+    for name, i in TAG_COLOR_NAMES
+      &[value={s('"%s"', unquote(name))}]
+        background: rgba(TAG_COLORS[i], 0.9)
 
     &[value="white"]
-      background: rgba(white, 0.9)
       border-color: rgba(gray, 0.5)
-
-    &[value="red"]
-      background: rgba(red, 0.9)
-
-    &[value="orange"]
-      background: rgba(orange, 0.9)
-
-    &[value="yellow"]
-      background: rgba(yellow, 0.9)
-
-    &[value="green"]
-      background: rgba(green, 0.9)
-
-    &[value="blue"]
-      background: rgba(blue, 0.9)
-
-    &[value="purple"]
-      background: rgba(purple, 0.9)
-
-    &[value=""]
-      color: inherit
 
     &:hover
       border-color: BLUEISH
 
-    &.active
+    &.selected
       border-color: black
 
   .set-of-three

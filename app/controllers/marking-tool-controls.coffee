@@ -22,6 +22,8 @@ class MarkingToolControlsController extends BaseController
     '.selected-animal-label': 'selectedAnimalLabel'
     '[name="choose-animal"]': 'animalChoiceButtons'
     'input[name="tag"]': 'tagInput'
+    'button[name="tag-color-toggle"]': 'tagColorToggle'
+    'button[name="tag-color"]': 'tagColorButtons'
     'button[name="dots"]': 'dotsButtons'
     'input[name="proximity"]': 'proximityInput'
     'input[name="is-on-carcass"]': 'isOnCarcassRadios'
@@ -60,7 +62,12 @@ class MarkingToolControlsController extends BaseController
           @tagInput.val value
 
         when 'color'
-          # TODO: Display the color.
+          @tagColorButtons.removeClass 'selected'
+          if value?
+            @tagColorToggle.attr 'data-tag-color', value
+            @tagColorButtons.filter("[value='#{value}']").addClass 'selected'
+          else
+            @tagColorToggle.attr 'data-tag-color', null
 
         when 'dots'
           @dotsButtons.removeClass 'selected'
