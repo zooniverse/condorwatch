@@ -48,9 +48,9 @@
 
     <div>
       <%- translate 'span', 'classifier.dots' %>&emsp;
-      <%- translate 'button', '×', value: 0, title: 'classifier.none' %>
+      <%- translate 'button', '×', name: 'dots', value: 0, title: 'classifier.none' %>
       <% for i in [1..5]: %>
-        <button name="dots" value="<%= i %>" title="(<%= i %>)">•</button>
+        <button name="dots" value="<%= i %>" title="(<%= i %>)" class="some-dots"><%= i %></button>
       <% end %>
     </div>
 

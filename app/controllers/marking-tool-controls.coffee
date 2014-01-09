@@ -71,7 +71,7 @@ class MarkingToolControlsController extends BaseController
 
         when 'dots'
           @dotsButtons.removeClass 'selected'
-          @dotsButtons.slice(0, value).addClass 'selected'
+          @dotsButtons.slice(0, value + 1).addClass 'selected'
 
         when 'proximity'
           @proximityInput.val value

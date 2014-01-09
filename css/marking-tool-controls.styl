@@ -8,16 +8,13 @@ TAG_COLORS = black white red orange yellow green blue purple
   background: rgba(#fff, 0.8)
   border-radius: 5px
   box-shadow: 0 3px 10px rgba(#000, 0.5)
-  display: none
+  display: block
   font-size: 12px
   text-align: center
   transition:
-    margin-left 0.67s ease-in-out, // Faux-easing
-    transform 0.5s ease-in-out
+    margin-left 0.67s, // Faux-easing
+    transform 0.125s
   width: 300px
-
-  &.tool-selected
-    display: block
 
   &:before
     border: unit(ARROW_SIZE, px) solid transparent
@@ -28,21 +25,29 @@ TAG_COLORS = black white red orange yellow green blue purple
 
   &.opens-right
     margin-left: 50px
-    transform: translate(0, -50%)
+    transform: translate(-10%, -50%) scale(0.5, 0.001)
+    transform-origin: 0 50%
 
     &:before
       border-right-color: rgba(#fff, 0.8)
       border-left-width: 0
       right: 100%
 
+    &.tool-selected
+      transform: translate(0, -50%) scale(1, 1)
+
   &.opens-left
     margin-left: -50px
-    transform: translate(-100%, -50%)
+    transform: translate(-90%, -50%) scale(0.5, 0.001)
+    transform-origin: 100% 50%
 
     &:before
       border-left-color: rgba(#fff, 0.8)
       border-right-width: 0
       left: 100%
+
+    &.tool-selected
+      transform: translate(-100%, -50%) scale(1, 1)
 
   .marking-tool-controls-controller
     transition: height 0.25s ease-in-out;
@@ -142,20 +147,29 @@ TAG_COLORS = black white red orange yellow green blue purple
     display: block
 
   button[name="dots"]
-    line-height: 1
-    opacity: 0.5
-    padding: 2px 3px
+    height: 1em
+    margin: 0 3px
+    width: 1em
 
-    &[value="0"],
-    &.selected
-      opacity: 1
+    &.some-dots
+      border: 2px solid gray
+      border-radius: 50%
+      color: transparent
+      overflow: hidden
+      vertical-align: middle
+
+      &.selected
+        border-color: black
+        background: black
+        opacity: 1
 
   button[name="tag-color-toggle"]
     @extends #_STANDARD_BUTTON
     background: white
 
     .tag-color-swatch
-      border: 1px solid gray
+      background-image: linear-gradient(top left, 45% transparent, 45% gray, 55% gray, 55% transparent)
+      border: 2px solid gray
       border-radius 50%
       display: inline-block
       height: 1em
@@ -187,8 +201,13 @@ TAG_COLORS = black white red orange yellow green blue purple
       &[value={s('"%s"', unquote(name))}]
         background: rgba(TAG_COLORS[i], 0.9)
 
-    &[value="white"]
+    &[value="white"],
+    &[value=""]
       border-color: rgba(gray, 0.5)
+
+    &[value=""]
+      border-width: 2px
+      color: inherit
 
     &:hover
       border-color: BLUEISH
