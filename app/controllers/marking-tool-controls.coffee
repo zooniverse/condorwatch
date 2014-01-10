@@ -25,6 +25,7 @@ class MarkingToolControlsController extends BaseController
     'button[name="tag-color-toggle"]': 'tagColorToggle'
     'button[name="tag-color"]': 'tagColorButtons'
     'button[name="dots"]': 'dotsButtons'
+    'input[name="underlined"]': 'underlinedCheckbox'
     'input[name="proximity"]': 'proximityInput'
     'input[name="is-on-carcass"]': 'isOnCarcassRadios'
 
@@ -55,6 +56,9 @@ class MarkingToolControlsController extends BaseController
             @tool.mark.set 'isOnCarcass', null
           else
             @tool.mark.set 'label', null
+            @tool.mark.set 'color', null
+            @tool.mark.set 'dots', null
+            @tool.mark.set 'underlined', null
             @tool.mark.set 'proximity', null
 
         when 'tag'
@@ -71,6 +75,9 @@ class MarkingToolControlsController extends BaseController
         when 'dots'
           @dotsButtons.removeClass 'selected'
           @dotsButtons.slice(0, value + 1).addClass 'selected'
+
+        when 'underlined'
+          @underlinedCheckbox.prop 'checked', value
 
         when 'proximity'
           @proximityInput.val value
@@ -97,6 +104,9 @@ class MarkingToolControlsController extends BaseController
 
     'click button[name="dots"]': (e) ->
       @tool.mark.set 'dots', parseFloat e.currentTarget.value
+
+    'change input[name="underlined"]': (e) ->
+      @tool.mark.set 'underlined', @underlinedCheckbox.prop 'checked'
 
     'change input[name="proximity"]': (e) ->
       @tool.mark.set 'proximity', e.currentTarget.value
