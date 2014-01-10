@@ -1,452 +1,453 @@
-id	year	label	color	dots	underline
-21	2008	21	white		
-21	2009	21	orange		
-21	2010	21	orange		
-21	2011	21	orange		
-21	2012	21	orange		
-21	2013	21	orange		
-63	2011	63	orange		
-63	2012	63	orange		
-63	2013	63	orange		
-79	2008	79	black		
-79	2009	79	orange		
-79	2010	79	orange		
-79	2011	79	orange		
-79	2012	79	orange		
-79	2013	79	orange		
-98	2008	98	orange		
-98	2009	98	orange		
-98	2010	98	orange		
-98	2011	98	orange		
-98	2012	98	orange		
-98	2013	98	orange		
-107	2008	7	red	1	
-107	2009	7	red		
-107	2010	7	red		
-107	2011	7	red		
-107	2012	7	red		
-107	2013	7	red		
-111	2008	11	red	1	
-111	2009	11	red		
-111	2010	11	red		
-111	2011	11	red		
-111	2012	11	red		
-111	2013	11	red		
-112	2010	12	red		
-112	2011	12	red		
-112	2012	12	black	1	
-112	2013	12	black	1	
-125	2008	25	yellow	1	
-125	2009	25	red		
-125	2010	25	red		
-125	2011	25	red		
-125	2012	25	red		
-125	2013	25	red		
-137	2012	37	red		
-147	2012	47	red		
-147	2013	47	red		
-156	2008	56	green	1	
-156	2009	56	black	1	
-156	2010	56	red		
-156	2011	56	orange		
-156	2012	56	red		
-156	2013	56	red		
-161	2008	61	blue	1	
-161	2009	61	red		
-161	2010	61			
-161	2011	61	red		
-161	2012	61	red		
-161	2013	61			
-167		67	red		
-168		68	red		
-171		71	red		
-180	2009	80	red		
-180	2010	80	red		
-180	2011	80	red		
-180	2012	80	red		
-180	2013	80	red		
-190		90	red		
-192	2008	92	yellow	1	
-192	2009	92	red		
-192	2010	92	red		
-192	2011	92	red		
-192	2012	92	red		
-192	2013	92	red		
-194		94	red		
-199		99	red		
-204		4	yellow		
-206	2008	6	yellow	2	
-206	2009	6	yellow		
-206	2010	6	yellow		
-206	2011	6	yellow		
-206	2012	6	yellow		
-206	2013	6	yellow		
-208		8	yellow		
-209		9	yellow		
-213	2008	13	yellow	2	
-213	2009	13	yellow		
-213	2010	13	yellow		
-213	2011	13	yellow		
-214	2008	14	yellow	2	
-214	2009	14	yellow		
-214	2010	14	yellow		
-214	2011	14	yellow		
-216	2008	16	yellow	2	
-216	2009	16	yellow		
-216	2010	16	yellow		
-216	2011	16	yellow		
-216	2012	16	yellow		
-216	2013	16	yellow		
-219		19	yellow		
-222		22	yellow		
-231		31	yellow		
-236		36	yellow		
-237	2008	37	white	2	
-237	2009	37	yellow		
-237	2010	37	yellow		
-237	2011	37	yellow		
-237	2012	37	yellow		
-237	2013	37	yellow		
-238	2008	38	white	2	
-239	2008	39	white	2	
-239	2009	39	yellow		
-239	2010	39	yellow		
-239	2011	39	yellow		
-239	2012	39	yellow		
-239	2013	39	yellow		
-242		42	yellow		
-247	2008	47	white	2	
-247	2009	47	yellow		
-247	2010	47	yellow		
-247	2011	47	yellow		
-247	2012	47	yellow		
-247	2013	47	yellow		
-251		51	yellow		
-255	2008	55	white	2	
-255	2009	55	yellow		
-255	2010	55	yellow		
-255	2011	55	yellow		
-255	2012	55	yellow		
-255	2013	55	yellow		
-262	2008	62	white	2	
-262	2009	62	yellow		
-262	2010	62	yellow		
-262	2011	62	yellow		
-262	2012	62	yellow		
-262	2013	62	yellow		
-278		78	yellow		
-286		86	yellow		
-289	2008	89	red	2	
-289	2009	89	yellow		
-289	2010	89	yellow		
-289	2011	89	yellow		
-289	2012	89	yellow		
-289	2013	89	yellow		
-294		94	yellow		
-298		98	yellow		
-301		1	black		
-303		3	black		
-306	any	6	black		
-306	any	6	black	3	
-307	any	7			
-307	any	7			
-310		10			
-311		11	blue		
-312	any	12	black		
-312	any	12	black	3	
-313		13			
-317	any	17	black		
-317	any	17	black	3	
-318		18	black		
-326	2008	26	black	3	
-326	2009	26	blue		
-326	2010	26	blue		
-326	2011	26	blue		
-326	2012	26	blue		
-326	2013	26	blue		
-328	2008	28	black	3	
-328	2009	28	blue		
-328	2010	28	blue		
-328	2011	28	blue		
-328	2012	28	blue		
-328	2013	28	blue		
-330		30			
-332		32			
-335		35			
-336	any	36	black		
-336	any	36	black	3	
-340		40			
-345		45			
-351	any	51	black		
-351	any	51	black	3	
-358	2008	58	black	3	
-358	2009	58	black	3	
-360	2008	60	black	3	
-360	2009	60	blue		
-360	2010	60	blue		
-360	2011	60	blue		
-360	2012	60	blue		
-360	2013	60	blue		
-364	2008	64	black	3	
-364	2009	64	blue		
-364	2010	64	blue		
-364	2011	64	blue		
-365	2008	65	black	3	
-365	2009	65	blue		
-365	2010	65	blue		
-365	2011	65	blue		
-365	2012	65	blue		
-365	2013	65	blue		
-369	2008	69	black	3	
-369	2009	69	blue		
-369	2010	69	blue		
-369	2011	69	blue		
-369	2012	69	blue		
-369	2013	69	blue		
-370	2008	70	black	3	
-370	2009	70	blue		
-370	2010	70	blue		
-370	2011	70	blue		
-370	2012	70	blue		
-370	2013	70	blue		
-374	2008	74	black	3	
-374	2009	74	blue		
-374	2010	74	blue		
-374	2011	74	blue		
-374	2012	74	blue		
-374	2013	74	blue		
-375		75	blue		
-377		77	blue		
-397	2008	97	black	3	
-397	2009	97	blue		
-397	2010	97	blue		
-400	any	0			
-400	any	0			
-401	any	1	black		1
-401	any	1	white		
-402	2008	2	black	4	
-405	any	5			
-405	any	5			
-408	2008	8	black	4	
-408	2009	8	white		
-408	2010	8	white		
-411	any	11	black		1
-411	any	11	white		
-412	2008	12	black	4	
-412	2009	12	white		
-412	2010	12	white		
-417		-7	black		1
-418	any	-8	black		1
-418	any	18	white		
-418	any	18	black	4	
-418	any	18	black		1
-421		21			
-422		22	black		1
-428	2008	28	white	4	
-428	2009	28	white		
-428	2010	28	white		
-428	2011	28	white		
-428	2012	28	white		
-428	2013	28	white		
-431	any	31	black		1
-431	any	31	white		
-438	any	38	black		1
-438	any	38	white		
-444		44	white		
-448		48			
-449	2008	49	white	4	
-449	2009	49	white		
-449	2010	49	white		
-449	2011	49	white		
-449	2012	49	white		
-449	2013	49	white		
-450	2008	50	white	4	
-451	any	51	white		
-451	any		black		
-451	any	V1	black		1
-452	2008	52	black	4	
-452	2009	52	white		
-452	2010	52	white		
-452	2011	52	white		
-452	2012	52	white		
-452	2013	52	white		
-457	2008	57	black	4	
-457	2009	57	white		
-457	2010	57	white		
-457	2011	57	white		
-457	2012	57	white		
-457	2013	57	white		
-458	2008	58	black	4	
-458	2009	58	white		
-458	2010	58	white		
-460		60			
-462	2008	62	black	4	
-462	2009	62	white		
-462	2010	62	white		
-462	2011	62	white		
-462	2012	62	white		
-462	2013	62	white		
-463		63			
-467	2009	67	white		
-467	2010	67	white		
-467	2011	67	white		
-467	2012	67	white		
-467	2013	67	white		
-470		70	white		
-474	2008	2 HUYA	black		
-474	2008	2 HUYA	black		
-475		75	white		
-477		77	white		
-478	any	78	black		1
-478	any	78	white		
-480	2009	80	white		
-480	2010	80	white		
-480	2011	80	white		
-480	2012	80	white		
-480	2013	80	white		
-481		81			
-482	2009	82	black		
-482	2010	82	white		
-482	2011	82	white		
-482	2012	82	white		
-482	2013	82	white		
-483	2010	83	white		
-483	2011	83	white		
-483	2012	83	white		
-483	2013	83	white		
-483	2009	3 FW	white		
-487	2009	87	white		
-487	2010	87	white		
-487	2011	87	white		
-487	2012	87	white		
-487	2013	87	white		
-489	2008	4	black	4	
-489	2009	89	white		
-489	2010	89	white		
-489	2011	89	white		
-489	2012	89	white		
-489	2013	89	white		
-493	2008	5	black	5	
-493	2009	93	white		
-493	2010	93	white		
-493	2011	93	white		
-493	2012	93	white		
-493	2013	93	white		
-499		99	white		
-501		1	black		
-507	2010	7	black		
-507	2011	7	black		
-507	2012	7	black		
-507	2013	7	black		
-509	2009	9	black		
-509	2010	9	black		
-509	2011	9	black		
-509	2012	9	black		
-509	2013	9	black		
-511	2010	11	black		
-512	2011	12	black		
-512	2012	12	black		
-513	2010	13	black		
-513	2011	13	black		
-513	2012	13	black		
-513	2013	13	black		
-514	any	14			
-514	any	14			
-514	any	A4			
-518	2010	18	black		
-518	2011	18	black		
-518	2012	18	black		
-518	2013	18	black		
-525		25			
-526	2009	26	black		
-526	2010	26	black		
-526	2011	26	black		
-526	2012	26	black		
-526	2013	26	black		
-532	2010	32	black		
-534		34			
-536	2010	36	black		
-536	2011	36	black		
-536	2012	36	black		
-536	2013	36	black		
-538		38	black		
-542	2010	42	black		
-542	2011	42	black		
-542	2012	42	black		
-542	2013	42	black		
-543		43			
-547		47			
-550		50			
-559		59	black		
-560	2010	60	black		
-560	2011	60	black		
-560	2012	60	black		
-560	2013	60	black		
-563	2011	63	black		
-563	2012	63	black		
-563	2013	63	black		
-564		64			
-566		66	black		
-567		67	black		
-568	2011	68	black		
-568	2012	68	black		
-568	2013	68	black		
-569		69	black		
-570	2011	70	black		
-570	2012	70	black		
-570	2013	70	black		
-574		74	black		
-576	2011	76	black		
-576	2012	76	black		
-576	2013	76	black		
-583		83	black		
-584	2011	84	black		
-584	2012	84	black		
-584	2013	84	black		
-585	2011	85	black		
-585	2012	85	black		
-585	2013	85	black		
-588		88			
-589		89			
-590	2012	90	black		
-590	2013	90	black		
-591	2012	91	black		
-591	2013	91	black		
-594	2012	94	black		
-594	2013	94	black		
-596	2012	96	blue		
-596	2013	96	blue		
-597		97	black		
-598		98	black		
-599	2011	99	black		
-599	2012	99	black		
-599	2013	99	black		
-602		2			
-604	2012	4	purple		
-604	2013	4	purple		
-606		6	black	1	
-615		15	purple		
-616	2011	16	black		
-616	2012	16	purple		
-616	2013	16	purple		
-625	2012	25	purple		
-625	2013	25	purple		
-626		26			
-627	2011	27	black		
-627	2012	27	purple		
-627	2013	27	purple		
-630	2011	30	black		
-630	2012	30	purple		
-630	2013	30	purple		
-644		44			
-648	2012	48	black		
-648	2013	48	black		
-654	2012	54	black		
-654	2013	54	black		
-658	2012	58	black		
-658	2013	58	black		
-663		63	purple		
-664		664	purple		
-665			yellow		
-670	2012	70	black		
-670	2013	70	black		
+					Tag Details							
+Studbook	Year	Vinyl Tag ID	Tag Color	Shapes/Patterns on tag	L-tag color	R- tag color	L-wing transmitter	R-wing transmitter	Data source	Other Notes	Bio data compiled?	
+21	2008	21	White	None	White	No tag	None	None	Socal		Yes	
+21	2009	21	Orange	None	Orange	No tag	GPS	None	Socal		Yes	
+21	2010	21	Orange	None	No tag	Orange	None	GPS	Socal		Yes	
+21	2011	21	Orange	None	No tag	Orange	None	GPS	Socal		Yes	
+21	2012	21	Orange	None	No tag	Orange	None	GPS	Socal		Yes	
+21	2013	21	Orange	None	No tag	Orange	None	GPS	Socal		Yes	
+63	2011	63	Orange	None	No tag	Orange	None	GPS	Socal		Yes	
+63	2012	63	Orange	None	No tag	Orange	None	GPS	Socal		Yes	
+63	2013	63	Orange	None	No tag	Orange	None	GPS	Socal		Yes	
+79	2008	79	Black	None	Black	No tag	GPS	None	Socal		Yes	
+79	2009	79	Orange	None	Orange	No tag	GPS	None	Socal		Yes	
+79	2010	79	Orange	None	Orange	No tag	GPS	None	Socal		Yes	
+79	2011	79	Orange	None	Orange	No tag	GPS	None	Socal		Yes	
+79	2012	79	Orange	None	Orange	No tag	GPS	None	Socal		Yes	
+79	2013	79	Orange	None	Orange	No tag	GPS	None	Socal		Yes	
+98	2008	98	Orange	None	No tag	Orange	None	None	Socal		Yes	
+98	2009	98	Orange	None	Orange	No tag	None	GPS	Socal		Yes	
+98	2010	98	Orange	None	No tag	Orange	None	GPS	Socal		Yes	
+98	2011	98	Orange	None	No tag	Orange	None	GPS	Socal		Yes	
+98	2012	98	Orange	None	No tag	Orange	None	GPS	Socal		Yes	
+98	2013	98	Orange	None	No tag	Orange	None	GPS	Socal		Yes	
+107	2008	7	Red	1 dot	Red	Red	GPS	None	Socal		Yes	
+107	2009	7	Red	None	Red	Red	GPS	None	Socal		Yes	
+107	2010	7	Red	None	Red	Red	GPS	None	Socal		Yes	
+107	2011	7	Red	None	Red	No tag	GPS	None	Socal		Yes	
+107	2012	7	Red	None	Red	No tag	GPS	None	Socal		Yes	
+107	2013	7	Red	None	Red	No tag	GPS	None	Socal		Yes	
+111	2008	11	Red	1 dot	No tag	Red	None	None	Socal		Yes	
+111	2009	11	Red	None	No tag	Red	None	None	Socal		Yes	
+111	2010	11	Red	None	Red	Red	None	None	Socal		Yes	
+111	2011	11	Red	None	Red	No tag	None	None	Socal		Yes	
+111	2012	11	Red	None	Red	No tag	None	None	Socal		Yes	
+111	2013	11	Red	None	Red	No tag	None	None	Socal		Yes	
+112	2010	12	Red	None	No tag	Red	None	GPS	Socal		Yes	
+112	2011	12	Red	None	No tag	Red	None	GPS	Socal		Yes	
+112	2012	12	Black	1 dot			NA	NA	PNP		Yes	
+112	2013	12	Black	1 dot			NA	NA	PNP		Yes	
+125	2008	25	Yellow	1 dot	No tag	Yellow	None	Sat	Socal		Yes	
+125	2009	25	Red	None	No tag	Red	None	None	Socal		Yes	
+125	2010	25	Red	None	No tag	Red	None	None	Socal		Yes	
+125	2011	25	Red	None	No tag	Red	None	None	Socal		Yes	
+125	2012	25	Red	None	No tag	Red	None	None	Socal		Yes	
+125	2013	25	Red	None	No tag	Red	None	None	Socal		Yes	
+137	2012	37	Red	None	No tag	Red	None	GPS	Socal		Yes	
+147	2012	47	Red	None	No tag	Red	None	GPS	Socal		Yes	
+147	2013	47	Red	None	No tag	Red	GPS	None	Socal		Yes	
+156	2008	56	Green	1 dot	No tag	Green	None	GPS	Socal		Yes	
+156	2009	56	Black	1 dot	NA	NA	None	NA	Socal		Yes	
+156	2010	56	Red	None	Red	Red	None	GPS	Socal		Yes	
+156	2011	56	Orange	None	No tag	Orange	None	None	Socal		Yes	
+156	2012	56	Red	None	No tag	Red	None	GPS	Socal		Yes	
+156	2013	56	Red	None	No tag	Red	None	GPS	Socal		Yes	
+161	2008	61	Blue	1 dot	Blue	Blue	GPS	None	Socal		Yes	
+161	2009	61	Red	None	Red	No tag	GPS	None	Socal		Yes	
+161	2010	61	NA	None	No tag	No tag	None	None	Socal		Yes	
+161	2011	61	Red	None	No tag	Red	None	GPS	Socal		Yes	
+161	2012	61	Red	None	No tag	Red	None	GPS	Socal		Yes	
+161	2013	61	NA	None	No tag	No tag	None	None	Socal		Yes	
+167	all	67	Red	None	No tag	Red	NA	NA	VWS		Yes	
+168	all	68	Red	None	Red	No tag	NA	NA	VWS		Yes	
+171	all	71	Red	None	Red	No tag	NA	NA	VWS		Yes	
+180	2009	80	Red	None	Red	No tag	GPS	None	Socal		Yes	
+180	2010	80	Red	None	Red	No tag	GPS	None	Socal		Yes	
+180	2011	80	Red	None	Red	No tag	GPS	None	Socal		Yes	
+180	2012	80	Red	None	Red	No tag	GPS	None	Socal		Yes	
+180	2013	80	Red	None	Red	No tag	None	None	Socal		Yes	
+190	all	90	Red	None	Red	No tag	NA	NA	VWS		Yes	
+192	2008	92	Yellow	1 dot	Yellow	Yellow	GPS	None	Socal		Yes	
+192	2009	92	Red	None	Red	No tag	GPS	None	Socal		Yes	
+192	2010	92	Red	None	Red	No tag	GPS	None	Socal		Yes	
+192	2011	92	Red	None	Red	No tag	GPS	None	Socal		Yes	
+192	2012	92	Red	None	Red	No tag	GPS	None	Socal		Yes	
+192	2013	92	Red	None	Red	No tag	GPS	None	Socal		Yes	
+194	all	94	Red	None	Red	Red	NA	NA	VWS		Yes	
+199	all	99	Red	None	Red	No tag	NA	NA	VWS		Yes	
+204	all	4	Yellow	None	Yellow	Yellow	NA	NA	VWS		Yes	
+206	2008	6	Yellow	2 dots	No tag	Yellow	None	None	Socal		Yes	
+206	2009	6	Yellow	None	Yellow	No tag	None	None	Socal		Yes	
+206	2010	6	Yellow	None	Yellow	No tag	None	None	Socal		Yes	
+206	2011	6	Yellow	None	Yellow	No tag	None	None	Socal		Yes	
+206	2012	6	Yellow	None	Yellow	No tag	None	None	Socal		Yes	
+206	2013	6	Yellow	None	Yellow	No tag	None	None	Socal		Yes	
+208	all	8	Yellow	None	Yellow	No tag	NA	NA	VWS		Yes	
+209	all	9	Yellow	None	Yellow	No tag	NA	NA	VWS		Yes	
+213	2008	13	Yellow	2 dots	Yellow	No tag	GPS	None	Socal		Yes	
+213	2009	13	Yellow	None	Yellow	No tag	None	None	Socal		Yes	
+213	2010	13	Yellow	None	Yellow	No tag	None	None	Socal		Yes	
+213	2011	13	Yellow	None	Yellow	No tag	None	None	Socal		Yes	
+214	2008	14	Yellow	2 dots	Yellow	Yellow	GPS	None	Socal		Yes	
+214	2009	14	Yellow	None	Yellow	No tag	None	None	Socal		Yes	
+214	2010	14	Yellow	None	No tag	Yellow	None	GPS	Socal		Yes	
+214	2011	14	Yellow	None	No tag	Yellow	None	GPS	Socal		Yes	
+216	2008	16	Yellow	2 dots	Yellow	Yellow	None	None	Socal		Yes	
+216	2009	16	Yellow	None	Yellow	Yellow	None	None	Socal		Yes	
+216	2010	16	Yellow	None	Yellow	No tag	None	None	Socal		Yes	
+216	2011	16	Yellow	None	Yellow	No tag	None	None	Socal		Yes	
+216	2012	16	Yellow	None	Yellow	No tag	None	None	Socal		Yes	
+216	2013	16	Yellow	None	Yellow	No tag	None	None	Socal		Yes	
+219	all	19	Yellow	None	Yellow	Yellow	NA	NA	VWS		Yes	
+222	all	22	Yellow	None	No tag	Yellow	NA	NA	VWS		Yes	
+231	all	31	Yellow	None	Yellow	Yellow	NA	NA	VWS		Yes	
+236	all	36	Yellow	None	No tag	Yellow	NA	NA	VWS		Yes	
+237	2008	37	White	2 dots	White	White	GPS	None	Socal		Yes	
+237	2009	37	Yellow	None	Yellow	Yellow	GPS	None	Socal		Yes	
+237	2010	37	Yellow	None	Yellow	No tag	GPS	None	Socal		Yes	
+237	2011	37	Yellow	None	Yellow	No tag	GPS	None	Socal		Yes	
+237	2012	37	Yellow	None	Yellow	No tag	GPS	None	Socal		Yes	
+237	2013	37	Yellow	None	Yellow	No tag	None	None	Socal		Yes	
+238	2008	38	White	2 dots	White	No tag	GPS	None	Socal		Yes	
+239	2008	39	White	2 dots	White	White	None	None	Socal		Yes	
+239	2009	39	Yellow	None	Yellow	Yellow	None	None	Socal		Yes	
+239	2010	39	Yellow	None	Yellow	Yellow	None	None	Socal		Yes	
+239	2011	39	Yellow	None	Yellow	Yellow	None	None	Socal		Yes	
+239	2012	39	Yellow	None	Yellow	No tag	None	None	Socal		Yes	
+239	2013	39	Yellow	None	Yellow	No tag	None	None	Socal		Yes	
+242	all	42	Yellow	None	No tag	Yellow	NA	NA	VWS		Yes	
+247	2008	47	White	2 dots	White	White	GPS	None	Socal		Yes	
+247	2009	47	Yellow	None	Yellow	Yellow	GPS	None	Socal		Yes	
+247	2010	47	Yellow	None	Yellow	No tag	GPS	None	Socal		Yes	
+247	2011	47	Yellow	None	Yellow	No tag	GPS	None	Socal		Yes	
+247	2012	47	Yellow	None	Yellow	No tag	GPS	None	Socal		Yes	
+247	2013	47	Yellow	None	Yellow	No tag	GPS	None	Socal		Yes	
+251	all	51	Yellow	None	No tag	Yellow	NA	NA	VWS		Yes	
+255	2008	55	White	2 dots	White	No tag	None	None	Socal		Yes	
+255	2009	55	Yellow	None	No tag	Yellow	None	GPS	Socal		Yes	
+255	2010	55	Yellow	None	No tag	Yellow	None	GPS	Socal		Yes	
+255	2011	55	Yellow	None	No tag	Yellow	None	GPS	Socal		Yes	
+255	2012	55	Yellow	None	No tag	Yellow	None	GPS	Socal		Yes	
+255	2013	55	Yellow	None	Yellow	No tag	GPS	None	Socal		Yes	
+262	2008	62	White	2 dots	White	No tag	None	None	Socal		Yes	
+262	2009	62	Yellow	None	No tag	Yellow	None	GPS	Socal		Yes	
+262	2010	62	Yellow	None	No tag	Yellow	None	None	Socal		Yes	
+262	2011	62	Yellow	None	No tag	Yellow	None	GPS	Socal		Yes	
+262	2012	62	Yellow	None	No tag	Yellow	None	GPS	Socal		Yes	
+262	2013	62	Yellow	None	No tag	Yellow	None	GPS	Socal		Yes	
+278	all	78	Yellow	NA	NA	NA	NA	NA	VWS		Yes	
+286	all	86	Yellow	NA	NA	NA	NA	NA	VWS		Yes	
+289	2008	89	Red	2 dots	No tag	Red	None	GPS	Socal		Yes	
+289	2009	89	Yellow	None	Yellow	No tag	None	None	Socal		Yes	
+289	2010	89	Yellow	None	Yellow	No tag	GPS	None	Socal		Yes	
+289	2011	89	Yellow	None	Yellow	No tag	GPS	None	Socal		Yes	
+289	2012	89	Yellow	None	Yellow	No tag	GPS	None	Socal		Yes	
+289	2013	89	Yellow	None	Yellow	No tag	GPS	None	Socal		Yes	
+294	All	94	Yellow	None	NA	NA	NA	NA	VWS		Yes	
+298	All	98	Yellow	None	NA	NA	NA	NA	VWS		Yes	
+301	All	01	Black	None	NA	NA	NA	NA	VWS		No	died May 2007
+303	All	03	Black	None	NA	NA	NA	NA	VWS		Yes	
+306	any	6	Black	None			NA	NA	PNP		Yes	
+306	any	06	Black	3 dots			NA	NA	PNP		Yes	
+307	any	7	NA	NA			NA	NA	PNP	Per PNP, these birds have unique final digits and thus shapes, patterns and colors are not needed to distinguish them (this appears to be true for Central CA flock only)	No	died May 2007
+307	any	07	NA	NA			NA	NA	PNP	Per PNP, these birds have unique final digits and thus shapes, patterns and colors are not needed to distinguish them (this appears to be true for Central CA flock only)	No	died May 2007
+310	all	10	NA	NA			NA	NA	PNP	Per PNP, these birds have unique final digits and thus shapes, patterns and colors are not needed to distinguish them (this appears to be true for Central CA flock only)	Yes	
+311	all	11	Blue	None	No tag	Blue	NA	NA	VWS		Yes	
+312	any	12	Black	None			NA	NA	PNP		Yes	
+312	any	12	Black	3 dots			NA	NA	PNP		Yes	
+313	all	13	NA	NA			NA	NA	PNP	Per PNP, these birds have unique final digits and thus shapes, patterns and colors are not needed to distinguish them (this appears to be true for Central CA flock only)	Yes	
+317	any	17	Black	None			NA	NA	PNP		Yes	
+317	any	17	Black	3 dots			NA	NA	PNP		Yes	
+318	All	18	Black	None	NA	NA	NA	NA	VWS		Yes	
+326	2008	26	Black	3 dots	No tag	Black	None	None	Socal		Yes	
+326	2009	26	Blue	None	Blue	No tag	GPS	None	Socal		Yes	
+326	2010	26	Blue	None	Blue	No tag	GPS	None	Socal		Yes	
+326	2011	26	Blue	None	Blue	No tag	GPS	None	Socal		Yes	
+326	2012	26	Blue	None	Blue	No tag	GPS	None	Socal		Yes	
+326	2013	26	Blue	None	Blue	No tag	GPS	None	Socal		Yes	
+328	2008	28	Black	3 dots	Black	No tag	GPS	None	Socal		Yes	
+328	2009	28	Blue	None	Blue	No tag	None	None	Socal		Yes	
+328	2010	28	Blue	None	Blue	No tag	None	None	Socal		Yes	
+328	2011	28	Blue	None	No tag	Blue	None	GPS	Socal		Yes	
+328	2012	28	Blue	None	No tag	Blue	None	GPS	Socal		Yes	
+328	2013	28	Blue	None	No tag	Blue	None	None	Socal		Yes	
+330	all	30	NA	NA			NA	NA	PNP	Per PNP, these birds have unique final digits and thus shapes, patterns and colors are not needed to distinguish them (this appears to be true for Central CA flock only)	Yes	
+332	all	32	NA	NA			NA	NA	PNP	Per PNP, these birds have unique final digits and thus shapes, patterns and colors are not needed to distinguish them (this appears to be true for Central CA flock only)	Yes	
+335	all	35	NA	NA			NA	NA	PNP	Per PNP, these birds have unique final digits and thus shapes, patterns and colors are not needed to distinguish them (this appears to be true for Central CA flock only)	Yes	
+336	any	36	Black	None			NA	NA	PNP		Yes	
+336	any	36	Black	3 dots			NA	NA	PNP		Yes	
+340	all	40	NA	NA			NA	NA	PNP	Per PNP, these birds have unique final digits and thus shapes, patterns and colors are not needed to distinguish them (this appears to be true for Central CA flock only)	Yes	
+345	all	45	NA	NA			NA	NA	PNP	Per PNP, these birds have unique final digits and thus shapes, patterns and colors are not needed to distinguish them (this appears to be true for Central CA flock only)	Yes	
+351	any	51	Black	None			NA	NA	PNP		Yes	
+351	any	51	Black	3 dots			NA	NA	PNP		Yes	
+358	2008	58	Black	3 dots	No tag	Black	None	None	Socal		Yes	
+358	2009	58	Black	3 dots	No tag	Black	None	None	Socal		Yes	
+360	2008	60	Black	3 dots	Black	No tag	None	None	Socal		Yes	
+360	2009	60	Blue	None	Blue	Blue	None	VHF	Socal		Yes	
+360	2010	60	Blue	None	Blue	No tag	None	None	Socal		Yes	
+360	2011	60	Blue	None	Blue	No tag	GPS	None	Socal		Yes	
+360	2012	60	Blue	None	Blue	No tag	GPS	None	Socal		Yes	
+360	2013	60	Blue	None	Blue	No tag	GPS	None	Socal		Yes	
+364	2008	64	Black	3 dots	No tag	Black	None	None	Socal		Yes	
+364	2009	64	Blue	None	No tag	Blue	None	None	Socal		Yes	
+364	2010	64	Blue	None	No tag	Blue	None	None	Socal		Yes	
+364	2011	64	Blue	None	Blue	No tag	GPS	None	Socal		Yes	
+365	2008	65	Black	3 dots	Black	No tag	None	None	Socal		Yes	
+365	2009	65	Blue	None	Blue	No tag	None	None	Socal		Yes	
+365	2010	65	Blue	None	Blue	No tag	GPS	None	Socal		Yes	
+365	2011	65	Blue	None	Blue	No tag	None	None	Socal		Yes	
+365	2012	65	Blue	None	Blue	No tag	None	None	Socal		Yes	
+365	2013	65	Blue	None	Blue	No tag	None	None	Socal		Yes	
+369	2008	69	Black	3 dots	Black	No tag	None	None	Socal		Yes	
+369	2009	69	Blue	None	Blue	Blue	VHF	GPS	Socal		Yes	
+369	2010	69	Blue	None	No tag	Blue	None	GPS	Socal		Yes	
+369	2011	69	Blue	None	No tag	Blue	None	GPS	Socal		Yes	
+369	2012	69	Blue	None	No tag	Blue	None	GPS	Socal		Yes	
+369	2013	69	Blue	None	Blue	No tag	None	None	Socal		Yes	
+370	2008	70	Black	3 dots	No tag	Black	None	VHF	Socal		Yes	
+370	2009	70	Blue	None	No tag	Blue	GPS	None	Socal		Yes	
+370	2010	70	Blue	None	No tag	Blue	None	GPS	Socal		Yes	
+370	2011	70	Blue	None	No tag	Blue	None	GPS	Socal		Yes	
+370	2012	70	Blue	None	No tag	Blue	None	GPS	Socal		Yes	
+370	2013	70	Blue	None	No tag	Blue	None	GPS	Socal		Yes	
+374	2008	74	Black	3 dots	No tag	Black	None	VHF	Socal		Yes	
+374	2009	74	Blue	None	Blue	No tag	VHF	None	Socal		Yes	
+374	2010	74	Blue	None	No tag	Blue	None	GPS	Socal		Yes	
+374	2011	74	Blue	None	No tag	Blue	None	None	Socal		Yes	
+374	2012	74	Blue	None	No tag	Blue	None	None	Socal		Yes	
+374	2013	74	Blue	None	No tag	Blue	None	None	Socal		Yes	
+375	all	75	Blue	None	Blue	Blue	NA	NA	VWS		Yes	
+377	all	77	Blue	NA	NA	NA	NA	NA	VWS		Yes	
+397	2008	97	Black	3 dots	Black	No tag	VHF	None	Socal		Yes	
+397	2009	97	Blue	None	Blue	No tag	None	None	Socal		Yes	
+397	2010	97	Blue	None	Blue	No tag	None	None	Socal		Yes	
+400	any	0	NA	NA			NA	NA	PNP	Per PNP, these birds have unique final digits and thus shapes, patterns and colors are not needed to distinguish them (this appears to be true for Central CA flock only)	Yes	
+400	any	00	NA	NA			NA	NA	PNP	Per PNP, these birds have unique final digits and thus shapes, patterns and colors are not needed to distinguish them (this appears to be true for Central CA flock only)	Yes	
+401	any	01	Black	underline			NA	NA	PNP		Yes	
+401	any	1	White	None			NA	NA	PNP		Yes	
+402	2008	2	Black	4 dots	Black	No tag	VHF	None	Socal		Yes	
+405	any	5	NA	NA			NA	NA	PNP	Per PNP, these birds have unique final digits and thus shapes, patterns and colors are not needed to distinguish them (this appears to be true for Central CA flock only)	Yes	
+405	any	05	NA	NA			NA	NA	PNP	Per PNP, these birds have unique final digits and thus shapes, patterns and colors are not needed to distinguish them (this appears to be true for Central CA flock only)	Yes	
+408	2008	8	Black	4 dots	Black	No tag	None	None	Socal		Yes	
+408	2009	8	White	None	No tag	White	None	None	Socal		Yes	
+408	2010	8	White	None	White	No tag	GPS	None	Socal		Yes	
+411	any	11	Black	underline			NA	NA	PNP		Yes	
+411	any	11	White	None			NA	NA	PNP		Yes	
+412	2008	12	Black	4 dots	No tag	Black	None	GPS	Socal		Yes	
+412	2009	12	White	None	No tag	White	None	None	Socal		Yes	
+412	2010	12	White	None	White	No tag	None	None	Socal		Yes	
+417	all	-7	Black	underline			NA	NA	PNP		No	died May 2007
+418	any	-8	Black	underline			NA	NA	PNP		Yes	
+418	any	18	White	None			NA	NA	PNP		Yes	
+418	any	18	Black	4 dots			NA	NA	PNP		Yes	
+418	any	18	Black	underline			NA	NA	PNP		Yes	
+421	all	21	NA	NA			NA	NA	PNP	Per PNP, these birds have unique final digits and thus shapes, patterns and colors are not needed to distinguish them (this appears to be true for Central CA flock only)	Yes	
+422	all	22	Black	underline			NA	NA	PNP		Yes	
+428	2008	28	White	4 dots	No tag	White	None	GPS	Socal		Yes	
+428	2009	28	White	None	White	White	GPS	None	Socal		Yes	
+428	2010	28	White	None	White	No tag	GPS	None	Socal		Yes	
+428	2011	28	White	None	White	No tag	GPS	None	Socal		Yes	
+428	2012	28	White	None	White	No tag	GPS	None	Socal		Yes	
+428	2013	28	White	None	White	No tag	GPS	None	Socal		Yes	
+431	any	31	Black	underline			NA	NA	PNP		Yes	
+431	any	31	White	None			NA	NA	PNP		Yes	
+438	any	38	Black	underline			NA	NA	PNP		Yes	
+438	any	38	White	None			NA	NA	PNP		Yes	
+444	all	44	White	None	No tag	White	NA	NA	VWS		Yes	
+448	all	48	NA	NA			NA	NA	PNP	Per PNP, these birds have unique final digits and thus shapes, patterns and colors are not needed to distinguish them (this appears to be true for Central CA flock only)	Yes	
+449	2008	49	White	4 dots	White	No tag	None	None	Socal		Yes	
+449	2009	49	White	None	White	No tag	None	None	Socal		Yes	
+449	2010	49	White	None	White	No tag	None	None	Socal		Yes	
+449	2011	49	White	None	No tag	White	None	GPS	Socal		Yes	
+449	2012	49	White	None	No tag	White	None	GPS	Socal		Yes	
+449	2013	49	White	None	No tag	White	None	GPS	Socal		Yes	
+450	2008	50	White	4 dots	No tag	White	None	None	Socal		Yes	
+451	any	51	White	None			NA	NA	PNP		Yes	
+451	any	none	Black	None			NA	NA	PNP	black vinyl only with GPS unit	Yes	
+451	any	V1	Black	underline			NA	NA	PNP		Yes	
+452	2008	52	Black	4 dots	Black	No tag	VHF	None	Socal		Yes	
+452	2009	52	White	None	White	No tag	None	None	Socal		Yes	
+452	2010	52	White	None	No tag	White	None	None	Socal		Yes	
+452	2011	52	White	None	No tag	White	None	None	Socal		Yes	
+452	2012	52	White	None	No tag	White	None	None	Socal		Yes	
+452	2013	52	White	None	No tag	White	None	None	Socal		Yes	
+457	2008	57	Black	4 dots	Black	No tag	VHF	None	Socal		Yes	
+457	2009	57	White	None	White	No tag	VHF	None	Socal		Yes	
+457	2010	57	White	None	No tag	White	None	None	Socal		Yes	
+457	2011	57	White	None	White	No tag	None	None	Socal		Yes	
+457	2012	57	White	None	White	No tag	None	None	Socal		Yes	
+457	2013	57	White	None	White	No tag	None	None	Socal		Yes	
+458	2008	58	Black	4 dots	Black	No tag	VHF	None	Socal		Yes	
+458	2009	58	White	None	No tag	White	None	VHF	Socal		Yes	
+458	2010	58	White	None	No tag	White	None	None	Socal		Yes	
+460	all	60	NA	NA			NA	NA	PNP	Per PNP, these birds have unique final digits and thus shapes, patterns and colors are not needed to distinguish them (this appears to be true for Central CA flock only)	Yes	
+462	2008	62	Black	4 dots	Black	No tag	VHF	None	Socal		Yes	
+462	2009	62	White	None	White	No tag	GPS	None	Socal		Yes	
+462	2010	62	White	None	White	No tag	None	None	Socal		Yes	
+462	2011	62	White	None	White	No tag	None	None	Socal		Yes	
+462	2012	62	White	None	White	No tag	None	None	Socal		Yes	
+462	2013	62	White	None	White	No tag	None	None	Socal		Yes	
+463	all	63	NA	NA			NA	NA	PNP	Per PNP, these birds have unique final digits and thus shapes, patterns and colors are not needed to distinguish them (this appears to be true for Central CA flock only)	Yes	
+467	2009	67	White	None	White	No tag	GPS	None	Socal		Yes	
+467	2010	67	White	None	White	No tag	None	None	Socal		Yes	
+467	2011	67	White	None	White	No tag	None	None	Socal		Yes	
+467	2012	67	White	None	White	No tag	None	None	Socal		Yes	
+467	2013	67	White	None	No tag	White	None	None	Socal		Yes	
+470	all	70	White	None	No tag	White	NA	NA	VWS		Yes	
+474	2008	"2 ""huya"""	Black	"2 ""huya"""	Black	No tag	VHF	None	Socal		Yes	
+474	2008	"2 ""huya"""	Black	"2 ""huya"""	Black	No tag	VHF	None	Socal		Yes	
+475	all	75	White	NA	NA	NA	NA	NA	VWS		Yes	
+477	all	77	White	None	No tag	White	NA	NA	VWS		Yes	
+478	any	78	Black	underline			NA	NA	PNP		Yes	
+478	any	78	White	None			NA	NA	PNP		Yes	
+480	2009	80	White	None	No tag	White	None	VHF	Socal		Yes	
+480	2010	80	White	None	White	No tag	None	None	Socal		Yes	
+480	2011	80	White	None	White	No tag	None	None	Socal		Yes	
+480	2012	80	White	None	White	No tag	None	None	Socal		Yes	
+480	2013	80	White	None	White	No tag	None	None	Socal		Yes	
+481	all	81	NA	NA			NA	NA	PNP	Per PNP, these birds have unique final digits and thus shapes, patterns and colors are not needed to distinguish them (this appears to be true for Central CA flock only)	Yes	
+482	2009	82	Black	None	Black	No tag	None	None	Socal		Yes	
+482	2010	82	White	None	No tag	White	None	GPS	Socal		Yes	
+482	2011	82	White	None	No tag	White	None	GPS	Socal		Yes	
+482	2012	82	White	None	No tag	White	None	GPS	Socal		Yes	
+482	2013	82	White	None	No tag	White	None	GPS	Socal		Yes	
+483	2010	83	White	None	No tag	White	None	None	Socal		Yes	
+483	2011	83	White	None	No tag	White	None	None	Socal		Yes	
+483	2012	83	White	None	No tag	White	None	None	Socal		Yes	
+483	2013	83	White	None	No tag	White	None	None	Socal		Yes	
+483	2009	3 FW	White	None	No tag	White	None	GPS	Socal		Yes	
+487	2009	87	White	None	No tag	White	None	VHF	Socal		Yes	
+487	2010	87	White	None	No tag	White	None	None	Socal		Yes	
+487	2011	87	White	None	No tag	White	None	None	Socal		Yes	
+487	2012	87	White	None	No tag	White	None	None	Socal		Yes	
+487	2013	87	White	None	No tag	White	None	None	Socal		Yes	
+489	2008	4	Black	4	Black	No tag	VHF	None	Socal		Yes	
+489	2009	89	White	None	White	No tag	GPS	None	Socal		Yes	
+489	2010	89	White	None	No tag	White	None	GPS	Socal		Yes	
+489	2011	89	White	None	No tag	White	None	GPS	Socal		Yes	
+489	2012	89	White	None	No tag	White	None	GPS	Socal		Yes	
+489	2013	89	White	None	No tag	White	None	GPS	Socal		Yes	
+493	2008	5	Black	5	Black	No tag	VHF	None	Socal		Yes	
+493	2009	93	White	None	No tag	White	None	GPS	Socal		Yes	
+493	2010	93	White	None	No tag	White	None	VHF	Socal		Yes	
+493	2011	93	White	None	White	No tag	None	None	Socal		Yes	
+493	2012	93	White	None	White	No tag	None	None	Socal		Yes	
+493	2013	93	White	None	White	No tag	None	None	Socal		Yes	
+499	All	99	White	None	NA	NA	NA	NA	VWS		Yes	
+501	all	1	Black	None	No tag	Black	NA	NA	VWS		Yes	
+507	2010	7	Black	None	Black	Black	None	None	Socal		Yes	
+507	2011	7	Black	None	No tag	Black	None	GPS	Socal		Yes	
+507	2012	7	Black	None	No tag	Black	None	GPS	Socal		Yes	
+507	2013	7	Black	None	No tag	Black	None	GPS	Socal		Yes	
+509	2009	9	Black	None	Black	No tag	VHF	None	Socal		Yes	
+509	2010	9	Black	None	Black	No tag	GPS	None	Socal		Yes	
+509	2011	9	Black	None	Black	No tag	GPS	None	Socal		Yes	
+509	2012	9	Black	None	Black	No tag	None	None	Socal		Yes	
+509	2013	9	Black	None	Black	No tag	None	None	Socal		Yes	
+511	2010	11	Black	None	Black	No tag	None	GPS	Socal		Yes	
+512	2011	12	Black	None	No tag	Black	None	None	Socal		Yes	
+512	2012	12	Black	None	No tag	Black	None	None	Socal		Yes	
+513	2010	13	Black	None	No tag	Black	None	None	Socal		Yes	
+513	2011	13	Black	None	No tag	Black	None	GPS	Socal		Yes	
+513	2012	13	Black	None	No tag	Black	None	GPS	Socal		Yes	
+513	2013	13	Black	None	No tag	Black	None	GPS	Socal		Yes	
+514	any	14	NA	NA			NA	NA	PNP	Per PNP, these birds have unique final digits and thus shapes, patterns and colors are not needed to distinguish them (this appears to be true for Central CA flock only)	Yes	
+514	any	14	NA	NA			NA	NA	PNP	Per PNP, these birds have unique final digits and thus shapes, patterns and colors are not needed to distinguish them (this appears to be true for Central CA flock only)	Yes	
+514	any	A4	NA	NA			NA	NA	PNP	Per PNP, these birds have unique final digits and thus shapes, patterns and colors are not needed to distinguish them (this appears to be true for Central CA flock only)	Yes	
+518	2010	18	Black	None	Black	Black	None	None	Socal		Yes	
+518	2011	18	Black	None	Black	Black	None	None	Socal		Yes	
+518	2012	18	Black	None	Black	No tag	None	None	Socal		Yes	
+518	2013	18	Black	None	Black	No tag	None	None	Socal		Yes	
+525	all	25	NA	NA			NA	NA	PNP	Per PNP, these birds have unique final digits and thus shapes, patterns and colors are not needed to distinguish them (this appears to be true for Central CA flock only)	Yes	
+526	2009	26	Black	None	Black	No tag	VHF	None	Socal		Yes	
+526	2010	26	Black	None	No tag	Black	None	GPS	Socal		Yes	
+526	2011	26	Black	None	No tag	Black	None	GPS	Socal		Yes	
+526	2012	26	Black	None	No tag	Black	None	GPS	Socal		Yes	
+526	2013	26	Black	None	No tag	Black	None	GPS	Socal		Yes	
+532	2010	32	Black	None	Black	Black	None	None	Socal		Yes	
+534	all	34	NA	NA			NA	NA	PNP	Per PNP, these birds have unique final digits and thus shapes, patterns and colors are not needed to distinguish them (this appears to be true for Central CA flock only)	Yes	
+536	2010	36	Black	None	Black	No tag	None	None	Socal		Yes	
+536	2011	36	Black	None	Black	No tag	None	None	Socal		Yes	
+536	2012	36	Black	None	Black	No tag	None	None	Socal		Yes	
+536	2013	36	Black	None	Black	No tag	None	None	Socal		Yes	
+538	all	38	Black	None	No tag	Black	NA	NA	VWS		Yes	
+542	2010	42	Black	None	Black	No tag	None	None	Socal		Yes	
+542	2011	42	Black	None	Black	No tag	None	None	Socal		Yes	
+542	2012	42	Black	None	Black	No tag	None	None	Socal		Yes	
+542	2013	42	Black	None	Black	No tag	None	None	Socal		Yes	
+543	all	43	NA	NA			NA	NA	PNP	Per PNP, these birds have unique final digits and thus shapes, patterns and colors are not needed to distinguish them (this appears to be true for Central CA flock only)	Yes	
+547	all	47	NA	NA			NA	NA	PNP	Per PNP, these birds have unique final digits and thus shapes, patterns and colors are not needed to distinguish them (this appears to be true for Central CA flock only)	Yes	
+550	all	50	NA	NA			NA	NA	PNP	Per PNP, these birds have unique final digits and thus shapes, patterns and colors are not needed to distinguish them (this appears to be true for Central CA flock only)	Yes	
+559	all	59	Black	None	Black	Black	NA	NA	VWS		Yes	
+560	2010	60	Black	None	No tag	Black	None	None	Socal		Yes	
+560	2011	60	Black	None	No tag	Black	None	GPS	Socal		Yes	
+560	2012	60	Black	None	No tag	Black	None	GPS	Socal		Yes	
+560	2013	60	Black	None	No tag	Black	None	GPS	Socal		Yes	
+563	2011	63	Black	None	Black	No tag	None	None	Socal		Yes	
+563	2012	63	Black	None	Black	No tag	None	None	Socal		Yes	
+563	2013	63	Black	None	Black	No tag	None	None	Socal		Yes	
+564	all	64	NA	NA			NA	NA	PNP	Per PNP, these birds have unique final digits and thus shapes, patterns and colors are not needed to distinguish them (this appears to be true for Central CA flock only)	Yes	
+566	all	66	Black	None	Black	No tag	NA	NA	VWS		Yes	
+567	all	67	Black	None	Black	Black	NA	NA	VWS		Yes	
+568	2011	68	Black	None	No tag	Black	None	None	Socal		Yes	
+568	2012	68	Black	None	No tag	Black	None	None	Socal		Yes	
+568	2013	68	Black	None	No tag	Black	None	None	Socal		Yes	
+569	all	69	Black	None	No tag	Black	NA	NA	VWS		Yes	
+570	2011	70	Black	None	No tag	Black	None	None	Socal		Yes	
+570	2012	70	Black	None	No tag	Black	None	None	Socal		Yes	
+570	2013	70	Black	None	No tag	Black	None	None	Socal		Yes	
+574	all	74	Black	None	No tag	Black	NA	NA	VWS		Yes	
+576	2011	76	Black	None	Black	No tag	None	None	Socal		Yes	
+576	2012	76	Black	None	Black	No tag	None	None	Socal		Yes	
+576	2013	76	Black	None	Black	No tag	None	None	Socal		Yes	
+583	all	83	Black	None	Black	No tag	NA	NA	VWS		Yes	
+584	2011	84	Black	None	Black	No tag	GPS	None	Socal		Yes	
+584	2012	84	Black	None	Black	No tag	GPS	None	Socal		Yes	
+584	2013	84	Black	None	Black	No tag	GPS	None	Socal		Yes	
+585	2011	85	Black	None	No tag	Black	None	None	Socal		Yes	
+585	2012	85	Black	None	No tag	Black	None	None	Socal		Yes	
+585	2013	85	Black	None	No tag	Black	None	None	Socal		Yes	
+588	all	88	NA	NA			NA	NA	PNP	Per PNP, these birds have unique final digits and thus shapes, patterns and colors are not needed to distinguish them (this appears to be true for Central CA flock only)	Yes	
+589	all	89	NA	NA			NA	NA	PNP	Per PNP, these birds have unique final digits and thus shapes, patterns and colors are not needed to distinguish them (this appears to be true for Central CA flock only)	Yes	
+590	2012	90	Black	None	No tag	Black	None	None	Socal		Yes	
+590	2013	90	Black	None	No tag	Black	None	None	Socal		Yes	
+591	2012	91	Black	None	No tag	Black	None	None	Socal		Yes	
+591	2013	91	Black	None	No tag	Black	None	None	Socal		Yes	
+594	2012	94	Black	None	No tag	Black	None	None	Socal		Yes	
+594	2013	94	Black	None	No tag	Black	None	None	Socal		Yes	
+596	2012	96	Blue	None	Blue	No tag	None	None	Socal		Yes	
+596	2013	96	Blue	None	Blue	No tag	None	None	Socal		Yes	
+597	all	97	Black	None	No tag	Black	NA	NA	VWS		Yes	add in -- recent release
+598	all	98	Black	None	Black	NA	NA	NA	PNP	Black tag with white number		
+599	2011	99	Black	None	Black	No tag	None	None	Socal		Yes	
+599	2012	99	Black	None	Black	No tag	None	None	Socal		Yes	
+599	2013	99	Black	None	Black	No tag	None	None	Socal		Yes	
+602	all	2	NA	NA			NA	NA	PNP	Per PNP, these birds have unique final digits and thus shapes, patterns and colors are not needed to distinguish them (this appears to be true for Central CA flock only)	Yes	
+604	2012	4	Purple	None	No tag	Purple	None	None	Socal		Yes	
+604	2013	4	Purple	None	No tag	Purple	None	None	Socal		Yes	
+606	all	6	Black	1 dot			NA	NA	PNP		Yes	
+615	all	15	Purple	None	Purple	Purple	NA	NA	VWS		Yes	
+616	2011	16	Black	None	Black	No tag	None	None	Socal		Yes	
+616	2012	16	Purple	None	Purple	No tag	None	None	Socal		Yes	
+616	2013	16	Purple	None	Purple	No tag	None	None	Socal		Yes	
+625	2012	25	Purple	None	Purple	No tag	None	None	Socal		Yes	
+625	2013	25	Purple	None	Purple	No tag	None	None	Socal		Yes	
+626	all	26	NA	NA			NA	NA	PNP	Per PNP, these birds have unique final digits and thus shapes, patterns and colors are not needed to distinguish them (this appears to be true for Central CA flock only)	Yes	add in -- recent release
+627	2011	27	Black	None	Black	No tag	None	None	Socal		Yes	
+627	2012	27	Purple	None	Purple	No tag	None	None	Socal		Yes	
+627	2013	27	Purple	None	Purple	No tag	None	None	Socal		Yes	
+630	2011	30	Black	None	Black	No tag	None	None	Socal		Yes	
+630	2012	30	Purple	None	Purple	No tag	None	None	Socal		Yes	
+630	2013	30	Purple	None	Purple	No tag	None	None	Socal		Yes	
+644	all	44	Purple/Black	NA	NA	NA	NA	NA	VWS		Yes	
+648	2012	48	Black	None	No tag	Black	None	None	Socal		Yes	
+648	2013	48	Black	None	No tag	Black	None	None	Socal		Yes	
+654	2012	54	Black	None	No tag	Black	None	None	Socal		Yes	
+654	2013	54	Black	None	No tag	Black	None	None	Socal		Yes	
+658	2012	58	Black	None	No tag	Black	None	None	Socal		Yes	
+658	2013	58	Black	None	No tag	Black	None	None	Socal		Yes	
+663	all	63	Purple	None	No tag	Purple	NA	NA	VWS		Yes	
+664	all	664	Purple	None	Purple	No tag	NA	NA	VWS		Yes	
+665	all	blank	Yellow	None	Yellow	No tag	NA	NA	VWS		Yes	
+670	2012	70	Black	None	No tag	Black	None	None	Socal		Yes	
+670	2013	70	Black	None	No tag	Black	None	None	Socal		Yes	

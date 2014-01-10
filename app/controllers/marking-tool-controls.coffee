@@ -87,7 +87,7 @@ class MarkingToolControlsController extends BaseController
           @isOnCarcassRadios.filter("[value='#{value}']").prop 'checked', true
 
       @el.find('button[name="next"]').prop 'disabled', not @tool.mark.animal
-      @el.find('button[name="done-with-condor"]').prop 'disabled', not @tool.mark.label
+      # @el.find('button[name="done-with-condor"]').prop 'disabled', not @tool.mark.label
       @el.find('button[name="done-with-non-condor"]').prop 'disabled', not @tool.mark.isOnCarcass?
 
     @setState 'whatKind'
@@ -99,8 +99,8 @@ class MarkingToolControlsController extends BaseController
     'click [name="choose-animal"]': (e) ->
       @tool.mark.set 'animal', e.currentTarget.value
 
-    'input input[name="tag"]': (e) ->
-      @tool.mark.set 'tag', e.currentTarget.value
+    'input input[name="label"]': (e) ->
+      @tool.mark.set 'label', e.currentTarget.value
 
     'click button[name="dots"]': (e) ->
       @tool.mark.set 'dots', parseFloat e.currentTarget.value

@@ -1,4 +1,6 @@
 BaseController = require 'zooniverse/controllers/base-controller'
+guessCondor = require '../lib/guess-condor'
+getCondorBio = require '../lib/get-condor-bio'
 
 class ClassificationSummary extends BaseController
   classification: null
@@ -14,6 +16,11 @@ class ClassificationSummary extends BaseController
   constructor: ->
     super
     @hide()
+
+    for mark in @classification.get 'marks'
+      {label, color, dots, underlined} = mark
+      guessCondor {label, color, dots, underlined}, (ids) ->
+        console.log 'Guessing', ids
 
   show: ->
     @el.removeClass 'offscreen'
