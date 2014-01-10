@@ -29,10 +29,10 @@
     <table>
       <tr>
         <th>
-          <%- translate 'span', 'classifier.tagNo' %>
+          <%- translate 'span', 'classifier.tagLabel' %>
         </th>
         <td>
-          <input type="text" name="tag" />
+          <input type="text" name="label" />
         </td>
       </tr>
 

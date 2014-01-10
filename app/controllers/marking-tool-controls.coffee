@@ -21,7 +21,7 @@ class MarkingToolControlsController extends BaseController
     'img.selected-animal-example': 'selectedAnimalImage'
     '.selected-animal-label': 'selectedAnimalLabel'
     '[name="choose-animal"]': 'animalChoiceButtons'
-    'input[name="tag"]': 'tagInput'
+    'input[name="label"]': 'labelInput'
     'button[name="tag-color-toggle"]': 'tagColorToggle'
     'button[name="tag-color"]': 'tagColorButtons'
     'button[name="dots"]': 'dotsButtons'
@@ -54,8 +54,7 @@ class MarkingToolControlsController extends BaseController
           if value is 'condor'
             @tool.mark.set 'isOnCarcass', null
           else
-            @tool.mark.set 'tag', null
-            @tool.mark.set 'cantSeeTag', null
+            @tool.mark.set 'label', null
             @tool.mark.set 'proximity', null
 
         when 'tag'
