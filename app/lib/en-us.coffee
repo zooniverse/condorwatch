@@ -49,7 +49,7 @@ module.exports =
 
     whatKind: 'What kind of animal is this?'
 
-    enterLabel: 'Describe the condor\'s tag, if you can read it.'
+    enterLabel: 'Describe what you can see of the condor\'s tag.'
     tagLabel: 'Tag no.'
     color: 'Tag color'
     colors:

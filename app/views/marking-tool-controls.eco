@@ -25,7 +25,7 @@
 
 <div class="condor-details">
   <section>
-    <%- translate 'div', 'classifier.enterTag' %>
+    <%- translate 'div', 'classifier.enterLabel' %>
 
     <table>
       <tr>
