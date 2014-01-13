@@ -1,30 +1,31 @@
 $ = window.jQuery
 
-HATCH_STATES = ['in-the-wild', 'in-captivity']
-SEXES = ['female', 'male']
-REARERS = ['biological-parents', 'foster-parents', 'zookeeper']
-POISONINGS = ['rarely', 'sometimes', 'often']
+nullify = (value) ->
+  if value in ['', '#N/A']
+    null
+  else
+    value
 
-getCondors = $.get('./condors.csv').pipe (condorTableText) ->
-  condorTableRows = condorTableText.split('\n').filter Boolean
-  condorTableRows.shift() # Throw away the header
+getCondors = $.get('./condors.csv').pipe (tabbed) ->
+  rows = tabbed.split('\n').filter Boolean
+  rows.shift() # Throw away the header.
 
   condors = {}
 
-  condorTableRows.forEach (line) ->
+  rows.forEach (line) ->
     values = line.split '\t'
     id = values.shift()
     condors[id] =
-      inTagTable: values.shift()
-      father: values.shift()
-      mother: values.shift()
+      id: id
+      sex: nullify values.shift()
       hatchedAt: new Date values.shift()
-      hatchState: HATCH_STATES[values.shift()]
+      rearedBy: values.shift()
       hatchLocation: values.shift()
-      sex: SEXES[values.shift()]
-      rearedBy: REARERS[values.shift()]
       releasedAt: new Date values.shift()
-      poisoned: POISONINGS[values.shift()]
+      diedAt: new Date values.shift()
+      fatherId: values.shift()
+      motherId: values.shift()
+      poisoned: values.shift()
       firstBredAt: new Date values.shift()
       chicks: parseFloat values.shift()
       mateIn1999: values.shift()
@@ -41,7 +42,7 @@ getCondors = $.get('./condors.csv').pipe (condorTableText) ->
       mateIn2010: values.shift()
       mateIn2011: values.shift()
       mateIn2012: values.shift()
-      diedAt: new Date values.shift()
+      idInTags: values.shift()
 
   condors
 

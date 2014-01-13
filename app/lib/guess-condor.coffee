@@ -23,10 +23,12 @@ getTags = $.get('./condor-tags.csv').pipe (tabSeparated) ->
     object.color.push color if color in possibleTagColors
 
     patterns = values.shift()
+
     dots = parseFloat patterns.match(/(\d+) dot/i)?[1]
+    object.dots = dots || 0
+
     underlined = patterns.match(/underline/i)?
-    object.dots = dots if dots
-    object.underlined = underlined if underlined
+    object.underlined = underlined
 
     leftColor = values.shift().toLowerCase()
     rightColor = values.shift().toLowerCase()
@@ -43,7 +45,8 @@ guessCondor = (given, callback) ->
   getTags.then (tags) ->
     matches = tags.filter (values) ->
       for key, givenValue of given when givenValue?
-        return false unless values[key] is givenValue or (values[key] instanceof Array and givenValue in values[key])
+        unless values[key] is givenValue or (values[key] instanceof Array and givenValue in values[key])
+          return false
       return true
 
     ids = [[], matches...].reduce (reduced, match) ->
