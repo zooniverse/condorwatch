@@ -12,7 +12,7 @@ TAG_COLORS = black white red orange yellow green blue purple
   font-size: 12px
   text-align: center
   transition:
-    margin-left 0.67s,
+    margin-left 0.33s,
     transform 0.25s
   width: 300px
 
@@ -25,7 +25,7 @@ TAG_COLORS = black white red orange yellow green blue purple
 
   &.opens-right
     margin-left: 50px
-    transform: translate(-10%, -50%) scale(0.5, 0.001)
+    transform: translate(-10%, -50%) scale(0.001)
     transform-origin: 0 50%
 
     &:before
@@ -34,11 +34,11 @@ TAG_COLORS = black white red orange yellow green blue purple
       right: 100%
 
     &.tool-selected
-      transform: translate(0, -50%) scale(1, 1)
+      transform: translate(0, -50%) scale(1)
 
   &.opens-left
     margin-left: -50px
-    transform: translate(-90%, -50%) scale(0.5, 0.001)
+    transform: translate(-90%, -50%) scale(0.001)
     transform-origin: 100% 50%
 
     &:before
@@ -47,7 +47,7 @@ TAG_COLORS = black white red orange yellow green blue purple
       left: 100%
 
     &.tool-selected
-      transform: translate(-100%, -50%) scale(1, 1)
+      transform: translate(-100%, -50%) scale(1)
 
   .marking-tool-controls-controller
     transition: height 0.25s ease-in-out;
