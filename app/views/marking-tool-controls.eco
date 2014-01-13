@@ -42,18 +42,11 @@
           <%- translate 'span', 'classifier.color' %>
         </th>
         <td>
-          <label>
-            <button name="tag-color-toggle">
-              <span class="tag-color-swatch"></span>
-            </button>
-            <div class="tag-color-menu">
-              <% for tagColor, i in possibleTagColors: %>
-                <%- translate 'button', "classifier.colors.#{tagColor}", name: 'tag-color', value: tagColor, title: "classifier.colors.#{tagColor}" %>
-                <% if (i + 1) % 3 is 0: %><span class="set-of-three"></span><% end %>
-              <% end %>
-              <%- translate 'button', '&times;', name: 'tag-color', value: '', title: "classifier.colors.clear" %>
-            </div>
-          </label>
+          <%- translate 'button', '&times;', name: 'tag-color', title: "classifier.colors.clear" %>
+          <% for tagColor, i in possibleTagColors: %>
+            <%- translate 'button', "classifier.colors.#{tagColor}", name: 'tag-color', value: tagColor, title: "classifier.colors.#{tagColor}" %>
+            <% if (i + 1) % 3 is 0: %><span class="set-of-three"></span><% end %>
+          <% end %>
         </td>
       </tr>
 

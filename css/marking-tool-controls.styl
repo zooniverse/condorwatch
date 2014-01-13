@@ -150,68 +150,23 @@ TAG_COLORS = black white red orange yellow green blue purple
   .condor-tag
     display: block
 
-  button[name="dots"]
-    height: 1em
-    margin: 0 3px
-    width: 1em
+  button[name="tag-color"]
+    height: 1.5em
+    overflow: hidden
+    width: 1.5em
 
-    &.some-dots
-      border: 2px solid gray
+    &[value]
+      border: 2px solid transparent
       border-radius: 50%
       color: transparent
-      overflow: hidden
-      vertical-align: middle
-
-      &.selected
-        border-color: black
-        background: black
-        opacity: 1
-
-  button[name="tag-color-toggle"]
-    @extends #_STANDARD_BUTTON
-    background: white
-
-    .tag-color-swatch
-      background-image: linear-gradient(top left, 45% transparent, 45% gray, 55% gray, 55% transparent)
-      border: 2px solid gray
-      border-radius 50%
-      display: inline-block
-      height: 1em
-      margin-left: 2px
-      vertical-align: middle
-      width: 1em
-
-    for name, i in TAG_COLOR_NAMES
-      &[data-tag-color={s('"%s"', unquote(name))}] .tag-color-swatch
-        background: TAG_COLORS[i]
-
-.tag-color-menu
-  background: rgba(white, 0.9)
-  border-radius: 3px
-  color: black
-  padding: 3px
-
-  button[name="tag-color"]
-    border: 4px solid transparent
-    border-radius: 50%
-    color: transparent
-    float: left
-    height: 2em
-    margin: 3px
-    overflow: hidden
-    width: 2em
 
     for name, i in TAG_COLOR_NAMES
       &[value={s('"%s"', unquote(name))}]
         background: rgba(TAG_COLORS[i], 0.9)
 
     &[value="white"],
-    &[value=""]
+    &[value="yellow"]
       border-color: rgba(gray, 0.5)
-
-    &[value=""]
-      border-width: 2px
-      color: inherit
 
     &:hover
       border-color: BLUEISH
@@ -219,6 +174,21 @@ TAG_COLORS = black white red orange yellow green blue purple
     &.selected
       border-color: black
 
-  .set-of-three
-    clear: left
-    display: block
+      &[value="black"]
+        border-color: gray
+
+  button[name="dots"]
+    height: 1.5em
+    overflow: hidden
+    width: 1.5em
+
+    &.some-dots
+      border: 2px solid gray
+      border-radius: 50%
+      color: transparent
+      vertical-align: middle
+
+      &.selected
+        border-color: black
+        background: black
+        opacity: 1
