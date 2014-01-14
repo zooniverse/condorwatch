@@ -1,6 +1,7 @@
 BaseController = require 'zooniverse/controllers/base-controller'
 guessCondor = require '../lib/guess-condor'
 getCondorBio = require '../lib/get-condor-bio'
+CondorSummary = require './condor-summary'
 
 class ClassificationSummary extends BaseController
   classification: null
@@ -13,14 +14,19 @@ class ClassificationSummary extends BaseController
   events:
     'click button[name="ready-for-next"]': 'onClickReady'
 
+  elements:
+    '.condor-summaries': 'summaryContainer'
+
   constructor: ->
     super
     @hide()
 
     for mark in @classification.get 'marks'
       {label, color, dots, underlined} = mark
-      guessCondor {label, color, dots, underlined}, (ids) ->
-        console.log 'Guessing', ids
+      guessCondor {label, color, dots, underlined}, (ids) =>
+        summary = new CondorSummary
+          bioPromise: getCondorBio ids[0]
+        @summaryContainer.append summary.el
 
   show: ->
     @el.removeClass 'offscreen'

@@ -49,6 +49,7 @@ getCondors = $.get('./condors.csv').pipe (tabbed) ->
 getCondorBio = (id, callback) ->
   getCondors.then (condors) ->
     callback? condors[id]
+    condors[id]
 
 window.getCondorBio = getCondorBio if +location.port > 1023
 module.exports = getCondorBio
