@@ -9,7 +9,7 @@
 
   <div class="tag-number">
     <small>No.</small>
-    <strong data-place-for="id">· · ·</strong>
+    <strong><%- @condorId || '?' %></strong>
   </div>
 </div>
 
@@ -19,8 +19,8 @@
 </div>
 
 <div class="stat">
-  <div><%- translate 'strong', 'classificationSummary.born' %></div>
-  <div class="born-value">· · ·</div>
+  <div><%- translate 'strong', 'classificationSummary.hatched' %></div>
+  <div class="hatched-value" data-place-for="hatchedAt">· · ·</div>
 </div>
 
 <div class="stat">
@@ -28,9 +28,17 @@
   <div class="died-value" data-place-for="diedAt">· · ·</div>
 </div>
 
+<div class="stat">
+  <% if @condorId: %>
+    <%- translate 'a', 'classificationSummary.details', href: "#/condors/#{@condorId}" %>
+  <% else: %>
+    <%- translate 'span.no-details', 'classificationSummary.noDetails' %>
+  <% end %>
+</div>
+
 <!--<div class="share">
   <div>
-    <%- translate 'strong', 'classificationSummary.share', $tag: @id %>
+    <%- translate 'strong', 'classificationSummary.share', $tag: @condorId %>
     <div class="sharing-links">
       <a href="#_TODO_FACEBOOK"><i class="icon-facebook-sign"></i></a>
       <a href="#_TODO_TWITTER"><i class="icon-twitter"></i></a>

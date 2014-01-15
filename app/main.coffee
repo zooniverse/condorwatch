@@ -28,7 +28,7 @@ stack = new StackOfPages
   '#/': require './controllers/home-page'
   '#/about': require './controllers/about-page'
   '#/classify': require './controllers/classifier'
-  '#/condor/:id': require './controllers/condor-bio-page'
+  '#/condors/:id': require './controllers/condor-bio-page'
   '#/science': require './controllers/science-page'
   '#/profile': require './controllers/profile'
   '#/education': require './controllers/education-page'

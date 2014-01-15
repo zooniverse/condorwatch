@@ -1,6 +1,8 @@
 BaseController = require 'zooniverse/controllers/base-controller'
+moment = require 'moment'
 
 class CondorSummary extends BaseController
+  condorId: ''
   bioPromise: null
 
   className: 'condor-summary'
@@ -13,9 +15,14 @@ class CondorSummary extends BaseController
     super
 
     @bioPromise.then (bio) =>
-      console.log 'Got bio', bio
       for property, value of bio
-        value = 'n/a' if value instanceof Date and isNaN value
+        if value instanceof Date
+          value = moment value
+          if value.isValid()
+            value = value.format 'MM-DD-YYYY'
+          else
+            value = 'n/a'
+
         @placesFor.filter("[data-place-for='#{property}']").html value
 
 module.exports = CondorSummary

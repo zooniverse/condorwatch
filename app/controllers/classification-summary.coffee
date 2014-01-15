@@ -23,9 +23,10 @@ class ClassificationSummary extends BaseController
 
     for mark in @classification.get 'marks'
       {label, color, dots, underlined} = mark
-      guessCondor {label, color, dots, underlined}, (ids) =>
+      guessCondor {label, color, dots, underlined}, ([id]) =>
         summary = new CondorSummary
-          bioPromise: getCondorBio ids[0]
+          condorId: id
+          bioPromise: getCondorBio id
         @summaryContainer.append summary.el
 
   show: ->
