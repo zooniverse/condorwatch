@@ -120,9 +120,14 @@ class MarkingToolControlsController extends BaseController
       @tool.deselect()
 
     'keydown': (e) ->
+      if e.which in [KEYS.return, KEYS.esc]
+        e.preventDefault()
+
       switch e.which
-        when KEYS.return then @el.find('footer button.default:visible').first().click()
-        when KEYS.esc then @el.find('footer button.cancel:visible').first().click()
+        when KEYS.return
+          @el.find('footer button.default:visible').first().click()
+        when KEYS.esc
+          @el.find('footer button.cancel:visible').first().click()
 
   setState: (newState) ->
     if @state
