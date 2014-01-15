@@ -1,0 +1,33 @@
+<div class="content-block">
+  <div class="content-container">
+    <h2><%- @id %></h2>
+    <table>
+      <tr><td>sex</td><td><%- @sex %><td></tr>
+      <tr><td>hatchedAt</td><td><%- @hatchedAt %><td></tr>
+      <tr><td>rearedBy</td><td><%- @rearedBy %><td></tr>
+      <tr><td>hatchLocation</td><td><%- @hatchLocation %><td></tr>
+      <tr><td>releasedAt</td><td><%- @releasedAt %><td></tr>
+      <tr><td>diedAt</td><td><%- @diedAt %><td></tr>
+      <tr><td>fatherId</td><td><%- @fatherId %><td></tr>
+      <tr><td>motherId</td><td><%- @motherId %><td></tr>
+      <tr><td>poisoned</td><td><%- @poisoned %><td></tr>
+      <tr><td>firstBredAt</td><td><%- @firstBredAt %><td></tr>
+      <tr><td>chicks</td><td><%- @chicks %><td></tr>
+      <tr><td>mateIn1999</td><td><%- @mateIn1999 %><td></tr>
+      <tr><td>mateIn2000</td><td><%- @mateIn2000 %><td></tr>
+      <tr><td>mateIn2001</td><td><%- @mateIn2001 %><td></tr>
+      <tr><td>mateIn2002</td><td><%- @mateIn2002 %><td></tr>
+      <tr><td>mateIn2003</td><td><%- @mateIn2003 %><td></tr>
+      <tr><td>mateIn2004</td><td><%- @mateIn2004 %><td></tr>
+      <tr><td>mateIn2005</td><td><%- @mateIn2005 %><td></tr>
+      <tr><td>mateIn2006</td><td><%- @mateIn2006 %><td></tr>
+      <tr><td>mateIn2007</td><td><%- @mateIn2007 %><td></tr>
+      <tr><td>mateIn2008</td><td><%- @mateIn2008 %><td></tr>
+      <tr><td>mateIn2009</td><td><%- @mateIn2009 %><td></tr>
+      <tr><td>mateIn2010</td><td><%- @mateIn2010 %><td></tr>
+      <tr><td>mateIn2011</td><td><%- @mateIn2011 %><td></tr>
+      <tr><td>mateIn2012</td><td><%- @mateIn2012 %><td></tr>
+      <tr><td>idInTags</td><td><%- @idInTags %><td></tr>
+    </table>
+  </div>
+</div>
