@@ -14,7 +14,7 @@
 <div class="content-block">
   <div class="content-container">
     <div class="instructions">
-      <% action = translate 'span', "classifier.#{ifTouch 'tapping', 'clicking'}" %><!--TODO: Translate these.-->
+      <% action = translate 'span', "classifier.#{ifTouch 'tapping', 'clicking'}" %>
       <%- translate 'div.question', 'classifier.markAnimals', $action: action %>
 
       <div class="answers">

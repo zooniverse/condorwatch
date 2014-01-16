@@ -7,6 +7,23 @@ translate = require 't7e'
 KEYS =
   return: 13
   esc: 27
+  # TODO: Add more keyboard shortcuts.
+  minus: 189
+  plus: 187
+  slash: 191
+  q: 81
+  w: 87
+  e: 69
+  r: 82
+  t: 84
+  y: 89
+  u: 85
+  i: 73
+  1: 49
+  2: 50
+  3: 51
+  4: 52
+  5: 53
 
 class MarkingToolControlsController extends BaseController
   className: 'marking-tool-controls-controller'

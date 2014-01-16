@@ -80,6 +80,7 @@ class Classifier extends BaseController
       @markingSurface.enable()
 
   onClickFinishMarking: ->
+    @sendClassification()
     @showSummary()
 
   rescale: =>
@@ -94,8 +95,6 @@ class Classifier extends BaseController
     @el.removeClass 'loading'
 
   showSummary: ->
-    @sendClassification()
-
     classificationSummary = new ClassificationSummary {@classification}
 
     classificationSummary.el.appendTo @el
@@ -110,8 +109,11 @@ class Classifier extends BaseController
       classificationSummary.show()
 
   sendClassification: ->
+    # Save a copy of the marking surface's marks
+    # in case we need to inspect them after it resets.
     @classification.set 'marks', [@markingSurface.marks...]
     console?.log JSON.stringify @classification
-    # @classification.send()
+
+    # TODO: @classification.send()
 
 module.exports = Classifier
