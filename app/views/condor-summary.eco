@@ -19,12 +19,12 @@
 </div>
 
 <div class="stat">
-  <div><%- translate 'strong', 'classificationSummary.hatched' %></div>
+  <div><%- translate 'strong', 'condorBio.hatched' %></div>
   <div class="hatched-value" data-place-for="hatchedAt">· · ·</div>
 </div>
 
 <div class="stat">
-  <div><%- translate 'strong', 'classificationSummary.died' %></div>
+  <div><%- translate 'strong', 'condorBio.died' %></div>
   <div class="died-value" data-place-for="diedAt">· · ·</div>
 </div>
 

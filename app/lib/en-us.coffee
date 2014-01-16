@@ -82,13 +82,24 @@ module.exports =
     title: 'Summary'
     noTags: '(No tags visible)'
     relativeAge: 'Relative age'
-    hatched: 'Hatched'
-    died: 'Died'
     details: 'See details'
     noDetails: 'Couldn\'t find details'
     share: 'Share the story <br />of <small>No.</small> $tag'
     readyForNext: 'Image classified! Ready for the next one?'
     ready: 'Ready!'
+
+  condorBio:
+    sex: 'Sex'
+    hatched: 'Hatched'
+    rearedBy: 'Reared by'
+    released: 'Released'
+    died: 'Died'
+    father: 'Father'
+    mother: 'Mother'
+    poisoned: 'Frequency of poisoning'
+    firstBred: 'First bred'
+    chicks: 'Chicks contributed'
+    mateInYear: 'Mate in $year'
 
   science:
     title: 'Science!'
