@@ -45,7 +45,6 @@
           <%- translate 'button', '&times;', name: 'tag-color', title: "classifier.colors.clear" %>
           <% for tagColor, i in possibleTagColors: %>
             <%- translate 'button', "classifier.colors.#{tagColor}", name: 'tag-color', value: tagColor, title: "classifier.colors.#{tagColor}" %>
-            <% if (i + 1) % 3 is 0: %><span class="set-of-three"></span><% end %>
           <% end %>
         </td>
       </tr>

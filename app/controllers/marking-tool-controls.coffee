@@ -7,7 +7,6 @@ translate = require 't7e'
 KEYS =
   return: 13
   esc: 27
-  # TODO: Add more keyboard shortcuts.
   minus: 189
   plus: 187
   slash: 191
@@ -19,6 +18,7 @@ KEYS =
   y: 89
   u: 85
   i: 73
+  0: 48
   1: 49
   2: 50
   3: 51
@@ -136,15 +136,37 @@ class MarkingToolControlsController extends BaseController
     'click button[name^="done-with-"]': ->
       @tool.deselect()
 
-    'keydown': (e) ->
-      if e.which in [KEYS.return, KEYS.esc]
-        e.preventDefault()
+    'keydown .condor-details': (e) ->
+      return if e.target.type is 'text'
+
+      if @state is 'condorDetails'
+        switch e.which
+          when KEYS[0] then @tool.mark.set 'dots', 0
+          when KEYS[1] then @tool.mark.set 'dots', 1
+          when KEYS[2] then @tool.mark.set 'dots', 2
+          when KEYS[3] then @tool.mark.set 'dots', 3
+          when KEYS[4] then @tool.mark.set 'dots', 4
+          when KEYS[5] then @tool.mark.set 'dots', 5
+
+          when KEYS.q then @tool.mark.set 'color', 'black'
+          when KEYS.w then @tool.mark.set 'color', 'white'
+          when KEYS.e then @tool.mark.set 'color', 'red'
+          when KEYS.r then @tool.mark.set 'color', 'orange'
+          when KEYS.t then @tool.mark.set 'color', 'yellow'
+          when KEYS.y then @tool.mark.set 'color', 'green'
+          when KEYS.u then @tool.mark.set 'color', 'blue'
+          when KEYS.i then @tool.mark.set 'color', 'purple'
+
+          when KEYS.minus then @tool.mark.set 'proximity', Math.max 0, (@tool.mark.proximity ? 0.5) - 0.25
+          when KEYS.plus then @tool.mark.set 'proximity', Math.min 1, (@tool.mark.proximity ? 0.5) + 0.25
 
       switch e.which
-        when KEYS.return
-          @el.find('footer button.default:visible').first().click()
-        when KEYS.esc
-          @el.find('footer button.cancel:visible').first().click()
+        when KEYS.return then @el.find('footer button.default:visible').first().click()
+        when KEYS.esc then @el.find('footer button.cancel:visible').first().click()
+        else
+          dontPreventDefault = true
+
+      e.preventDefault() unless dontPreventDefault
 
   setState: (newState) ->
     if @state

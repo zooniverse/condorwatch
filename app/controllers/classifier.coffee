@@ -39,6 +39,7 @@ class Classifier extends BaseController
 
     @markingSurface = new MarkingSurface
       tool: MarkingTool
+      tabIndex: -1
 
     @markingSurface.svgRoot.attr 'id', 'classifier-svg-root'
 
