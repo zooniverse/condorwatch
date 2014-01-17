@@ -14,8 +14,8 @@ module.exports =
     header:
       title: 'The California condors need your help!'
       content: '''
-        The California condor is a critically endangered species and the population is suffering from the affects of lead poisoning.
-        By tracking the location and social behavior of the creatures we can better detect early warning signs of the illness.
+        The California condor is a critically endangered species and the population is suffering from the effects of lead poisoning.
+        By tracking the location and social behavior of the animals we can better detect early warning signs of the illness.
       '''
       start: 'Get started!'
     whatDo:
