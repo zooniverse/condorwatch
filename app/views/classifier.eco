@@ -1,23 +1,92 @@
 <% translate = require 't7e' %>
+<% possibleTagColors = require '../lib/possible-tag-colors' %>
 <% ifTouch = require '../lib/if-touch' %>
 
 <div class="content-block">
-  <div class="content-container">
-    <%- translate 'h2', 'classifier.title' %>
-  </div>
+  <div class="subject content-container">
+    <div class="image-container"></div>
 
-  <div class="content-container">
-    <div class="subject"></div>
-  </div>
-</div>
+    <div class="details-editor">
+      <div class="no-selection">
+        <p>Click on each animal in the image and describe it using the options that appear.</p>
+      </div>
 
-<div class="content-block">
-  <div class="content-container">
-    <div class="instructions">
-      <% action = translate 'span', "classifier.#{ifTouch 'tapping', 'clicking'}" %>
-      <%- translate 'div.question', 'classifier.markAnimals', $action: action %>
+      <div class="what-kind">
+        <% POSSIBLE_ANIMALS = ['condor', 'turkeyVulture', 'raven', 'coyote'] %>
+        <%- translate 'div', 'classifier.whatKind' %>
+        <% for animal in POSSIBLE_ANIMALS: %>
+          <%- translate 'button', "animals.#{animal}.label", name: 'choose-animal', value: animal %><br />
+        <% end %>
+      </div>
 
-      <div class="answers">
+      <div class="condor-details">
+        <%- translate 'div', 'classifier.enterLabel' %>
+
+        <table>
+          <tr>
+            <th>
+              <%- translate 'span', 'classifier.tagLabel' %>
+            </th>
+            <td>
+              <input type="text" name="label" />
+            </td>
+          </tr>
+
+          <tr>
+            <th>
+              <%- translate 'span', 'classifier.color' %>
+            </th>
+            <td>
+              <%- translate 'button', '&times;', name: 'tag-color', title: "classifier.colors.clear" %>
+              <% for tagColor, i in possibleTagColors: %>
+                <%- translate 'button', "classifier.colors.#{tagColor}", name: 'tag-color', value: tagColor, title: "classifier.colors.#{tagColor}" %>
+              <% end %>
+            </td>
+          </tr>
+
+          <tr>
+            <th>
+              <%- translate 'span', 'classifier.dots' %>&emsp;
+            </th>
+            <td>
+              <div>
+                <%- translate 'button', '×', name: 'dots', value: 0, title: 'classifier.none' %>
+                <% for i in [1..5]: %>
+                  <button name="dots" value="<%= i %>" title="(<%= i %>)" class="some-dots"><%= i %></button>
+                <% end %>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td></td>
+            <td>
+              <label>
+                <input type="checkbox" name="underlined" />
+                <%- translate 'span', 'classifier.underlined' %>
+              </label>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="misc-details">
+        <%- translate 'div', 'classifier.estimateProximity' %>
+
+        <label>
+          <%- translate 'span', 'classifier.proximityNear' %>
+          <input type="range" name="proximity" min="0" max="1" step="0.25" data-ticks="true" />
+          <%- translate 'span', 'classifier.proximityFar' %>
+        </label>
+      </div>
+
+      <div class="no-marks">
+        <label>
+          <input type="checkbox" name="no-animals" />
+          <span class="label">No animals present</span>
+        </label>
+      </div>
+      <div class="finish">
         <%- translate 'button', 'classifier.finished', name: 'finish-marking' %>
       </div>
     </div>

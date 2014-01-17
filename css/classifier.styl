@@ -1,24 +1,23 @@
 .classifier
   .subject
-    background: MEDIUM_GRAY
+    background: gray
     border-radius: 5px
-    position: relative
+    box-shadow: 0 1px 1px rgba(black, 0.5)
+    display: table
+
+  .image-container
+    display: table-cell
+    padding: 25px
     text-align: center
+    vertical-align: middle
+    width: 75%
 
-  .marking-surface
-    display: block
-    cursor: crosshair
-    height: 440px
-    margin: 0 auto
-    max-height: 100%
-    max-width: 100%
-    width: 770px
+    .marking-surface
+      height: 512px
+      width: 640px
 
-  .marking-tool-root
-    opacity: 1
-
-  .tag-marker
-    fill: rgba(#fff, 0.8)
-
-    &:hover
-      fill: #fff
+  .details-editor
+    display: table-cell
+    padding: 25px
+    vertical-align: middle
+    width: 25%

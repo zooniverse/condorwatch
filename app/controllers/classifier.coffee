@@ -29,7 +29,7 @@ class Classifier extends BaseController
     'click button[name="no-tags"]': 'onClickNoTags'
 
   elements:
-    '.subject': 'subjectContainer'
+    '.image-container': 'subjectContainer'
     'button[name="finish-marking"]': 'finishButton'
     'button[name="no-tags"]': 'noTagsButton'
 
