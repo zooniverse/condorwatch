@@ -42,13 +42,10 @@ module.exports =
 
   classifier:
     title: 'Classify'
-    markAnimals: 'Mark each animal in this photo by $action.'
-    clicking: 'clicking your mouse'
-    tapping: 'tapping it'
-    finished: 'Finished'
-
+    makeSelection: 'Click on each animal in the image and describe it using the options that appear.'
+    finishSubject: 'Finished with this image'
     whatKind: 'What kind of animal is this?'
-
+    confirmAnimal: 'Next'
     enterLabel: 'Describe what you can see of the condor\'s tag.'
     tagLabel: 'Tag no.'
     color: 'Tag color'
@@ -62,21 +59,15 @@ module.exports =
       blue: 'Blue'
       purple: 'Purple'
     dots: 'Dots'
-    none: '(None)'
+    noDots: 'No dots'
+    someDots: '$n dot(s)'
     underlined: 'Underlined'
-
-    estimateProximity: 'Estimate how close this condor is to the carcass or scale, relative to the other condors.'
-    proximityNear: 'Near'
-    proximityFar: 'Far'
-
-    isFeeding: 'Is this animal currently feeding on a carcass?'
-    yes: 'Yes'
-    no: 'No'
-
-    cancel: 'Cancel'
-    next: 'Next'
-    done: 'Done'
-    delete: 'Delete'
+    proximity: 'Estimate how close this condor is to the carcass or scale, relative to the other condors.'
+    proximities:
+      withinReach: 'Within reach'
+      withinTwo: 'Within two body lengths'
+      outsideTwo: 'Farther than two body lengths'
+    finishSelection: 'Done'
 
   classificationSummary:
     title: 'Summary'

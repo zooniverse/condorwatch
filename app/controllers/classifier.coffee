@@ -23,7 +23,7 @@ class Classifier extends BaseController
   className: 'classifier'
   template: require '../views/classifier'
 
-  currentTool: null
+  selectedTool: null
 
   elements:
     '.image-container': 'subjectContainer'
@@ -34,7 +34,7 @@ class Classifier extends BaseController
     'button[name="dots"]': 'dotsButtons'
     'input[name="underlined"]': 'underlinedCheckbox'
     'button[name="proximity"]': 'proximityButtons'
-    'button[name="finish-marking"]': 'finishButton'
+    'button[name="finish-selection"]': 'finishSelectionButton'
 
   constructor: ->
     super
@@ -44,21 +44,19 @@ class Classifier extends BaseController
       tool: MarkingTool
       tabIndex: -1
 
-    @markingSurface.on 'create-tool', (tool) =>
-      tool.mark.on 'change', =>
-        @reflectTool tool
-
-    @markingSurface.on 'select-tool', @onChangeToolSelction
-    @markingSurface.on 'deselect-tool', @onChangeToolSelction
-
-    @markingSurface.svgRoot.attr 'id', 'classifier-svg-root'
-
     @subjectImage = @markingSurface.addShape 'image',
       width: '100%'
       height: '100%'
       preserveAspectRatio: 'none'
 
     @subjectContainer.append @markingSurface.el
+
+    @markingSurface.on 'create-tool', (tool) =>
+      tool.mark.on 'change', =>
+        @reflectTool tool
+
+    @markingSurface.on 'select-tool', @onSelectTool
+    @markingSurface.on 'deselect-tool', @onSelectTool
 
     User.on 'change', @onUserChange
     Subject.on 'select', @onSubjectSelect
@@ -76,44 +74,50 @@ class Classifier extends BaseController
       @subjectImage.attr 'xlink:href': NEXT_DEV_SUBJECT() || img.src # TODO
       @markingSurface.enable()
 
-  onChangeToolSelction: (tool) =>
-    @currentTool = tool
+  onSelectTool: (tool) =>
+    @selectedTool = tool
 
-    if @currentTool?
-      @reflectTool @currentTool
-      if @currentTool.mark.animal is 'condor'
-        @setState 'condor-details'
-      else if @currentTool.mark.animal?
-        @setState 'misc-details'
+    if @selectedTool?
+      if @selectedTool.mark.animal is 'condor'
+        @setState 'condor-details', 'proximity-details', 'finish-selection'
+      else if @selectedTool.mark.animal?
+        @setState 'proximity-details', 'finish-selection'
       else
         @setState 'what-kind'
+
+      @reflectTool @selectedTool
 
     else
       @setState 'no-selection'
 
   setState: (panels...) ->
     panelElements = @el.find '.state'
-    toShow = panelElements.filter ".#{panels.join '.'}"
+    toShow = panelElements.filter panels.map((className) -> ".#{className}").join ','
 
-    panelElements.css 'opacity', 0.25
-    toShow.css 'opacity', 1
+    panelElements.hide()
+    toShow.show()
 
   reflectTool: (tool) =>
-    console.log 'Reflecting', tool
-    return unless tool is @currentTool
+    return unless tool is @selectedTool
 
     @animalButtons.removeClass 'selected'
     @animalButtons.filter("[value='#{tool.mark.animal}']").addClass 'selected'
+
+    @confirmAnimalButton.prop 'disabled', not tool.mark.animal?
 
     @labelInput.val tool.mark.label || ''
 
     @colorButtons.removeClass 'selected'
     @colorButtons.filter("[value='#{tool.mark.color}']").addClass 'selected'
 
-    @dotsButtons.removeClass 'selected'
-    @dotsButtons.slice(0, tool.mark.dots + 1 || 0).addClass 'selected'
+    valuedDotsButtons = @dotsButtons.filter '[value]'
+    valuedDotsButtons.removeClass 'selected'
+    valuedDotsButtons.slice(0, tool.mark.dots || 0).addClass 'selected'
 
-    @underlinedCheckbox.prop 'checked', tool.mark.underlined
+    @underlinedCheckbox.prop 'checked', !!tool.mark.underlined
+
+    @proximityButtons.removeClass 'selected'
+    @proximityButtons.filter("[value='#{tool.mark.proximity}']").addClass 'selected'
 
   showSummary: (onDestroySummary) ->
     @classification.set 'marks', [@markingSurface.marks...]
@@ -138,30 +142,30 @@ class Classifier extends BaseController
 
   events:
     'click button[name="choose-animal"]': (e) ->
-      @currentTool.mark.set 'animal', e.currentTarget.value
+      @selectedTool.mark.set 'animal', e.currentTarget.value
 
     'click button[name="confirm-animal"]': ->
-      if @currentTool.mark.animal is 'condor'
-        @setState 'condor-details'
-      else if @currentTool.mark.animal?
-        @setState 'misc-details'
+      @onSelectTool @selectedTool # TODO: Maybe this is a weird way to re-set the state.
 
     'input input[name="label"]': (e) ->
-      @currentTool.mark.set 'label', e.currentTarget.value
+      @selectedTool.mark.set 'label', e.currentTarget.value
 
     'click button[name="tag-color"]': (e) ->
-      @currentTool.mark.set 'color', e.currentTarget.value
+      @selectedTool.mark.set 'color', e.currentTarget.value
 
     'click button[name="dots"]': (e) ->
-      @currentTool.mark.set 'dots', parseFloat e.currentTarget.value
+      @selectedTool.mark.set 'dots', parseFloat e.currentTarget.value
 
-    'input input[name="underlined"]': ->
-      @currentTool.mark.set 'underlined', e.currentTarget.checked
+    'change input[name="underlined"]': (e) ->
+      @selectedTool.mark.set 'underlined', e.currentTarget.checked
 
-    'click button[name="proximity"]': ->
-      @currentTool.mark.set 'proximity', parseFloat e.currentTarget.value
+    'click button[name="proximity"]': (e) ->
+      @selectedTool.mark.set 'proximity', e.currentTarget.value
 
-    'click button[name="finish-marking"]': ->
+    'click button[name="finish-selection"]': ->
+      @markingSurface.selection.deselect()
+
+    'click button[name="finish-subject"]': ->
       @sendClassification()
       @showSummary ->
         Subject.next()

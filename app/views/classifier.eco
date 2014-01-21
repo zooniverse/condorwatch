@@ -8,16 +8,22 @@
 
     <div class="details-editor">
       <div class="no-selection state">
-        <p>Click on each animal in the image and describe it using the options that appear.</p>
+        <%- translate 'div', 'classifier.makeSelection' %>
+
+        <div class="finish-subject">
+          <%- translate 'button', 'classifier.finishSubject', name: 'finish-subject' %>
+        </div>
       </div>
 
       <div class="what-kind state">
-        <% POSSIBLE_ANIMALS = ['condor', 'turkeyVulture', 'raven', 'coyote'] %>
         <%- translate 'div', 'classifier.whatKind' %>
+
+        <% POSSIBLE_ANIMALS = ['condor', 'turkeyVulture', 'raven', 'coyote'] %>
         <% for animal in POSSIBLE_ANIMALS: %>
           <div><%- translate 'button', "animals.#{animal}.label", name: 'choose-animal', value: animal %></div>
         <% end %>
-        <div><%- translate 'button', 'classifier.next', name: 'confirm-animal' %></div>
+
+        <div><%- translate 'button', 'classifier.confirmAnimal', name: 'confirm-animal' %></div>
       </div>
 
       <div class="condor-details state">
@@ -51,9 +57,9 @@
             </th>
             <td>
               <div>
-                <%- translate 'button', '×', name: 'dots', value: 0, title: 'classifier.none' %>
+                <%- translate 'button', '×', name: 'dots', title: 'classifier.noDots' %>
                 <% for i in [1..5]: %>
-                  <button name="dots" value="<%= i %>" title="(<%= i %>)" class="some-dots"><%= i %></button>
+                  <%- translate 'button', "#{i}", name: 'dots', value: i, title: 'classifier.someDots', $n: i %>
                 <% end %>
               </div>
             </td>
@@ -71,18 +77,15 @@
         </table>
       </div>
 
-      <div class="misc-details state">
-        <%- translate 'div', 'classifier.estimateProximity' %>
-
-        <label>
-          <%- translate 'span', 'classifier.proximityNear' %>
-          <input type="range" name="proximity" min="0" max="1" step="0.25" data-ticks="true" />
-          <%- translate 'span', 'classifier.proximityFar' %>
-        </label>
+      <div class="proximity-details state">
+        <%- translate 'div', 'classifier.proximity' %>
+        <div><%- translate 'button', 'classifier.proximities.withinReach', name: 'proximity', value: 'within-reach' %></div>
+        <div><%- translate 'button', 'classifier.proximities.withinTwo', name: 'proximity', value: 'within-two' %></div>
+        <div><%- translate 'button', 'classifier.proximities.outsideTwo', name: 'proximity', value: 'outside-two' %></div>
       </div>
 
-      <div class="finish">
-        <%- translate 'button', 'classifier.finished', name: 'finish-marking' %>
+      <div class="finish-selection state">
+        <div><%- translate 'button', 'classifier.finishSelection', name: 'finish-selection' %></div>
       </div>
     </div>
   </div>
