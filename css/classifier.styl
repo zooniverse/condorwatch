@@ -1,5 +1,11 @@
+// TODO: Update haw's version of stylus and use a hash.
+TAG_COLOR_NAMES = 'black' 'white' 'red' 'orange' 'yellow' 'green' 'blue' 'purple'
+TAG_COLORS = black white red orange yellow green blue purple
+
 .classifier
   .subject
+    background: DARK_GRAY
+    color: white
     display: table
 
   .image-container
@@ -13,14 +19,93 @@
 
   .details-editor
     display: table-cell
-    padding: 0 15px 0 20px
+    padding: 0 30px
     position: relative
     text-align: center
+    text-shadow: 0 1px 1px black
     vertical-align: middle
 
-    button
-      @extends #_STANDARD_BUTTON
+  button[name="finish-subject"],
+  button[name="finish-selection"]
+    @extends #_STANDARD_BUTTON
+    background: rgba(black, 0.5)
+
+  button[name="choose-animal"],
+  button[name="proximity"]
+    @extends #_STANDARD_BUTTON
+    background: rgba(black, 0.5)
+    display: block
+    margin-bottom: 3px
+    width: 100%
+
+    &.selected
+      background: rgba(MEDIUM_GRAY)
+
+  button[name="confirm-animal"]
+    @extends #_STANDARD_BUTTON
+    background: DARK_GRAY
+
+  table
+    border-collapse: collapse
+    width: 100%
+
+  th
+    font-weight: normal
+    padding: 5px 0
+
+  td
+    padding: 5px 0
+    text-align: left
+
+  input[name="label"]
+    border: 0
+    border-radius: 5px
+    box-shadow: 0 1px 3px 0px rgba(black, 0.5) inset
+    font-size: 2em
+    text-align: center
+    width: 100px
+
+  button[name="tag-color"]
+    height: 1.5em
+    overflow: hidden
+    width: 1.5em
+
+    &[value]
+      border: 2px solid transparent
+      border-radius: 50%
+      color: transparent
+
+    for name, i in TAG_COLOR_NAMES
+      &[value={s('"%s"', unquote(name))}]
+        background: rgba(TAG_COLORS[i], 0.9)
+
+    &[value="white"],
+    &[value="yellow"]
+      border-color: rgba(black, 0.5)
+
+    &:hover
+      border-color: BLUEISH
+
+    &.selected
+      border-color: white
+      box-shadow: 0 0 0 2px black
+
+      // &[value="white"],
+      // &[value="yellow"]
+      //   border-color: black
+      //   box-shadow: 0 0 0 3px white
+
+  button[name="dots"]
+    height: 1.5em
+    overflow: hidden
+    width: 1.5em
+
+    &[value]
+      border: 2px solid gray
+      border-radius: 50%
+      color: transparent
 
       &.selected
+        border-color: black
         background: black
-        color: white
+        opacity: 1

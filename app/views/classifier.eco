@@ -8,32 +8,33 @@
 
     <div class="details-editor">
       <div class="no-selection state">
-        <%- translate 'div', 'classifier.makeSelection' %>
+        <%- translate 'p', 'classifier.makeSelection' %>
 
         <div class="finish-subject">
-          <%- translate 'button', 'classifier.finishSubject', name: 'finish-subject' %>
+          <p><%- translate 'button', 'classifier.finishSubject', name: 'finish-subject' %></p>
         </div>
       </div>
 
       <div class="what-kind state">
-        <%- translate 'div', 'classifier.whatKind' %>
+        <%- translate 'p', 'classifier.whatKind' %>
 
         <% POSSIBLE_ANIMALS = ['condor', 'turkeyVulture', 'raven', 'coyote'] %>
         <% for animal in POSSIBLE_ANIMALS: %>
           <div><%- translate 'button', "animals.#{animal}.label", name: 'choose-animal', value: animal %></div>
         <% end %>
 
-        <div><%- translate 'button', 'classifier.confirmAnimal', name: 'confirm-animal' %></div>
+        <p><%- translate 'button', 'classifier.confirmAnimal', name: 'confirm-animal' %></p>
       </div>
 
       <div class="condor-details state">
-        <%- translate 'div', 'classifier.enterLabel' %>
+        <%- translate 'p', 'classifier.enterLabel' %>
 
         <table>
           <tr>
             <th>
               <%- translate 'span', 'classifier.tagLabel' %>
             </th>
+            <td></td>
             <td>
               <input type="text" name="label" />
             </td>
@@ -45,6 +46,8 @@
             </th>
             <td>
               <%- translate 'button', '&times;', name: 'tag-color', title: "classifier.colors.clear" %>
+            </td>
+            <td>
               <% for tagColor, i in possibleTagColors: %>
                 <%- translate 'button', "classifier.colors.#{tagColor}", name: 'tag-color', value: tagColor, title: "classifier.colors.#{tagColor}" %>
               <% end %>
@@ -56,8 +59,10 @@
               <%- translate 'span', 'classifier.dots' %>&emsp;
             </th>
             <td>
-              <div>
                 <%- translate 'button', '×', name: 'dots', title: 'classifier.noDots' %>
+            </td>
+            <td>
+              <div>
                 <% for i in [1..5]: %>
                   <%- translate 'button', "#{i}", name: 'dots', value: i, title: 'classifier.someDots', $n: i %>
                 <% end %>
@@ -66,6 +71,7 @@
           </tr>
 
           <tr>
+            <td></td>
             <td></td>
             <td>
               <label>
@@ -78,14 +84,14 @@
       </div>
 
       <div class="proximity-details state">
-        <%- translate 'div', 'classifier.proximity' %>
+        <%- translate 'p', 'classifier.proximity' %>
         <div><%- translate 'button', 'classifier.proximities.withinReach', name: 'proximity', value: 'within-reach' %></div>
         <div><%- translate 'button', 'classifier.proximities.withinTwo', name: 'proximity', value: 'within-two' %></div>
         <div><%- translate 'button', 'classifier.proximities.outsideTwo', name: 'proximity', value: 'outside-two' %></div>
       </div>
 
       <div class="finish-selection state">
-        <div><%- translate 'button', 'classifier.finishSelection', name: 'finish-selection' %></div>
+        <p><%- translate 'button', 'classifier.finishSelection', name: 'finish-selection' %></p>
       </div>
     </div>
   </div>

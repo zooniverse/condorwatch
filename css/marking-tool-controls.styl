@@ -1,7 +1,3 @@
-// TODO: Update haw's version of stylus and use a hash.
-TAG_COLOR_NAMES = 'black' 'white' 'red' 'orange' 'yellow' 'green' 'blue' 'purple'
-TAG_COLORS = black white red orange yellow green blue purple
-
 .marking-tool-controls
   ARROW_SIZE = 10
 
@@ -149,46 +145,3 @@ TAG_COLORS = black white red orange yellow green blue purple
 
   .condor-tag
     display: block
-
-  button[name="tag-color"]
-    height: 1.5em
-    overflow: hidden
-    width: 1.5em
-
-    &[value]
-      border: 2px solid transparent
-      border-radius: 50%
-      color: transparent
-
-    for name, i in TAG_COLOR_NAMES
-      &[value={s('"%s"', unquote(name))}]
-        background: rgba(TAG_COLORS[i], 0.9)
-
-    &[value="white"],
-    &[value="yellow"]
-      border-color: rgba(gray, 0.5)
-
-    &:hover
-      border-color: BLUEISH
-
-    &.selected
-      border-color: black
-
-      &[value="black"]
-        border-color: red
-
-  button[name="dots"]
-    height: 1.5em
-    overflow: hidden
-    width: 1.5em
-
-    &.some-dots
-      border: 2px solid gray
-      border-radius: 50%
-      color: transparent
-      vertical-align: middle
-
-      &.selected
-        border-color: black
-        background: black
-        opacity: 1
