@@ -119,6 +119,8 @@ class Classifier extends BaseController
     @proximityButtons.removeClass 'selected'
     @proximityButtons.filter("[value='#{tool.mark.proximity}']").addClass 'selected'
 
+    @finishSelectionButton.prop 'disabled', not tool.mark.proximity?
+
   showSummary: (onDestroySummary) ->
     @classification.set 'marks', [@markingSurface.marks...]
 
