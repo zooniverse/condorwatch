@@ -1,23 +1,26 @@
 .classifier
   .subject
-    background: gray
-    border-radius: 5px
-    box-shadow: 0 1px 1px rgba(black, 0.5)
     display: table
 
   .image-container
     display: table-cell
-    padding: 25px
-    text-align: center
     vertical-align: middle
-    width: 75%
+    // width: 75%
 
     .marking-surface
       height: 512px
       width: 640px
+      max-width: 100%
 
   .details-editor
     display: table-cell
-    padding: 25px
-    vertical-align: middle
-    width: 25%
+    padding: 0 15px 0 20px
+    vertical-align: top
+    // width: 25%
+
+    button
+      @extends #_STANDARD_BUTTON
+
+      &.selected
+        background: black
+        color: white

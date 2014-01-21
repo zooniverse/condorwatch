@@ -7,19 +7,20 @@
     <div class="image-container"></div>
 
     <div class="details-editor">
-      <div class="no-selection">
+      <div class="no-selection state">
         <p>Click on each animal in the image and describe it using the options that appear.</p>
       </div>
 
-      <div class="what-kind">
+      <div class="what-kind state">
         <% POSSIBLE_ANIMALS = ['condor', 'turkeyVulture', 'raven', 'coyote'] %>
         <%- translate 'div', 'classifier.whatKind' %>
         <% for animal in POSSIBLE_ANIMALS: %>
-          <%- translate 'button', "animals.#{animal}.label", name: 'choose-animal', value: animal %><br />
+          <div><%- translate 'button', "animals.#{animal}.label", name: 'choose-animal', value: animal %></div>
         <% end %>
+        <div><%- translate 'button', 'classifier.next', name: 'confirm-animal' %></div>
       </div>
 
-      <div class="condor-details">
+      <div class="condor-details state">
         <%- translate 'div', 'classifier.enterLabel' %>
 
         <table>
@@ -70,7 +71,7 @@
         </table>
       </div>
 
-      <div class="misc-details">
+      <div class="misc-details state">
         <%- translate 'div', 'classifier.estimateProximity' %>
 
         <label>
@@ -80,12 +81,6 @@
         </label>
       </div>
 
-      <div class="no-marks">
-        <label>
-          <input type="checkbox" name="no-animals" />
-          <span class="label">No animals present</span>
-        </label>
-      </div>
       <div class="finish">
         <%- translate 'button', 'classifier.finished', name: 'finish-marking' %>
       </div>

@@ -17,21 +17,24 @@ DEV_SUBJECTS = [
 ]
 
 NEXT_DEV_SUBJECT = ->
-  DEV_SUBJECTS.push DEV_SUBJECTS.shift()
-  DEV_SUBJECTS[0]
+  DEV_SUBJECTS[DEV_SUBJECTS.push(DEV_SUBJECTS.shift()) - 1]
 
 class Classifier extends BaseController
   className: 'classifier'
   template: require '../views/classifier'
 
-  events:
-    'click button[name="finish-marking"]': 'onClickFinishMarking'
-    'click button[name="no-tags"]': 'onClickNoTags'
+  currentTool: null
 
   elements:
     '.image-container': 'subjectContainer'
+    'button[name="choose-animal"]': 'animalButtons'
+    'button[name="confirm-animal"]': 'confirmAnimalButton'
+    'input[name="label"]': 'labelInput'
+    'button[name="tag-color"]': 'colorButtons'
+    'button[name="dots"]': 'dotsButtons'
+    'input[name="underlined"]': 'underlinedCheckbox'
+    'button[name="proximity"]': 'proximityButtons'
     'button[name="finish-marking"]': 'finishButton'
-    'button[name="no-tags"]': 'noTagsButton'
 
   constructor: ->
     super
@@ -40,6 +43,13 @@ class Classifier extends BaseController
     @markingSurface = new MarkingSurface
       tool: MarkingTool
       tabIndex: -1
+
+    @markingSurface.on 'create-tool', (tool) =>
+      tool.mark.on 'change', =>
+        @reflectTool tool
+
+    @markingSurface.on 'select-tool', @onChangeToolSelction
+    @markingSurface.on 'deselect-tool', @onChangeToolSelction
 
     @markingSurface.svgRoot.attr 'id', 'classifier-svg-root'
 
@@ -51,60 +61,70 @@ class Classifier extends BaseController
     @subjectContainer.append @markingSurface.el
 
     User.on 'change', @onUserChange
-    Subject.on 'fetch', @onSubjectFetch
     Subject.on 'select', @onSubjectSelect
-
-    # addEventListener 'resize', @rescale, false
-
-  activate: ->
-    # setTimeout @rescale, 100
 
   onUserChange: (e, user) =>
     Subject.next() unless @classification?
 
-  onSubjectFetch: =>
-    @startLoading()
-
   onSubjectSelect: (e, subject) =>
     @markingSurface.reset()
+    @setState 'no-selection'
 
     @classification = new Classification {subject}
 
     loadImage subject.location.standard, (img) =>
-      # @markingSurface.resize img.width, img.height
-
-      @subjectImage.attr
-        'xlink:href': NEXT_DEV_SUBJECT() || img.src
-
-      @stopLoading()
-
+      @subjectImage.attr 'xlink:href': NEXT_DEV_SUBJECT() || img.src # TODO
       @markingSurface.enable()
 
-  onClickFinishMarking: ->
-    @sendClassification()
-    @showSummary()
+  onChangeToolSelction: (tool) =>
+    @currentTool = tool
 
-  rescale: =>
-    setTimeout =>
-      over = innerHeight - document.body.clientHeight
-      @subjectContainer.height parseFloat(@subjectContainer.height()) + over
+    if @currentTool?
+      @reflectTool @currentTool
+      if @currentTool.mark.animal is 'condor'
+        @setState 'condor-details'
+      else if @currentTool.mark.animal?
+        @setState 'misc-details'
+      else
+        @setState 'what-kind'
 
-  startLoading: ->
-    @el.addClass 'loading'
+    else
+      @setState 'no-selection'
 
-  stopLoading: ->
-    @el.removeClass 'loading'
+  setState: (panels...) ->
+    panelElements = @el.find '.state'
+    toShow = panelElements.filter ".#{panels.join '.'}"
 
-  showSummary: ->
+    panelElements.css 'opacity', 0.25
+    toShow.css 'opacity', 1
+
+  reflectTool: (tool) =>
+    console.log 'Reflecting', tool
+    return unless tool is @currentTool
+
+    @animalButtons.removeClass 'selected'
+    @animalButtons.filter("[value='#{tool.mark.animal}']").addClass 'selected'
+
+    @labelInput.val tool.mark.label || ''
+
+    @colorButtons.removeClass 'selected'
+    @colorButtons.filter("[value='#{tool.mark.color}']").addClass 'selected'
+
+    @dotsButtons.removeClass 'selected'
+    @dotsButtons.slice(0, tool.mark.dots + 1 || 0).addClass 'selected'
+
+    @underlinedCheckbox.prop 'checked', tool.mark.underlined
+
+  showSummary: (onDestroySummary) ->
+    @classification.set 'marks', [@markingSurface.marks...]
+
     classificationSummary = new ClassificationSummary {@classification}
-
     classificationSummary.el.appendTo @el
-
     @el.addClass 'showing-summary'
 
     classificationSummary.on 'destroying', =>
       @el.removeClass 'showing-summary'
-      Subject.next()
+      onDestroySummary?()
 
     setTimeout =>
       classificationSummary.show()
@@ -114,7 +134,36 @@ class Classifier extends BaseController
     # in case we need to inspect them after it resets.
     @classification.set 'marks', [@markingSurface.marks...]
     console?.log JSON.stringify @classification
-
     # TODO: @classification.send()
+
+  events:
+    'click button[name="choose-animal"]': (e) ->
+      @currentTool.mark.set 'animal', e.currentTarget.value
+
+    'click button[name="confirm-animal"]': ->
+      if @currentTool.mark.animal is 'condor'
+        @setState 'condor-details'
+      else if @currentTool.mark.animal?
+        @setState 'misc-details'
+
+    'input input[name="label"]': (e) ->
+      @currentTool.mark.set 'label', e.currentTarget.value
+
+    'click button[name="tag-color"]': (e) ->
+      @currentTool.mark.set 'color', e.currentTarget.value
+
+    'click button[name="dots"]': (e) ->
+      @currentTool.mark.set 'dots', parseFloat e.currentTarget.value
+
+    'input input[name="underlined"]': ->
+      @currentTool.mark.set 'underlined', e.currentTarget.checked
+
+    'click button[name="proximity"]': ->
+      @currentTool.mark.set 'proximity', parseFloat e.currentTarget.value
+
+    'click button[name="finish-marking"]': ->
+      @sendClassification()
+      @showSummary ->
+        Subject.next()
 
 module.exports = Classifier
