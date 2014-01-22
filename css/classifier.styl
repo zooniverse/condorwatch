@@ -50,7 +50,7 @@ TAG_COLORS = black white red orange yellow green blue purple
       display: none
 
     .animal-preview
-      height: 100px
+      height: 150px
 
     .animal-label
       display: none
@@ -101,29 +101,16 @@ TAG_COLORS = black white red orange yellow green blue purple
     width: 1.5em
 
     &[value]
-      border: 2px solid transparent
+      border: 2px solid white
       border-radius: 50%
       color: transparent
 
+      &:not(.selected)
+        transform: scale(0.67)
+
     for name, i in TAG_COLOR_NAMES
       &[value={s('"%s"', unquote(name))}]
-        background: rgba(TAG_COLORS[i], 0.9)
-
-    &[value="white"],
-    &[value="yellow"]
-      border-color: rgba(black, 0.5)
-
-    &:hover
-      border-color: BLUEISH
-
-    &.selected
-      border-color: white
-      box-shadow: 0 0 0 2px black
-
-      // &[value="white"],
-      // &[value="yellow"]
-      //   border-color: black
-      //   box-shadow: 0 0 0 3px white
+        background: TAG_COLORS[i]
 
   button[name="dots"]
     height: 1.5em
@@ -131,11 +118,12 @@ TAG_COLORS = black white red orange yellow green blue purple
     width: 1.5em
 
     &[value]
-      border: 2px solid gray
+      border: 2px solid white
       border-radius: 50%
       color: transparent
 
+      &:not(.selected)
+        transform: scale(0.67)
+
       &.selected
-        border-color: black
-        background: black
-        opacity: 1
+        background: rgba(white, 0.5)
