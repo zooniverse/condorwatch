@@ -8,4 +8,16 @@ class MarkingTool extends MagnifierPointTool
   radius: 60
   zoom: 1.25
 
+  select: ->
+    super
+    @disc.attr 'r', @radius
+    @image.attr 'opacity', 1
+    @disc.attr 'fill', 'transparent'
+
+  deselect: ->
+    super
+    @disc.attr 'r', 7
+    @image.attr 'opacity', 0
+    @disc.attr 'fill', 'red'
+
 module.exports = MarkingTool
