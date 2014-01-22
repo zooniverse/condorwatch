@@ -35,6 +35,7 @@ class Classifier extends BaseController
     'button[name="tag-color"]': 'colorButtons'
     'button[name="dots"]': 'dotsButtons'
     'input[name="underlined"]': 'underlinedCheckbox'
+    'input[name="juvenile"]': 'juvenileCheckbox'
     'button[name="proximity"]': 'proximityButtons'
     'button[name="finish-selection"]': 'finishSelectionButton'
 
@@ -124,6 +125,7 @@ class Classifier extends BaseController
     valuedDotsButtons.slice(0, tool.mark.dots || 0).addClass 'selected'
 
     @underlinedCheckbox.prop 'checked', !!tool.mark.underlined
+    @juvenileCheckbox.prop 'checked', !!tool.mark.juvenile
 
     @proximityButtons.removeClass 'selected'
     @proximityButtons.filter("[value='#{tool.mark.proximity}']").addClass 'selected'
@@ -173,6 +175,9 @@ class Classifier extends BaseController
 
     'change input[name="underlined"]': (e) ->
       @selectedTool.mark.set 'underlined', e.currentTarget.checked
+
+    'change input[name="juvenile"]': (e) ->
+      @selectedTool.mark.set 'juvenile', e.currentTarget.checked
 
     'click button[name="proximity"]': (e) ->
       @selectedTool.mark.set 'proximity', e.currentTarget.value

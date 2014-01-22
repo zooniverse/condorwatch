@@ -88,6 +88,17 @@
               </label>
             </td>
           </tr>
+
+          <tr>
+            <td></td>
+            <td></td>
+            <td>
+              <label>
+                <input type="checkbox" name="juvenile" />
+                <%- translate 'span', 'classifier.juvenile' %>
+              </label>
+            </td>
+          </tr>
         </table>
       </div>
 

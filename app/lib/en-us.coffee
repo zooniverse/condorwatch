@@ -62,6 +62,7 @@ module.exports =
     noDots: 'No dots'
     someDots: '$n dot(s)'
     underlined: 'Underlined'
+    juvenile: 'Juvenile'
     proximity: 'How close is this animal to the carcass or scale?'
     proximities:
       withinReach: 'Within reach'
