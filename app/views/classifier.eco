@@ -8,11 +8,19 @@
 
     <div class="details-editor">
       <div class="no-selection state">
+        <!--TODO: Put a better icon here.-->
+        <div><i class="icon-arrow-left pointer-icon"></i></div>
         <%- translate 'p', 'classifier.makeSelection' %>
 
         <div class="finish-subject">
           <p><%- translate 'button', 'classifier.finishSubject', name: 'finish-subject' %></p>
         </div>
+      </div>
+
+      <div class="summary state">
+        <button name="unchoose-animal"><i class="icon-chevron-left"></i></button>
+        <img class="animal-preview" />
+        <span class="animal-label"></span>
       </div>
 
       <div class="what-kind state">

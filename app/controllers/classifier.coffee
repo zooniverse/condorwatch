@@ -1,11 +1,11 @@
 BaseController = require 'zooniverse/controllers/base-controller'
 User = require 'zooniverse/models/user'
 Subject = require 'zooniverse/models/subject'
-
 loadImage = require '../lib/load-image'
 Classification = require 'zooniverse/models/classification'
 MarkingSurface = require 'marking-surface'
 MarkingTool = require './marking-tool'
+translate = require 't7e'
 ClassificationSummary = require './classification-summary'
 
 DEV_SUBJECTS = [
@@ -27,6 +27,8 @@ class Classifier extends BaseController
 
   elements:
     '.image-container': 'subjectContainer'
+    '.animal-preview': 'animalPreview'
+    '.animal-label': 'animalLabel'
     'button[name="choose-animal"]': 'animalButtons'
     'button[name="confirm-animal"]': 'confirmAnimalButton'
     'input[name="label"]': 'labelInput'
@@ -79,11 +81,11 @@ class Classifier extends BaseController
 
     if @selectedTool?
       if @selectedTool.mark.animal is 'condor'
-        @setState 'condor-details', 'proximity-details', 'finish-selection'
+        @setState 'summary', 'condor-details', 'proximity-details', 'finish-selection'
       else if @selectedTool.mark.animal?
-        @setState 'proximity-details', 'finish-selection'
+        @setState 'summary', 'proximity-details', 'finish-selection'
       else
-        @setState 'what-kind'
+        @setState 'summary', 'what-kind'
 
       @reflectTool @selectedTool
 
@@ -99,6 +101,13 @@ class Classifier extends BaseController
 
   reflectTool: (tool) =>
     return unless tool is @selectedTool
+
+    if tool.mark.animal?
+      @animalPreview.attr 'src', translate "animals.#{tool.mark.animal}.image"
+      @animalLabel.html translate "animals.#{tool.mark.animal}.label"
+    else
+      @animalPreview.attr 'src', '//placehold.it/100.png'
+      @animalLabel.html ''
 
     @animalButtons.removeClass 'selected'
     @animalButtons.filter("[value='#{tool.mark.animal}']").addClass 'selected'
@@ -143,11 +152,15 @@ class Classifier extends BaseController
     # TODO: @classification.send()
 
   events:
+    'click button[name="unchoose-animal"]': ->
+      @selectedTool.mark.set 'animal', null
+      @onSelectTool @selectedTool
+
     'click button[name="choose-animal"]': (e) ->
       @selectedTool.mark.set 'animal', e.currentTarget.value
 
     'click button[name="confirm-animal"]': ->
-      @onSelectTool @selectedTool # TODO: Maybe this is a weird way to re-set the state.
+      @onSelectTool @selectedTool
 
     'input input[name="label"]': (e) ->
       @selectedTool.mark.set 'label', e.currentTarget.value

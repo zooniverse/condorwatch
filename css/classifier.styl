@@ -11,6 +11,7 @@ TAG_COLORS = black white red orange yellow green blue purple
   .image-container
     display: table-cell
     vertical-align: middle
+    width: 640px
 
     .marking-surface
       height: 512px
@@ -23,6 +24,16 @@ TAG_COLORS = black white red orange yellow green blue purple
     position: relative
     text-align: center
     text-shadow: 0 1px 1px black
+    vertical-align: middle
+
+  .pointer-icon
+    color: lighten(DARK_GRAY, 10%)
+    font-size: 150px
+    text-shadow: 0 -1px 1px rgba(black, 0.5)
+
+  .animal-preview
+    border-radius: 50%
+    height: 25px
     vertical-align: middle
 
   button[name="finish-subject"],
@@ -43,7 +54,7 @@ TAG_COLORS = black white red orange yellow green blue purple
 
   button[name="confirm-animal"]
     @extends #_STANDARD_BUTTON
-    background: DARK_GRAY
+    background: rgba(black, 0.5)
 
   table
     border-collapse: collapse

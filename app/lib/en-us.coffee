@@ -62,7 +62,7 @@ module.exports =
     noDots: 'No dots'
     someDots: '$n dot(s)'
     underlined: 'Underlined'
-    proximity: 'Estimate how close this condor is to the carcass or scale, relative to the other condors.'
+    proximity: 'How close is this animal to the carcass or scale?'
     proximities:
       withinReach: 'Within reach'
       withinTwo: 'Within two body lengths'
