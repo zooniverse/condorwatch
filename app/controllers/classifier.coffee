@@ -27,6 +27,7 @@ class Classifier extends BaseController
 
   elements:
     '.image-container': 'subjectContainer'
+    'button[name="unchoose-animal"]': 'unchooseButton'
     '.animal-preview': 'animalPreview'
     '.animal-label': 'animalLabel'
     'button[name="choose-animal"]': 'animalButtons'
@@ -99,6 +100,7 @@ class Classifier extends BaseController
 
     panelElements.hide()
     toShow.show()
+    @el.attr 'data-state', panels.join ' '
 
   reflectTool: (tool) =>
     return unless tool is @selectedTool

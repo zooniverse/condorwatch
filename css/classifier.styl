@@ -31,10 +31,24 @@ TAG_COLORS = black white red orange yellow green blue purple
     font-size: 150px
     text-shadow: 0 -1px 1px rgba(black, 0.5)
 
+  button[name="unchoose-animal"]
+    width: 1.5em
+
   .animal-preview
     border-radius: 50%
-    height: 25px
+    height: 30px
+    margin-right: 10px
     vertical-align: middle
+
+  &[data-state*="what-kind"]
+    button[name="unchoose-animal"]
+      display: none
+
+    .animal-preview
+      height: 100px
+
+    .animal-label
+      display: none
 
   button[name="finish-subject"],
   button[name="finish-selection"]
