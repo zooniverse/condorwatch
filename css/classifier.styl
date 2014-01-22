@@ -18,6 +18,11 @@ TAG_COLORS = black white red orange yellow green blue purple
       width: 640px
       max-width: 100%
 
+    .marking-tool-root
+      // Hack to prevent nib's opacity mixin property from overriding the filter property.
+      OPACITY = 'opacity '
+      {OPACITY}: 1
+
   .details-editor
     display: table-cell
     padding: 10px 30px
