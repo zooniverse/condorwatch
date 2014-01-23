@@ -6,7 +6,31 @@ Classification = require 'zooniverse/models/classification'
 MarkingSurface = require 'marking-surface'
 MarkingTool = require './marking-tool'
 translate = require 't7e'
+possibleAnimals = require '../lib/possible-animals'
 ClassificationSummary = require './classification-summary'
+
+KEYS =
+  return: 13
+  esc: 27
+  slash: 191
+  q: 81
+  w: 87
+  e: 69
+  r: 82
+  t: 84
+  y: 89
+  u: 85
+  i: 73
+  0: 48
+  1: 49
+  2: 50
+  3: 51
+  4: 52
+  5: 53
+  6: 54
+  7: 55
+  8: 56
+  9: 57
 
 DEV_SUBJECTS = [
   './dev-subject-images/CDY_0030.JPG'
@@ -25,8 +49,11 @@ class Classifier extends BaseController
 
   selectedTool: null
 
+  currentPanels: ''
+
   elements:
     '.image-container': 'subjectContainer'
+    '.details-editor': 'detailsContainer'
     'button[name="unchoose-animal"]': 'unchooseButton'
     '.animal-preview': 'animalPreview'
     '.animal-label': 'animalLabel'
@@ -78,9 +105,7 @@ class Classifier extends BaseController
       @subjectImage.attr 'xlink:href': NEXT_DEV_SUBJECT() || img.src # TODO
       @markingSurface.enable()
 
-  onSelectTool: (tool) =>
-    @selectedTool = tool
-
+  onSelectTool: (@selectedTool) =>
     if @selectedTool?
       if @selectedTool.mark.animal is 'condor'
         @setState 'summary', 'condor-details', 'proximity-details', 'finish-selection'
@@ -96,13 +121,14 @@ class Classifier extends BaseController
     else
       @setState 'no-selection'
 
-  setState: (panels...) ->
+  setState: (@currentPanels...) ->
     panelElements = @el.find '.state'
-    toShow = panelElements.filter panels.map((className) -> ".#{className}").join ','
+    toShow = panelElements.filter @currentPanels.map((className) -> ".#{className}").join ','
 
     panelElements.hide()
     toShow.show()
-    @el.attr 'data-state', panels.join ' '
+    @el.attr 'data-state', @currentPanels.join ' '
+    @detailsContainer.find('input, textarea, button, select').filter(':visible').first().focus()
 
   reflectTool: (tool) =>
     return unless tool is @selectedTool
@@ -193,5 +219,44 @@ class Classifier extends BaseController
       @sendClassification()
       @showSummary ->
         Subject.next()
+
+    'keydown .details-editor': (e) ->
+      return if e.target.type is 'text'
+
+      if @selectedTool?
+        if e.which is KEYS.return
+          @detailsContainer.find('.default:visible').first().click()
+        else if 'what-kind' in @currentPanels
+          switch e.which
+            when KEYS[1] then @selectedTool.mark.set 'animal', possibleAnimals[0]
+            when KEYS[2] then @selectedTool.mark.set 'animal', possibleAnimals[1]
+            when KEYS[3] then @selectedTool.mark.set 'animal', possibleAnimals[2]
+            when KEYS[4] then @selectedTool.mark.set 'animal', possibleAnimals[3]
+            when KEYS[5] then @selectedTool.mark.set 'animal', possibleAnimals[4]
+            when KEYS[6] then @selectedTool.mark.set 'animal', possibleAnimals[5]
+            when KEYS.esc then @selectedTool.mark.destroy()
+            else dontPreventDefault = true
+        else
+          switch e.which
+            when KEYS.q then @selectedTool.mark.set 'color', 'black'
+            when KEYS.w then @selectedTool.mark.set 'color', 'white'
+            when KEYS.e then @selectedTool.mark.set 'color', 'red'
+            when KEYS.r then @selectedTool.mark.set 'color', 'orange'
+            when KEYS.t then @selectedTool.mark.set 'color', 'yellow'
+            when KEYS.y then @selectedTool.mark.set 'color', 'green'
+            when KEYS.u then @selectedTool.mark.set 'color', 'blue'
+            when KEYS.i then @selectedTool.mark.set 'color', 'purple'
+
+            when KEYS[0] then @selectedTool.mark.set 'dots', 0
+            when KEYS[1] then @selectedTool.mark.set 'dots', 1
+            when KEYS[2] then @selectedTool.mark.set 'dots', 2
+            when KEYS[3] then @selectedTool.mark.set 'dots', 3
+            when KEYS[4] then @selectedTool.mark.set 'dots', 4
+            when KEYS[5] then @selectedTool.mark.set 'dots', 5
+
+            when KEYS.esc then @selectedTool.mark.set 'animal', null; @onSelectTool @selectedTool
+            else dontPreventDefault = true
+
+      e.preventDefault() unless dontPreventDefault
 
 module.exports = Classifier

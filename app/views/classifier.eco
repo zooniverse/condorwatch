@@ -1,4 +1,5 @@
 <% translate = require 't7e' %>
+<% possibleAnimals = require '../lib/possible-animals' %>
 <% possibleTagColors = require '../lib/possible-tag-colors' %>
 <% ifTouch = require '../lib/if-touch' %>
 
@@ -26,12 +27,11 @@
       <div class="what-kind state">
         <%- translate 'p', 'classifier.whatKind' %>
 
-        <% POSSIBLE_ANIMALS = ['condor', 'turkeyVulture', 'raven', 'coyote', 'goldenEagle', 'carcassOrScale'] %>
-        <% for animal in POSSIBLE_ANIMALS: %>
+        <% for animal in possibleAnimals: %>
           <div><%- translate 'button', "animals.#{animal}.label", name: 'choose-animal', value: animal %></div>
         <% end %>
 
-        <p><%- translate 'button', 'classifier.confirmAnimal', name: 'confirm-animal' %></p>
+        <p><%- translate 'button.default', 'classifier.confirmAnimal', name: 'confirm-animal' %></p>
       </div>
 
       <div class="condor-details state">
@@ -110,7 +110,7 @@
       </div>
 
       <div class="finish-selection state">
-        <p><%- translate 'button', 'classifier.finishSelection', name: 'finish-selection' %></p>
+        <p><%- translate 'button.default', 'classifier.finishSelection', name: 'finish-selection' %></p>
       </div>
     </div>
   </div>
