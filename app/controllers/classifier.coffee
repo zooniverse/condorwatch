@@ -84,6 +84,8 @@ class Classifier extends BaseController
     if @selectedTool?
       if @selectedTool.mark.animal is 'condor'
         @setState 'summary', 'condor-details', 'proximity-details', 'finish-selection'
+      else if @selectedTool.mark.animal is 'carcassOrScale'
+        @setState 'summary', 'finish-selection'
       else if @selectedTool.mark.animal?
         @setState 'summary', 'proximity-details', 'finish-selection'
       else
@@ -132,7 +134,7 @@ class Classifier extends BaseController
     @proximityButtons.removeClass 'selected'
     @proximityButtons.filter("[value='#{tool.mark.proximity}']").addClass 'selected'
 
-    @finishSelectionButton.prop 'disabled', not tool.mark.proximity?
+    @finishSelectionButton.prop 'disabled', tool.mark.animal isnt 'carcassOrScale' and not tool.mark.proximity?
 
   showSummary: (onDestroySummary) ->
     @classification.set 'marks', [@markingSurface.marks...]

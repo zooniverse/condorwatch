@@ -39,6 +39,13 @@ module.exports =
     coyote:
       label: 'Coyote'
       image: '//placehold.it/100.png&text=Coyote'
+    goldenEagle:
+      label: 'Golden eagle'
+      image: '//placehold.it/100.png&text=Golden eagle'
+    carcassOrScale:
+      label: 'Carcass/scale'
+      image: '//placehold.it/100.png&text=Carcass/scale'
+
 
   classifier:
     title: 'Classify'

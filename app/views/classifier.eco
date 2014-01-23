@@ -26,7 +26,7 @@
       <div class="what-kind state">
         <%- translate 'p', 'classifier.whatKind' %>
 
-        <% POSSIBLE_ANIMALS = ['condor', 'turkeyVulture', 'raven', 'coyote'] %>
+        <% POSSIBLE_ANIMALS = ['condor', 'turkeyVulture', 'raven', 'coyote', 'goldenEagle', 'carcassOrScale'] %>
         <% for animal in POSSIBLE_ANIMALS: %>
           <div><%- translate 'button', "animals.#{animal}.label", name: 'choose-animal', value: animal %></div>
         <% end %>
