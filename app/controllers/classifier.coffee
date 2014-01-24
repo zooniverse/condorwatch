@@ -32,17 +32,6 @@ KEYS =
   8: 56
   9: 57
 
-DEV_SUBJECTS = [
-  './dev-subject-images/CDY_0030.JPG'
-  './dev-subject-images/CDY_0032.JPG'
-  './dev-subject-images/CDY_0034.JPG'
-  './dev-subject-images/CDY_0036.JPG'
-  './dev-subject-images/CDY_0038.JPG'
-]
-
-NEXT_DEV_SUBJECT = ->
-  DEV_SUBJECTS[DEV_SUBJECTS.push(DEV_SUBJECTS.shift()) - 1]
-
 class Classifier extends BaseController
   className: 'classifier'
   template: require '../views/classifier'
@@ -102,7 +91,7 @@ class Classifier extends BaseController
     @classification = new Classification {subject}
 
     loadImage subject.location.standard, (img) =>
-      @subjectImage.attr 'xlink:href': NEXT_DEV_SUBJECT() || img.src # TODO
+      @subjectImage.attr 'xlink:href': img.src
       @markingSurface.enable()
 
   onSelectTool: (@selectedTool) =>
@@ -178,10 +167,10 @@ class Classifier extends BaseController
 
   sendClassification: ->
     # Save a copy of the marking surface's marks
-    # in case we need to inspect them after it resets.
+    # since it will change after it resets.
     @classification.set 'marks', [@markingSurface.marks...]
     console?.log JSON.stringify @classification
-    # TODO: @classification.send()
+    @classification.send()
 
   events:
     'click button[name="unchoose-animal"]': ->

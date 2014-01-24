@@ -17,7 +17,7 @@ languageManager.on 'change-language', (e, code, strings) ->
   t7e.refresh()
 
 Api = require 'zooniverse/lib/api'
-api = new Api project: 'worms'
+api = new Api project: 'condor'
 
 SiteNavigation = require './controllers/site-navigation'
 siteNavigation = new SiteNavigation
