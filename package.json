@@ -11,10 +11,12 @@
     "stack-of-pages": "~0.0.6",
     "t7e": "~0.2.3",
     "zooniverse": "~0.2.0",
-    "zootorial": "~0.3.6"
+    "zootorial": "~0.3.6",
+    "translator-seed": "0.1.0"
   },
   "scripts": {
     "start": "haw serve --port 3416",
-    "deploy-to-staging": "haw build && publisssh ./build zooniverse-demo/condors && rm -rf ./build"
+    "deploy-to-staging": "haw build && publisssh ./build zooniverse-demo/condors && rm -rf ./build",
+    "stage-locale": "seed-translation --project condor --env staging --deploy-path dev-translations"
   }
 }
