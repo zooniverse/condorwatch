@@ -85,6 +85,9 @@ class Classifier extends BaseController
 
     addEventListener 'resize', @rescale, false
 
+  activate: ->
+    @rescale()
+
   onUserChange: (e, user) =>
     Subject.next() unless @classification?
 
