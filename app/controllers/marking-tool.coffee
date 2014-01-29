@@ -5,8 +5,8 @@ getOctagonPoints = require '../lib/get-octagon-points'
 class MarkingTool extends MagnifierPointTool
   @Controls: require 'marking-surface/lib/tools/default-controls'
 
-  radius: 60
-  zoom: 1.25
+  radius: 100
+  zoom: 1
 
   select: ->
     super

@@ -40,6 +40,8 @@ class Classifier extends BaseController
 
   currentPanels: ''
 
+  currentSubjectImage: null
+
   elements:
     '.image-container': 'subjectContainer'
     '.details-editor': 'detailsContainer'
@@ -81,6 +83,8 @@ class Classifier extends BaseController
     User.on 'change', @onUserChange
     Subject.on 'select', @onSubjectSelect
 
+    addEventListener 'resize', @rescale, false
+
   onUserChange: (e, user) =>
     Subject.next() unless @classification?
 
@@ -90,9 +94,16 @@ class Classifier extends BaseController
 
     @classification = new Classification {subject}
 
-    loadImage subject.location.standard, (img) =>
-      @subjectImage.attr 'xlink:href': img.src
+    loadImage subject.location.standard, (@currentSubjectImage) =>
+      @subjectImage.attr 'xlink:href', @currentSubjectImage.src
+      @rescale()
       @markingSurface.enable()
+
+  rescale: =>
+    heightScale = @currentSubjectImage.height / @currentSubjectImage.width
+    height = @markingSurface.el.offsetWidth * heightScale
+    @markingSurface.svg.attr 'height', height
+    tool.render() for tool in @markingSurface.tools
 
   onSelectTool: (@selectedTool) =>
     if @selectedTool?

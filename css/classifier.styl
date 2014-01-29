@@ -14,9 +14,12 @@ TAG_COLORS = black white red orange yellow green blue purple
     width: 640px
 
     .marking-surface
-      height: 512px
-      width: 640px
-      max-width: 100%
+      display: block
+      width: 100%
+
+      svg
+        display: block
+        width: 100%
 
     .marking-tool-root
       // Hack to prevent nib's opacity mixin property from overriding the filter property.
