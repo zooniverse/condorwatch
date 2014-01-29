@@ -17,7 +17,7 @@ module.exports =
         The California condor is a critically endangered species and the population is suffering from the effects of lead poisoning.
         By tracking the location and social behavior of the animals we can better detect early warning signs of the illness.
       '''
-      start: 'Get started!'
+      start: 'Get started'
     whatDo:
       title: 'What can you do?'
       content: '''
