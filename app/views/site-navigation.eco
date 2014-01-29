@@ -1,6 +1,6 @@
 <% translate = require 't7e' %>
 
-<div class="content-container">
+<div class="all-links content-container">
   <%- translate 'a.logo', 'siteNavigation.projectName', href: '#/' %>
 
   <div class="links">
@@ -18,7 +18,7 @@
   </div>
 </div>
 
-<div class="for-home-page">
+<div class="content-container for-home-page">
   <div class="content-block">
     <%- translate 'h1', 'home.header.title' %>
     <%- translate 'p', 'home.header.content' %>
