@@ -238,8 +238,10 @@ class Classifier extends BaseController
         Subject.next()
 
     'keydown .details-editor': (e) ->
+      return if e.metaKey or e.ctrlKey or e.altKey
       return if e.target.type is 'text'
 
+      preventDefault = true
       if @selectedTool?
         if e.which is KEYS.return
           @detailsContainer.find('.default:visible').first().click()
@@ -252,7 +254,7 @@ class Classifier extends BaseController
             when KEYS[5] then @selectedTool.mark.set 'animal', possibleAnimals[4]
             when KEYS[6] then @selectedTool.mark.set 'animal', possibleAnimals[5]
             when KEYS.esc then @selectedTool.mark.destroy()
-            else dontPreventDefault = true
+            else preventDefault = false
         else
           switch e.which
             when KEYS.q then @selectedTool.mark.set 'color', 'black'
@@ -272,8 +274,11 @@ class Classifier extends BaseController
             when KEYS[5] then @selectedTool.mark.set 'dots', 5
 
             when KEYS.esc then @selectedTool.mark.set 'animal', null; @onSelectTool @selectedTool
-            else dontPreventDefault = true
+            else preventDefault = false
+      else
+        preventDefault = false
 
-      e.preventDefault() unless dontPreventDefault
+      console.log "Key was #{e.which}", {preventDefault}
+      e.preventDefault() if preventDefault
 
 module.exports = Classifier
