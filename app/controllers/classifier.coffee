@@ -103,6 +103,7 @@ class Classifier extends BaseController
       @markingSurface.enable()
 
   rescale: =>
+    return unless @currentSubjectImage?
     heightScale = @currentSubjectImage.height / @currentSubjectImage.width
     height = @markingSurface.el.offsetWidth * heightScale
     @markingSurface.svg.attr 'height', height
