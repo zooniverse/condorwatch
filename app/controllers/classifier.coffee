@@ -106,7 +106,7 @@ class Classifier extends BaseController
     return unless @currentSubjectImage?
     heightScale = @currentSubjectImage.height / @currentSubjectImage.width
     height = @markingSurface.el.offsetWidth * heightScale
-    @markingSurface.svg.attr 'height', height
+    @markingSurface.el.style.height = "#{height}px"
     tool.render() for tool in @markingSurface.tools
 
   onSelectTool: (@selectedTool) =>
