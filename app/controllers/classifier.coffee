@@ -142,7 +142,7 @@ class Classifier extends BaseController
     panelElements.hide()
     toShow.show()
     @el.attr 'data-state', @currentPanels.join ' '
-    @detailsContainer.find('input, textarea, button, select').filter(':visible').first().focus()
+    @detailsContainer.find('input, textarea, button, select').filter(':not(.not-default):visible').first().focus()
 
   reflectTool: (tool) =>
     return unless tool is @selectedTool

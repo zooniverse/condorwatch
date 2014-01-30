@@ -24,7 +24,7 @@
       </div>
 
       <div class="summary state">
-        <button name="unchoose-animal">
+        <button name="unchoose-animal" class="not-default">
           <i class="icon-chevron-left"></i>
           <%- translate 'span', 'classifier.back' %>
         </button>
