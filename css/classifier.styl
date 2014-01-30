@@ -4,9 +4,8 @@ TAG_COLORS = black white red orange yellow green blue purple
 
 .classifier
   .subject
-    background: DARK_GRAY
-    color: white
     display: table
+    height: 640px
 
   .image-container
     display: table-cell
@@ -31,22 +30,32 @@ TAG_COLORS = black white red orange yellow green blue purple
     padding: 10px 30px
     position: relative
     text-align: center
-    text-shadow: 0 1px 1px black
-    vertical-align: middle
+    vertical-align: top
 
   .pointer-icon
-    color: lighten(DARK_GRAY, 10%)
+    color: rgba(DARK_GRAY, 0.1)
     font-size: 150px
-    text-shadow: 0 -1px 1px rgba(black, 0.5)
 
   button[name="unchoose-animal"]
-    width: 1.5em
+    font-size: 12px
+    left: 30px
+    padding: 0.25em 1em
+    position: absolute
+    top: 20px
 
   .animal-preview
     border-radius: 50%
     height: 30px
-    margin-right: 10px
     vertical-align: middle
+    transition: height 0.25s, width 0.25s
+
+  .animal-label
+    font-size: 12px
+    font-weight: bold
+    letter-spacing: 2px
+    margin: 0.5em 0 2em
+    text-transform: uppercase
+    transition: font-size 0.25s, margin-top 0.25s
 
   &[data-state*="what-kind"]
     button[name="unchoose-animal"]
@@ -56,77 +65,106 @@ TAG_COLORS = black white red orange yellow green blue purple
       height: 150px
 
     .animal-label
-      display: none
+      font-size: 16px
+      margin-top: 1em
 
   button[name="finish-subject"],
-  button[name="finish-selection"]
+  button[name="finish-selection"],
+  button[name="confirm-animal"]
     @extends #_STANDARD_BUTTON
-    background: rgba(black, 0.5)
+    background: BLUEISH
+    border: 0
+    bottom: 0
+    color: white
+    display: block
+    left: 50%
+    margin: 2em auto 0
+    padding: 1em 0
+    position: absolute
+    transform: translateX(-50%)
+    width: 80% // Eyeball this against the choose-animal buttons
 
   button[name="choose-animal"],
   button[name="proximity"]
     @extends #_STANDARD_BUTTON
-    background: rgba(black, 0.5)
-    display: block
-    margin-bottom: 3px
-    width: 100%
+    border-color: LIGHT_GRAY
+    color: LIGHT_GRAY
+    font-size: 14px
+    margin: 5px 3px
+    overflow: hidden
+    text-overflow: ellipsis
+    white-space: nowrap
 
+    &:active,
     &.selected
-      background: rgba(MEDIUM_GRAY)
+      background: LIGHT_GRAY
+      border-color: transparent
+      color: white
 
-  button[name="confirm-animal"]
-    @extends #_STANDARD_BUTTON
-    background: rgba(black, 0.5)
+  button[name="choose-animal"]
+    padding-left: 0
+    padding-right: 0
+    width: 45%
 
-  table
-    border-collapse: collapse
-    width: 100%
+  fieldset
+    border: 0
+    margin: 0.5em 0
 
-  th
-    font-weight: normal
-    padding: 5px 0
-
-  td
-    padding: 5px 0
-    text-align: left
+  legend
+    color: MEDIUM_GRAY
+    font-size: 12px
+    letter-spacing: 1px
+    text-transform: uppercase
 
   input[name="label"]
-    border: 0
+    border: 1px solid LIGHT_GRAY
     border-radius: 5px
     box-shadow: 0 1px 3px 0px rgba(black, 0.5) inset
     font-size: 2em
     text-align: center
-    width: 100px
+    width: 150px
 
-  button[name="tag-color"]
-    height: 1.5em
+  button[name="tag-color"],
+  button[name="dots"]
+    border-radius: 50%
+    box-sizing: border-box
+    color: LIGHT_GRAY
+    height: 15px
+    line-height: 0
+    margin: 0 5px
     overflow: hidden
-    width: 1.5em
+    vertical-align: middle
+    width: 15px
+
+    &:not([value])
+      font-size: 20px
 
     &[value]
-      border: 2px solid white
-      border-radius: 50%
       color: transparent
 
-      &:not(.selected)
-        transform: scale(0.67)
+  button[name="tag-color"]
+    &[value].selected
+        transform: scale(1.5)
 
     for name, i in TAG_COLOR_NAMES
       &[value={s('"%s"', unquote(name))}]
         background: TAG_COLORS[i]
 
+    &[value="white"]
+      border: 1px solid LIGHT_GRAY
+
   button[name="dots"]
-    height: 1.5em
-    overflow: hidden
-    width: 1.5em
-
     &[value]
-      border: 2px solid white
-      border-radius: 50%
-      color: transparent
-
-      &:not(.selected)
-        transform: scale(0.67)
+      border: 2px solid LIGHT_GRAY
 
       &.selected
-        background: rgba(white, 0.5)
+        background: LIGHT_GRAY
+
+  label
+    display: inline-block
+
+    & + label
+      margin-left: 2em
+
+  button[name="proximity"]
+    width: 92.5%

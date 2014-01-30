@@ -52,9 +52,10 @@ module.exports =
     makeSelection: 'Click on each animal in the image and describe it using the options that appear.'
     finishSubject: 'Finished with this image'
     whatKind: 'What kind of animal is this?'
+    back: 'Back'
     confirmAnimal: 'Next'
     enterLabel: 'Describe what you can see of the condor\'s tag.'
-    tagLabel: 'Tag no.'
+    tagLabel: 'Tag number'
     color: 'Tag color'
     colors:
       black: 'Black'

@@ -19,16 +19,19 @@
       </div>
 
       <div class="summary state">
-        <button name="unchoose-animal"><i class="icon-chevron-left"></i></button>
+        <button name="unchoose-animal">
+          <i class="icon-chevron-left"></i>
+          <%- translate 'span', 'classifier.back' %>
+        </button>
         <img class="animal-preview" />
-        <span class="animal-label"></span>
+        <div class="animal-label"></div>
       </div>
 
       <div class="what-kind state">
         <%- translate 'p', 'classifier.whatKind' %>
 
         <% for animal in possibleAnimals: %>
-          <div><%- translate 'button', "animals.#{animal}.label", name: 'choose-animal', value: animal %></div>
+          <%- translate 'button', "animals.#{animal}.label", name: 'choose-animal', value: animal %>
         <% end %>
 
         <p><%- translate 'button.default', 'classifier.confirmAnimal', name: 'confirm-animal' %></p>
@@ -37,69 +40,38 @@
       <div class="condor-details state">
         <%- translate 'p', 'classifier.enterLabel' %>
 
-        <table>
-          <tr>
-            <th>
-              <%- translate 'span', 'classifier.tagLabel' %>
-            </th>
-            <td></td>
-            <td>
-              <input type="text" name="label" />
-            </td>
-          </tr>
+        <fieldset>
+          <%- translate 'legend', 'classifier.tagLabel' %>
+          <input type="text" name="label" />
+        </fieldset>
 
-          <tr>
-            <th>
-              <%- translate 'span', 'classifier.color' %>
-            </th>
-            <td>
-              <%- translate 'button', '&times;', name: 'tag-color', title: "classifier.colors.clear" %>
-            </td>
-            <td>
-              <% for tagColor, i in possibleTagColors: %>
-                <%- translate 'button', "classifier.colors.#{tagColor}", name: 'tag-color', value: tagColor, title: "classifier.colors.#{tagColor}" %>
-              <% end %>
-            </td>
-          </tr>
+        <fieldset>
+          <%- translate 'legend', 'classifier.color' %>
+          <%- translate 'button', '&times;', name: 'tag-color', title: "classifier.colors.clear" %>
+          <% for tagColor, i in possibleTagColors: %>
+            <%- translate 'button', "classifier.colors.#{tagColor}", name: 'tag-color', value: tagColor, title: "classifier.colors.#{tagColor}" %>
+          <% end %>
+        </fieldset>
 
-          <tr>
-            <th>
-              <%- translate 'span', 'classifier.dots' %>&emsp;
-            </th>
-            <td>
-                <%- translate 'button', '×', name: 'dots', title: 'classifier.noDots' %>
-            </td>
-            <td>
-              <div>
-                <% for i in [1..5]: %>
-                  <%- translate 'button', "#{i}", name: 'dots', value: i, title: 'classifier.someDots', $n: i %>
-                <% end %>
-              </div>
-            </td>
-          </tr>
+        <fieldset>
+          <%- translate 'legend', 'classifier.dots' %>
+          <%- translate 'button', '×', name: 'dots', title: 'classifier.noDots' %>
+          <% for i in [1..5]: %>
+            <%- translate 'button', "#{i}", name: 'dots', value: i, title: 'classifier.someDots', $n: i %>
+          <% end %>
+        </fieldset>
 
-          <tr>
-            <td></td>
-            <td></td>
-            <td>
-              <label>
-                <input type="checkbox" name="underlined" />
-                <%- translate 'span', 'classifier.underlined' %>
-              </label>
-            </td>
-          </tr>
+        <fieldset>
+          <label>
+            <input type="checkbox" name="underlined" />
+            <%- translate 'span', 'classifier.underlined' %>
+          </label>
 
-          <tr>
-            <td></td>
-            <td></td>
-            <td>
-              <label>
-                <input type="checkbox" name="juvenile" />
-                <%- translate 'span', 'classifier.juvenile' %>
-              </label>
-            </td>
-          </tr>
-        </table>
+          <label>
+            <input type="checkbox" name="juvenile" />
+            <%- translate 'span', 'classifier.juvenile' %>
+          </label>
+        </fieldset>
       </div>
 
       <div class="proximity-details state">

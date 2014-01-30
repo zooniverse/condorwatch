@@ -10,13 +10,13 @@ class MarkingTool extends MagnifierPointTool
 
   select: ->
     super
-    @disc.attr r: @radius, fill: 'none'
+    @disc.attr r: @radius, fill: 'transparent'
     @clipCircle.attr 'r', @radius
     @image.attr 'opacity', 1
 
   deselect: ->
     super
-    @disc.attr r: 7, fill: 'red'
+    @disc.attr r: 7, fill: 'blue'
     @clipCircle.attr 'r', 5
     @image.attr 'opacity', 0
 

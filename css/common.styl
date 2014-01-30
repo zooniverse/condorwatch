@@ -4,22 +4,17 @@ SITE_WIDTH = 90%
 
 DARK_GRAY = rgb(39, 48, 56)
 MEDIUM_GRAY = rgb(76, 83, 93)
+LIGHT_GRAY = rgb(136, 143, 153)
 
 BLUEISH = rgb(99, 188, 246)
 
 #_STANDARD_BUTTON
   border: 1px solid
-  border-radius: 0.3em
+  border-radius: 0.25em
   display: inline-block
   margin: 0 0.2em
   padding: 0.4em 1.6em
-
-  &:hover
-    box-shadow: 0 1px 2px rgba(#000, 0.5)
-
-  &:active
-    transform: translateY(1px)
-    box-shadow: none
+  transition: background 150ms, color 150ms
 
 #_TOGGLE_BUTTON
   @extends #_STANDARD_BUTTON

@@ -142,7 +142,7 @@ class Classifier extends BaseController
       @animalLabel.html translate "animals.#{tool.mark.animal}.label"
     else
       @animalPreview.attr 'src', '//placehold.it/100.png&text=Choose'
-      @animalLabel.html ''
+      @animalLabel.html '· · ·'
 
     @animalButtons.removeClass 'selected'
     @animalButtons.filter("[value='#{tool.mark.animal}']").addClass 'selected'
