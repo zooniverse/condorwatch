@@ -100,11 +100,12 @@ button
   font: inherit
   margin: 0
   padding: 0
-  vertical-align: middle
+  text-shadow: inherit
 
-  &:disabled
-    opacity: 0.5
-    pointer-events: none
+a:not([href]),
+button:disabled
+  opacity: 0.5
+  pointer-events: none
 
 .faux-range-input
   background: DARK_GRAY

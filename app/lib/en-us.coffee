@@ -48,7 +48,9 @@ module.exports =
 
 
   classifier:
-    title: 'Classify'
+    favorite: 'Favorite'
+    discuss: 'Dicuss'
+    share: 'Share'
     makeSelection: 'Click on each animal in the image and describe it using the options that appear.'
     finishSubject: 'Finished with this image'
     whatKind: 'What kind of animal is this?'

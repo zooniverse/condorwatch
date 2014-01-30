@@ -43,6 +43,8 @@ class Classifier extends BaseController
   currentSubjectImage: null
 
   elements:
+    'button[name="favorite"]': 'favoriteButton'
+    '.talk-link': 'talkLink'
     '.image-container': 'subjectContainer'
     '.details-editor': 'detailsContainer'
     'button[name="unchoose-animal"]': 'unchooseButton'
@@ -71,7 +73,7 @@ class Classifier extends BaseController
       height: '100%'
       preserveAspectRatio: 'none'
 
-    @subjectContainer.append @markingSurface.el
+    @subjectContainer.prepend @markingSurface.el
 
     @markingSurface.on 'create-tool', (tool) =>
       tool.mark.on 'change', =>
@@ -81,6 +83,7 @@ class Classifier extends BaseController
     @markingSurface.on 'deselect-tool', @onSelectTool
 
     User.on 'change', @onUserChange
+    Subject.on 'get-next', @onGettingNextSubject
     Subject.on 'select', @onSubjectSelect
 
     addEventListener 'resize', @rescale, false
@@ -91,11 +94,17 @@ class Classifier extends BaseController
   onUserChange: (e, user) =>
     Subject.next() unless @classification?
 
+  onGettingNextSubject: =>
+    @favoriteButton.prop 'disabled', true
+    @talkLink.prop 'href', ''
+
   onSubjectSelect: (e, subject) =>
     @markingSurface.reset()
     @setState 'no-selection'
 
     @classification = new Classification {subject}
+    @favoriteButton.prop 'disabled', false
+    @talkLink.prop 'href', subject.talkHref()
 
     loadImage subject.location.standard, (@currentSubjectImage) =>
       @subjectImage.attr 'xlink:href', @currentSubjectImage.src
@@ -188,6 +197,10 @@ class Classifier extends BaseController
     @classification.send()
 
   events:
+    'click button[name="favorite"]': ->
+      @classification.favorite = !@classification.favorite
+      @favoriteButton.toggleClass 'selected', @classification.favorite
+
     'click button[name="unchoose-animal"]': ->
       @selectedTool.mark.set 'animal', null
       @onSelectTool @selectedTool
