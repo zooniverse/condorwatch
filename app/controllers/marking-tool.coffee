@@ -10,14 +10,14 @@ class MarkingTool extends MagnifierPointTool
 
   select: ->
     super
-    @disc.attr 'r', @radius
+    @disc.attr r: @radius, fill: 'none'
+    @clipCircle.attr 'r', @radius
     @image.attr 'opacity', 1
-    @disc.attr 'fill', 'transparent'
 
   deselect: ->
     super
-    @disc.attr 'r', 7
+    @disc.attr r: 7, fill: 'red'
+    @clipCircle.attr 'r', 5
     @image.attr 'opacity', 0
-    @disc.attr 'fill', 'red'
 
 module.exports = MarkingTool
