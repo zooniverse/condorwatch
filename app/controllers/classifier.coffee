@@ -240,7 +240,7 @@ class Classifier extends BaseController
 
     'keydown .details-editor': (e) ->
       return if e.metaKey or e.ctrlKey or e.altKey
-      return if e.target.type is 'text'
+      return if e.target.nodeName.toUpperCase() in ['INPUT', 'TEXTAREA']
 
       preventDefault = true
       if @selectedTool?
