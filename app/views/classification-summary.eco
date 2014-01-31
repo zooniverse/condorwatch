@@ -55,6 +55,8 @@
     </div>
   <% end %>
 
+  <hr />
+
   <div class="dismissal">
     <div class="question">
       <%- translate 'div', 'classificationSummary.readyForNext' %>
