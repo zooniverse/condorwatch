@@ -1,7 +1,15 @@
+#_SUMMARY_BUTTON
+  @extends #_STANDARD_BUTTON
+  font-size: 12px
+  letter-spacing: 1px
+  margin: 1em 0
+  text-transform: uppercase
+
 .classification-summary
   background: rgba(#000, 0.8)
   bottom: 0
   color: #fff
+  font-size: 16px
   left: 0
   opacity: 1
   overflow: auto
@@ -9,79 +17,114 @@
   right: 0
   text-align: center
   top: 0
-  transition: opacity 0.5s ease-in-out
+  transition: opacity 0.5s
   z-index: 2
 
   &.offscreen
     opacity: 0
 
-  .centerer
+  .summary-container
     left: 50%
-    margin-top: -1em
     position: absolute
     top: 50%
     transform: translate(-50%, -50%)
 
-  .classification-summary-header
-    letter-spacing: 1px
-    margin: 2em 0 1em
+  .heading
+    letter-spacing: 2px
     text-transform: uppercase
 
-  .no-tags
+  .subheading
+    font-size: 12px
+    letter-spacing: 1px
+    text-transform: uppercase
+    overflow: hidden
+
+  .subheading-content
+    position: relative
+
+    &:before,
+    &:after
+      border-top: 1px solid
+      content: ""
+      margin: 0 0.5em
+      position: absolute
+      top: 50%
+      width: 1080px
+
+    &:before
+      right: 100%
+
+    &:after
+      left: 100%
+
+  .no-condors,
+  .no-other-animals
     font-style: italic
-    margin-bottom: 100px
-    opacity: 0.5
+    margin: 2em auto
+    opacity: 0.67
 
-  .condor-summaries
+  .condors,
+  .other-animals
     display: table
-    margin: 0 auto
-    max-width: 100%
+    margin: 2em auto
+    table-layout: fixed
 
-  .condor-summary
+  .condor-summary,
+  .other-animal-summary
     display: table-cell
-    padding: 0 1em
+    margin: 0 1em
+    padding: 0 20px
+    width: 1%
 
-  .tag
-    > svg
-      height: 80px
-      width: 80px
-
-  polygon
-    fill: rgba(#fff, 0.8)
-    stroke-width: 0
-
-  .tag-number
-    color: #000
-    height: 67px
-    line-height: 1
-    margin: -67px auto 0
+  .condor-tag
+    background: white
+    border-radius: 50%
+    color: black
+    height: 100px
+    margin: 1em auto
+    position: relative
     width: 100px
 
-    > small
-      display: block
+  .condor-tag-info
+    left: 50%
+    position: absolute
+    top: 50%
+    transform: translate(-50%, -50%)
 
-    > strong
-      display: block
-      font-size:  30px
-
-  .stat
-    margin: 1em 0
-
-  .share
-    border-top: 1px solid
-    visibility: hidden
-
-    strong
-      font-size: 12px
-
-  .sharing-links
+  .condor-tag-label
     font-size: 24px
 
-    i
-      margin: 0 2px
+  .unknown-condor
+    font-size: 10px
+    font-weight: bold
+    letter-spacing: 1px
+    text-transform: uppercase
 
-  .mark:hover .share
-    visibility: visible
+    & + .condor-tag-label
+      display: none
 
-  .instructions
-    margin-top: 1em
+  .bio-link
+    @extends #_SUMMARY_BUTTON
+
+  .other-animal-count
+    font-size: 30px
+
+  .other-animal-label
+    font-size: 12px
+    text-transform: uppercase
+
+  .dismissal
+    border-top: 1px solid
+    display: table
+    text-align: left
+    width: 100%
+
+  .question,
+  .answer
+    display: table-cell
+
+  .answer
+    text-align: right
+
+  button[name="dismiss"]
+    @extends #_SUMMARY_BUTTON

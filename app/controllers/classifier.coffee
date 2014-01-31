@@ -10,27 +10,9 @@ possibleAnimals = require '../lib/possible-animals'
 ClassificationSummary = require './classification-summary'
 
 KEYS =
-  return: 13
-  esc: 27
-  slash: 191
-  q: 81
-  w: 87
-  e: 69
-  r: 82
-  t: 84
-  y: 89
-  u: 85
-  i: 73
-  0: 48
-  1: 49
-  2: 50
-  3: 51
-  4: 52
-  5: 53
-  6: 54
-  7: 55
-  8: 56
-  9: 57
+  return: 13, esc: 27, slash: 191
+  q: 81, w: 87, e: 69, r: 82, t: 84, y: 89, u: 85, i: 73
+  0: 48, 1: 49, 2: 50, 3: 51, 4: 52, 5: 53, 6: 54, 7: 55, 8: 56, 9: 57
 
 class Classifier extends BaseController
   className: 'classifier'
@@ -176,24 +158,28 @@ class Classifier extends BaseController
 
     @finishSelectionButton.prop 'disabled', tool.mark.animal isnt 'carcassOrScale' and not tool.mark.proximity?
 
-  showSummary: (onDestroySummary) ->
+  updateClassificationMarks: ->
+    # Save a copy of the marking surface's marks
+    # since it will change after it resets.
     @classification.set 'marks', [@markingSurface.marks...]
 
-    classificationSummary = new ClassificationSummary {@classification}
-    classificationSummary.el.appendTo @el
-    @el.addClass 'showing-summary'
+  showSummary: ->
+    @updateClassificationMarks()
 
+    @el.addClass 'showing-summary'
+    classificationSummary = new ClassificationSummary {@classification}
     classificationSummary.on 'destroying', =>
       @el.removeClass 'showing-summary'
-      onDestroySummary?()
+
+    classificationSummary.el.appendTo @el
 
     setTimeout =>
       classificationSummary.show()
 
+    classificationSummary
+
   sendClassification: ->
-    # Save a copy of the marking surface's marks
-    # since it will change after it resets.
-    @classification.set 'marks', [@markingSurface.marks...]
+    @updateClassificationMarks()
     console?.log JSON.stringify @classification
     @classification.send()
 
@@ -235,7 +221,8 @@ class Classifier extends BaseController
 
     'click button[name="finish-subject"]': ->
       @sendClassification()
-      @showSummary ->
+      classificationSummary = @showSummary()
+      classificationSummary.on 'destroying', =>
         Subject.next()
 
     'keydown .details-editor': (e) ->

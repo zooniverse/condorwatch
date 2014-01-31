@@ -1,10 +1,8 @@
 BaseController = require 'zooniverse/controllers/base-controller'
 guessCondor = require '../lib/guess-condor'
-getCondorBio = require '../lib/get-condor-bio'
-CondorSummary = require './condor-summary'
 
 class ClassificationSummary extends BaseController
-  classification: null
+  marks: null
 
   className: 'classification-summary'
   template: require '../views/classification-summary'
@@ -12,29 +10,21 @@ class ClassificationSummary extends BaseController
   destroyDelay: 500
 
   events:
-    'click button[name="ready-for-next"]': 'onClickReady'
+    'click button[name="dismiss"]': 'onClickDismiss'
 
   elements:
     '.condor-summaries': 'summaryContainer'
-    'button[name="ready-for-next"]': 'nextButton'
+    'button[name="dismiss"]': 'nextButton'
 
   constructor: ->
     super
     @hide()
 
-    for mark in @classification.get 'marks' when mark.animal is 'condor'
-      {label, color, dots, underlined} = mark
-      guessCondor {label, color, dots, underlined}, ([id]) =>
-        summary = new CondorSummary
-          condorId: id
-          bioPromise: getCondorBio id
-        @summaryContainer.append summary.el
-
   show: ->
     @el.removeClass 'offscreen'
     @nextButton.focus()
 
-  onClickReady: ->
+  onClickDismiss: ->
     @finish()
 
   finish: ->
@@ -45,3 +35,20 @@ class ClassificationSummary extends BaseController
     @el.addClass 'offscreen'
 
 module.exports = ClassificationSummary
+
+# cs = new ClassificationSummary
+#   marks: [
+#     {animal: 'condor'}
+#     {animal: 'turkeyVulture'}
+#     {animal: 'turkeyVulture'}
+#     {animal: 'raven'}
+#     {animal: 'coyote'}
+#     {animal: 'coyote'}
+#     {animal: 'goldenEagle'}
+#     {animal: 'carcassOrScale'}
+#     {animal: 'carcassOrScale'}
+#   ]
+
+# cs.el.appendTo document.body
+
+# cs.show()

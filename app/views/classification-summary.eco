@@ -1,19 +1,66 @@
 <% translate = require 't7e' %>
+<% possibleAnimals = require '../lib/possible-animals' %>
 
-<div class="centerer">
-  <%- translate 'h2', 'classificationSummary.title' %>
+<% condors = (mark for mark in @marks when mark.animal is 'condor') %>
+<% others = (mark for mark in @marks when mark.animal isnt 'condor') %>
 
-  <div class="condor-summaries">
-    <% if @classification.get('marks').length is 0: %>
-      <%- translate 'p.no-tags', 'classificationSummary.noTags' %>
-    <% end %>
+<div class="summary-container">
+  <%- translate 'div.heading', 'classificationSummary.condorsHeading', $count: condors.length %>
+
+  <% if condors.length is 0: %>
+    <%- translate 'div.no-condors', 'classificationSummary.noCondors' %>
+  <% else: %>
+    <div class="condors">
+      <% for condor, i in condors: %>
+        <div class="condor-summary" data-index="<%= i %>">
+          <div class="condor-tag">
+            <span class="condor-tag-info">
+              <%- translate 'span', 'classificationSummary.tagPrefix' %>
+              <span class="condor-tag-label">00</span>
+            </span>
+          </div>
+
+          <%- translate 'a.bio-link', 'classificationSummary.bioLink' %>
+        </div>
+      <% end %>
+
+      <div class="condor-summary" data-index="<%= i %>">
+        <div class="condor-tag">
+          <span class="condor-tag-info">
+            <span class="unknown-condor">Unknown</span>
+            <span class="condor-tag-label">00</span>
+          </span>
+        </div>
+
+        <%- translate 'a.bio-link', 'classificationSummary.bioLink' %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="subheading">
+    <%- translate 'span.subheading-content', 'classificationSummary.othersHeading' %>
   </div>
 
-  <div class="instructions">
-    <%- translate 'div.question', 'classificationSummary.readyForNext' %>
+  <% if others.length is 0: %>
+    <%- translate 'div.no-other-animals', 'classificationSummary.noOthers' %>
+  <% else: %>
+    <div class="other-animals">
+      <% for animal in possibleAnimals when animal isnt 'condor': %>
+        <% count = (mark for mark in others when mark.animal is animal).length %>
+        <div class="other-animal-summary">
+          <div class="other-animal-count"><%- count %></div>
+          <%- translate 'div.other-animal-label', "animals.#{animal}.label" %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 
-    <div class="answers">
-      <%- translate 'button', 'classificationSummary.ready', name: 'ready-for-next' %>
+  <div class="dismissal">
+    <div class="question">
+      <%- translate 'div', 'classificationSummary.readyForNext' %>
+    </div>
+    <div class="answer">
+      <%- translate 'button', 'classificationSummary.ready', name: 'dismiss' %>
     </div>
   </div>
 </div>

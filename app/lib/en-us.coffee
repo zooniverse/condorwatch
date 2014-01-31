@@ -81,14 +81,14 @@ module.exports =
     finishSelection: 'Done'
 
   classificationSummary:
-    title: 'Confirmed condors'
-    noTags: '(No condors marked)'
-    relativeAge: 'Relative age'
-    details: 'See details'
-    noDetails: 'Couldn\'t find details'
-    share: 'Share the story <br />of <small>No.</small> $tag'
+    condorsHeading: '$count confirmed condors'
+    noCondors: 'No condors marked'
+    tagPrefix: 'No.'
+    bioLink: 'Bio'
+    othersHeading: 'Other animals'
+    noOthers: 'No other animals marked'
     readyForNext: 'Image classified! Ready for the next one?'
-    ready: 'Ready!'
+    ready: 'Ready'
 
   condorBio:
     sex: 'Sex'
