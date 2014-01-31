@@ -48,7 +48,7 @@ getCondors = $.get('./condors.csv').pipe (tabbed) ->
   condors
 
 getCondorBio = (id, callback) ->
-  getCondors.then (condors) ->
+  $.when(getCondors).then (condors) ->
     callback? condors[id]
     condors[id]
 

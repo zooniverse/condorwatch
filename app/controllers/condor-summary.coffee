@@ -22,6 +22,8 @@ class CondorSummary extends BaseController
             value = value.format 'MM-DD-YYYY'
           else
             value = 'n/a'
+        else if not value?
+          value = '&mdash;'
 
         @placesFor.filter("[data-place-for='#{property}']").html value
 

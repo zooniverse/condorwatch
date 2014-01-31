@@ -42,12 +42,13 @@ getTags = $.get('./condor-tags.csv').pipe (tabSeparated) ->
   rows
 
 guessCondor = (given, callback) ->
-  getTags.then (tags) ->
+  $.when(getTags).then (tags) ->
     matches = tags.filter (values) ->
       for key, givenValue of given when givenValue?
+        givenSomething = true
         unless values[key] is givenValue or (values[key] instanceof Array and givenValue in values[key])
           return false
-      return true
+      return givenSomething
 
     ids = [[], matches...].reduce (reduced, match) ->
       unless match.id in reduced
@@ -55,6 +56,7 @@ guessCondor = (given, callback) ->
       reduced
 
     callback? ids
+    ids
 
 window.guessCondor = guessCondor if +location.port > 1023
 module.exports = guessCondor

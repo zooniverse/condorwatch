@@ -81,8 +81,8 @@ module.exports =
     finishSelection: 'Done'
 
   classificationSummary:
-    title: 'Summary'
-    noTags: '(No tags visible)'
+    title: 'Confirmed condors'
+    noTags: '(No condors marked)'
     relativeAge: 'Relative age'
     details: 'See details'
     noDetails: 'Couldn\'t find details'
