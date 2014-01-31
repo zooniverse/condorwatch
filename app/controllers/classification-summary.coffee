@@ -16,12 +16,13 @@ class ClassificationSummary extends BaseController
 
   elements:
     '.condor-summaries': 'summaryContainer'
+    'button[name="ready-for-next"]': 'nextButton'
 
   constructor: ->
     super
     @hide()
 
-    for mark in @classification.get 'marks'
+    for mark in @classification.get 'marks' when mark.animal is 'condor'
       {label, color, dots, underlined} = mark
       guessCondor {label, color, dots, underlined}, ([id]) =>
         summary = new CondorSummary
@@ -31,6 +32,7 @@ class ClassificationSummary extends BaseController
 
   show: ->
     @el.removeClass 'offscreen'
+    @nextButton.focus()
 
   onClickReady: ->
     @finish()
