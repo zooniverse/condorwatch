@@ -266,7 +266,6 @@ class Classifier extends BaseController
       else
         preventDefault = false
 
-      console.log "Key was #{e.which}", {preventDefault}
       e.preventDefault() if preventDefault
 
 module.exports = Classifier
