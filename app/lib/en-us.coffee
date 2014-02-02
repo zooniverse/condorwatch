@@ -43,7 +43,7 @@ module.exports =
       label: 'Golden eagle'
       image: '//placehold.it/100.png&text=Golden eagle'
     carcassOrScale:
-      label: 'Carcass/scale'
+      label: 'Carcass/&#8203;scale'
       image: '//placehold.it/100.png&text=Carcass/scale'
 
 

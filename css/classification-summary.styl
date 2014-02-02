@@ -3,6 +3,7 @@
   font-size: 12px
   letter-spacing: 1px
   margin: 1em 0
+  padding: 0.75em 2em
   text-transform: uppercase
 
 .classification-summary
@@ -67,18 +68,14 @@
     margin: 2em auto
     opacity: 0.67
 
-  .condors,
-  .other-animals
-    display: table
+  .condors
     margin: 2em auto
-    table-layout: fixed
+    white-space: nowrap
 
-  .condor-summary,
-  .other-animal-summary
-    display: table-cell
-    margin: 0 1em
-    padding: 0 20px
-    width: 1%
+  .condor-summary
+    display: inline-block
+    margin: 0 10px
+    white-space: normal
 
   .condor-tag
     background: white
@@ -95,20 +92,36 @@
     top: 50%
     transform: translate(-50%, -50%)
 
-  .condor-tag-label
-    font-size: 24px
-
-  .unknown-condor
+  .unknown-condor-label
+    display: none
     font-size: 10px
     font-weight: bold
     letter-spacing: 1px
     text-transform: uppercase
 
-    & + .condor-tag-label
+  .condor-tag-label
+    font-size: 24px
+
+  .unknown-condor
+    .unknown-condor-label
+      display: block
+
+    .condor-tag-prefix,
+    .condor-tag-label
       display: none
 
-  .bio-link
+  .condor-bio-link
     @extends #_SUMMARY_BUTTON
+
+  .other-animals
+    display: table
+    margin: 2em auto
+    table-layout: fixed
+
+  .other-animal-summary
+    display: table-cell
+    padding: 0 20px
+    width: 20%
 
   .other-animal-count
     font-size: 30px

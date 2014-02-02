@@ -42,9 +42,14 @@ getTags = $.get('./condor-tags.csv').pipe (tabSeparated) ->
   rows
 
 guessCondor = (given, callback) ->
+  reducedGiven = {}
+  for property, value of given
+    if property in ['label', 'color', 'dots', 'underlined']
+      reducedGiven[property] = value
+
   $.when(getTags).then (tags) ->
     matches = tags.filter (values) ->
-      for key, givenValue of given when givenValue?
+      for key, givenValue of reducedGiven when givenValue?
         givenSomething = true
         unless values[key] is givenValue or (values[key] instanceof Array and givenValue in values[key])
           return false

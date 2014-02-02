@@ -167,7 +167,7 @@ class Classifier extends BaseController
     @updateClassificationMarks()
 
     @el.addClass 'showing-summary'
-    classificationSummary = new ClassificationSummary {@classification}
+    classificationSummary = new ClassificationSummary marks: @classification.get 'marks'
     classificationSummary.on 'destroying', =>
       @el.removeClass 'showing-summary'
 

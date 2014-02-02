@@ -12,28 +12,18 @@
   <% else: %>
     <div class="condors">
       <% for condor, i in condors: %>
-        <div class="condor-summary" data-index="<%= i %>">
+        <div class="condor-summary" data-condor-index="<%= i %>">
           <div class="condor-tag">
-            <span class="condor-tag-info">
-              <%- translate 'span', 'classificationSummary.tagPrefix' %>
-              <span class="condor-tag-label">00</span>
-            </span>
+            <div class="condor-tag-info">
+              <div class="unknown-condor-label">Unknown</div>
+              <%- translate 'div.condor-tag-prefix', 'classificationSummary.tagPrefix' %>
+              <div class="condor-tag-label">· · ·</div>
+            </div>
           </div>
 
-          <%- translate 'a.bio-link', 'classificationSummary.bioLink' %>
+          <%- translate 'a.condor-bio-link', 'classificationSummary.bioLink' %>
         </div>
       <% end %>
-
-      <div class="condor-summary" data-index="<%= i %>">
-        <div class="condor-tag">
-          <span class="condor-tag-info">
-            <span class="unknown-condor">Unknown</span>
-            <span class="condor-tag-label">00</span>
-          </span>
-        </div>
-
-        <%- translate 'a.bio-link', 'classificationSummary.bioLink' %>
-      </div>
     </div>
   <% end %>
 
