@@ -13,6 +13,8 @@
     </div>
 
     <div class="details-editor">
+      <%- translate 'button.not-default', '&times;', name: 'delete-mark', title: 'classifier.deleteMark' %>
+
       <div class="no-selection state">
         <!--TODO: Put a better icon here.-->
         <div><i class="icon-arrow-left pointer-icon"></i></div>

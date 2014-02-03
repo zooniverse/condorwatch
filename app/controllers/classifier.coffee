@@ -27,6 +27,7 @@ class Classifier extends BaseController
     '.talk-link': 'talkLink'
     '.image-container': 'subjectContainer'
     '.details-editor': 'detailsContainer'
+    'button[name="delete-mark"]': 'deleteMarkButton'
     'button[name="unchoose-animal"]': 'unchooseButton'
     '.animal-preview': 'animalPreview'
     '.animal-label': 'animalLabel'
@@ -80,7 +81,7 @@ class Classifier extends BaseController
 
   onSubjectSelect: (e, subject) =>
     @markingSurface.reset()
-    @setState 'no-selection'
+    @onSelectTool null
 
     @classification = new Classification {subject}
     @favoriteButton.prop 'disabled', false
@@ -101,6 +102,8 @@ class Classifier extends BaseController
 
   onSelectTool: (@selectedTool) =>
     if @selectedTool?
+      @deleteMarkButton.show()
+
       if @selectedTool.mark.animal is 'condor'
         @setState 'summary', 'condor-details', 'proximity-details', 'finish-selection'
       else if @selectedTool.mark.animal is 'carcassOrScale'
@@ -113,6 +116,7 @@ class Classifier extends BaseController
       @reflectTool @selectedTool
 
     else
+      @deleteMarkButton.hide()
       @setState 'no-selection'
 
   setState: (@currentPanels...) ->
@@ -185,6 +189,9 @@ class Classifier extends BaseController
     'click button[name="favorite"]': ->
       @classification.favorite = !@classification.favorite
       @favoriteButton.toggleClass 'selected', @classification.favorite
+
+    'click button[name="delete-mark"]': ->
+      @selectedTool.mark.destroy()
 
     'click button[name="unchoose-animal"]': ->
       @selectedTool.mark.set 'animal', null
