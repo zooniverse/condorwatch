@@ -19,7 +19,7 @@
         <%- translate 'p', 'classifier.makeSelection' %>
 
         <div class="finish-subject">
-          <p><%- translate 'button', 'classifier.finishSubject', name: 'finish-subject' %></p>
+          <p><%- translate 'button', 'classifier.finishSubject', name: 'finish-subject', title: '[SHIFT-ENTER]' %></p>
         </div>
       </div>
 
@@ -68,12 +68,12 @@
         </fieldset>
 
         <fieldset>
-          <label title="[-]">
+          <label>
             <input type="checkbox" name="underlined" />
             <%- translate 'span', 'classifier.underlined' %>
           </label>
 
-          <label title="[=]">
+          <label>
             <input type="checkbox" name="juvenile" />
             <%- translate 'span', 'classifier.juvenile' %>
           </label>

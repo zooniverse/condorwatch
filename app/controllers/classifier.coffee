@@ -8,11 +8,9 @@ MarkingTool = require './marking-tool'
 translate = require 't7e'
 possibleAnimals = require '../lib/possible-animals'
 ClassificationSummary = require './classification-summary'
+ansiKeycode = require 'ansi-keycode'
 
-KEYS =
-  ENTER: 13, ESC: 27, '-': 189, '=': 187
-  q: 81, w: 87, e: 69, r: 82, t: 84, y: 89, u: 85, i: 73
-  0: 48, 1: 49, 2: 50, 3: 51, 4: 52, 5: 53, 6: 54, 7: 55, 8: 56, 9: 57
+KEYS = 13: 'enter', 27: 'esc'
 
 class Classifier extends BaseController
   className: 'classifier'
@@ -225,47 +223,27 @@ class Classifier extends BaseController
       classificationSummary.on 'destroying', =>
         Subject.next()
 
-    'keydown .details-editor': (e) ->
+    'keypress': (e) ->
       return if e.metaKey or e.ctrlKey or e.altKey
       return if e.target.nodeName.toUpperCase() in ['INPUT', 'TEXTAREA']
 
-      preventDefault = true
-      if @selectedTool?
-        if e.which is KEYS.return
-          @detailsContainer.find('.default:visible').first().click()
-        else if 'what-kind' in @currentPanels
-          switch e.which
-            when KEYS[1] then @selectedTool.mark.set 'animal', possibleAnimals[0]
-            when KEYS[2] then @selectedTool.mark.set 'animal', possibleAnimals[1]
-            when KEYS[3] then @selectedTool.mark.set 'animal', possibleAnimals[2]
-            when KEYS[4] then @selectedTool.mark.set 'animal', possibleAnimals[3]
-            when KEYS[5] then @selectedTool.mark.set 'animal', possibleAnimals[4]
-            when KEYS[6] then @selectedTool.mark.set 'animal', possibleAnimals[5]
-            when KEYS.esc then @selectedTool.mark.destroy()
-            else preventDefault = false
-        else
-          switch e.which
-            when KEYS.q then @selectedTool.mark.set 'color', 'black'
-            when KEYS.w then @selectedTool.mark.set 'color', 'white'
-            when KEYS.e then @selectedTool.mark.set 'color', 'red'
-            when KEYS.r then @selectedTool.mark.set 'color', 'orange'
-            when KEYS.t then @selectedTool.mark.set 'color', 'yellow'
-            when KEYS.y then @selectedTool.mark.set 'color', 'green'
-            when KEYS.u then @selectedTool.mark.set 'color', 'blue'
-            when KEYS.i then @selectedTool.mark.set 'color', 'purple'
-
-            when KEYS[0] then @selectedTool.mark.set 'dots', 0
-            when KEYS[1] then @selectedTool.mark.set 'dots', 1
-            when KEYS[2] then @selectedTool.mark.set 'dots', 2
-            when KEYS[3] then @selectedTool.mark.set 'dots', 3
-            when KEYS[4] then @selectedTool.mark.set 'dots', 4
-            when KEYS[5] then @selectedTool.mark.set 'dots', 5
-
-            when KEYS.esc then @selectedTool.mark.set 'animal', null; @onSelectTool @selectedTool
-            else preventDefault = false
+      key = if e.which of KEYS
+        KEYS[e.which]
       else
-        preventDefault = false
+        ansiKeycode e.which
 
-      e.preventDefault() if preventDefault
+      key = "SHIFT-#{key}" if e.shiftKey
+      key = key.toUpperCase()
+
+      target = @el.find("[title$='[#{key}]']:visible").first()
+      # TODO: Label/input combos
+
+      if target.length is 1
+        e.preventDefault()
+        target.focus()
+
+        switch target.get(0).tagName.toUpperCase()
+          when 'BUTTON'
+            target.click()
 
 module.exports = Classifier
