@@ -45,7 +45,7 @@ class MarkingTool extends MagnifierPointTool
 
   select: ->
     unless @surface.selection is @
-      @expand()
+      if @collapsed then @collapse() else @expand()
 
     super
     @disc.attr r: @radius
@@ -53,19 +53,20 @@ class MarkingTool extends MagnifierPointTool
 
   deselect: ->
     super
-    @disc.attr r: 7
+    @disc.attr r: 7, strokeDasharray: []
     @clipCircle.attr r: 7
-    @collapse()
 
   expand: ->
     @root.toggleClass 'collapsed', false
     @image.attr 'opacity', 1
+    @disc.attr strokeDasharray: []
     @collapsed = false
     @trigger 'expand'
 
   collapse: ->
     @root.toggleClass 'collapsed', true
     @image.attr 'opacity', 0
+    @disc.attr strokeDasharray: [@strokeWidth, @strokeWidth]
     @collapsed = true
     @trigger 'collapse'
 
