@@ -26,6 +26,13 @@ TAG_COLORS = black white red orange yellow green blue purple
       // Hack to prevent nib's opacity mixin property from overriding the filter property.
       OPACITY = 'opacity '
       {OPACITY}: 1
+      color: white
+
+      &.invalid
+        color: yellow
+
+        &:not(.selected) .disc
+          fill: red
 
   .subject-options
     color: white
