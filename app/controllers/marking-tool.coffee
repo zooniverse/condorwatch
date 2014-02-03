@@ -13,16 +13,25 @@ class MarkingMark extends Mark
 
 class MarkingToolControls extends ToolControls
   template: '''
-    <button name="toggle">±</button>
+    <button name="toggle"></button>
   '''
 
   constructor: ->
     super
-    @$el = $(@el)
-    @$el.on 'click', 'button[name="toggle"]', => @tool.toggle()
+    @toggleButton = $(@el).find 'button[name="toggle"]'
+    @toggleButton.on 'click', => @tool.toggle()
+
+    @tool.on 'collapse', @collapse
+    @tool.on 'expand', @expand
 
   onMouseDown: ->
     # Usually this selected the tool, but that breaks the toggle button.
+
+  collapse: =>
+    @toggleButton.html '<i class="icon-zoom-in"></i>'
+
+  expand: =>
+    @toggleButton.html '<i class="icon-zoom-out"></i>'
 
 class MarkingTool extends MagnifierPointTool
   @Mark: MarkingMark
@@ -52,11 +61,13 @@ class MarkingTool extends MagnifierPointTool
     @root.toggleClass 'collapsed', false
     @image.attr 'opacity', 1
     @collapsed = false
+    @trigger 'expand'
 
   collapse: ->
     @root.toggleClass 'collapsed', true
     @image.attr 'opacity', 0
     @collapsed = true
+    @trigger 'collapse'
 
   toggle: ->
     if @collapsed then @expand() else @collapse()
