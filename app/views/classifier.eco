@@ -7,8 +7,8 @@
   <div class="subject content-container">
     <div class="image-container">
       <div class="subject-options">
-        <button name="favorite" class="subject-option"><i class="icon-star"></i></button>
-        <a class="talk-link subject-option"><i class="icon-comments"></i></a>
+        <button name="favorite" class="subject-option" data-t7e-key="" data-t7e-attr-title="classifier.favorite"><i class="icon-star"></i></button>
+        <a class="talk-link subject-option" data-t7e-attr-title="classifier.discuss"><i class="icon-comments"></i></a>
       </div>
     </div>
 
@@ -24,7 +24,7 @@
       </div>
 
       <div class="summary state">
-        <button name="unchoose-animal" class="not-default">
+        <button name="unchoose-animal" class="not-default" title="[ESC]">
           <i class="icon-chevron-left"></i>
           <%- translate 'span', 'classifier.back' %>
         </button>
@@ -35,11 +35,11 @@
       <div class="what-kind state">
         <%- translate 'p', 'classifier.whatKind' %>
 
-        <% for animal in possibleAnimals: %>
-          <%- translate 'button', "animals.#{animal}.label", name: 'choose-animal', value: animal %>
+        <% for animal, i in possibleAnimals: %>
+          <%- translate 'button', "animals.#{animal}.label", name: 'choose-animal', value: animal, title: "[#{i + 1}]" %>
         <% end %>
 
-        <p><%- translate 'button.default', 'classifier.confirmAnimal', name: 'confirm-animal' %></p>
+        <p><%- translate 'button.default', 'classifier.confirmAnimal', name: 'confirm-animal', title: '[ENTER]' %></p>
       </div>
 
       <div class="condor-details state">
@@ -52,27 +52,28 @@
 
         <fieldset>
           <%- translate 'legend', 'classifier.color' %>
-          <%- translate 'button', '&times;', name: 'tag-color', title: "classifier.colors.clear" %>
+          <%- translate 'button', '&times;', name: 'tag-color', title: '$label [Q]', $label: 'classifier.colors.clear' %>
+          <% COLOR_SHORTCUTS = 'WERTYUIO'.split '' %>
           <% for tagColor, i in possibleTagColors: %>
-            <%- translate 'button', "classifier.colors.#{tagColor}", name: 'tag-color', value: tagColor, title: "classifier.colors.#{tagColor}" %>
+            <%- translate 'button', "classifier.colors.#{tagColor}", name: 'tag-color', value: tagColor, title: '$color [$shortcut]', $color: "classifier.colors.#{tagColor}", $shortcut: COLOR_SHORTCUTS[i] %>
           <% end %>
         </fieldset>
 
         <fieldset>
           <%- translate 'legend', 'classifier.dots' %>
-          <%- translate 'button', '×', name: 'dots', title: 'classifier.noDots' %>
+          <%- translate 'button', '×', name: 'dots', title: '$label [0]', $label: 'classifier.noDots' %>
           <% for i in [1..5]: %>
-            <%- translate 'button', "#{i}", name: 'dots', value: i, title: 'classifier.someDots', $n: i %>
+            <%- translate 'button', "#{i}", name: 'dots', value: i, title: '$label [$shortcut]', $label: 'classifier.someDots', $n: i, $shortcut: i %>
           <% end %>
         </fieldset>
 
         <fieldset>
-          <label>
+          <label title="[-]">
             <input type="checkbox" name="underlined" />
             <%- translate 'span', 'classifier.underlined' %>
           </label>
 
-          <label>
+          <label title="[=]">
             <input type="checkbox" name="juvenile" />
             <%- translate 'span', 'classifier.juvenile' %>
           </label>
@@ -81,13 +82,13 @@
 
       <div class="proximity-details state">
         <%- translate 'p', 'classifier.proximity' %>
-        <div><%- translate 'button', 'classifier.proximities.withinReach', name: 'proximity', value: 'within-reach' %></div>
-        <div><%- translate 'button', 'classifier.proximities.withinTwo', name: 'proximity', value: 'within-two' %></div>
-        <div><%- translate 'button', 'classifier.proximities.outsideTwo', name: 'proximity', value: 'outside-two' %></div>
+        <div><%- translate 'button', 'classifier.proximities.withinReach', name: 'proximity', value: 'within-reach', title: '[A]' %></div>
+        <div><%- translate 'button', 'classifier.proximities.withinTwo', name: 'proximity', value: 'within-two', title: '[S]' %></div>
+        <div><%- translate 'button', 'classifier.proximities.outsideTwo', name: 'proximity', value: 'outside-two', title: '[D]' %></div>
       </div>
 
       <div class="finish-selection state">
-        <p><%- translate 'button.default', 'classifier.finishSelection', name: 'finish-selection' %></p>
+        <p><%- translate 'button.default', 'classifier.finishSelection', name: 'finish-selection', title: '[ENTER]' %></p>
       </div>
     </div>
   </div>

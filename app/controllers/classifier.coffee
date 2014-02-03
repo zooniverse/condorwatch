@@ -10,7 +10,7 @@ possibleAnimals = require '../lib/possible-animals'
 ClassificationSummary = require './classification-summary'
 
 KEYS =
-  return: 13, esc: 27, slash: 191
+  ENTER: 13, ESC: 27, '-': 189, '=': 187
   q: 81, w: 87, e: 69, r: 82, t: 84, y: 89, u: 85, i: 73
   0: 48, 1: 49, 2: 50, 3: 51, 4: 52, 5: 53, 6: 54, 7: 55, 8: 56, 9: 57
 

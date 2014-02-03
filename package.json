@@ -9,8 +9,8 @@
     "moment": "~2.5.0",
     "publisssh": "~0.2.1",
     "stack-of-pages": "~0.0.6",
-    "t7e": "~0.2.3",
-    "zooniverse": "~0.2.0",
+    "t7e": "~0.3.0",
+    "zooniverse": "~0.3.16",
     "zootorial": "~0.3.6",
     "translator-seed": "0.1.0"
   },
