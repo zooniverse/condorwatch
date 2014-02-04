@@ -38,6 +38,7 @@ class Classifier extends BaseController
     'button[name="dots"]': 'dotsButtons'
     'input[name="underlined"]': 'underlinedCheckbox'
     'input[name="juvenile"]': 'juvenileCheckbox'
+    'input[name="adult"]': 'adultCheckbox'
     'button[name="proximity"]': 'proximityButtons'
     'button[name="finish-selection"]': 'finishSelectionButton'
 
@@ -154,6 +155,7 @@ class Classifier extends BaseController
 
     @underlinedCheckbox.prop 'checked', !!tool.mark.underlined
     @juvenileCheckbox.prop 'checked', !!tool.mark.juvenile
+    @adultCheckbox.prop 'checked', !!tool.mark.adult
 
     @proximityButtons.removeClass 'selected'
     @proximityButtons.filter("[value='#{tool.mark.proximity}']").addClass 'selected'
@@ -213,10 +215,17 @@ class Classifier extends BaseController
       @selectedTool.mark.set 'dots', parseFloat e.currentTarget.value
 
     'change input[name="underlined"]': (e) ->
-      @selectedTool.mark.set 'underlined', e.currentTarget.checked
+      @selectedTool.mark.set e.currentTarget.name, e.currentTarget.checked
 
     'change input[name="juvenile"]': (e) ->
-      @selectedTool.mark.set 'juvenile', e.currentTarget.checked
+      @selectedTool.mark.set e.currentTarget.name, e.currentTarget.checked
+      if e.currentTarget.checked
+        @selectedTool.mark.set 'adult', false
+
+    'change input[name="adult"]': (e) ->
+      @selectedTool.mark.set e.currentTarget.name, e.currentTarget.checked
+      if e.currentTarget.checked
+        @selectedTool.mark.set 'juvenile', false
 
     'click button[name="proximity"]': (e) ->
       @selectedTool.mark.set 'proximity', e.currentTarget.value

@@ -79,6 +79,11 @@
             <input type="checkbox" name="juvenile" />
             <%- translate 'span', 'classifier.juvenile' %>
           </label>
+
+          <label>
+            <input type="checkbox" name="adult" />
+            <%- translate 'span', 'classifier.adult' %>
+          </label>
         </fieldset>
       </div>
 

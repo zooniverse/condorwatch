@@ -51,6 +51,7 @@ module.exports =
     favorite: 'Favorite'
     discuss: 'Dicuss'
     share: 'Share'
+    deleteMark: 'Delete'
     makeSelection: 'Click on each animal in the image and describe it using the options that appear.'
     finishSubject: 'Finished with this image'
     whatKind: 'What kind of animal is this?'
@@ -73,6 +74,7 @@ module.exports =
     someDots: '$n dot(s)'
     underlined: 'Underlined'
     juvenile: 'Juvenile'
+    adult: 'Adult'
     proximity: 'How close is this animal to the carcass or scale?'
     proximities:
       withinReach: 'Within reach'
