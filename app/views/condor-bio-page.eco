@@ -2,15 +2,19 @@
 <% moment = require 'moment' %>
 
 <% DATE_FORMAT = 'MMMM D, YYYY' %>
+<% MATING_YEARS = [1999...2012] %>
 
 <div class="content-block">
   <div class="content-container">
-    <h2>
-      <%- @id %>
-      <% if @sex?: %>
-        <span class="sex">(<%- @sex %>)</span>
-      <% end %>
-    </h2>
+    <div class="infos">
+      <div class="info">
+        <%- translate 'div', 'condorBio.tagPrefix' %>
+        <div class="heading"><%- @id %></div>
+        <% if @sex?: %>
+          <span class="sex"><%- @sex %></span>
+        <% end %>
+      </div>
+    </div>
 
     <div class="hatch infos">
       <div class="info">
@@ -23,12 +27,18 @@
     <div class="parents infos">
       <div class="info">
         <%- translate 'div.title', 'condorBio.mother' %>
-        <a href="#/condors/<%- @motherId || '?' %>"><%- @motherId || '?' %></a>
+        <%- translate 'span', 'condorBio.tagPrefix' %>
+        <a href="#/condors/<%- @motherId || '?' %>">
+          <%- @motherId || '?' %>
+        </a>
       </div>
 
       <div class="info">
         <%- translate 'div.title', 'condorBio.father' %>
-        <a href="#/condors/<%- @fatherId || '?' %>"><%- @fatherId || '?' %></a>
+        <%- translate 'span', 'condorBio.tagPrefix' %>
+        <a href="#/condors/<%- @fatherId || '?' %>">
+          <%- @fatherId || '?' %>
+        </a>
       </div>
     </div>
 
@@ -59,93 +69,18 @@
     </div>
 
     <div class="mating infos">
-      <% if @mateIn1999? and @mateIn1999 isnt '0': %>
-        <div class="info">
-          <%- translate 'div.title', 'condorBio.mateInYear', $year: 1999 %>
-          <%- @mateIn1999 %>
-        </div>
-      <% end %>
-      <% if @mateIn2000? and @mateIn2000 isnt '0': %>
-        <div class="info">
-          <%- translate 'div.title', 'condorBio.mateInYear', $year: 2000 %>
-          <%- @mateIn2000 %>
-        </div>
-      <% end %>
-      <% if @mateIn2001? and @mateIn2001 isnt '0': %>
-        <div class="info">
-          <%- translate 'div.title', 'condorBio.mateInYear', $year: 2001 %>
-          <%- @mateIn2001 %>
-        </div>
-      <% end %>
-      <% if @mateIn2002? and @mateIn2002 isnt '0': %>
-        <div class="info">
-          <%- translate 'div.title', 'condorBio.mateInYear', $year: 2002 %>
-          <%- @mateIn2002 %>
-        </div>
-      <% end %>
-      <% if @mateIn2003? and @mateIn2003 isnt '0': %>
-        <div class="info">
-          <%- translate 'div.title', 'condorBio.mateInYear', $year: 2003 %>
-          <%- @mateIn2003 %>
-        </div>
-      <% end %>
-      <% if @mateIn2004? and @mateIn2004 isnt '0': %>
-        <div class="info">
-          <%- translate 'div.title', 'condorBio.mateInYear', $year: 2004 %>
-          <%- @mateIn2004 %>
-        </div>
-      <% end %>
-      <% if @mateIn2005? and @mateIn2005 isnt '0': %>
-        <div class="info">
-          <%- translate 'div.title', 'condorBio.mateInYear', $year: 2005 %>
-          <%- @mateIn2005 %>
-        </div>
-      <% end %>
-      <% if @mateIn2006? and @mateIn2006 isnt '0': %>
-        <div class="info">
-          <%- translate 'div.title', 'condorBio.mateInYear', $year: 2006 %>
-          <%- @mateIn2006 %>
-        </div>
-      <% end %>
-      <% if @mateIn2007? and @mateIn2007 isnt '0': %>
-        <div class="info">
-          <%- translate 'div.title', 'condorBio.mateInYear', $year: 2007 %>
-          <%- @mateIn2007 %>
-        </div>
-      <% end %>
-      <% if @mateIn2008? and @mateIn2008 isnt '0': %>
-        <div class="info">
-          <%- translate 'div.title', 'condorBio.mateInYear', $year: 2008 %>
-          <%- @mateIn2008 %>
-        </div>
-      <% end %>
-      <% if @mateIn2009? and @mateIn2009 isnt '0': %>
-        <div class="info">
-          <%- translate 'div.title', 'condorBio.mateInYear', $year: 2009 %>
-          <%- @mateIn2009 %>
-        </div>
-      <% end %>
-      <% if @mateIn2010? and @mateIn2010 isnt '0': %>
-        <div class="info">
-          <%- translate 'div.title', 'condorBio.mateInYear', $year: 2010 %>
-          <%- @mateIn2010 %>
-        </div>
-      <% end %>
-      <% if @mateIn2011? and @mateIn2011 isnt '0': %>
-        <div class="info">
-          <%- translate 'div.title', 'condorBio.mateInYear', $year: 2011 %>
-          <%- @mateIn2011 %>
-        </div>
-      <% end %>
-      <% if @mateIn2012? and @mateIn2012 isnt '0': %>
-        <div class="info">
-          <%- translate 'div.title', 'condorBio.mateInYear', $year: 2012 %>
-          <a href="#/condors/<%- @mateIn2012 %>" title="&hearts;"><%- @mateIn2012 %></a>
-        </div>
+      <% for year in MATING_YEARS: %>
+        <% if @["mateIn#{year}"]? and @["mateIn#{year}"] isnt '0': %>
+          <div class="info">
+            <%- translate 'div.title', 'condorBio.mateInYear', $year: year %>
+            <%- translate 'span', 'condorBio.tagPrefix' %>
+            <a href="#/condors/<%- @["mateIn#{year}"] %>" title="&hearts;"><%- @["mateIn#{year}"] %></a>
+          </div>
+        <% end %>
       <% end %>
     </div>
 
-    <div class="mating infos">
+    <div class="infos">
       <div class="info">
         <%- translate 'div.title', 'condorBio.poisoned' %>
         <%- @poisoned %>
@@ -156,7 +91,7 @@
         <% if @diedAt?: %>
           <%- moment(@diedAt).format DATE_FORMAT || '&mdash;' %>
         <% else: %>
-          &mdash;
+          <%- translate 'span.not-applicable', 'condorBio.stillAlive' %>
         <% end %>
       </div>
     </div>

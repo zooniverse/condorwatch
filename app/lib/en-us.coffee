@@ -93,6 +93,7 @@ module.exports =
     ready: 'Ready'
 
   condorBio:
+    tagPrefix: 'No.'
     sex: 'Sex'
     hatched: 'Hatched'
     rearedBy: 'Reared by'
@@ -100,10 +101,11 @@ module.exports =
     died: 'Died'
     father: 'Father'
     mother: 'Mother'
-    poisoned: 'Frequency of poisoning'
+    poisoned: 'Poisoning frequency'
     firstBred: 'First bred'
     chicks: 'Chicks contributed'
     mateInYear: 'Mate in $year'
+    stillAlive: 'Still kickin\''
 
   science:
     title: 'Science'
