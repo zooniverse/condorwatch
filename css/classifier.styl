@@ -120,9 +120,9 @@ TAG_COLORS = black white red orange yellow green blue purple
     padding: 1em 0
     // position: absolute
     // transform: translateX(-50%)
-    width: 80% // Eyeball this against the choose-animal buttons
+    width: 80% // Eyeball this against the animal buttons
 
-  button[name="choose-animal"],
+  button[name="animal"],
   button[name="proximity"]
     @extends #_STANDARD_BUTTON
     border-color: LIGHT_GRAY
@@ -139,7 +139,7 @@ TAG_COLORS = black white red orange yellow green blue purple
       border-color: transparent
       color: white
 
-  button[name="choose-animal"]
+  button[name="animal"]
     padding-left: 0
     padding-right: 0
     width: 45%
@@ -162,7 +162,7 @@ TAG_COLORS = black white red orange yellow green blue purple
     text-align: center
     width: 150px
 
-  button[name="tag-color"],
+  button[name="color"],
   button[name="dots"]
     border-radius: 50%
     box-sizing: border-box
@@ -180,7 +180,7 @@ TAG_COLORS = black white red orange yellow green blue purple
     &[value]
       color: transparent
 
-  button[name="tag-color"]
+  button[name="color"]
     &[value].selected
         transform: scale(1.5)
 

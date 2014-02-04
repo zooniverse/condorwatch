@@ -38,7 +38,7 @@
         <%- translate 'p', 'classifier.whatKind' %>
 
         <% for animal, i in possibleAnimals: %>
-          <%- translate 'button', "animals.#{animal}.label", name: 'choose-animal', value: animal, title: "[#{i + 1}]" %>
+          <%- translate 'button', "animals.#{animal}.label", name: 'animal', value: animal, title: "[#{i + 1}]" %>
         <% end %>
 
         <p><%- translate 'button.default', 'classifier.confirmAnimal', name: 'confirm-animal', title: '[ENTER]' %></p>
@@ -54,10 +54,10 @@
 
         <fieldset>
           <%- translate 'legend', 'classifier.color' %>
-          <%- translate 'button', '&times;', name: 'tag-color', title: '$label [Q]', $label: 'classifier.colors.clear' %>
+          <%- translate 'button', '&times;', name: 'color', title: '$label [Q]', $label: 'classifier.colors.clear' %>
           <% COLOR_SHORTCUTS = 'WERTYUIO'.split '' %>
           <% for tagColor, i in possibleTagColors: %>
-            <%- translate 'button', "classifier.colors.#{tagColor}", name: 'tag-color', value: tagColor, title: '$color [$shortcut]', $color: "classifier.colors.#{tagColor}", $shortcut: COLOR_SHORTCUTS[i] %>
+            <%- translate 'button', "classifier.colors.#{tagColor}", name: 'color', value: tagColor, title: '$color [$shortcut]', $color: "classifier.colors.#{tagColor}", $shortcut: COLOR_SHORTCUTS[i] %>
           <% end %>
         </fieldset>
 

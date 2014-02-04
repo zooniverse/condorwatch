@@ -31,10 +31,10 @@ class Classifier extends BaseController
     'button[name="unchoose-animal"]': 'unchooseButton'
     '.animal-preview': 'animalPreview'
     '.animal-label': 'animalLabel'
-    'button[name="choose-animal"]': 'animalButtons'
+    'button[name="animal"]': 'animalButtons'
     'button[name="confirm-animal"]': 'confirmAnimalButton'
     'input[name="label"]': 'labelInput'
-    'button[name="tag-color"]': 'colorButtons'
+    'button[name="color"]': 'colorButtons'
     'button[name="dots"]': 'dotsButtons'
     'input[name="underlined"]': 'underlinedCheckbox'
     'input[name="juvenile"]': 'juvenileCheckbox'
@@ -199,20 +199,20 @@ class Classifier extends BaseController
       @selectedTool.mark.set 'animal', null
       @onSelectTool @selectedTool
 
-    'click button[name="choose-animal"]': (e) ->
-      @selectedTool.mark.set 'animal', e.currentTarget.value
+    'click button[name="animal"]': (e) ->
+      @selectedTool.mark.set e.currentTarget.name, e.currentTarget.value
 
     'click button[name="confirm-animal"]': ->
       @onSelectTool @selectedTool
 
     'input input[name="label"]': (e) ->
-      @selectedTool.mark.set 'label', e.currentTarget.value
+      @selectedTool.mark.set e.currentTarget.name, e.currentTarget.value
 
-    'click button[name="tag-color"]': (e) ->
-      @selectedTool.mark.set 'color', e.currentTarget.value
+    'click button[name="color"]': (e) ->
+      @selectedTool.mark.set e.currentTarget.name, e.currentTarget.value
 
     'click button[name="dots"]': (e) ->
-      @selectedTool.mark.set 'dots', parseFloat e.currentTarget.value
+      @selectedTool.mark.set e.currentTarget.name, parseFloat e.currentTarget.value
 
     'change input[name="underlined"]': (e) ->
       @selectedTool.mark.set e.currentTarget.name, e.currentTarget.checked
