@@ -62,6 +62,9 @@ class Classifier extends BaseController
     @markingSurface.on 'select-tool', @onSelectTool
     @markingSurface.on 'deselect-tool', @onSelectTool
 
+    @markingSurface.on 'change', =>
+      localStorage.setItem 'currentClassification', @markingSurface.getValue()
+
     User.on 'change', @onUserChange
     Subject.on 'get-next', @onGettingNextSubject
     Subject.on 'select', @onSubjectSelect
@@ -69,10 +72,24 @@ class Classifier extends BaseController
     addEventListener 'resize', @rescale, false
     @onSelectTool()
 
+    subjectData = JSON.parse localStorage.getItem 'currentSubject'
+    if subjectData?
+      subject = new Subject subjectData
+      subject.select()
+
+      marks = JSON.parse localStorage.getItem 'currentClassification'
+      for mark in marks ? []
+        tool = @markingSurface.addTool new @markingSurface.tool
+          surface: @markingSurface
+          mark: new @markingSurface.tool.Mark mark
+
   activate: ->
     @rescale()
 
   onUserChange: (e, user) =>
+    for subject in Subject.instances
+      subject.destroy() unless subject is Subject.current
+
     Subject.next() unless @classification?
 
   onGettingNextSubject: =>
@@ -80,6 +97,8 @@ class Classifier extends BaseController
     @talkLink.prop 'href', ''
 
   onSubjectSelect: (e, subject) =>
+    localStorage.setItem 'currentSubject', JSON.stringify subject
+
     @markingSurface.reset()
     @onSelectTool null
 
@@ -91,6 +110,11 @@ class Classifier extends BaseController
       @subjectImage.attr 'xlink:href', @currentSubjectImage.src
       @rescale()
       @markingSurface.enable()
+
+      for tool in @markingSurface.tools
+        tool.href = @currentSubjectImage.src
+        tool.redraw()
+        tool.deselect()
 
   rescale: =>
     # NOTE: The SVG and its image are 100%x100%, so resize @markingSurface.el
