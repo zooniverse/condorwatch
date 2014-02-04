@@ -13,7 +13,7 @@ class MarkingMark extends Mark
 
 class MarkingToolControls extends ToolControls
   template: '''
-    <button name="toggle"></button>
+    <button name="toggle" title="[`]"></button>
   '''
 
   constructor: ->
