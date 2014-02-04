@@ -10,7 +10,7 @@ possibleAnimals = require '../lib/possible-animals'
 ClassificationSummary = require './classification-summary'
 ansiKeycode = require 'ansi-keycode'
 
-KEYS = 13: 'enter', 27: 'esc'
+KEYS = 13: 'ENTER', 27: 'ESC'
 
 class Classifier extends BaseController
   className: 'classifier'
@@ -141,7 +141,6 @@ class Classifier extends BaseController
 
     @animalButtons.removeClass 'selected'
     @animalButtons.filter("[value='#{tool.mark.animal}']").addClass 'selected'
-
     @confirmAnimalButton.prop 'disabled', not tool.mark.animal?
 
     @labelInput.val tool.mark.label || ''
@@ -239,9 +238,9 @@ class Classifier extends BaseController
       classificationSummary.on 'destroying', =>
         Subject.next()
 
-    'keypress': (e) ->
+    'keydown': (e) ->
       return if e.metaKey or e.ctrlKey or e.altKey
-      return if e.target.nodeName.toUpperCase() in ['INPUT', 'TEXTAREA']
+      return if e.target.nodeName is 'INPUT' and e.target.type is 'text'
 
       key = if e.which of KEYS
         KEYS[e.which]
@@ -252,14 +251,14 @@ class Classifier extends BaseController
       key = key.toUpperCase()
 
       target = @el.find("[title$='[#{key}]']:visible").first()
-      # TODO: Label/input combos
 
       if target.length is 1
         e.preventDefault()
-        target.focus()
 
-        switch target.get(0).tagName.toUpperCase()
-          when 'BUTTON'
-            target.click()
+        if target.prop('nodeName') is 'LABEL'
+          target = target.find 'input'
+
+        target.focus()
+        target.click()
 
 module.exports = Classifier

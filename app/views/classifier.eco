@@ -49,7 +49,7 @@
 
         <fieldset>
           <%- translate 'legend', 'classifier.tagLabel' %>
-          <input type="text" name="label" />
+          <input type="text" name="label" title="[/]"/>
         </fieldset>
 
         <fieldset>
@@ -70,17 +70,17 @@
         </fieldset>
 
         <fieldset>
-          <label>
+          <label title="[A]">
             <input type="checkbox" name="underlined" />
             <%- translate 'span', 'classifier.underlined' %>
           </label>
 
-          <label>
+          <label title="[S]">
             <input type="checkbox" name="juvenile" />
             <%- translate 'span', 'classifier.juvenile' %>
           </label>
 
-          <label>
+          <label title="[D]">
             <input type="checkbox" name="adult" />
             <%- translate 'span', 'classifier.adult' %>
           </label>
@@ -89,9 +89,9 @@
 
       <div class="proximity-details state">
         <%- translate 'p', 'classifier.proximity' %>
-        <div><%- translate 'button', 'classifier.proximities.withinReach', name: 'proximity', value: 'within-reach', title: '[A]' %></div>
-        <div><%- translate 'button', 'classifier.proximities.withinTwo', name: 'proximity', value: 'within-two', title: '[S]' %></div>
-        <div><%- translate 'button', 'classifier.proximities.outsideTwo', name: 'proximity', value: 'outside-two', title: '[D]' %></div>
+        <div><%- translate 'button', 'classifier.proximities.withinReach', name: 'proximity', value: 'within-reach', title: '[Z]' %></div>
+        <div><%- translate 'button', 'classifier.proximities.withinTwo', name: 'proximity', value: 'within-two', title: '[X]' %></div>
+        <div><%- translate 'button', 'classifier.proximities.outsideTwo', name: 'proximity', value: 'outside-two', title: '[C]' %></div>
       </div>
 
       <div class="finish-selection state">
