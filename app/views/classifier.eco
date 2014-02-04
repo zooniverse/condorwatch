@@ -13,7 +13,7 @@
     </div>
 
     <div class="details-editor">
-      <%- translate 'button.not-default', '&times;', name: 'delete-mark', title: 'classifier.deleteMark' %>
+      <%- translate 'button.not-default', '&times;', name: 'delete-mark', title: '$title [SHIFT-BACKSPACE]', $title: 'classifier.deleteMark' %>
 
       <div class="no-selection state">
         <!--TODO: Put a better icon here.-->
@@ -54,7 +54,7 @@
 
         <fieldset>
           <%- translate 'legend', 'classifier.color' %>
-          <%- translate 'button', '&times;', name: 'color', title: '$label [Q]', $label: 'classifier.colors.clear' %>
+          <%- translate 'button', '&times;', name: 'color', title: '$title [Q]', $title: 'classifier.colors.clear' %>
           <% COLOR_SHORTCUTS = 'WERTYUIO'.split '' %>
           <% for tagColor, i in possibleTagColors: %>
             <%- translate 'button', "classifier.colors.#{tagColor}", name: 'color', value: tagColor, title: '$color [$shortcut]', $color: "classifier.colors.#{tagColor}", $shortcut: COLOR_SHORTCUTS[i] %>
@@ -63,9 +63,9 @@
 
         <fieldset>
           <%- translate 'legend', 'classifier.dots' %>
-          <%- translate 'button', '×', name: 'dots', title: '$label [0]', $label: 'classifier.noDots' %>
+          <%- translate 'button', '×', name: 'dots', title: '$title [0]', $title: 'classifier.noDots' %>
           <% for i in [1..5]: %>
-            <%- translate 'button', "#{i}", name: 'dots', value: i, title: '$label [$shortcut]', $label: 'classifier.someDots', $n: i, $shortcut: i %>
+            <%- translate 'button', "#{i}", name: 'dots', value: i, title: '$title [$shortcut]', $title: 'classifier.someDots', $n: i, $shortcut: i %>
           <% end %>
         </fieldset>
 

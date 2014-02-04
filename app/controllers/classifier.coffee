@@ -8,9 +8,7 @@ MarkingTool = require './marking-tool'
 translate = require 't7e'
 possibleAnimals = require '../lib/possible-animals'
 ClassificationSummary = require './classification-summary'
-ansiKeycode = require 'ansi-keycode'
-
-KEYS = 13: 'ENTER', 27: 'ESC'
+TitleShortcutHandler = require 'title-shortcut-handler'
 
 class Classifier extends BaseController
   className: 'classifier'
@@ -69,6 +67,7 @@ class Classifier extends BaseController
     Subject.on 'select', @onSubjectSelect
 
     addEventListener 'resize', @rescale, false
+    @onSelectTool()
 
   activate: ->
     @rescale()
@@ -238,27 +237,6 @@ class Classifier extends BaseController
       classificationSummary.on 'destroying', =>
         Subject.next()
 
-    'keydown': (e) ->
-      return if e.metaKey or e.ctrlKey or e.altKey
-      return if e.target.nodeName is 'INPUT' and e.target.type is 'text'
-
-      key = if e.which of KEYS
-        KEYS[e.which]
-      else
-        ansiKeycode e.which
-
-      key = "SHIFT-#{key}" if e.shiftKey
-      key = key.toUpperCase()
-
-      target = @el.find("[title$='[#{key}]']:visible").first()
-
-      if target.length is 1
-        e.preventDefault()
-
-        if target.prop('nodeName') is 'LABEL'
-          target = target.find 'input'
-
-        target.focus()
-        target.click()
+    'keydown': TitleShortcutHandler
 
 module.exports = Classifier
