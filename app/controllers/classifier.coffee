@@ -87,8 +87,9 @@ class Classifier extends BaseController
     @rescale()
 
   onUserChange: (e, user) =>
-    for subject in Subject.instances
-      subject.destroy() unless subject is Subject.current
+    if Subject.instances?
+      for subject in Subject.instances
+        subject.destroy() unless subject is Subject.current
 
     Subject.next() unless @classification?
 
