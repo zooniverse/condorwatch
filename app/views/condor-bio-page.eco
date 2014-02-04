@@ -1,5 +1,6 @@
 <% translate = require 't7e' %>
 <% moment = require 'moment' %>
+<% window.moment = moment if +location.port > 1023 %>
 
 <% DATE_FORMAT = 'MMMM D, YYYY' %>
 <% MATING_YEARS = [1999...2012] %>
@@ -11,7 +12,7 @@
         <%- translate 'div', 'condorBio.tagPrefix' %>
         <div class="heading"><%- @id %></div>
         <% if @sex?: %>
-          <span class="sex"><%- @sex %></span>
+          <span class="detail"><%- @sex %></span>
         <% end %>
       </div>
     </div>
@@ -49,36 +50,40 @@
       </div>
     </div>
 
-    <div class="release infos">
-      <div class="info">
-        <%- translate 'div.title', 'condorBio.released' %>
-        <%- moment(@releasedAt).format DATE_FORMAT %>
+    <% if @releasedAt?: %>
+      <div class="release infos">
+        <div class="info">
+          <%- translate 'div.title', 'condorBio.released' %>
+          <%- moment(@releasedAt).format DATE_FORMAT %>
+        </div>
       </div>
-    </div>
+    <% end %>
 
-    <div class="breeding infos">
-      <div class="info">
-        <%- translate 'div.title', 'condorBio.firstBred' %>
-        <%- moment(@firstBredAt).format DATE_FORMAT %>
+    <% if @firstBredAt?: %>
+      <div class="breeding infos">
+        <div class="info">
+          <%- translate 'div.title', 'condorBio.firstBred' %>
+          <%- moment(@firstBredAt).format DATE_FORMAT %>
+        </div>
+
+        <div class="info">
+          <%- translate 'div.title', 'condorBio.chicks' %>
+          <%- @chicks %>
+        </div>
       </div>
 
-      <div class="info">
-        <%- translate 'div.title', 'condorBio.chicks' %>
-        <%- @chicks %>
-      </div>
-    </div>
-
-    <div class="mating infos">
-      <% for year in MATING_YEARS: %>
-        <% if @["mateIn#{year}"]? and @["mateIn#{year}"] isnt '0': %>
-          <div class="info">
-            <%- translate 'div.title', 'condorBio.mateInYear', $year: year %>
-            <%- translate 'span', 'condorBio.tagPrefix' %>
-            <a href="#/condors/<%- @["mateIn#{year}"] %>" title="&hearts;"><%- @["mateIn#{year}"] %></a>
-          </div>
+      <div class="mating infos">
+        <% for year in MATING_YEARS: %>
+          <% if @["mateIn#{year}"]? and @["mateIn#{year}"] isnt '0': %>
+            <div class="info">
+              <%- translate 'div.title', 'condorBio.mateInYear', $year: year %>
+              <%- translate 'span', 'condorBio.tagPrefix' %>
+              <a href="#/condors/<%- @["mateIn#{year}"] %>" title="&hearts;"><%- @["mateIn#{year}"] %></a>
+            </div>
+          <% end %>
         <% end %>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
 
     <div class="infos">
       <div class="info">
@@ -90,8 +95,13 @@
         <%- translate 'div.title', 'condorBio.died' %>
         <% if @diedAt?: %>
           <%- moment(@diedAt).format DATE_FORMAT || '&mdash;' %>
+          <span class="minor"><%- @deathAge %> <%- translate 'condorBio.years' %></span>
+          <% if @deathCause?: %>
+            <br />
+            <%- @deathCause %>
+          <% end %>
         <% else: %>
-          <%- translate 'span.not-applicable', 'condorBio.stillAlive' %>
+          <%- translate 'span.minor', 'condorBio.stillAlive' %>
         <% end %>
       </div>
     </div>

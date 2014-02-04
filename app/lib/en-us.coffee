@@ -105,6 +105,7 @@ module.exports =
     firstBred: 'First bred'
     chicks: 'Chicks contributed'
     mateInYear: 'Mate in $year'
+    years: 'years'
     stillAlive: 'Still kickin\''
 
   science:

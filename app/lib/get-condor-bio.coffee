@@ -24,6 +24,7 @@ getCondors = $.get('./condors.csv').pipe (tabbed) ->
       releasedAt: nullify new Date values.shift()
       diedAt: nullify new Date values.shift()
       deathAge: parseFloat values.shift()
+      deathCause: nullify values.shift()
       fatherId: values.shift()
       motherId: values.shift()
       poisoned: values.shift()
@@ -45,6 +46,7 @@ getCondors = $.get('./condors.csv').pipe (tabbed) ->
       mateIn2012: nullify values.shift()
       idInTags: values.shift()
 
+  window.condors = condors if +location.port > 1023
   condors
 
 getCondorBio = (id, callback) ->

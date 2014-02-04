@@ -11,13 +11,22 @@
     font-size: 36px
     font-weight: bold
 
-  .not-applicable
+  .title
+    color: BLUEISH
+    font-size: 12px
+    font-weight: bold
+    letter-spacing: 2px
+    margin-bottom: 0.5em
+    text-transform: uppercase;
+
+  .detail
+    font-size: 12px
+    letter-spacing: 1px
+    text-transform: uppercase
+
+  .minor
     color: LIGHT_GRAY
     font-style: italic
-
-  .sex
-    font-size: 12px
-    text-transform: uppercase
 
   .infos
     border-bottom: 1px solid rgba(LIGHT_GRAY, 0.5)
@@ -28,16 +37,8 @@
   .info
     border-left: 1px solid rgba(LIGHT_GRAY, 0.5)
     display: table-cell
-    padding: 1.5em 0
+    padding: 1.5em 1em
     vertical-algin: top
 
     &:first-child
       border-left-width: 0
-
-    .title
-      color: BLUEISH
-      font-size: 12px
-      font-weight: bold
-      letter-spacing: 2px
-      margin-bottom: 0.5em
-      text-transform: uppercase;
