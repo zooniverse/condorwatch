@@ -23,6 +23,7 @@ class MarkingToolControls extends ToolControls
 
     @tool.on 'collapse', @collapse
     @tool.on 'expand', @expand
+    @tool.on 'select', => setTimeout => @toggleButton.focus()
 
   onMouseDown: ->
     # Usually this selected the tool, but that breaks the toggle button.
