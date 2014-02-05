@@ -30,23 +30,22 @@ module.exports =
   animals:
     condor:
       label: 'Condor'
-      image: '//placehold.it/100.png&text=Condor'
+      image: './images/animals/condor.jpg'
     turkeyVulture:
       label: 'Turkey vulture'
-      image: '//placehold.it/100.png&text=Turkey vulture'
+      image: './images/animals/turkey-vulture.jpg'
     raven:
       label: 'Raven'
-      image: '//placehold.it/100.png&text=Raven'
+      image: './images/animals/raven.jpg'
     coyote:
       label: 'Coyote'
-      image: '//placehold.it/100.png&text=Coyote'
+      image: './images/animals/coyote.jpg'
     goldenEagle:
       label: 'Golden eagle'
-      image: '//placehold.it/100.png&text=Golden eagle'
+      image: './images/animals/golden-eagle.jpg'
     carcassOrScale:
       label: 'Carcass/&#8203;scale'
-      image: '//placehold.it/100.png&text=Carcass/scale'
-
+      image: '//placehold.it/100.png&text=Carcass/scale' # TODO
 
   classifier:
     favorite: 'Favorite'
