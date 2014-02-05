@@ -3,6 +3,7 @@ module.exports =
     projectName: 'Condor Watch'
     home: 'Home'
     classify: 'Classify'
+    fieldGuide: 'Field guide'
     science: 'Science'
     about: 'About'
     profile: 'Profile'

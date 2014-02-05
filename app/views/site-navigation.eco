@@ -6,6 +6,7 @@
   <div class="links">
     <%- translate 'a', 'siteNavigation.home', href: '#/' %>
     <%- translate 'a', 'siteNavigation.classify', href: '#/classify' %>
+    <%- translate 'a', 'siteNavigation.fieldGuide', href: '#/field-guide' %>
     <%- translate 'a', 'siteNavigation.science', href: '#/science' %>
     <%- translate 'a', 'siteNavigation.about', href: '#/about' %>
     <%- translate 'a', 'siteNavigation.profile', href: '#/profile' %>

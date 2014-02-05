@@ -1,0 +1,31 @@
+<% translate = require 't7e' %>
+
+<div class="content-block">
+  <div class="content-container">
+    <h2>Field guide</h2>
+    <p>What to look for when classifying</p>
+  </div>
+
+  <div class="content-container">
+    <h3>Condors</h3>
+    <p>Lorem ipsum</p>
+    <h4>Adult or juvenile?</h4>
+    <p>Lorem ipsum</p>
+
+    <h3>Turkey Vulture</h3>
+    <p>Lorem ipsum</p>
+    <h4>How to tell the difference</h4>
+
+    <h3>Raven</h3>
+    <p>Lorem ipsum</p>
+
+    <h3>Coyote</h3>
+    <p>Lorem ipsum</p>
+
+    <h3>Golden Eagle</h3>
+    <p>Lorem ipsum</p>
+
+    <h3>Carcass/scale</h3>
+    <p>Lorem ipsum</p>
+  </div>
+</div>
