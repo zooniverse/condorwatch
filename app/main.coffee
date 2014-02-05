@@ -23,7 +23,7 @@ SiteNavigation = require './controllers/site-navigation'
 siteNavigation = new SiteNavigation
 siteNavigation.el.appendTo document.body
 
-StackOfPages = require 'stack-of-pages/src/stack-of-pages'
+StackOfPages = require 'stack-of-pages'
 stack = new StackOfPages
   '#/': require './controllers/home-page'
   '#/about': require './controllers/about-page'
