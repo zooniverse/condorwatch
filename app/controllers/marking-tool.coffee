@@ -29,10 +29,10 @@ class MarkingToolControls extends ToolControls
     # Usually this selected the tool, but that breaks the toggle button.
 
   collapse: =>
-    @toggleButton.html '<i class="icon-zoom-in"></i>'
+    @toggleButton.html '<i class="fa fa-search-plus"></i>'
 
   expand: =>
-    @toggleButton.html '<i class="icon-zoom-out"></i>'
+    @toggleButton.html '<i class="fa fa-search-minus"></i>'
 
 class MarkingTool extends MagnifierPointTool
   @Mark: MarkingMark
