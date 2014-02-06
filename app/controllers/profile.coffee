@@ -9,7 +9,6 @@ class Profile extends BaseController
     super
 
     @profile = new BaseProfile
-    @el.append @profile.el
-    @profile.el.addClass 'content-block content-container'
+    @el.find('.content-container').append @profile.el
 
 module.exports = Profile

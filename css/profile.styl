@@ -1,0 +1,31 @@
+.profile
+  .zooniverse-profile
+    > nav
+      overflow: initial
+      font-size: 12px
+
+    button[name="turn-page"]
+      @extends #_STANDARD_BUTTON
+      border-color: initial
+      color: LIGHT_GRAY
+      text-transform: uppercase
+      letter-spacing: 1px
+
+      &.active
+        background: LIGHT_GRAY
+        border-color: transparent
+        box-shadow: none
+        color: white
+        text-shadow: none
+
+  .zooniverse-paginator .items .item
+    display: inline-block
+    float: none
+    vertical-align: middle
+
+    a
+      &:hover
+        border-color: BLUEISH
+
+      img
+        box-shadow: none
