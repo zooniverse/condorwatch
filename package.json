@@ -14,7 +14,7 @@
   },
   "scripts": {
     "start": "haw serve --verbose --port 3416",
-    "deploy-to-staging": "haw build && publisssh ./build zooniverse-demo/condors && rm -rf ./build",
+    "deploy-to-staging": "haw build --force && publisssh ./build zooniverse-demo/condors && rm -rf ./build",
     "stage-locale": "seed-translation --project condor --env staging --deploy-path dev-translations"
   }
 }
