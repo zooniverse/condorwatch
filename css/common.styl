@@ -36,12 +36,25 @@ LIGHT = 300
   &.selected
     box-shadow: 0 0 1.5em inset
 
-// Manual griddage
-// Set something like {float: left; margin-right: unit(GUTTER_WIDTH, 'px'); width: columns(4);}
-COLUMNS = 16
-COLUMN_WIDTH = 40
-GUTTER_WIDTH = 20
-GRID_WIDTH = ((COLUMN_WIDTH + GUTTER_WIDTH) * COLUMNS) - GUTTER_WIDTH
+#_COLUMN
+  border-top: 1px solid LIGHT_GRAY
+  box-sizing: border-box
+  float: left
+  padding: 1em 2em 1em 0
+  margin: 1em 0
 
-columns(cols)
-  unit(((cols * (COLUMN_WIDTH / GRID_WIDTH)) + ((cols - 1) * (GUTTER_WIDTH / GRID_WIDTH))) * 100, '%')
+  img,
+  svg
+    max-width: 100%
+
+is-a-column(cols)
+  @extends #_COLUMN
+
+  width: unit(100 / cols, '%')
+
+  &:nth-child({cols}n)
+    padding-right: 0
+
+  &:nth-child({cols}n+1)
+    clear: left
+

@@ -24,37 +24,14 @@ body
   max-width: 1080px
   width: SITE_WIDTH
 
+.half-column
+  is-a-column: 2
+
 .quarter-column
-  float: left
-  width: columns(4)
-  margin-right: unit((GUTTER_WIDTH / GRID_WIDTH) * 100, '%')
-  margin-bottom: 1em
+  is-a-column: 4
 
-  &:nth-child(4n)
-    margin-right: 0
-
-  img,
-  svg
-    max-width: 100%
-
-.instructions
-  display: table
-  width: 100%
-
-  .question
-    display: table-cell
-    padding-right: 1em
-    text-align: left
-    vertical-align: middle
-
-  .answers
-    display: table-cell
-    text-align: right
-    vertical-align: middle
-    white-space: nowrap
-
-    button
-      @extends #_STANDARD_BUTTON
+.caption
+  font-size: 12px
 
 h1
   font-size: 42px
@@ -80,18 +57,11 @@ h2
     line-height: 40px
     margin: 1em 0
 
-.caption
-  font-size: 12px
-
 hr
   border: 1px solid transparent
   border-top-color: inherit
+  clear: both
   margin: 2em 0
-
-.framed
-  border: 2px solid white
-  border-radius: 50%
-  box-shadow: 0 3px 10px -3px black
 
 a
   color: inherit
@@ -112,3 +82,13 @@ a:not([href]),
 button:disabled
   opacity: 0.5
   pointer-events: none
+
+.centered
+  margin-left: auto
+  margin-right: auto
+  text-align: center
+
+.framed
+  border: 2px solid white
+  border-radius: 50%
+  box-shadow: 0 3px 10px -3px black
