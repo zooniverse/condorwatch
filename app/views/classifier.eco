@@ -1,7 +1,6 @@
 <% translate = require 't7e' %>
 <% possibleAnimals = require '../lib/possible-animals' %>
 <% possibleTagColors = require '../lib/possible-tag-colors' %>
-<% ifTouch = require '../lib/if-touch' %>
 
 <div class="content-block">
   <div class="subject content-container">

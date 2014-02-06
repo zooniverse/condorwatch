@@ -2,10 +2,7 @@
   "name": "condors",
   "version": "0.0.1",
   "dependencies": {
-    "ansi-keycode": "~0.0.0",
-    "faux-range-input": "~0.1.0",
     "haw": "~0.2.4",
-    "image-magnifier": "~0.0.1",
     "marking-surface": "~0.4.6",
     "publisssh": "~0.2.1",
     "stack-of-pages": "~0.0.6",
