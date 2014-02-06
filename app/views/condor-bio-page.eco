@@ -1,8 +1,6 @@
 <% translate = require 't7e' %>
-<% moment = require 'moment' %>
-<% window.moment = moment if +location.port > 1023 %>
+<% formatDate = require '../lib/format-date' %>
 
-<% DATE_FORMAT = 'MMMM D, YYYY' %>
 <% MATING_YEARS = [1999...2012] %>
 
 <div class="content-block">
@@ -20,7 +18,7 @@
     <div class="hatch infos">
       <div class="info">
         <%- translate 'div.title', 'condorBio.hatched' %>
-        <%- moment(@hatchedAt).format DATE_FORMAT %><br />
+        <%- formatDate @hatchedAt %><br />
         <%- @hatchLocation %>
       </div>
     </div>
@@ -54,7 +52,7 @@
       <div class="release infos">
         <div class="info">
           <%- translate 'div.title', 'condorBio.released' %>
-          <%- moment(@releasedAt).format DATE_FORMAT %>
+          <%- formatDate @releasedAt %>
         </div>
       </div>
     <% end %>
@@ -63,7 +61,7 @@
       <div class="breeding infos">
         <div class="info">
           <%- translate 'div.title', 'condorBio.firstBred' %>
-          <%- moment(@firstBredAt).format DATE_FORMAT %>
+          <%- formatDate @firstBredAt %>
         </div>
 
         <div class="info">
@@ -94,7 +92,7 @@
       <div class="info">
         <%- translate 'div.title', 'condorBio.died' %>
         <% if @diedAt?: %>
-          <%- moment(@diedAt).format DATE_FORMAT || '&mdash;' %>
+          <%- formatDate @diedAt %>
           <span class="minor"><%- @deathAge %> <%- translate 'condorBio.years' %></span>
           <% if @deathCause?: %>
             <br />

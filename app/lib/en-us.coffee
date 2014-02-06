@@ -184,3 +184,9 @@ module.exports =
     content: '''
       <p>Includes links to other resources, links to ZooTeach, etc.</p>
     '''
+
+  dateFormat: '$month $day, $year'
+  months:
+    Jan: 'January', Feb: 'February', Mar: 'March', Apr: 'April'
+    May: 'May', Jun: 'June', Jul: 'July', Aug: 'August'
+    Sep: 'September', Oct: 'October', Nov: 'November', Dec: 'December'
