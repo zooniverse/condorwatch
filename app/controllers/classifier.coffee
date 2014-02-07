@@ -129,6 +129,9 @@ class Classifier extends BaseController
     @markingSurface.el.style.height = "#{height}px"
     tool.render() for tool in @markingSurface.tools
 
+  startTutorial: ->
+    console.log 'Starting tutorial'
+
   onSelectTool: (@selectedTool) =>
     if @selectedTool?
       @deleteMarkButton.show()
@@ -221,6 +224,9 @@ class Classifier extends BaseController
     'click button[name="favorite"]': ->
       @classification.favorite = !@classification.favorite
       @favoriteButton.toggleClass 'selected', @classification.favorite
+
+    'click button[name="start-tutorial"]': ->
+      @startTutorial()
 
     'click button[name="delete-mark"]': ->
       @selectedTool.mark.destroy()

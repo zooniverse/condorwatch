@@ -50,6 +50,8 @@ module.exports =
   classifier:
     favorite: 'Favorite'
     discuss: 'Dicuss'
+    fieldGuide: 'Field guide'
+    startTutorial: 'Start tutorial'
     share: 'Share'
     deleteMark: 'Delete'
     makeSelection: 'Click on each animal in the image and describe it using the options that appear.'
