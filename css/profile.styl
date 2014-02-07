@@ -18,14 +18,21 @@
         color: white
         text-shadow: none
 
-  .zooniverse-paginator .items .item
-    display: inline-block
-    float: none
-    vertical-align: middle
+  .zooniverse-paginator
+    .items .item
+      display: inline-block
+      float: none
+      vertical-align: middle
 
-    a
-      &:hover
-        border-color: BLUEISH
+      a
+        &:hover
+          border-color: BLUEISH
 
-      img
-        box-shadow: none
+        img
+          box-shadow: none
+
+    .controls button.active
+      background: LIGHT_GRAY
+      box-shadow: none
+      color: white
+      text-shadow: none
