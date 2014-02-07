@@ -6,6 +6,9 @@ loadImage = require '../lib/load-image'
 Classification = require 'zooniverse/models/classification'
 MarkingSurface = require 'marking-surface'
 MarkingTool = require './marking-tool'
+{Tutorial} = require 'zootorial'
+tutorialSteps = require '../lib/tutorial-steps'
+selectTutorialSubject = require '../lib/select-tutorial-subject'
 translate = require 't7e'
 possibleAnimals = require '../lib/possible-animals'
 ClassificationSummary = require './classification-summary'
@@ -64,10 +67,17 @@ class Classifier extends BaseController
     @markingSurface.on 'deselect-tool', @onSelectTool
 
     @markingSurface.on 'change', =>
-      localStorage.setItem 'currentClassification', @markingSurface.getValue()
+      unless @classification.subject.tutorial
+        localStorage.setItem 'currentClassification', @markingSurface.getValue()
+
+    @tutorial = new Tutorial
+      parent: @el.get 0
+      steps: tutorialSteps
+      first: ->
+        # Check for user flags and return 'prompt' or 'welcome'
+        'prompt'
 
     @el.on StackOfPages::activateEvent, @activate
-
 
     User.on 'change', @onUserChange
     Subject.on 'get-next', @onGettingNextSubject
@@ -76,6 +86,12 @@ class Classifier extends BaseController
     addEventListener 'resize', @rescale, false
     @onSelectTool()
 
+    @loadLocallyStoredSubject()
+
+  activate: =>
+    @rescale()
+
+  loadLocallyStoredSubject: ->
     subjectData = JSON.parse localStorage.getItem 'currentSubject'
     if subjectData?
       subject = new Subject subjectData
@@ -86,9 +102,6 @@ class Classifier extends BaseController
         tool = @markingSurface.addTool new @markingSurface.tool
           surface: @markingSurface
           mark: new @markingSurface.tool.Mark mark
-
-  activate: =>
-    @rescale()
 
   onUserChange: (e, user) =>
     if Subject.instances?
@@ -102,7 +115,8 @@ class Classifier extends BaseController
     @talkLink.prop 'href', ''
 
   onSubjectSelect: (e, subject) =>
-    localStorage.setItem 'currentSubject', JSON.stringify subject
+    unless subject.tutorial
+      localStorage.setItem 'currentSubject', JSON.stringify subject
 
     @markingSurface.reset()
     @onSelectTool null
@@ -121,6 +135,9 @@ class Classifier extends BaseController
         tool.redraw()
         tool.deselect()
 
+      if subject.tutorial
+        @tutorial.start()
+
   rescale: =>
     # NOTE: The SVG and its image are 100%x100%, so resize @markingSurface.el
     return unless @currentSubjectImage?
@@ -130,7 +147,7 @@ class Classifier extends BaseController
     tool.render() for tool in @markingSurface.tools
 
   startTutorial: ->
-    console.log 'Starting tutorial'
+    selectTutorialSubject()
 
   onSelectTool: (@selectedTool) =>
     if @selectedTool?
