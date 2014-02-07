@@ -1,4 +1,5 @@
 BaseController = require 'zooniverse/controllers/base-controller'
+StackOfPages = require 'stack-of-pages'
 
 class FieldGuide extends BaseController
   className: 'field-guide'
@@ -7,7 +8,11 @@ class FieldGuide extends BaseController
   elements:
     '.back-to-classify': 'backToClassifyLink'
 
-  activate: ->
+  constructor: ->
+    super
+    @el.on StackOfPages::activateEvent, @activate
+
+  activate: =>
     @backToClassifyLink.toggle !!~location.hash.indexOf 'from-classify'
 
 module.exports = FieldGuide

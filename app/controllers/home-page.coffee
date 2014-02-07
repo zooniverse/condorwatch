@@ -1,5 +1,6 @@
 BaseController = require 'zooniverse/controllers/base-controller'
 Footer = require 'zooniverse/controllers/footer'
+StackOfPages = require 'stack-of-pages'
 $ = window.jQuery
 
 class HomePage extends BaseController
@@ -19,15 +20,18 @@ class HomePage extends BaseController
     @footer = new Footer
     @footer.el.appendTo @footerContainer
 
-  activate: ->
+    @el.on StackOfPages::activateEvent, @activate
+    @el.on StackOfPages::deactivateEvent, @deactivate
+
+  activate: =>
     setTimeout @showNavigationComponent, @headerSlideDelay
 
-  deactivate: (params) ->
-    if params?
-      setTimeout @hideNavigationComponent, @headerSlideDelay
-    else
+  deactivate: ({originalEvent: {detail: params}}) =>
+    if params.initial
       # This is the on-load deactivation
       @hideNavigationComponent 0
+    else
+      setTimeout @hideNavigationComponent, @headerSlideDelay
 
   showNavigationComponent: (duration = @animationDuration) =>
     @navigationComponent.slideDown duration

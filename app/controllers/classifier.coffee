@@ -1,4 +1,5 @@
 BaseController = require 'zooniverse/controllers/base-controller'
+StackOfPages = require 'stack-of-pages'
 User = require 'zooniverse/models/user'
 Subject = require 'zooniverse/models/subject'
 loadImage = require '../lib/load-image'
@@ -65,6 +66,9 @@ class Classifier extends BaseController
     @markingSurface.on 'change', =>
       localStorage.setItem 'currentClassification', @markingSurface.getValue()
 
+    @el.on StackOfPages::activateEvent, @activate
+
+
     User.on 'change', @onUserChange
     Subject.on 'get-next', @onGettingNextSubject
     Subject.on 'select', @onSubjectSelect
@@ -83,7 +87,7 @@ class Classifier extends BaseController
           surface: @markingSurface
           mark: new @markingSurface.tool.Mark mark
 
-  activate: ->
+  activate: =>
     @rescale()
 
   onUserChange: (e, user) =>
