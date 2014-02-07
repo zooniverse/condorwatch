@@ -2,8 +2,11 @@
 
 <div class="content-block">
   <div class="content-container">
-    <a href="#/classify" class="back-to-classify">Back to classification</a>
-    <h2>Field guide</h2>
+    <h2>
+      <%- translate 'span', 'fieldGuide.title' %>
+      <%- translate 'a.back-to-classify.aux', 'fieldGuide.back', href: '#/classify' %>
+    </h2>
+
     <p>What to look for when classifying</p>
   </div>
 

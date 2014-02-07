@@ -108,6 +108,10 @@ module.exports =
     years: 'years'
     stillAlive: 'Still kickin\''
 
+  fieldGuide:
+    title: 'Field guide'
+    back: 'Back to classification'
+
   science:
     title: 'Science'
     summary: 'This page will explain the science end of the project.' # TODO
