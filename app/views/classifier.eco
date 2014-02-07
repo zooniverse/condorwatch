@@ -71,20 +71,24 @@
         </fieldset>
 
         <fieldset>
-          <label title="[A]">
-            <input type="checkbox" name="underlined" />
-            <%- translate 'span', 'classifier.underlined' %>
-          </label>
+          <span class="checkbox-group">
+            <label title="[A]">
+              <input type="checkbox" name="underlined" />
+              <%- translate 'span', 'classifier.underlined' %>
+            </label>
+          </span>
 
-          <label title="[S]">
-            <input type="checkbox" name="juvenile" />
-            <%- translate 'span', 'classifier.juvenile' %>
-          </label>
+          <span class="checkbox-group">
+            <label title="[S]">
+              <input type="checkbox" name="juvenile" />
+              <%- translate 'span', 'classifier.juvenile' %>
+            </label>
 
-          <label title="[D]">
-            <input type="checkbox" name="adult" />
-            <%- translate 'span', 'classifier.adult' %>
-          </label>
+            <label title="[D]">
+              <input type="checkbox" name="adult" />
+              <%- translate 'span', 'classifier.adult' %>
+            </label>
+          </span>
         </fieldset>
       </div>
 

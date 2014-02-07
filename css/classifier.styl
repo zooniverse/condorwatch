@@ -201,11 +201,19 @@ TAG_COLORS = black white red orange yellow green blue purple
       &.selected
         background: LIGHT_GRAY
 
+  .checkbox-group
+    padding: 0.5em 0
+
+    & + .checkbox-group
+      border-left: 1px solid LIGHT_GRAY
+      margin-left: 1em
+      padding-left: 1em
+
   label
     display: inline-block
 
     & + label
-      margin-left: 2em
+      margin-left: 1em
 
   button[name="proximity"]
     width: 92.5%
