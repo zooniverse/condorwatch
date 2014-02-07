@@ -2,6 +2,7 @@
 
 <div class="content-block">
   <div class="content-container">
+    <a href="#/classify" class="back-to-classify">Back to classification</a>
     <h2>Field guide</h2>
     <p>What to look for when classifying</p>
   </div>
