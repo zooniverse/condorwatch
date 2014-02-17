@@ -1,8 +1,8 @@
 module.exports = [
   'condor'
   'turkeyVulture'
+  'goldenEagle'
   'raven'
   'coyote'
-  'goldenEagle'
   'carcassOrScale'
 ]

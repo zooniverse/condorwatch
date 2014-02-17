@@ -34,15 +34,15 @@ module.exports =
     turkeyVulture:
       label: 'Turkey vulture'
       image: './images/animals/turkey-vulture.jpg'
+    goldenEagle:
+      label: 'Golden eagle'
+      image: './images/animals/golden-eagle.jpg'
     raven:
       label: 'Raven'
       image: './images/animals/raven.jpg'
     coyote:
       label: 'Coyote'
       image: './images/animals/coyote.jpg'
-    goldenEagle:
-      label: 'Golden eagle'
-      image: './images/animals/golden-eagle.jpg'
     carcassOrScale:
       label: 'Carcass/&#8203;scale'
       image: '//placehold.it/100.png&text=Carcass/scale' # TODO
@@ -113,6 +113,52 @@ module.exports =
   fieldGuide:
     title: 'Field guide'
     back: 'Back to classification'
+    summary: 'What to look for when classifying'
+
+    condor: '''
+      <p>California condors are the largest flying land birds in North America. Being almost 4 feet head-to-tail with a wing span of 9.5 feet and weighing 22 lbs on average, they will always be the largest birds in a Condor Watch photograph. But when perspective makes size hard to discern, we must rely on other field marks. Overall, they are a brownish-black feathered vulture with conspicuous white patches on their underwings. They have a feathered “ruff” about their neck which can be pulled up towards their head on cold days. Their heads are bare except for a black “mustache” below the eyes, and their head color is largely what you will use to tell adults and juvenile apart (see section below). Condors also have un-feathered crops, a pouch above the stomach where food can be stored for later digestion. When full, these crops can be obvious in the photographs, especially in adults when the crop is bright pink in color.</p>
+      <p>Perhaps the biggest clue that you are looking at a condor is the presence of a numbered tag on their wing, called a patagial tag, which helps field biologists identify individuals.</p>
+      <div class="centered">
+        <h4>Adult or juvenile?</h4>
+        <img src="//placehold.it/100.png&amp;text=Juvenile" class="framed" />
+        <img src="//placehold.it/100.png&amp;text=Adult" class="framed" />
+      </div>
+      <p>Juvenile condors are the same size as adult condors, but they differ in head color and, more subtly, in plumage. Juveniles have dark grey heads and necks with black downy feathers. The white patches on the undersides of their wings are generally blotchier than the white triangular patches found beneath the wings of adults. As they grow into adults, a process that takes 5-6 years, skin on their head, neck, and crop turns pink to orange, and the white underwing patch becomes more defined. Condor eye color also changes from brown to red as they age into adulthood. For the purposes of this project, only condors with completely pink-orange heads will be considered adults. Fun fact: adult condors can reportedly change their skin color from pale grey blue, to bright red, to deep yellows to communicate with other condors.</p>
+    '''
+
+    turkeyVulture: '''
+      <p>Turkey vultures are the most common vulture in North America. They have brownish-black feathers and bare heads, similar the California condor but are much smaller (~ 2 feet head-to-tail, 4 lbs). Since turkey vultures use their sense of smell to find prey, their nostrils (a.k.a. nares) are highly developed. During their first year after hatching, turkey vultures have black heads and bills. In about 2 years they have achieved full adult plumage, with bright red heads and ivory bills.</p>
+      <h4>How to tell the difference</h4>
+      <p>As mentioned in the previous section, turkey vultures are less than half the size of California condors. But how can you tell the difference if only one species is in the photograph? Well, one way is to look for a patagial tag, a large numbered tag on the wing. Only condors should have these tags. Another clue is the wing plumage. Condors, especially adults, have large white patches on the underside of their wings. If positioned correctly you may be able to see these. Turkey vultures have a silvery trailing edge to the underside of their wings, but have no white feathers at all.</p>
+    '''
+
+    goldenEagle: '''
+      <p>The golden eagle is larger than a turkey vulture, but smaller than a condor. At 10 lbs and 2.5 feet head-to-tail with a wingspan of 6.5 feet, it is about 2/3 the size. These predatory birds are feathered from beak to feet, their leg feathers giving the effect of billowing pants. They are golden brown overall and may have some white markings on the underwings and tail depending on age. Despite their being smaller than condors, the golden eagle tends to be dominant at a carcass, perhaps since it has powerful talons which the other scavengers lack.</p>
+    '''
+
+    raven: '''
+      <p>Common Ravens are often present at condor feeding events. With a wingspan of just over 4 feet and a weight of 2.6 lbs on average, these birds are smaller than turkey vultures. Ravens are feathered black, with similarly black beak, eyes, and legs. In the right light, their feathers shine with iridescence.</p>
+      <p>While ravens are omnivores, they are accomplished scavengers and are often present in condor watch photographs. This species is highly intelligent and have been observed to play “tricks” on larger scavengers while they eat, such as tugging condor tail feathers to distract them from their meal.</p>
+    '''
+
+    coyote: '''
+      <p>If you are lucky you may catch a mammal on the condor cam. When you do, it will most likely be the coyote, a member of the Canidae family which is both predator and scavenger. Interestingly, this species, once deceased, becomes a food source for the California condor!</p>
+    '''
+
+    carcassOrScale: '''
+      <p>For this project we also ask that you locate the carcass and the scale within photographs. This will help us understand how far each bird is from the carcass, and ultimately decode the dominance hierarchy within condor flocks as well as further our understanding of condor feeding behavior. Carcasses are generally dairy calves colored white, black, and brown. Occasionally condors will be offered a wild boar or rabbit. The scale is used to collect data on individual condor weights, an indicator of overall health.</p>
+    '''
+
+    credit: '''
+      <p>Text by Zeka Kuspa</p>
+
+      <p>Sources:</p>
+      <ul>
+        <li>Sibley, David A., The Sibley Guide to Birds of North America, 2000. Chanticleer Press, New York.</li>
+        <li>Ventana Wildlife Society website: http://ventanaws.org/species_condors_history/</li>
+        <li>Pinnacles National Park website: http://www.nps.gov/pinn/naturescience/condor-viewing-tips.htm</li>
+      </ul>
+    '''
 
   science:
     title: 'Science'
@@ -128,11 +174,6 @@ module.exports =
       <p>We completed a preliminary analysis of data collected at proffered feeding stations equipped with still and video cameras in Pinnacles National Park in California, USA. Condor associations were relatively fluid through time, with the probability of any two currently-associated individuals being associated in the future remaining constant for about a month then slowly declining towards rates expected from random or null association behavior. Association rates among pairs of condors at feeding stations did not predict the probability that both exhibited elevated lead levels. However, we plan to test this prediction with the larger data set generated through Condor Watch to determine if our lack of an association was due to our small preliminary sample size.</p>
       <p>The strength of an individual’s social connections (i.e., its network centrality) was negatively related to age. However, more socially connected individuals had a greater probability of elevated blood lead after accounting for age and site effects. Thus, we feel that data generated from Condor Watch will be valuable to help determine factors that can predict a condor’s lead poisoning risk, as well as understand condor social network behavior more generally.</p>
     '''
-
-    # figures:
-    #   something:
-    #     image: '//placehold.it/640x480.png'
-    #     description: 'This is a feature of condors'
 
   about:
     title: 'About the project'
