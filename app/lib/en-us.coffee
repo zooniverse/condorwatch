@@ -193,6 +193,6 @@ module.exports =
 
   dateFormat: '$month $day, $year'
   months:
-    Jan: 'January', Feb: 'February', Mar: 'March', Apr: 'April'
-    May: 'May', Jun: 'June', Jul: 'July', Aug: 'August'
-    Sep: 'September', Oct: 'October', Nov: 'November', Dec: 'December'
+    jan: 'January', feb: 'February', mar: 'March', apr: 'April'
+    may: 'May', jun: 'June', jul: 'July', aug: 'August'
+    sep: 'September', oct: 'October', nov: 'November', dec: 'December'
