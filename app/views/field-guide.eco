@@ -12,7 +12,7 @@
   </div>
 
   <div class="content-container">
-    <% for animal in possibleAnimals: %>
+    <% for animal, i in possibleAnimals: %>
       <div class="half-column">
         <div class="centered">
           <%- translate 'h3', "animals.#{animal}.label" %>
@@ -21,6 +21,10 @@
 
         <%- translate 'div', "fieldGuide.#{animal}" %>
       </div>
+
+      <% if i % 2: %>
+        <hr />
+      <% end %>
     <% end %>
   </div>
 </div>

@@ -37,7 +37,6 @@ LIGHT = 300
     box-shadow: 0 0 1.5em inset
 
 #_COLUMN
-  border-top: 1px solid LIGHT_GRAY
   box-sizing: border-box
   float: left
   padding: 1em 2em 1em 0
@@ -52,8 +51,8 @@ is-a-column(cols)
 
   width: unit(100 / cols, '%')
 
-  &:nth-child({cols}n)
-    padding-right: 0
+  // &:nth-of-type({cols}n)
+  //   padding-right: 0
 
-  &:nth-child({cols}n+1)
+  &:nth-of-type({cols}n+1)
     clear: left

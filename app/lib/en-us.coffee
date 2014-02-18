@@ -63,6 +63,7 @@ module.exports =
     tagLabel: 'Tag number'
     color: 'Tag color'
     colors:
+      clear: 'Un-set color'
       black: 'Black'
       white: 'White'
       red: 'Red'
@@ -128,7 +129,10 @@ module.exports =
 
     turkeyVulture: '''
       <p>Turkey vultures are the most common vulture in North America. They have brownish-black feathers and bare heads, similar the California condor but are much smaller (~ 2 feet head-to-tail, 4 lbs). Since turkey vultures use their sense of smell to find prey, their nostrils (a.k.a. nares) are highly developed. During their first year after hatching, turkey vultures have black heads and bills. In about 2 years they have achieved full adult plumage, with bright red heads and ivory bills.</p>
-      <h4>How to tell the difference</h4>
+      <div class="centered">
+        <h4>How to tell the difference</h4>
+        <img src="//placehold.it/200.png&amp;text=Comparison" class="framed" />
+      </div>
       <p>As mentioned in the previous section, turkey vultures are less than half the size of California condors. But how can you tell the difference if only one species is in the photograph? Well, one way is to look for a patagial tag, a large numbered tag on the wing. Only condors should have these tags. Another clue is the wing plumage. Condors, especially adults, have large white patches on the underside of their wings. If positioned correctly you may be able to see these. Turkey vultures have a silvery trailing edge to the underside of their wings, but have no white feathers at all.</p>
     '''
 
