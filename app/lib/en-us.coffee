@@ -85,6 +85,8 @@ module.exports =
       outsideTwo: 'Farther than two body lengths'
     finishSelection: 'Done'
 
+  # tutorial:
+
   classificationSummary:
     condorsHeading: '$count confirmed condors'
     noCondors: 'No condors marked'
@@ -262,6 +264,15 @@ module.exports =
 
   dateFormat: '$month $day, $year'
   months:
-    jan: 'January', feb: 'February', mar: 'March', apr: 'April'
-    may: 'May', jun: 'June', jul: 'July', aug: 'August'
-    sep: 'September', oct: 'October', nov: 'November', dec: 'December'
+    jan: 'January'
+    feb: 'February'
+    mar: 'March'
+    apr: 'April'
+    may: 'May'
+    jun: 'June'
+    jul: 'July'
+    aug: 'August'
+    sep: 'September'
+    oct: 'October'
+    nov: 'November'
+    dec: 'December'
