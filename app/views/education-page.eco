@@ -3,10 +3,9 @@
 <div class="content-block">
   <div class="content-container">
     <%- translate 'h2', 'education.title' %>
-    <%- translate 'p', 'education.summary' %>
   </div>
 
   <div class="content-container">
-    <%- translate 'p', 'education.content' %>
+    <%- translate 'div', 'education.content' %>
   </div>
 </div>

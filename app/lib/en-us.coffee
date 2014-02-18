@@ -229,9 +229,35 @@ module.exports =
 
   education:
     title: 'For educators'
-    summary: 'This is where educational info will go.'
     content: '''
-      <p>Includes links to other resources, links to ZooTeach, etc.</p>
+      <h3>Can I use Condor Watch in the classroom?</h3>
+      <p>Yes! Condor Watch, just like all the Zooniverse projects, offers students a unique opportunity to explore real scientific data, while making a contribution to cutting edge research. We would like to stress that as each image is marked by multiple volunteers, it really does not matter if your students don't mark all the features correctly. That being said, the task itself is simple enough that we believe most people can take part and make a worthwhile contribution regardless of age.</p>
+      <h3>What resources are there to support use in the classroom?</h3>
+      <p>Videos are a great tool to introduce students to Condor Watch.  Here are a couple of our favorites:</p>
+      <ul>
+        <li>The Condor’s Shadow documentary covers the details behind this project, <a href="http://www.thecondorsshadow.com/index.html">http://www.thecondorsshadow.com/index.html</a></li>
+        <li>The Condor’s Shadow documentary offers many video clips to chose from, <a href="http://www.thecondorsshadow.com/film_clips.html">http://www.thecondorsshadow.com/film_clips.html</a></li>
+      </ul>
+      <p>There is also a podcast featuring one of the science team members, Myra Finkelstein:</p>
+      <ul>
+        <li><a href="http://www.pnas.org/site/misc/myraFinkelsteinPodcast.mp3">http://www.pnas.org/site/misc/myraFinkelsteinPodcast.mp3</a></li>
+      </ul>
+      <p>You may also be able to find activities provided by some of the science team’s partners:</p>
+      <ul>
+        <li>Pinnacles National Park - <a href="http://www.nps.gov/pinn/naturescience/condors.htm">http://www.nps.gov/pinn/naturescience/condors.htm</a></li>
+        <li>Santa Barbara Zoo - <a href="http://www.sbcondors.com/">http://www.sbcondors.com/</a></li>
+        <li>Oregon Zoo - <a href="http://www.oregonzoo.org/conserve/species-recovery-and-conservation/california-condors">http://www.oregonzoo.org/conserve/species-recovery-and-conservation/california-condors</a></li>
+        <li>Ventana Wildlife Society - <a href="http://www.ventanaws.org/index.htm">http://www.ventanaws.org/index.htm</a></li>
+      </ul>
+      <p>The Zooniverse has launched <a href="http://www.zooteach.org/">ZooTeach</a> where educators can find and share educational resources relating to Condor Watch and the other Zooniverse citizen science projects. Check out resources created for Condor Watch. Have any ideas for how to use the project in the classroom? Please share your lesson ideas or resources on ZooTeach!</p>
+      <h3>How can I keep up to date with education and Condor Watch?</h3>
+      <p><a href="http://blog.condorwatch.org/">The Condor Watch blog</a>, as well as the partner Facebook pages below, are great places to keep up to date with the latests science results, but there is also a <a href="http://education.zooniverse.org/">Zooniverse Education Blog</a> as well as a <a href="https://twitter.com/ZooTeach">@ZooTeach</a> Twitter feed.</p>
+      <p>Partner Facebook Pages:</p>
+      <ul>
+        <li><a href="https://www.facebook.com/TheCondorCave">https://www.facebook.com/TheCondorCave</a></li>
+        <li><a href="https://www.facebook.com/VentanaWildlifeSociety">https://www.facebook.com/VentanaWildlifeSociety</a></li>
+        <li><a href="https://www.facebook.com/pages/Pinnacles-National-Park/106787909380024">https://www.facebook.com/pages/Pinnacles-National-Park/106787909380024</a></li>
+      </ul>
     '''
 
   dateFormat: '$month $day, $year'
