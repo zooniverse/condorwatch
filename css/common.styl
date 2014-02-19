@@ -36,6 +36,27 @@ LIGHT = 300
   &.selected
     box-shadow: 0 0 1.5em inset
 
+#_SIDE_RULED
+  overflow: hidden
+
+  > .content
+    position: relative
+
+    &:before,
+    &:after
+      border-top: 1px solid
+      content: ""
+      margin: 0 0.5em
+      position: absolute
+      top: 50%
+      width: 1080px
+
+    &:before
+      right: 100%
+
+    &:after
+      left: 100%
+
 #_COLUMN
   float: left
   margin: 1em 0 1em 3em

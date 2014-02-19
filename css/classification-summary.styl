@@ -39,28 +39,10 @@
     text-transform: uppercase
 
   .subheading
+    @extends #_SIDE_RULED
     font-size: 12px
     letter-spacing: 1px
     text-transform: uppercase
-    overflow: hidden
-
-  .subheading-content
-    position: relative
-
-    &:before,
-    &:after
-      border-top: 1px solid
-      content: ""
-      margin: 0 0.5em
-      position: absolute
-      top: 50%
-      width: 1080px
-
-    &:before
-      right: 100%
-
-    &:after
-      left: 100%
 
   .no-condors,
   .no-other-animals

@@ -28,7 +28,7 @@
   <% end %>
 
   <div class="subheading">
-    <%- translate 'span.subheading-content', 'classificationSummary.othersHeading' %>
+    <%- translate 'span.content', 'classificationSummary.othersHeading' %>
   </div>
 
   <% if others.length is 0: %>
