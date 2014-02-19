@@ -85,7 +85,86 @@ module.exports =
       outsideTwo: 'Farther than two body lengths'
     finishSelection: 'Done'
 
-  # tutorial:
+  tutorial:
+    demoLabel: 'Show me'
+    nextLabel: 'Next'
+    doneLabel: 'Done'
+
+    prompt:
+      header: 'Welcome to Condor Watch'
+      content: 'We\'ve put together a short tutorial to help get you started. Would you like to step through it now?'
+      nextLabel: 'Yes'
+      rejectLabel: 'No'
+
+    welcome:
+      header: 'Welcome to Condor Watch'
+      content: '''
+        Help us better understand the social dynamic of condors by identifying them in photos across California, U.S.
+      '''
+
+    introduceTask:
+      header: 'Welcome to Condor Watch'
+      content: '''
+        We are primarily asking you to identify individual condors by describing as best you can the tag that each condor has pegged to its wing. There may also be other birds or animals to classify, see the guide for more details. Let's run through an example to get you started.
+      '''
+
+    markCondor:
+      header: 'Identify a condor'
+      content: '''
+        Marking a condor is as simple as clicking on a condor in the image. Let's mark condor #32 that is foremost in this image.
+      '''
+      instruction: '''
+        Click on the condor in this image to proceed.
+      '''
+
+    denoteCondor:
+      header: 'Identify a condor'
+      content: '''
+        You will see a list of different animals on the right. We ask you mark when you spot each of these. In this case, we are marking a condor.
+      '''
+      instruction: '''
+        Click "Condor", then "Next" to proceed.
+      '''
+
+    tagDetails:
+      header: 'Tag Details'
+      content: '''
+        This area lists the different pieces of information we are asking you to observe about each condor. Pleaes fill it out as best you can. For more details on the different pieces of information present, please refer to the field guide.
+      '''
+
+    markZoom:
+      header: 'Toggle zoom'
+      content: '''
+        You'll notice there is a zoomed-in view where you placed the mark. This allows you to spot more details about the tag. You can toggle this zoom by click the magnifying glass here.
+      '''
+
+    markDelete:
+      header: 'Delete a mark'
+      content: '''
+        You can also delete a mark entirely by clicking this &times;.
+      '''
+      block: 'button[name="delete-mark"]'
+
+    completeMark:
+      header: 'Complete this mark'
+      content: '''
+        To complete a mark, select how far the animal is from the carcass or scale, then click "Done".
+      '''
+      instruction: '''
+        Click "Done"
+      '''
+
+    coverage:
+      header: 'What to mark'
+      content: '''
+        Please mark every condor and animal you can, even those condors that you can't discern all their tag details. Even partial information is potentially useful to us!
+      '''
+
+    sendOff:
+      header: 'That\'s it!'
+      content: '''
+        Feel free to join the discussion on Talk, and be sure to sign up or log in to track your favorite condor images! Happy spotting!
+      '''
 
   classificationSummary:
     condorsHeading: '$count confirmed condors'

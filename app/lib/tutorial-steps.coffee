@@ -1,15 +1,17 @@
+translate = require 't7e'
+
 # http://zooniverse-demo.s3-website-us-east-1.amazonaws.com/condors/subjects/standard/5282aaaa3ae74095c100a382.jpg
 
 module.exports =
   prompt:
-    header: '<span>Welcome to Condor Watch</span>'
-    content: 'This is a tutorial! You in?'
-    nextLabel: 'Let\'s go'
+    header: translate 'span.content', 'tutorial.prompt.header'
+    content: translate 'div', 'tutorial.prompt.content'
+    nextLabel: translate 'span', 'tutorial.prompt.nextLabel'
 
     onLoad: ->
       rejectButton = @createElement 'button.zootorial-nah', @footer
       @footer.appendChild rejectButton.previousElementSibling # Reorder
-      rejectButton.innerHTML = 'No thanks'
+      rejectButton.innerHTML = translate 'span', 'tutorial.prompt.rejectLabel'
       rejectButton.onclick = =>
         @triggerEvent 'reject'
         @end()
@@ -17,100 +19,61 @@ module.exports =
     next: 'welcome'
 
   welcome:
-    header: '''
-      <span>Welcome to Condor Watch</span>
-    '''
-    content: '''
-      Help us better understand the social dynamic of condors by identifying them in photos across California, U.S.
-    '''
+    header: translate 'span.content', 'tutorial.welcome.header'
+    content: translate 'div', 'tutorial.welcome.content'
     next: 'introduceTask'
 
   introduceTask:
-    header: '''
-      <span>Welcome to Condor Watch</span>
-    '''
-    content: '''
-      We are primarily asking you to identify individual condors by describing as best you can the tag that each condor has pegged to its wing. There may also be other birds or animals to classify, see the guide for more details. Let's run through an example to get you started.
-    '''
+    header: translate 'span.content', 'tutorial.introduceTask.header'
+    content: translate 'div', 'tutorial.introduceTask.content'
     next: 'markCondor'
 
   markCondor:
-    header: '''
-      <span>Identify a condor</span>
-    '''
-    content: '''
-      Marking a condor is as simple as clicking on a condor in the image. Let's mark condor #32 that is foremost in this image.
-    '''
-    instruction: '''
-      Click on the condor in this image to proceed.
-    '''
-    next: 'denoteCondor' # TODO
+    header: translate 'span.content', 'tutorial.markCondor.header'
+    content: translate 'div', 'tutorial.markCondor.content'
+    instruction: translate 'div', 'tutorial.markCondor.instruction'
+    next:
+      'tool-initial-release': 'denoteCondor'
 
   denoteCondor:
-    header: '''
-      <span>Identify a condor</span>
-    '''
-    content: '''
-      You will see a list of different animals on the right. We ask you mark when you spot each of these. In this case, we are marking a condor.
-    '''
-    instruction: '''
-      Click "Condor", then "Next" to proceed.
-    '''
-    next: 'tagDetails' # TODO
+    header: translate 'span.content', 'tutorial.denoteCondor.header'
+    content: translate 'div', 'tutorial.denoteCondor.content'
+    instruction: translate 'div', 'tutorial.denoteCondor.instruction'
+    actionable: 'button[name="animal"][value="condor"], button[name="confirm-animal"]'
+    next:
+      'click button[name="confirm-animal"]': 'tagDetails'
 
   tagDetails:
-    header: '''
-      <span>Tag Details</span>
-    '''
-    content: '''
-      This area lists the different pieces of information we are asking you to observe about each condor. Pleaes fill it out as best you can. For more details on the different pieces of information present, please refer to the field guide.
-    '''
+    header: translate 'span.content', 'tutorial.tagDetails.header'
+    content: translate 'div', 'tutorial.tagDetails.content'
+    block: 'button[name="finish-selection"]'
     next: 'markZoom'
 
   markZoom:
-    header: '''
-      <span>Toggle zoom</span>
-    '''
-    content: '''
-      You'll notice there is a zoomed-in view where you placed the mark. This allows you to spot more details about the tag. You can toggle this zoom by click the magnifying glass here.
-    '''
+    header: translate 'span.content', 'tutorial.markZoom.header'
+    content: translate 'div', 'tutorial.markZoom.content'
+    block: 'button[name="finish-selection"]'
     next: 'markDelete'
 
   markDelete:
-    header: '''
-      <span>Delete a mark</span>
-    '''
-    content: '''
-      You can also delete a mark entirely by clicking this &times;.
-    '''
-    block: 'button[name="delete-mark"]'
+    header: translate 'span.content', 'tutorial.markDelete.header'
+    content: translate 'div', 'tutorial.markDelete.content'
+    block: 'button[name="delete-mark"], button[name="finish-selection"]'
     next: 'completeMark'
 
   completeMark:
-    header: '''
-      <span>Complete this mark</span>
-    '''
-    content: '''
-      To complete a mark, select how far the animal is from the carcass or scale, then click "Done".
-    '''
-    instruction: '''
-      Click "Done"
-    '''
-    next: 'coverage' # TODO
+    header: translate 'span.content', 'tutorial.completeMark.header'
+    content: translate 'div', 'tutorial.completeMark.content'
+    instruction: translate 'div', 'tutorial.completeMark.instruction'
+    actionable: 'button[name="proximity"], button[name="finish-selection"]'
+    next:
+      'click button[name="finish-selection"]': 'coverage'
 
   coverage:
-    header: '''
-      <span>What to mark</span>
-    '''
-    content: '''
-      Please mark every condor and animal you can, even those condors that you can't discern all their tag details. Even partial information is potentially useful to us!
-    '''
+    header: translate 'span.content', 'tutorial.coverage.header'
+    content: translate 'div', 'tutorial.coverage.content'
     next: 'sendOff'
 
   sendOff:
-    header: '''
-      <span>That's it!</span>
-    '''
-    content: '''
-      Feel free to join the discussion on Talk, and be sure to sign up or log in to track your favorite condor images! Happy spotting!
-    '''
+    header: translate 'span.content', 'tutorial.sendOff.header'
+    content: translate 'div', 'tutorial.sendOff.content'

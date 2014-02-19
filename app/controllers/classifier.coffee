@@ -71,6 +71,9 @@ class Classifier extends BaseController
         localStorage.setItem 'currentClassification', @markingSurface.getValue()
 
     @tutorial = new Tutorial
+      demoLabel: translate 'span', 'tutorial.demoLabel'
+      nextLabel: translate 'span', 'tutorial.nextLabel'
+      doneLabel: translate 'span', 'tutorial.doneLabel'
       parent: @el.get 0
       steps: tutorialSteps
       first: ->

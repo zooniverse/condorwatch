@@ -38,3 +38,13 @@
     button
       @extends #_STANDARD_BUTTON
       padding: 0 1.25em
+
+@keyframes CONDOR_TUTORIAL_ACTIONABLE
+  0%
+    box-shadow: 0 0 1px lime
+
+  100%
+    box-shadow: 0 0 5px lime
+
+[data-zootorial-actionable]:not(:disabled):not(.selected)
+  animation: CONDOR_TUTORIAL_ACTIONABLE 500ms infinite alternate
