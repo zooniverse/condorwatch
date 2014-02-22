@@ -116,6 +116,7 @@ class Classifier extends BaseController
   onGettingNextSubject: =>
     @favoriteButton.prop 'disabled', true
     @talkLink.prop 'href', ''
+    @markingSurface.disable()
 
   onSubjectSelect: (e, subject) =>
     unless subject.tutorial
