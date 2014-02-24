@@ -240,6 +240,8 @@ class Classifier extends BaseController
     @updateClassificationMarks()
     console?.log JSON.stringify @classification
     @classification.send()
+    localStorage.removeItem 'currentClassification'
+    localStorage.removeItem 'currentSubject'
 
   events:
     'click button[name="favorite"]': ->
