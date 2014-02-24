@@ -202,8 +202,8 @@ module.exports =
       <p>Perhaps the biggest clue that you are looking at a condor is the presence of a numbered tag on their wing, called a patagial tag, which helps field biologists identify individuals.</p>
       <div class="centered">
         <h4>Adult or juvenile?</h4>
-        <img src="//placehold.it/100.png&amp;text=Juvenile" class="framed" />
-        <img src="//placehold.it/100.png&amp;text=Adult" class="framed" />
+        <img src="./images/adult.jpg" class="framed" width="100" height="100" />
+        <img src="./images/juvenile.jpg" class="framed" width="100" height="100" />
       </div>
       <p>Juvenile condors are the same size as adult condors, but they differ in head color and, more subtly, in plumage. Juveniles have dark grey heads and necks with black downy feathers. The white patches on the undersides of their wings are generally blotchier than the white triangular patches found beneath the wings of adults. As they grow into adults, a process that takes 5-6 years, skin on their head, neck, and crop turns pink to orange, and the white underwing patch becomes more defined. Condor eye color also changes from brown to red as they age into adulthood. For the purposes of this project, only condors with completely pink-orange heads will be considered adults. Fun fact: adult condors can reportedly change their skin color from pale grey blue, to bright red, to deep yellows to communicate with other condors.</p>
     '''
