@@ -170,6 +170,7 @@ module.exports =
     condorsHeading: '$count confirmed condors'
     noCondors: 'No condors marked'
     tagPrefix: 'No.'
+    sure: 'sure'
     bioLink: 'Bio'
     othersHeading: 'Other animals'
     noOthers: 'No other animals marked'

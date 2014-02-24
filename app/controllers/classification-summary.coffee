@@ -1,6 +1,7 @@
 BaseController = require 'zooniverse/controllers/base-controller'
 guessCondor = require '../lib/guess-condor'
 getCondorBio = require '../lib/get-condor-bio'
+translate = require 't7e'
 
 class ClassificationSummary extends BaseController
   marks: null
@@ -27,11 +28,12 @@ class ClassificationSummary extends BaseController
 
     for condor, i in condors then do (i) =>
       guessCondor(condor).then (ids) =>
-        if ids.length is 1
-          @condorLabels.eq(i).html ids[0]
-          @condorBioLinks.eq(i).prop 'href', "#/condors/#{ids[0]}"
-        else
+        if ids.length is 0
           @condorSummaries.eq(i).addClass 'unknown-condor'
+        else
+          @condorLabels.eq(i).html ids[0]
+          @condorLabels.eq(i).attr 'title', "#{Math.floor (1 / ids.length) * 100}% #{translate 'classificationSummary.sure'}"
+          @condorBioLinks.eq(i).prop 'href', "#/condors/#{ids[0]}"
 
   show: ->
     @el.removeClass 'offscreen'
