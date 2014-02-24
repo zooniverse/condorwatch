@@ -36,7 +36,7 @@ getTags = $.get('./condor-tags.csv').pipe (tabSeparated) ->
     object.color.push leftColor if leftColor in possibleTagColors
 
     rightColor = values.shift().toLowerCase()
-    object.color.push rightColorif rightColor in possibleTagColors
+    object.color.push rightColor if rightColor in possibleTagColors
 
     object.color = null if object.color.length is 0
 
@@ -62,8 +62,6 @@ guessCondor = (givens, callback) ->
           return false unless values[key] is givenValue
 
       return true
-
-    console.log JSON.stringify matches
 
     ids = [[], matches...].reduce (reduced, match) ->
       unless match.id in reduced
