@@ -45,7 +45,7 @@ module.exports =
       image: './images/animals/coyote.jpg'
     carcassOrScale:
       label: 'Carcass/&#8203;scale'
-      image: '//placehold.it/100.png&text=Carcass/scale' # TODO
+      image: './images/animals/carcass-or-scale.jpg'
 
   classifier:
     favorite: 'Favorite'
