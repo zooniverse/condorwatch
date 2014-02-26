@@ -68,6 +68,9 @@ guessCondor = (givens, callback) ->
         reduced.push match.id
       reduced
 
+    unless reducedGivens.label
+      ids = []
+
     callback? ids
     ids
 
