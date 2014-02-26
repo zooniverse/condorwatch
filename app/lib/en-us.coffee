@@ -84,6 +84,7 @@ module.exports =
       withinTwo: 'Within two body lengths'
       outsideTwo: 'Farther than two body lengths'
     finishSelection: 'Done'
+    noMoreSubjects: 'Looks like we\'ve run out of subjects!<br />Please check back later.' # TODO: Point to other projects.
 
   tutorial:
     demoLabel: 'Show me'

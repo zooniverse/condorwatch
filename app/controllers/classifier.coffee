@@ -44,6 +44,7 @@ class Classifier extends BaseController
     'button[name="proximity"]': 'proximityButtons'
     'button[name="finish-selection"]': 'finishSelectionButton'
     '.loader': 'loader'
+    '.no-more-subjects': 'noMoreSubjectsMessage'
 
   constructor: ->
     super
@@ -71,7 +72,8 @@ class Classifier extends BaseController
       unless @classification.subject.tutorial
         localStorage.setItem 'currentClassification', @markingSurface.getValue()
 
-    @loader.appendTo @markingSurface.el # SORRY
+    @loader.appendTo @markingSurface.el
+    @noMoreSubjectsMessage.appendTo @markingSurface.el
 
     @tutorial = new Tutorial
       demoLabel: translate 'span', 'tutorial.demoLabel'
@@ -88,6 +90,7 @@ class Classifier extends BaseController
     User.on 'change', @onUserChange
     Subject.on 'get-next', @onGettingNextSubject
     Subject.on 'select', @onSubjectSelect
+    Subject.on 'no-more', @onNoMoreSubjects
 
     addEventListener 'resize', @rescale, false
     @onSelectTool()
@@ -123,6 +126,7 @@ class Classifier extends BaseController
     @markingSurface.disable()
 
   onSubjectSelect: (e, subject) =>
+    @noMoreSubjectsMessage.hide()
     unless subject.tutorial
       localStorage.setItem 'currentSubject', JSON.stringify subject
 
@@ -147,6 +151,10 @@ class Classifier extends BaseController
 
       if subject.tutorial
         @tutorial.start()
+
+  onNoMoreSubjects: =>
+    @loader.fadeOut()
+    @noMoreSubjectsMessage.show()
 
   rescale: =>
     # NOTE: The SVG and its image are 100%x100%, so resize @markingSurface.el

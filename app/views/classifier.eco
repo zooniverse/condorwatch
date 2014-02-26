@@ -108,4 +108,8 @@
   <div class="loader">
     <i class="fa fa-sun-o fa-spin spinner"></i>
   </div>
+
+  <%- translate 'div.no-more-subjects', 'classifier.noMoreSubjects' %>
+
+  </div>
 </div>
