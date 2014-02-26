@@ -39,6 +39,34 @@
       @extends #_STANDARD_BUTTON
       padding: 0 1.25em
 
+  .zootorial-arrow
+    border: 1em solid transparent
+    height: 0
+    left: 50%
+    margin: -1em 0 0 -1em
+    top: 50%
+    width: 0
+
+    &[data-zootorial-position="up"]
+      border-bottom-color: MEDIUM_GRAY
+      border-top-width: 0
+      top: 0
+
+    &[data-zootorial-position="right"]
+      border-left-color: MEDIUM_GRAY
+      border-right-width: 0
+      left: calc(100% + 1em)
+
+    &[data-zootorial-position="down"]
+      border-bottom-width: 0
+      border-top-color: MEDIUM_GRAY
+      top: calc(100% + 1em)
+
+    &[data-zootorial-position="left"]
+      border-left-width: 0
+      border-right-color: MEDIUM_GRAY
+      left: 0
+
 @keyframes CONDOR_TUTORIAL_ACTIONABLE
   0%
     box-shadow: 0 0 1px lime
