@@ -43,6 +43,7 @@ class Classifier extends BaseController
     'input[name="adult"]': 'adultCheckbox'
     'button[name="proximity"]': 'proximityButtons'
     'button[name="finish-selection"]': 'finishSelectionButton'
+    '.loader': 'loader'
 
   constructor: ->
     super
@@ -69,6 +70,8 @@ class Classifier extends BaseController
     @markingSurface.on 'change', =>
       unless @classification.subject.tutorial
         localStorage.setItem 'currentClassification', @markingSurface.getValue()
+
+    @loader.appendTo @markingSurface.el # SORRY
 
     @tutorial = new Tutorial
       demoLabel: translate 'span', 'tutorial.demoLabel'
@@ -114,6 +117,7 @@ class Classifier extends BaseController
     Subject.next() unless @classification?
 
   onGettingNextSubject: =>
+    @loader.fadeIn()
     @favoriteButton.prop 'disabled', true
     @talkLink.prop 'href', ''
     @markingSurface.disable()
@@ -138,6 +142,8 @@ class Classifier extends BaseController
         tool.href = @currentSubjectImage.src
         tool.redraw()
         tool.deselect()
+
+      @loader.fadeOut()
 
       if subject.tutorial
         @tutorial.start()
