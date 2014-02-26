@@ -28,9 +28,9 @@
       <%- translate 'a.call-to-action', 'home.header.start', href: '#/classify' %>
 
       <span class="social-links">
-        <a href="#_TODO_TWITTER"><i class="social-icon fa fa-twitter"></i></a>
-        <a href="#_TODO_FACEBOOK"><i class="social-icon fa fa-facebook-square"></i></a>
-        <a href="#_TODO_GOOGLE_PLUS"><i class="social-icon fa fa-google-plus"></i></a>
+        <a href="https://twitter.com/condorwatch"><i class="social-icon fa fa-twitter"></i></a>
+        <a href="https://www.facebook.com/pages/Condor-Watch/213592792168601"><i class="social-icon fa fa-facebook-square"></i></a>
+        <a href="https://plus.google.com/u/0/102212287136685461533/posts"><i class="social-icon fa fa-google-plus"></i></a>
       </span>
     </p>
   </div>
