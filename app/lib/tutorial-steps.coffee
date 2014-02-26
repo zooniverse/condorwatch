@@ -46,7 +46,7 @@ module.exports =
     actionable: 'button[name="animal"][value="condor"], button[name="confirm-animal"]'
     next:
       'click button[name="animal"][value="condor"]': ->
-        # TODO: Attach to "confirm-animal" button
+        @attach ['right', 'middle', 'button[name="confirm-animal"]', 'left', 'middle']
         false
 
       'click button[name="confirm-animal"]': 'tagDetails'
@@ -81,10 +81,10 @@ module.exports =
     instruction: translate 'div', 'tutorial.completeMark.instruction'
     attachment: ['right', 'middle', 'button[name="proximity"][value="within-reach"]', 'left', 'middle']
     arrow: 'right'
-    actionable: 'button[name="proximity"], button[name="finish-selection"]'
+    actionable: 'button[name="proximity"][value="within-reach"], button[name="finish-selection"]'
     next:
       'click button[name="proximity"][value="within-reach"]': ->
-        # TODO: Attach to "finish-selection" button
+        @attach ['right', 'middle', 'button[name="finish-selection"]', 'left', 'middle']
         false
 
       'click button[name="finish-selection"]': 'coverage'

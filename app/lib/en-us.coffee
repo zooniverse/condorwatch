@@ -151,7 +151,7 @@ module.exports =
         To complete a mark, select how far the animal is from the carcass or scale, then click "Done".
       '''
       instruction: '''
-        Click "Done"
+        Click "Within reach", then click "Done"
       '''
 
     coverage:

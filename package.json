@@ -10,7 +10,7 @@
     "title-shortcut-handler": "~0.0.1",
     "translator-seed": "0.1.0",
     "zooniverse": "~0.3.16",
-    "zootorial": "~0.4.7"
+    "zootorial": "~0.4.11"
   },
   "scripts": {
     "start": "haw serve --verbose --port 3416",
