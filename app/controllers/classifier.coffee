@@ -81,9 +81,6 @@ class Classifier extends BaseController
       doneLabel: translate 'span', 'tutorial.doneLabel'
       parent: @el.get 0
       steps: tutorialSteps
-      first: ->
-        # Check for user flags and return 'prompt' or 'welcome'
-        'prompt'
 
     @el.on StackOfPages::activateEvent, @activate
 
@@ -117,7 +114,20 @@ class Classifier extends BaseController
       for subject in Subject.instances
         subject.destroy() unless subject is Subject.current
 
-    Subject.next() unless @classification?
+    tutorialDone = user?.project?.tutorial_done
+
+    tutorialSplit = location.search.match(/tutorial-split=(\w)/)?[1]
+    tutorialSplit ?= user?.project?.splits.tutorial
+
+    if tutorialDone or tutorialSplit is 'c'
+      Subject.next() unless @classification?
+    else
+      if tutorialSplit is 'a' or not tutorialSplit?
+        @tutorial.first = 'welcome'
+        @startTutorial()
+      else if tutorialSplit is 'b'
+        @tutorial.first = 'prompt'
+        @startTutorial()
 
   onGettingNextSubject: =>
     @loader.fadeIn()
@@ -263,6 +273,7 @@ class Classifier extends BaseController
       @favoriteButton.toggleClass 'selected', @classification.favorite
 
     'click button[name="start-tutorial"]': ->
+      @tutorial.first = 'welcome'
       @startTutorial()
 
     'click button[name="delete-mark"]': ->
