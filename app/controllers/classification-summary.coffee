@@ -4,7 +4,7 @@ getCondorBio = require '../lib/get-condor-bio'
 translate = require 't7e'
 
 class ClassificationSummary extends BaseController
-  marks: null
+  classification: null
 
   className: 'classification-summary'
   template: require '../views/classification-summary'
@@ -24,7 +24,7 @@ class ClassificationSummary extends BaseController
     super
     @hide()
 
-    condors = (mark for mark in @marks when mark.animal is 'condor')
+    condors = (mark for mark in @classification.get 'marks' when mark.animal is 'condor')
 
     for condor, i in condors then do (i) =>
       guessCondor(condor).then (ids) =>

@@ -2,8 +2,8 @@
 <% possibleAnimals = require '../lib/possible-animals' %>
 <% User = require 'zooniverse/models/user' %>
 
-<% condors = (mark for mark in @marks when mark.animal is 'condor') %>
-<% others = (mark for mark in @marks when mark.animal isnt 'condor') %>
+<% condors = (mark for mark in @classification.get 'marks' when mark.animal is 'condor') %>
+<% others = (mark for mark in @classification.get 'marks' when mark.animal isnt 'condor') %>
 
 <% talkSplit = User.current?.project?.splits.talk %>
 
@@ -50,25 +50,25 @@
 
   <hr />
 
-  <!--<div class="talk">
+  <div class="dismissal">
     <div class="question">
-      <% talkVerb = 'classificationSummary.verbs.discuss' if talkSplit is 'c' %>
+      <% talkVerb = 'classificationSummary.verbs.discuss' # if talkSplit is 'c' %>
       <% talkVerb = 'classificationSummary.verbs.talk' if talkSplit is 'd' %>
       <%- translate 'div', 'classificationSummary.wantToTalk', $verb: talkVerb %>
     </div>
 
     <div class="answer">
-      <%- translate 'a', 'classificationSummary.yes' %>
+      <%- translate 'a.talk-link', 'classificationSummary.yes', href: @classification.subject.talkHref() %>
       <%- translate 'button', 'classificationSummary.no', name: 'dismiss' %>
     </div>
-  </div>-->
+  </div>
 
-  <div class="dismissal">
+  <!--<div class="dismissal">
     <div class="question">
       <%- translate 'div', 'classificationSummary.readyForNext' %>
     </div>
     <div class="answer">
       <%- translate 'button', 'classificationSummary.ready', name: 'dismiss' %>
     </div>
-  </div>
+  </div>-->
 </div>
