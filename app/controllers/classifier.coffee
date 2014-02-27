@@ -74,6 +74,7 @@ class Classifier extends BaseController
         localStorage.setItem 'currentClassification', @markingSurface.getValue()
 
     @loader.appendTo @markingSurface.el
+    @noMoreSubjectsMessage.hide()
     @noMoreSubjectsMessage.appendTo @markingSurface.el
 
     @tutorial = new Tutorial
