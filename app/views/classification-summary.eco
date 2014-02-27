@@ -1,8 +1,11 @@
 <% translate = require 't7e' %>
 <% possibleAnimals = require '../lib/possible-animals' %>
+<% User = require 'zooniverse/models/user' %>
 
 <% condors = (mark for mark in @marks when mark.animal is 'condor') %>
 <% others = (mark for mark in @marks when mark.animal isnt 'condor') %>
+
+<% userSplit = User.current?.project?.splits.talk %>
 
 <div class="summary-container">
   <%- translate 'div.heading', 'classificationSummary.condorsHeading', $count: condors.length %>
@@ -46,6 +49,19 @@
   <% end %>
 
   <hr />
+
+  <!--<div class="talk">
+    <div class="question">
+      <% talkVerb = 'classificationSummary.verbs.discuss' if userSplit is 'c' %>
+      <% talkVerb = 'classificationSummary.verbs.talk' if userSplit is 'd' %>
+      <%- translate 'div', 'classificationSummary.wantToTalk', $verb: talkVerb %>
+    </div>
+
+    <div class="answer">
+      <%- translate 'a', 'classificationSummary.yes' %>
+      <%- translate 'button', 'classificationSummary.no', name: 'dismiss' %>
+    </div>
+  </div>-->
 
   <div class="dismissal">
     <div class="question">

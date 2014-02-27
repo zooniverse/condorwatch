@@ -175,6 +175,12 @@ module.exports =
     bioLink: 'Bio'
     othersHeading: 'Other animals'
     noOthers: 'No other animals marked'
+    wantToTalk: 'Do you want to $verb this image?'
+    verbs:
+      talk: 'talk about'
+      discuss: 'discuss'
+    yes: 'Yes'
+    no: 'No'
     readyForNext: 'Image classified! Ready for the next one?'
     ready: 'Ready'
 
