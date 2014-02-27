@@ -41,9 +41,17 @@ TopBar = require 'zooniverse/controllers/top-bar'
 topBar = new TopBar
 topBar.el.appendTo document.body
 
+GoogleAnalytics = require 'zooniverse/lib/google-analytics'
+analytics = new GoogleAnalytics
+  account: 'UA-1224199-54'
+  domain: 'condorwatch.org'
+
+if +location.port > 1023
+  analytics.on 'track', (e, what...) -> console?.log 'GA tracking', what...
+  analytics.on 'event', (e, what...) -> console?.log 'GA event', what...
 
 User = require 'zooniverse/models/user'
 User.fetch()
 
-window.app = {api, siteNavigation, stack, topBar}
+window.app = {api, siteNavigation, stack, topBar, analytics}
 module.exports = window.app

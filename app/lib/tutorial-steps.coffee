@@ -1,6 +1,5 @@
 translate = require 't7e'
-
-# http://zooniverse-demo.s3-website-us-east-1.amazonaws.com/condors/subjects/standard/5282aaaa3ae74095c100a382.jpg
+GoogleAnalytics = require 'zooniverse/lib/google-analytics'
 
 module.exports =
   prompt:
@@ -9,10 +8,15 @@ module.exports =
     nextLabel: translate 'span', 'tutorial.prompt.nextLabel'
 
     onLoad: ->
+      acceptButton = @footer.querySelector '.zootorial-next'
+      acceptButton.addEventListener 'click', ->
+        GoogleAnalytics.current?.event 'Tutorial', 'Accept at prompt'
+
       rejectButton = @createElement 'button.reject-tutorial', @footer
       @footer.appendChild rejectButton.previousElementSibling # Reorder
       rejectButton.innerHTML = translate 'span', 'tutorial.prompt.rejectLabel'
       rejectButton.onclick = =>
+        GoogleAnalytics.current?.event 'Tutorial', 'Reject at prompt'
         @triggerEvent 'reject'
         @end()
 

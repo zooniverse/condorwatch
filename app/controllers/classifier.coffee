@@ -13,6 +13,7 @@ translate = require 't7e'
 possibleAnimals = require '../lib/possible-animals'
 ClassificationSummary = require './classification-summary'
 TitleShortcutHandler = require 'title-shortcut-handler'
+GoogleAnalytics = require 'zooniverse/lib/google-analytics'
 
 class Classifier extends BaseController
   className: 'classifier'
@@ -275,6 +276,7 @@ class Classifier extends BaseController
     'click button[name="start-tutorial"]': ->
       @tutorial.first = 'welcome'
       @startTutorial()
+      GoogleAnalytics.current?.event 'Tutorial', 'Start manually'
 
     'click button[name="delete-mark"]': ->
       @selectedTool.mark.destroy()
@@ -324,5 +326,8 @@ class Classifier extends BaseController
         Subject.next()
 
     'keydown': TitleShortcutHandler
+
+  @::events[Tutorial::abortEvent] = ->
+    GoogleAnalytics.current?.event 'Tutorial', 'Abort'
 
 module.exports = Classifier
