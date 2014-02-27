@@ -39,11 +39,8 @@ document.body.appendChild stack.el
 
 TopBar = require 'zooniverse/controllers/top-bar'
 topBar = new TopBar
-
 topBar.el.appendTo document.body
 
-browserDialog = require 'zooniverse/controllers/browser-dialog'
-browserDialog.check msie: 9
 
 User = require 'zooniverse/models/user'
 User.fetch()
