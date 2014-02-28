@@ -5,7 +5,11 @@
 <% condors = (mark for mark in @classification.get 'marks' when mark.animal is 'condor') %>
 <% others = (mark for mark in @classification.get 'marks' when mark.animal isnt 'condor') %>
 
-<% talkSplit = User.current?.project?.splits.talk %>
+<% talkButtonSplit = location.search.match(/talk-button-split=(\w)/)?[1] %>
+<% talkButtonSplit ?= User.current?.project?.splits.talk_button_only %>
+
+<% talkMessageSplit = location.search.match(/talk-message-split=(\w)/)?[1] %>
+<% talkMessageSplit ?= User.current?.project?.splits.talk_message %>
 
 <div class="summary-container">
   <%- translate 'div.heading', 'classificationSummary.condorsHeading', $count: condors.length %>
@@ -52,23 +56,23 @@
 
   <div class="dismissal">
     <div class="question">
-      <% talkVerb = 'classificationSummary.verbs.discuss' # if talkSplit is 'c' %>
-      <% talkVerb = 'classificationSummary.verbs.talk' if talkSplit is 'd' %>
-      <%- translate 'div', 'classificationSummary.wantToTalk', $verb: talkVerb %>
+      <% talkVerb = 'classificationSummary.verbs.talk' %>
+      <% talkVerb = 'classificationSummary.verbs.discuss' if talkMessageSplit is 'b' %>
+
+      <% if talkButtonSplit is 'b': %>
+        <%- translate 'div', 'classificationSummary.wantToTalk', $verb: talkVerb %>
+      <% else: %>
+        <%- translate 'a.talk-link', 'classificationSummary.wantToTalk', href: @classification.subject.talkHref(), $verb: talkVerb %>
+      <% end %>
     </div>
 
     <div class="answer">
-      <%- translate 'a.talk-link', 'classificationSummary.yes', href: @classification.subject.talkHref() %>
-      <%- translate 'button', 'classificationSummary.no', name: 'dismiss' %>
+      <% if talkButtonSplit is 'b': %>
+        <%- translate 'a.talk-link', 'classificationSummary.yes', href: @classification.subject.talkHref() %>
+        <%- translate 'button', 'classificationSummary.no', name: 'dismiss' %>
+      <% else: %>
+        <%- translate 'button', 'classificationSummary.nextImage', name: 'dismiss' %>
+      <% end %>
     </div>
   </div>
-
-  <!--<div class="dismissal">
-    <div class="question">
-      <%- translate 'div', 'classificationSummary.readyForNext' %>
-    </div>
-    <div class="answer">
-      <%- translate 'button', 'classificationSummary.ready', name: 'dismiss' %>
-    </div>
-  </div>-->
 </div>

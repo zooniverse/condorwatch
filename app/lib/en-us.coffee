@@ -181,8 +181,7 @@ module.exports =
       discuss: 'discuss'
     yes: 'Yes'
     no: 'No'
-    readyForNext: 'Image classified! Ready for the next one?'
-    ready: 'Ready'
+    nextImage: 'Next image'
 
   condorBio:
     tagPrefix: 'No.'
