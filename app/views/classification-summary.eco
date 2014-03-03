@@ -6,10 +6,10 @@
 <% others = (mark for mark in @classification.get 'marks' when mark.animal isnt 'condor') %>
 
 <% talkButtonSplit = location.search.match(/talk-button-split=(\w)/)?[1] %>
-<% talkButtonSplit ?= User.current?.project?.splits.talk_button_only %>
+<% talkButtonSplit ?= User.current?.project?.splits?.talk_button_only %>
 
 <% talkMessageSplit = location.search.match(/talk-message-split=(\w)/)?[1] %>
-<% talkMessageSplit ?= User.current?.project?.splits.talk_message %>
+<% talkMessageSplit ?= User.current?.project?.splits?.talk_message %>
 
 <div class="summary-container">
   <%- translate 'div.heading', 'classificationSummary.condorsHeading', $count: condors.length %>

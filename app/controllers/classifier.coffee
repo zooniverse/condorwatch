@@ -119,7 +119,7 @@ class Classifier extends BaseController
     tutorialDone = user?.project?.tutorial_done
 
     tutorialSplit = location.search.match(/tutorial-split=(\w)/)?[1]
-    tutorialSplit ?= user?.project?.splits.tutorial
+    tutorialSplit ?= user?.project?.splits?.tutorial
 
     if tutorialDone or tutorialSplit is 'c'
       Subject.next() unless @classification?
