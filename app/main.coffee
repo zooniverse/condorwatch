@@ -46,12 +46,27 @@ analytics = new GoogleAnalytics
   account: 'UA-1224199-54'
   domain: 'condorwatch.org'
 
-if +location.port > 1023
-  analytics.on 'track', (e, what...) -> console?.log 'GA tracking', what...
-  analytics.on 'event', (e, what...) -> console?.log 'GA event', what...
-
 User = require 'zooniverse/models/user'
+
+SPLIT_VALUES =
+  talk_button_only: a: 'button_only', b: 'yes_or_no'
+  talk_message: a: 'talk_about', b: 'discuss'
+  tutorial: a: 'automatic', b: 'prompted', c: 'not_mentioned'
+
+User.on 'change', (e, user) ->
+  splits = user?.project?.splits
+  defaultValue = if user? then 'no_split' else 'not_logged_in'
+
+  GoogleAnalytics.current?.custom 1, 'talk_button_only', SPLIT_VALUES.talk_button_only[splits?.talk_button_only] ? defaultValue
+  GoogleAnalytics.current?.custom 2, 'talk_message', SPLIT_VALUES.talk_message[splits?.talk_message] ? defaultValue
+  GoogleAnalytics.current?.custom 3, 'tutorial', SPLIT_VALUES.tutorial[splits?.tutorial] ? defaultValue
+
 User.fetch()
+
+if ~location.search.indexOf 'log-analytics'
+  for eventName in ['custom', 'track', 'event'] then do (eventName) ->
+    GoogleAnalytics.current?.on eventName, (e, what...) ->
+      console?.log "Analytics #{eventName}", what...
 
 window.app = {api, siteNavigation, stack, topBar, analytics}
 module.exports = window.app
