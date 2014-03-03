@@ -9,7 +9,7 @@
         <button name="favorite" class="subject-option" data-t7e-key="" data-t7e-attr-title="classifier.favorite"><i class="fa fa-star"></i></button>
         <!-- <a class="talk-link subject-option" data-t7e-key="" data-t7e-attr-title="classifier.discuss"><i class="fa fa-comments"></i></a> -->
         <a class="field-guide-link subject-option" href="#/field-guide/from-classify" data-t7e-key="" data-t7e-attr-title="classifier.fieldGuide"><i class="fa fa-book"></i></a>
-        <button name="start-tutorial" class="subject-option" data-t7e-key="" data-t7e-attr-title="classifier.startTutorial"><i class="fa fa-coffee"></i></button>
+        <button name="start-tutorial" class="subject-option" data-t7e-key="" data-t7e-attr-title="classifier.startTutorial"><i class="fa fa-question"></i></button>
       </div>
     </div>
 
