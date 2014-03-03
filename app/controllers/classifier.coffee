@@ -113,7 +113,7 @@ class Classifier extends BaseController
 
   onUserChange: (e, user) =>
     if Subject.instances?
-      for subject in Subject.instances
+      for subject in Subject.instances by -1
         subject.destroy() unless subject is Subject.current
 
     tutorialDone = user?.project?.tutorial_done
