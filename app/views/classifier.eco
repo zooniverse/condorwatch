@@ -14,7 +14,6 @@
     </div>
 
     <div class="details-editor">
-      <%- translate 'button.not-default', '&times;', name: 'delete-mark', title: '$title [SHIFT-BACKSPACE]', $title: 'classifier.deleteMark' %>
 
       <div class="no-selection state">
         <!--TODO: Put a better icon here.-->
@@ -27,6 +26,7 @@
       </div>
 
       <div class="summary state">
+        <%- translate 'button.not-default', '&times;', name: 'delete-mark', title: '$title [SHIFT-BACKSPACE]', $title: 'classifier.deleteMark' %>
         <button name="unchoose-animal" class="not-default" title="[ESC]">
           <i class="fa fa-chevron-left"></i>
           <%- translate 'span', 'classifier.back' %>
