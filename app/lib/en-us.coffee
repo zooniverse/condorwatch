@@ -278,6 +278,31 @@ module.exports =
       <p>California condors (<i>Gymnogyps californianus</i>) are one of the world’s most endangered bird species with a global population approaching only a few dozen birds in the early 1980s. Despite successful captive breeding and release efforts in recent years, the condor population remain heavily managed because they are frequently poisoned by lead from bullet fragments ingested in scavenged carcasses. Condor release sites offer uncontaminated carcasses to birds as a way to lure them back for medical care and regular management activities. Release sites are equipped with automatically triggered cameras that have captured photographs of condors in the past 10 years. The Condor Watch project will analyze these photographs in order to understand how the personalities and social status of individual birds may predispose them to lead poisoning and to eventually gather critical real-time information on the health and status of these highly vulnerable birds.</p>
     '''
 
+  organizations:
+    msuEco:
+      name: 'Montana State University Department of Ecology'
+    pinnacles:
+      name: 'Pinnacles National Park'
+    uCaliSdBio:
+      name: 'University of California San Diego Division of Biological sciences, Ecology, Behavior, and Evolution Section.'
+    uCaliScMicro:
+      name: 'University of California Santa Cruz Department of Microbiology and Environmental Toxicology'
+    uColoEnv:
+      name: 'University of Colorado Department of Environmental Studies'
+    uColoMusNatHist:
+      name: 'University of Colorado Museum of Natural History'
+    uNebLinc:
+      name: 'University of Nebraska-Lincoln School of Biological Sciences'
+    usfwsCaliCondReco:
+      name: 'U.S. Fish and Wildlife Service California Condor Recovery Program'
+    vws:
+      name: 'Ventana Wildlife Society'
+      url: 'http://ventanaws.org/'
+    tnc:
+      name: 'The Nature Conservancy'
+    sbZoo:
+      name: 'Santa Barbara Zoo'
+
   scienceTeam:
     bakker:
       name: 'Vickie Bakker'

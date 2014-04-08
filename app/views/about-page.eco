@@ -13,6 +13,24 @@
 
 <div class="content-block">
   <div class="content-container">
+    <% for member, i in ['msuEco', 'pinnacles', 'uCaliSdBio', 'uCaliScMicro', 'uColoEnv', 'uColoMusNatHist', 'uNebLinc', 'usfwsCaliCondReco', 'vws', 'tnc', 'sbZoo']: %>
+      <div class="quarter-column">
+        <!--Image?-->
+        <div class="caption">
+        <% name = translate 'strong', "organizations.#{member}.name" %>
+        <% link = translate 'a', '<i class="fa fa-globe"></i>', href: "organizations.#{member}.url" %>
+        <p>
+          <%- name %>
+          <% if !!~link.indexOf '//': %>
+            <%- link %>
+          <% end %>
+        </p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="content-container">
     <% for member, i in ['bakker', 'copeland', 'doak', 'finkelstein', 'kurle', 'rose', 'shizuka']: %>
       <div class="quarter-column">
         <!--Image?-->
