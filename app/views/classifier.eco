@@ -22,6 +22,7 @@
 
         <div class="finish-subject">
           <p><%- translate 'button', 'classifier.finishSubject', name: 'finish-subject', title: '[SHIFT-ENTER]' %></p>
+          <%- translate 'p.incomplete-marks', 'classifier.incomplete' %>
         </div>
       </div>
 
