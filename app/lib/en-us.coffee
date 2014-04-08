@@ -225,7 +225,7 @@ module.exports =
           <figcaption>From left to right: a condor, a raven, and a turkey vulture</figcaption>
         </firgure>
       </div>
-      <p>As mentioned in the previous section, turkey vultures are less than half the size of California condors. But how can you tell the difference if only one species is in the photograph? Well, one way is to look for a patagial tag, a large numbered tag on the wing. Only condors should have these tags. Another clue is the wing plumage. Condors, especially adults, have large white patches on the underside of their wings. If positioned correctly you may be able to see these. Turkey vultures have a silvery trailing edge to the underside of their wings, but have no white feathers at all.</p>
+      <p>As mentioned in the previous section, turkey vultures are less than half the size of California condors. But how can you tell the difference if only one species is in the photograph? Well, one way is to look for a patagial tag, a large numbered tag on the wing. Only condors should have these tags. Another clue is the head size. Condors have much larger heads than turkey vultures.</p>
     '''
 
     goldenEagle: '''
@@ -233,7 +233,7 @@ module.exports =
     '''
 
     raven: '''
-      <p>Common Ravens are often present at condor feeding events. With a wingspan of just over 4 feet and a weight of 2.6 lbs on average, these birds are smaller than turkey vultures. Ravens are feathered black, with similarly black beak, eyes, and legs. In the right light, their feathers shine with iridescence.</p>
+      <p>Common Ravens are often present at carcasses. With a wingspan of just over 4 feet and a weight of 2.6 lbs on average, these birds are smaller than turkey vultures. Ravens are feathered black, with similarly black beak, eyes, and legs. In the right light, their feathers shine with iridescence.</p>
       <p>While ravens are omnivores, they are accomplished scavengers and are often present in condor watch photographs. This species is highly intelligent and have been observed to play “tricks” on larger scavengers while they eat, such as tugging condor tail feathers to distract them from their meal.</p>
     '''
 
@@ -246,7 +246,7 @@ module.exports =
     '''
 
     credit: '''
-      <p>Text by Zeka Kuspa</p>
+      <p>Text by Zeka Kuspa, Photos courtesy of U.S. Fish and Wildlife Service and Devon Lang Pryor</p>
       <p>Sources:</p>
       <ul>
         <li>Sibley, David A., The Sibley Guide to Birds of North America, 2000. Chanticleer Press, New York.</li>
