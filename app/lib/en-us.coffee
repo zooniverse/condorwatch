@@ -106,7 +106,7 @@ module.exports =
     introduceTask:
       header: 'Welcome to Condor Watch'
       content: '''
-        We are primarily asking you to identify individual condors by describing as best you can the tag that each condor has pegged to its wing. There may also be other birds or animals to classify, see the guide for more details. Let's run through an example to get you started.
+        We would like you to identify all animals that you can see in each photo. For all condors, we would like you to describe as best you can the tag that each condor has pegged to its wing. In some cases, the wingtag may not be visible, but we would still like you to mark the condor so we have a count of condors at the feeding site. Let’s run through an example to get you started.
       '''
 
     markCondor:
@@ -130,7 +130,7 @@ module.exports =
     tagDetails:
       header: 'Tag Details'
       content: '''
-        This area lists the different pieces of information we are asking you to observe about each condor. Pleaes fill it out as best you can. For more details on the different pieces of information present, please refer to the field guide.
+        This area lists the different pieces of information we are asking you to observe about each condor. Please fill it out as best you can. For more details on the kinds of information we're asking you to collect, please refer to the Field Guide link (above).
       '''
 
     markZoom:
@@ -158,7 +158,7 @@ module.exports =
     coverage:
       header: 'What to mark'
       content: '''
-        Please mark every condor and animal you can, even those condors that you can't discern all their tag details. Even partial information is potentially useful to us!
+        Please mark every condor and animal that you see, even if you can't read all the tag details. Even partial information is potentially useful to us!
       '''
 
     sendOff:
