@@ -56,6 +56,7 @@ module.exports =
     deleteMark: 'Delete'
     makeSelection: 'Click on every animal you can see in this image and describe it in as much detail as you can using the options that appear.'
     finishSubject: 'All animals marked'
+    incomplete: 'Incomplete markings! Check for solid red dots.'
     whatKind: 'What kind of animal is this?'
     back: 'Back'
     confirmAnimal: 'Next'
