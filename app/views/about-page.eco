@@ -13,7 +13,7 @@
 
 <div class="content-block">
   <div class="content-container">
-    <% for member, i in ['bakker', 'copeland', 'doak', 'finkelstein', 'rose', 'shizuka']: %>
+    <% for member, i in ['bakker', 'copeland', 'doak', 'finkelstein', 'kurle', 'rose', 'shizuka']: %>
       <div class="quarter-column">
         <!--Image?-->
         <div class="caption">

@@ -303,6 +303,14 @@ module.exports =
       description: '''
         Myra is an Assistant Adjunct Professor in the Microbiology and Environmental Toxicology Department at the University of California Santa Cruz and her research focuses on human impacts to wildlife with an emphasis on contaminant-induced effects. Myra has been studying the sources and effects of lead exposure to the endangered California Condor for over five years and has published results which state that California condors are chronically exposed to harmful levels of lead, lead-based ammunition is the principal source of lead poisoning to condors, and that lead poisoning is preventing condor recovery. Myra is the Condor Watch project lead and brings expertise in toxicology to the team.  In addition to overall oversight, she will guide analyses involving linkages between social structure and the risk of exposure to lead and marine contaminants.
       '''
+
+    kurle:
+      name: 'Carolyn Kurle'
+      image: '//placehold.it/100.png'
+      description: '''
+        Carolyn is an Assistant Professor in the Ecology, Behavior, and Evolution Section of the Division of Biological Sciences at the University of California San Diego. Carolyn's research interests include reconstructing vertebrate foraging and migration patterns using stable isotope analysis and understanding the role of trophic interactions in structuring ecological communities. She has contributed to understanding the foraging ecology of threatened or endangered species including Steller sea lions, rock iguanas, northern fur seals, sea turtles, and California condors. Carolyn brings her expertise on foraging behavior to Condor Watch and will help examine how social status and frequency of observation at feeding stations is related to how much of a carcass a condor actually eats.
+      '''
+
     rose:
       name: 'Alexandra Rose'
       image: '//placehold.it/100.png'
