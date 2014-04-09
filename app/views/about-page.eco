@@ -15,16 +15,19 @@
   <div class="content-container">
     <% for member, i in ['msuEco', 'pinnacles', 'uCaliSdBio', 'uCaliScMicro', 'uColoEnv', 'uColoMusNatHist', 'uNebLinc', 'usfwsCaliCondReco', 'vws', 'tnc', 'sbZoo']: %>
       <div class="quarter-column">
-        <!--Image?-->
+        <% logo = translate 'img.logo', '', src: "organizations.#{member}.image", height: 100 %>
+        <% if !!~logo.indexOf '/': %>
+          <%- logo %>
+        <% end %>
         <div class="caption">
-        <% name = translate 'strong', "organizations.#{member}.name" %>
-        <% link = translate 'a', '<i class="fa fa-globe"></i>', href: "organizations.#{member}.url" %>
-        <p>
-          <%- name %>
-          <% if !!~link.indexOf '//': %>
-            <%- link %>
-          <% end %>
-        </p>
+          <% name = translate 'strong', "organizations.#{member}.name" %>
+          <% link = translate 'a', '<i class="fa fa-globe"></i>', href: "organizations.#{member}.url" %>
+          <p>
+            <%- name %>
+            <% if !!~link.indexOf '//': %>
+              <%- link %>
+            <% end %>
+          </p>
         </div>
       </div>
     <% end %>

@@ -296,11 +296,14 @@ module.exports =
     usfwsCaliCondReco:
       name: 'U.S. Fish and Wildlife Service California Condor Recovery Program'
     vws:
+      image: './images/logos/vws.png'
       name: 'Ventana Wildlife Society'
       url: 'http://ventanaws.org/'
     tnc:
+      image: './images/logos/tnc.jpg'
       name: 'The Nature Conservancy'
     sbZoo:
+      image: './images/logos/sbZoo.jpg'
       name: 'Santa Barbara Zoo'
 
   scienceTeam:
