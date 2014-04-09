@@ -1,7 +1,7 @@
 $ = window.jQuery
 possibleTagColors = require './possible-tag-colors'
 
-getTags = $.get('./condor-tags.csv').pipe (tabSeparated) ->
+getTags = $.get('./condor-tags.tsv').pipe (tabSeparated) ->
   rows = tabSeparated.split('\n').filter Boolean
   rows.shift(); rows.shift() # Throw away the keys.
 
