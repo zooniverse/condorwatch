@@ -125,13 +125,12 @@ class Classifier extends BaseController
 
     if tutorialDone or tutorialSplit is 'c'
       Subject.next() unless @classification?
-    else
-      if tutorialSplit is 'a' or not tutorialSplit?
-        @tutorial.first = 'welcome'
-        @startTutorial()
-      else if tutorialSplit is 'b'
-        @tutorial.first = 'prompt'
-        @startTutorial()
+    else if tutorialSplit is 'b'
+      @tutorial.first = 'prompt'
+      @startTutorial()
+    else # if tutorialSplit is 'a' or not tutorialSplit?
+      @tutorial.first = 'welcome'
+      @startTutorial()
 
   onGettingNextSubject: =>
     @loader.fadeIn()
