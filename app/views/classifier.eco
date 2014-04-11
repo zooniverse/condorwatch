@@ -57,12 +57,12 @@
         <%- translate 'p', 'classifier.enterLabel' %>
 
         <fieldset>
-          <%- translate 'legend', 'classifier.tagLabel' %>
+          <%- translate 'div.legend', 'classifier.tagLabel' %>
           <input type="text" name="label" title="[/]"/>
         </fieldset>
 
         <fieldset>
-          <%- translate 'legend', 'classifier.color' %>
+          <%- translate 'span.legend', 'classifier.color' %>
           <%- translate 'button', '&times;', name: 'color', title: '$title [Q]', $title: 'classifier.colors.clear' %>
           <% COLOR_SHORTCUTS = 'WERTYUIO'.split '' %>
           <% for tagColor, i in possibleTagColors: %>
@@ -71,7 +71,7 @@
         </fieldset>
 
         <fieldset>
-          <%- translate 'legend', 'classifier.dots' %>
+          <%- translate 'span.legend', 'classifier.dots' %>
           <%- translate 'button', '×', name: 'dots', title: '$title [0]', $title: 'classifier.noDots' %>
           <% for i in [1..5]: %>
             <%- translate 'button', "#{i}", name: 'dots', value: i, title: '$title [$shortcut]', $title: 'classifier.someDots', $n: i, $shortcut: i %>
