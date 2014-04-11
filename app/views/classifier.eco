@@ -48,9 +48,23 @@
 
       <div class="proximity-details state">
         <%- translate 'p', '$message&nbsp;<span class="required">$required</span>', $message: 'classifier.proximity', $required: 'classifier.required' %>
-        <div><%- translate 'button', 'classifier.proximities.withinReach', name: 'proximity', value: 'within-reach', title: '[Z]' %></div>
+        <div class="label-table">
+          <label title="[Z]">
+            <span><input type="radio" name="proximity" value="within-reach" /></span>
+            <span><%- translate 'span', 'classifier.proximities.withinReach' %></span>
+          </label>
+          <label title="[X]">
+            <span><input type="radio" name="proximity" value="within-two" /></span>
+            <span><%- translate 'span', 'classifier.proximities.withinTwo' %></span>
+          </label>
+          <label title="[C]">
+            <span><input type="radio" name="proximity" value="outside-two" /></span>
+            <span><%- translate 'span', 'classifier.proximities.outsideTwo' %></span>
+          </label>
+        </div>
+        <!-- <div><%- translate 'button', 'classifier.proximities.withinReach', name: 'proximity', value: 'within-reach', title: '[Z]' %></div>
         <div><%- translate 'button', 'classifier.proximities.withinTwo', name: 'proximity', value: 'within-two', title: '[X]' %></div>
-        <div><%- translate 'button', 'classifier.proximities.outsideTwo', name: 'proximity', value: 'outside-two', title: '[C]' %></div>
+        <div><%- translate 'button', 'classifier.proximities.outsideTwo', name: 'proximity', value: 'outside-two', title: '[C]' %></div> -->
       </div>
 
       <div class="condor-details state">

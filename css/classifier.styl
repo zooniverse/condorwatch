@@ -145,8 +145,7 @@ TAG_COLORS = black white red orange yellow green blue purple
     // transform: translateX(-50%)
     width: 80% // Eyeball this against the animal buttons
 
-  button[name="animal"],
-  button[name="proximity"]
+  button[name="animal"]
     @extends #_STANDARD_BUTTON
     border-color: LIGHT_GRAY
     color: LIGHT_GRAY
@@ -230,14 +229,8 @@ TAG_COLORS = black white red orange yellow green blue purple
       margin-left: 1em
       padding-left: 1em
 
-  label
-    display: inline-block
-
-    & + label
+  label + label
       margin-left: 1em
-
-  button[name="proximity"]
-    width: 92.5%
 
   .loader
     color: white

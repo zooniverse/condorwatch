@@ -44,7 +44,7 @@ class Classifier extends BaseController
     'input[name="underlined"]': 'underlinedCheckbox'
     'input[name="juvenile"]': 'juvenileCheckbox'
     'input[name="adult"]': 'adultCheckbox'
-    'button[name="proximity"]': 'proximityButtons'
+    'input[name="proximity"]': 'proximityRadios'
     'button[name="finish-selection"]': 'finishSelectionButton'
     '.loader': 'loader'
     '.no-more-subjects': 'noMoreSubjectsMessage'
@@ -243,8 +243,8 @@ class Classifier extends BaseController
     @juvenileCheckbox.prop 'checked', !!tool.mark.juvenile
     @adultCheckbox.prop 'checked', !!tool.mark.adult
 
-    @proximityButtons.removeClass 'selected'
-    @proximityButtons.filter("[value='#{tool.mark.proximity}']").addClass 'selected'
+    @proximityRadios.prop 'checked', false
+    @proximityRadios.filter("[value='#{tool.mark.proximity}']").prop 'checked', true
 
     @finishSelectionButton.prop 'disabled', tool.mark.animal isnt 'carcassOrScale' and not tool.mark.proximity?
 
@@ -322,7 +322,7 @@ class Classifier extends BaseController
       if e.currentTarget.checked
         @selectedTool.mark.set 'juvenile', false
 
-    'click button[name="proximity"]': (e) ->
+    'change input[name="proximity"]': (e) ->
       @selectedTool.mark.set 'proximity', e.currentTarget.value
 
     'click button[name="finish-selection"]': ->
