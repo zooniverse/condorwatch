@@ -46,6 +46,13 @@
         <p><%- translate 'button.default', 'classifier.confirmAnimal', name: 'confirm-animal', title: '[ENTER]' %></p>
       </div>
 
+      <div class="proximity-details state">
+        <%- translate 'p', '$message&nbsp;<span class="required">$required</span>', $message: 'classifier.proximity', $required: 'classifier.required' %>
+        <div><%- translate 'button', 'classifier.proximities.withinReach', name: 'proximity', value: 'within-reach', title: '[Z]' %></div>
+        <div><%- translate 'button', 'classifier.proximities.withinTwo', name: 'proximity', value: 'within-two', title: '[X]' %></div>
+        <div><%- translate 'button', 'classifier.proximities.outsideTwo', name: 'proximity', value: 'outside-two', title: '[C]' %></div>
+      </div>
+
       <div class="condor-details state">
         <%- translate 'p', 'classifier.enterLabel' %>
 
@@ -91,13 +98,6 @@
             </label>
           </span>
         </fieldset>
-      </div>
-
-      <div class="proximity-details state">
-        <%- translate 'p', 'classifier.proximity' %>
-        <div><%- translate 'button', 'classifier.proximities.withinReach', name: 'proximity', value: 'within-reach', title: '[Z]' %></div>
-        <div><%- translate 'button', 'classifier.proximities.withinTwo', name: 'proximity', value: 'within-two', title: '[X]' %></div>
-        <div><%- translate 'button', 'classifier.proximities.outsideTwo', name: 'proximity', value: 'outside-two', title: '[C]' %></div>
       </div>
 
       <div class="finish-selection state">
