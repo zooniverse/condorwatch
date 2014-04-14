@@ -90,7 +90,10 @@ class Classifier extends BaseController
 
     User.on 'change', @onUserChange
     Subject.on 'get-next', @onGettingNextSubject
-    Subject.on 'select', @onSubjectSelect
+    Subject.on 'select', if ~location.search.indexOf 'no-more-subjects=1'
+      @onNoMoreSubjects
+    else
+      @onSubjectSelect
     Subject.on 'no-more', @onNoMoreSubjects
 
     addEventListener 'resize', @rescale, false
