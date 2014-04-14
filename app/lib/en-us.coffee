@@ -108,7 +108,7 @@ module.exports =
     introduceTask:
       header: 'Welcome to Condor Watch'
       content: '''
-        We would like you to identify all animals that you can see in each photo. For all condors, we would like you to describe as best you can the tag that each condor has pegged to its wing. In some cases, the wingtag may not be visible, but we would still like you to mark the condor so we have a count of condors at the feeding site. Let’s run through an example to get you started.
+        We would like you to identify all animals that you can see in each photo. For all condors, we would like you to describe as best you can the tag that each condor has pegged to its wing. In some cases, the wing tag may not be visible, but we would still like you to mark the condor so we have a count of condors at the feeding site. Let’s run through an example to get you started.
       '''
 
     markCondor:
@@ -117,13 +117,13 @@ module.exports =
         Marking a condor is as simple as clicking on a condor in the image. Let's mark condor #32 that is foremost in this image.
       '''
       instruction: '''
-        Click on the condor in this image to proceed.
+        Click on condor #32 in this image to proceed.
       '''
 
     denoteCondor:
       header: 'Identify a condor'
       content: '''
-        You will see a list of different animals on the right. We ask you mark when you spot each of these. In this case, we are marking a condor.
+        You will see a list of different animals on the right. You'll place a mark where you spot each of these. In this case, we are marking a condor.
       '''
       instruction: '''
         Click "Condor", then "Next" to proceed.

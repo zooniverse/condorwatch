@@ -58,7 +58,7 @@ module.exports =
   tagDetails:
     header: translate 'span.content', 'tutorial.tagDetails.header'
     content: translate 'div', 'tutorial.tagDetails.content'
-    attachment: ['right', '0.75', '.condor-details.state', 'left', 'top']
+    attachment: ['right', 'middle', '.details-editor', 'left', 0.75]
     arrow: 'right'
     block: 'button[name="finish-selection"]'
     next: 'markZoom'
@@ -66,7 +66,7 @@ module.exports =
   markZoom:
     header: translate 'span.content', 'tutorial.markZoom.header'
     content: translate 'div', 'tutorial.markZoom.content'
-    attachment: ['center', 'bottom', '.marking-surface button[name="toggle"]', 'center', 'top']
+    attachment: ['center', 1.1, '.marking-surface button[name="toggle"]', 'center', 'top']
     arrow: 'down'
     block: 'button[name="finish-selection"]'
     next: 'markDelete'
@@ -74,7 +74,7 @@ module.exports =
   markDelete:
     header: translate 'span.content', 'tutorial.markDelete.header'
     content: translate 'div', 'tutorial.markDelete.content'
-    attachment: ['right', 'middle', 'button[name="delete-mark"]', 'left', 'middle']
+    attachment: [1.05, 'middle', 'button[name="delete-mark"]', 'left', 'middle']
     arrow: 'right'
     block: 'button[name="delete-mark"], button[name="finish-selection"]'
     next: 'completeMark'
@@ -83,11 +83,11 @@ module.exports =
     header: translate 'span.content', 'tutorial.completeMark.header'
     content: translate 'div', 'tutorial.completeMark.content'
     instruction: translate 'div', 'tutorial.completeMark.instruction'
-    attachment: ['right', 'middle', 'button[name="proximity"][value="within-reach"]', 'left', 'middle']
+    attachment: ['right', 'middle', '.proximity-details.state', 'left', 'middle']
     arrow: 'right'
     actionable: 'button[name="proximity"][value="within-reach"], button[name="finish-selection"]'
     next:
-      'click button[name="proximity"][value="within-reach"]': ->
+      'change input[name="proximity"]': ->
         @attach ['right', 'middle', 'button[name="finish-selection"]', 'left', 'middle']
         false
 
