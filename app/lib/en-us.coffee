@@ -138,7 +138,7 @@ module.exports =
     markZoom:
       header: 'Toggle zoom'
       content: '''
-        You'll notice there is a zoomed-in view where you placed the mark. This allows you to spot more details about the tag. You can toggle this zoom by click the magnifying glass here.
+        You'll notice there is a zoomed-in view where you placed the mark. This allows you to spot more details about the tag. You can toggle this zoom by clicking the magnifying glass here.
       '''
 
     markDelete:
