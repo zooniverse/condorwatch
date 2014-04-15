@@ -11,11 +11,8 @@
     <%- translate 'a', 'siteNavigation.about', href: '#/about' %>
     <%- translate 'a', 'siteNavigation.profile', href: '#/profile' %>
     <%- translate 'a', 'siteNavigation.education', href: '#/education' %>
-    <a href="https://docs.google.com/a/zooniverse.org/forms/d/1X_JsQ3U5sy7ap9-ZOemGJbfgGpi3HIXog4RBBlisAGA/viewform" style="text-decoration: underline;">Feedback</a>
-    <!--
-      <%- translate 'a', 'siteNavigation.talk', href: 'http://talk.condorwatch.org/' %>
-      <%- translate 'a', 'siteNavigation.blog', href: 'http://blog.condorwatch.org/' %>
-    -->
+    <%- translate 'a', 'siteNavigation.talk', href: 'http://talk.condorwatch.org/' %>
+    <%- translate 'a', 'siteNavigation.blog', href: 'http://blog.condorwatch.org/' %>
   </div>
 </div>
 
