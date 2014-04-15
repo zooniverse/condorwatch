@@ -2,9 +2,9 @@ Subject = require 'zooniverse/models/subject'
 
 module.exports = ->
   subject = new Subject
-    id: '5282a62b3ae74095c1002da0'
-    zooniverse_id: 'ACW000002i'
-    location: standard: 'http://zooniverse-demo.s3-website-us-east-1.amazonaws.com/condors/subjects/standard/5282a62b3ae74095c1002da0.jpg'
+    id: '534c3d6ed31eae0543005b3f'
+    zooniverse_id: 'ACW0005e7i'
+    location: standard: 'http://www.condorwatch.org/subjects/standard/534c3d6ed31eae0543005b3f.JPG'
     tutorial: true
     workflow_ids: ['52e2cba83ae7401db5000002']
 
