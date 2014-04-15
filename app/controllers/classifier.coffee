@@ -202,9 +202,12 @@ class Classifier extends BaseController
       @deleteMarkButton.hide()
       @setState 'no-selection'
 
-      allComplete = (mark for mark in @markingSurface.marks when not mark.proximity?).length is 0
-      @finishSubjectButton.prop 'disabled', not allComplete
-      @incompleteMarksWarning.toggle not allComplete
+      @checkForIncompleteMarks()
+
+  checkForIncompleteMarks: ->
+    allComplete = (mark for mark in @markingSurface.marks when not mark.proximity?).length is 0
+    @finishSubjectButton.prop 'disabled', not allComplete
+    @incompleteMarksWarning.toggle not allComplete
 
   setState: (@currentPanels...) ->
     panelElements = @el.find '.state'
@@ -291,6 +294,7 @@ class Classifier extends BaseController
 
     'click button[name="delete-mark"]': ->
       @selectedTool.mark.destroy()
+      @checkForIncompleteMarks()
 
     'click button[name="unchoose-animal"]': ->
       @selectedTool.mark.set 'animal', null
