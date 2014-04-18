@@ -43,6 +43,9 @@ module.exports =
     coyote:
       label: 'Coyote'
       image: './images/animals/coyote.jpg'
+    other:
+      label: 'Something else'
+      image: './images/animals/carcass-or-scale.jpg'
     carcassOrScale:
       label: 'Carcass/&#8203;scale'
       image: './images/animals/carcass-or-scale.jpg'
@@ -253,6 +256,11 @@ module.exports =
 
     coyote: '''
       <p>If you are lucky you may catch a mammal on the condor cam. When you do, it will most likely be the coyote, a member of the Canidae family which is both predator and scavenger. Interestingly, this species, once deceased, becomes a food source for the California condor!</p>
+    '''
+
+    # TODO: What other animals will we see?
+    other: '''
+      <p>Anything else you might see: some hungry mountain lions and bears out for a stroll, perhaps?</p>
     '''
 
     carcassOrScale: '''

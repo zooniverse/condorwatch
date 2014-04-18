@@ -4,4 +4,5 @@ module.exports = [
   'goldenEagle'
   'raven'
   'coyote'
+  'other'
 ]

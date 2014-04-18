@@ -189,6 +189,8 @@ class Classifier extends BaseController
 
       if @selectedTool.mark.animal is 'condor'
         @setState 'summary', 'condor-details', 'proximity-details', 'finish-selection'
+      if @selectedTool.mark.animal is 'other'
+        @setState 'summary', 'finish-selection'
       else if @selectedTool.mark.animal?
         @setState 'summary', 'proximity-details', 'finish-selection'
       else
@@ -203,7 +205,7 @@ class Classifier extends BaseController
       @checkForIncompleteMarks()
 
   checkForIncompleteMarks: ->
-    allComplete = (mark for mark in @markingSurface.marks when not mark.proximity?).length is 0
+    allComplete = (mark for mark in @markingSurface.marks when not mark.isValid()).length is 0
     # @finishSubjectButton.prop 'disabled', not allComplete
     @incompleteMarksWarning.toggle not allComplete
 
@@ -249,7 +251,7 @@ class Classifier extends BaseController
     @proximityRadios.prop 'checked', false
     @proximityRadios.filter("[value='#{tool.mark.proximity}']").prop 'checked', true
 
-    @finishSelectionButton.prop 'disabled', not tool.mark.proximity?
+    @finishSelectionButton.prop 'disabled', not tool.mark.isValid()
 
   updateClassificationMarks: ->
     # Save a copy of the marking surface's marks
