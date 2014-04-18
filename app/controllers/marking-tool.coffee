@@ -4,12 +4,7 @@ MagnifierPointTool = require 'marking-surface/lib/tools/magnifier-point'
 
 class MarkingMark extends Mark
   isValid: ->
-    if @animal is 'carcassOrScale'
-      true
-    else if @animal? and @proximity?
-      true
-    else
-      false
+    @animal? and @proximity?
 
   limit: (n, direction) ->
     dimensions = @_surface.el.getBoundingClientRect()

@@ -12,7 +12,7 @@
   </div>
 
   <div class="content-container">
-    <% for animal, i in possibleAnimals: %>
+    <% for animal, i in [possibleAnimals..., 'carcassOrScale']: %>
       <div class="half-column">
         <div class="centered">
           <%- translate 'h3', "animals.#{animal}.label" %>
