@@ -206,7 +206,7 @@ class Classifier extends BaseController
 
   checkForIncompleteMarks: ->
     allComplete = (mark for mark in @markingSurface.marks when (mark.animal isnt 'carcassOrScale') and not mark.proximity?).length is 0
-    @finishSubjectButton.prop 'disabled', not allComplete
+    # @finishSubjectButton.prop 'disabled', not allComplete
     @incompleteMarksWarning.toggle not allComplete
 
   setState: (@currentPanels...) ->
