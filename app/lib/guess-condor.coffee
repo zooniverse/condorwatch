@@ -40,6 +40,11 @@ getTags = $.get('./condor-tags.tsv').pipe (tabSeparated) ->
 
     object.color = null if object.color.length is 0
 
+    values.shift() # Left transmitter not used
+    values.shift() # Right transmitter not used
+
+    object.source = values.shift()
+
     object
 
   rows
@@ -47,7 +52,7 @@ getTags = $.get('./condor-tags.tsv').pipe (tabSeparated) ->
 guessCondor = (givens, callback) ->
   reducedGivens = {}
   for property, value of givens
-    if property in ['label', 'color', 'dots', 'underlined'] and value?
+    if property in ['label', 'color', 'dots', 'underlined', 'source'] and value?
       reducedGivens[property] = value
 
   $.when(getTags).then (tags) ->
