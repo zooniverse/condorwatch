@@ -17,6 +17,7 @@
   <% if condors.length is 0: %>
     <%- translate 'div.no-condors', 'classificationSummary.noCondors' %>
   <% else: %>
+    <%- translate 'p.explanation', 'classificationSummary.condorsExplanation' %>
     <div class="condors">
       <% for condor, i in condors: %>
         <div class="condor-summary" data-condor-index="<%= i %>">

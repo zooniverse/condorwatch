@@ -170,7 +170,8 @@ module.exports =
       '''
 
   classificationSummary:
-    condorsHeading: '$count confirmed condors'
+    condorsHeading: '$count condors'
+    condorsExplanation: 'Given our existing data and the information you provided, here is our best guess of the condors in this image.'
     noCondors: 'No condors marked'
     tagPrefix: 'No.'
     sure: 'sure'
