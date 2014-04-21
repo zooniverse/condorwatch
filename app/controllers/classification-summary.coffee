@@ -50,21 +50,3 @@ class ClassificationSummary extends BaseController
     @el.addClass 'offscreen'
 
 module.exports = ClassificationSummary
-
-# cs = new ClassificationSummary
-#   marks: [
-#     {animal: 'condor', label: '-7'}
-#     {animal: 'turkeyVulture'}
-#     {animal: 'turkeyVulture'}
-#     {animal: 'condor', label: '21'}
-#     {animal: 'raven'}
-#     {animal: 'coyote'}
-#     {animal: 'coyote'}
-#     {animal: 'goldenEagle'}
-#     {animal: 'carcassOrScale'}
-#     {animal: 'carcassOrScale'}
-#   ]
-
-# cs.el.appendTo document.body
-
-# cs.show()
