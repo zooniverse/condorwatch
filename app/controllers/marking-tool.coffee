@@ -11,6 +11,16 @@ class MarkingMark extends Mark
     else
       false
 
+  limit: (n, direction) ->
+    dimensions = @_surface.el.getBoundingClientRect()
+    Math.min dimensions[direction], Math.max 0, n
+
+  'set x': (value) ->
+    @limit value, 'width'
+
+  'set y': (value) ->
+    @limit value, 'height'
+
 class MarkingToolControls extends ToolControls
   template: '''
     <button name="toggle" title="[`]"></button>
@@ -43,6 +53,10 @@ class MarkingTool extends MagnifierPointTool
   zoom: 1.1
 
   collapsed: false
+
+  initialize: ->
+    super
+    @mark._surface = @surface
 
   select: ->
     unless @surface.selection is @
