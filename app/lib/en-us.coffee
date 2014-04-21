@@ -247,6 +247,20 @@ module.exports =
       <p>For this project we also ask that you locate the carcass and the scale within photographs. This will help us understand how far each bird is from the carcass, and ultimately decode the dominance hierarchy within condor flocks as well as further our understanding of condor feeding behavior. Carcasses are generally dairy calves colored white, black, and brown. Occasionally condors will be offered a wild boar or rabbit. The scale is used to collect data on individual condor weights, an indicator of overall health.</p>
     '''
 
+    tags: '''
+      <h3>A field guide to reading wing tags</h3>
+      <p>Wing tags, or patagial tags, are vinyl tags placed on wings to allow biologists to visually identify individual condors. We hope they will help you to do the same! Each tag has a (mostly) unique combination of color and number, and some have underline or dots underneath the number. Here are some examples:</p>
+      <p><img src="./images/40-three-dots.jpg" /></p>
+      <p>In the above photo, you can see a black tag with 3 dots below. You can indicate the number of dots by clicking 3 dots in the tag information window.</p>
+      <p><img src="./images/25-underlined.jpg" /></p>
+      <p>Here, you can see three different tags: black tag 43 with an underline, black tag 25 with underline, and a blue tag 11. Each bird is wearing a radio transmitter on their wing tags. You can indicate that a tag has an underline by checking the box as indicated. In this case, we cannot determine the age because the field marks (e.g., head color) are not visible.</p>
+      <p><img src="./images/84-juvenile.jpg" /></p>
+      <p>Here, you can see three visible tags: a white tag 83, red tag 47, and black tag 84. Both Red 47 and Black 84 are wearing transmitters on their wing tags. Note that there is also a golden eagle and two ravens in the background. You can tell that the condor with black tag 84 is a juvenile because of its head color (black).</p>
+      <h4>Cracking the condor code</h4>
+      <p>Each condor has a unique 3 digit studbook number assigned at hatching. Over the course of the condor reintroduction effort, systems were developed at each release site managed by the US Fish and Wildlife Service, Pinnacles National Park, and Ventana Wildlife Society using numbers, colors, dots, and underlines to allow a condor’s studbook number to be read from afar. When you are lucky enough to have the right light and bird position to read a wing tag, you can crack the condor code to identify which individual condor you are looking at.</p>
+      <p>Here’s the break down: The numbers on wing tags indicate the last two digits of the studbook number. If a condor only has one number on its tag, then the tens place digit is a zero (e.g. 401). Colors, dots, and underlines indicate the first digit. For example, at some release sites, a blue tag symbolizes that the condor’s studbook number is in the 300’s series. And at another site, three dots below the tag number also indicates a “3” in the hundreds place. So if you see a condor wearing a blue tag with the number “11,” that’s condor 311! How about a condor sporting a black wing tag with the number “51” above 3 dots? That’s 351! When you classify a condor tag, you will be able to learn more about that individual’s lineage and life history by clicking their studbook number on the summary screen. Over time, you may be able to crack the rest of the condor code and begin to recognize individuals by their tags just like we do in the field. Good luck!</p>
+    '''
+
     credit: '''
       <p>Text by Zeka Kuspa, Photos courtesy of U.S. Fish and Wildlife Service and Devon Lang Pryor</p>
       <p>Sources:</p>

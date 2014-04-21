@@ -27,6 +27,10 @@
       <% end %>
     <% end %>
   </div>
+
+  <div class="content-container">
+    <%- translate 'div.tags', 'fieldGuide.tags' %>
+  </div>
 </div>
 
 <div class="content-block">
