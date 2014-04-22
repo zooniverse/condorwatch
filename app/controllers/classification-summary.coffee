@@ -27,7 +27,7 @@ class ClassificationSummary extends BaseController
     condors = (mark for mark in @classification.get 'marks' when mark.animal is 'condor')
 
     for condor, i in condors then do (i) =>
-      if @classification.subject.metadata.file?.indexOf 'USFWS' > -1
+      if @classification.subject.metadata.file?.indexOf('USFWS') > -1
         condor = Object.create condor
         condor.source = 'Socal'
 
