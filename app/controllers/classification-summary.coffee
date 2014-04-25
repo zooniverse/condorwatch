@@ -3,6 +3,9 @@ guessCondor = require '../lib/guess-condor'
 getCondorBio = require '../lib/get-condor-bio'
 translate = require 't7e'
 
+isAnythingButSocal = (test) ->
+  test isnt 'Socal'
+
 class ClassificationSummary extends BaseController
   classification: null
 
@@ -27,9 +30,11 @@ class ClassificationSummary extends BaseController
     condors = (mark for mark in @classification.get 'marks' when mark.animal is 'condor')
 
     for condor, i in condors then do (i) =>
+      condor = Object.create condor
       if @classification.subject.metadata.file?.indexOf('USFWS') > -1
-        condor = Object.create condor
         condor.source = 'Socal'
+      else
+        condor.source = isAnythingButSocal
 
       guessCondor(condor).then (ids) =>
         if ids.length is 0

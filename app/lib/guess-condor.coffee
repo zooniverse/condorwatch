@@ -63,6 +63,8 @@ guessCondor = (givens, callback) ->
 
         if values[key] instanceof Array
           return false unless givenValue in values[key]
+        else if typeof givenValue is 'function'
+          return false unless givenValue.call this, values[key]
         else
           return false unless values[key] is givenValue
 
