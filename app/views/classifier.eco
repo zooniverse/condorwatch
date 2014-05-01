@@ -118,6 +118,14 @@
         </fieldset>
       </div>
 
+      <div class="talk-reminder state">
+        <p><%- translate 'p', 'classifier.talkReminder' %></p>
+      </div>
+
+      <div class="carcass-hint state">
+        <p><%- translate 'p', 'classifier.carcassHint' %></p>
+      </div>
+
       <div class="finish-selection state">
         <p><%- translate 'button.default', 'classifier.finishSelection', name: 'finish-selection', title: '[ENTER]' %></p>
       </div>

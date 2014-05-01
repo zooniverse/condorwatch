@@ -189,8 +189,12 @@ class Classifier extends BaseController
 
       if @selectedTool.mark.animal is 'condor'
         @setState 'summary', 'condor-details', 'proximity-details', 'finish-selection'
-      if @selectedTool.mark.animal is 'other'
+      else if @selectedTool.mark.animal is 'raven'
         @setState 'summary', 'finish-selection'
+      else if @selectedTool.mark.animal is 'carcass'
+        @setState 'summary', 'carcass-hint', 'finish-selection'
+      else if @selectedTool.mark.animal is 'other'
+        @setState 'summary', 'talk-reminder', 'finish-selection'
       else if @selectedTool.mark.animal?
         @setState 'summary', 'proximity-details', 'finish-selection'
       else

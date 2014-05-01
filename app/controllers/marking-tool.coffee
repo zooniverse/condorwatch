@@ -4,7 +4,7 @@ MagnifierPointTool = require 'marking-surface/lib/tools/magnifier-point'
 
 class MarkingMark extends Mark
   isValid: ->
-    @animal is 'other' or (@animal? and @proximity?)
+    (@animal in ['raven', 'carcass', 'other']) or (@animal? and @proximity?)
 
   limit: (n, direction) ->
     dimensions = @_surface.el.getBoundingClientRect()

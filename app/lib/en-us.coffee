@@ -43,9 +43,12 @@ module.exports =
     coyote:
       label: 'Coyote'
       image: './images/animals/coyote.jpg'
+    carcass:
+      label: 'Carcass'
+      image: '//placehold.it/512.png&text=TODO'
     other:
       label: 'Something else'
-      image: './images/animals/carcass-or-scale.jpg'
+      image: '//placehold.it/512.png&text=TODO'
     carcassOrScale:
       label: 'Carcass/&#8203;scale'
       image: './images/animals/carcass-or-scale.jpg'
@@ -87,6 +90,8 @@ module.exports =
       withinReach: 'Within reach'
       withinTwo: 'Within two body lengths'
       outsideTwo: 'Farther than two body lengths'
+    carcassHint: 'Remember you only need to mark near the center of each carcass, even if it\'s in several pieces.'
+    talkReminder: 'Don\'t forget to tell us what you see in Talk after you\'re finished classifying!'
     finishSelection: 'Done'
     noMoreSubjects: 'Looks like we\'ve run out of subjects!<br />Please check back later.' # TODO: Point to other projects.
     required: '(Required)'
