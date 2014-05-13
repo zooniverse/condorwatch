@@ -277,7 +277,7 @@ class Classifier extends BaseController
 
   sendClassification: ->
     @updateClassificationMarks()
-    console?.log JSON.stringify @classification
+    console?.log 'Sent classification', JSON.stringify @classification
     @classification.send()
     localStorage.removeItem 'currentClassification'
     localStorage.removeItem 'currentSubject'

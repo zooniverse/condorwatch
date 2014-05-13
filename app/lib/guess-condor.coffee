@@ -56,6 +56,8 @@ guessCondor = (givens, callback) ->
       reducedGivens[property] = value
 
   $.when(getTags).then (tags) ->
+    console?.group 'Searching for condor given', JSON.stringify reducedGivens
+
     matches = tags.filter (values) ->
       for key, givenValue of reducedGivens
         unless values[key]?
@@ -78,8 +80,11 @@ guessCondor = (givens, callback) ->
     unless reducedGivens.label
       ids = []
 
+    console?.log "Found #{ids.length} condor(s)", JSON.stringify ids
+    console?.groupEnd()
+
     callback? ids
     ids
 
-window.guessCondor = guessCondor if +location.port > 1023
+window.guessCondor = guessCondor
 module.exports = guessCondor
