@@ -65,6 +65,10 @@
             <span><input type="radio" name="proximity" value="outside-two" /></span>
             <span><%- translate 'span', 'classifier.proximities.outsideTwo' %></span>
           </label>
+          <label title="[V]">
+            <span><input type="radio" name="proximity" value="no-carcass" /></span>
+            <span><%- translate 'span', 'classifier.proximities.noCarcass' %></span>
+          </label>
         </div>
         <!-- <div><%- translate 'button', 'classifier.proximities.withinReach', name: 'proximity', value: 'within-reach', title: '[Z]' %></div>
         <div><%- translate 'button', 'classifier.proximities.withinTwo', name: 'proximity', value: 'within-two', title: '[X]' %></div>

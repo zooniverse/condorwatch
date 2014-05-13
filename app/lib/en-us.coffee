@@ -90,6 +90,7 @@ module.exports =
       withinReach: 'Within reach'
       withinTwo: 'Within two body lengths'
       outsideTwo: 'Farther than two body lengths'
+      noCarcass: 'No carcass present'
     carcassHint: 'Remember you only need to mark near the center of each carcass, even if it\'s in several pieces.'
     talkReminder: 'Don\'t forget to tell us what you see in Talk after you\'re finished classifying!'
     finishSelection: 'Done'

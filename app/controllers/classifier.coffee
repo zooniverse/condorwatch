@@ -65,6 +65,11 @@ class Classifier extends BaseController
     @subjectContainer.prepend @markingSurface.el
 
     @markingSurface.on 'create-tool', (tool) =>
+      hasProximity = (mark for {mark} in @markingSurface.tools when mark.proximity?)
+      sansCarcass = (mark for mark in hasProximity when mark.proximity is 'no-carcass')
+      if sansCarcass.length > 0 and sansCarcass.length is hasProximity.length
+        tool.mark.set 'proximity', 'no-carcass'
+
       tool.mark.on 'change', =>
         @reflectTool tool
 
