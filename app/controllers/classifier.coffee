@@ -313,7 +313,9 @@ class Classifier extends BaseController
       @selectedTool.mark.set e.currentTarget.name, e.currentTarget.value
 
     'click button[name="dots"]': (e) ->
-      @selectedTool.mark.set e.currentTarget.name, parseFloat e.currentTarget.value
+      value = parseFloat e.currentTarget.value
+      value = null if isNaN value
+      @selectedTool.mark.set e.currentTarget.name, value
 
     'change input[name="underlined"]': (e) ->
       @selectedTool.mark.set e.currentTarget.name, e.currentTarget.checked
