@@ -45,10 +45,10 @@ module.exports =
       image: './images/animals/coyote.jpg'
     carcass:
       label: 'Carcass'
-      image: '//placehold.it/512.png&text=TODO'
+      image: './images/animals/carcass.jpg'
     other:
       label: 'Something else'
-      image: '//placehold.it/512.png&text=TODO'
+      image: './images/animals/other.jpg'
     carcassOrScale:
       label: 'Carcass/&#8203;scale'
       image: './images/animals/carcass-or-scale.jpg'
