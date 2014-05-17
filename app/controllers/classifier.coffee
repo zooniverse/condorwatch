@@ -337,8 +337,12 @@ class Classifier extends BaseController
       @markingSurface.selection.deselect()
 
     'click button[name="finish-subject"]': ->
-      @sendClassification()
       classificationSummary = @showSummary()
+
+      classificationSummary.on 'guess', (e, ids) =>
+        @classification.set 'guessed_ids', ids
+        @sendClassification()
+
       classificationSummary.on 'destroying', =>
         Subject.next()
 
