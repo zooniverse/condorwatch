@@ -261,6 +261,104 @@ module.exports =
       <p>Here’s the break down: The numbers on wing tags indicate the last two digits of the studbook number. If a condor only has one number on its tag, then the tens place digit is a zero (e.g. 401). Colors, dots, and underlines indicate the first digit. For example, at some release sites, a blue tag symbolizes that the condor’s studbook number is in the 300’s series. And at another site, three dots below the tag number also indicates a “3” in the hundreds place. So if you see a condor wearing a blue tag with the number “11,” that’s condor 311! How about a condor sporting a black wing tag with the number “51” above 3 dots? That’s 351! When you classify a condor tag, you will be able to learn more about that individual’s lineage and life history by clicking their studbook number on the summary screen. Over time, you may be able to crack the rest of the condor code and begin to recognize individuals by their tags just like we do in the field. Good luck!</p>
     '''
 
+    ambiguousTags: '''
+      <h3>What if only one digit of the tag is visible?</h3>
+
+      <p>If you can only see one digit, but it looks like there are two there, there are a couple of options. The first is to report your best guess based on the parts of the number you can see. The second option is to just enter the digit you see and then put an "X" where the other digit would go. For example, in the images below, you could enter 9X (left) and 1X(right, yellow tag). However, volunteers who become familiar with the shapes of numbers on tags might make an educated guess and enter 94 for 14.</p>
+
+      <div class="focused">
+        <img src="./images/tag-examples/guessing-example-1.jpg" />
+        <img src="./images/tag-examples/guessing-example-2.jpg" />
+      </div>
+
+      <p>In the two images below, it is essentially impossible to guess at the missing digit. In this case, enter 9X (left) or 1X (right).</p>
+
+      <div class="focused">
+        <img src="./images/tag-examples/guessing-example-3.jpg" />
+        <img src="./images/tag-examples/guessing-example-4.jpg" />
+      </div>
+
+      <p>Note that in other cases, the first digit might be obscured, in which case enter X in the ten's place.</p>
+    '''
+
+    condorOrVulture: '''
+      <h3>Condor or Turkey Vulture?</h3>
+
+      <p>Here are some photos that show condors and turkey vultures together to help you see the differences (and similarities).</p>
+
+      <img src="./images/condor-vulture-1.jpg" />
+      <p>The three birds in the back are turkey vultures (two on the right and one on the left), the large (and tagged) bird in the foreground is an adult condor.</p>
+
+      <img src="./images/condor-vulture-2.jpg" />
+      <p>Here is the same group, different positions: Three turkey vultures in the back and the same adult condor feasting in the foreground.</p>
+
+      <img src="./images/condor-vulture-3.jpg" />
+      <p>Here is an adult condor in the foreground and turkey vultures in the back left corner.</p>
+
+      <img src="./images/condor-vulture-4.jpg" />
+      <p>Here is an adult and juvenile condor in the foreground and two turkey vultures in the back right corner (one's head is visible but for the other one you can only see the back).</p>
+
+      <img src="./images/condor-vulture-5.jpg" />
+      <p>Here is juvenile condor in the foreground, next to another condor on the right (can't tell if juvenile or adult) and two turkey vultures in the background. Note the heads are more pointy and smaller for the turkey vultures. As it is hard to confirm the dark blob by the scale is a bird (or animal of any kind for that matter), we would suggest not marking it.</p>
+
+      <img src="./images/condor-vulture-6.jpg" />
+      <p>And here is a turkey vulture only party! (no condors invited).</p>
+    '''
+
+    markingTheCarcass: '''
+      <h3>How to mark the carcass</h3>
+      <p>We know that in many photos there is not one easily recognizable carcass, but rather bits of a carcass or sometimes just a crowd of bird butts with no carcass visible. We are using the carcass information to help us understand if there is or is not a carcass present when the birds are seen, and how close birds are to the biggest chunk that is the center of action, but we are not looking for fine-scale information on how many bits, etc. So, the best thing to do is to mark the biggest piece of a carcass and not worry about marking each individual bit. If you don’t see a carcass, but think one is there by the aggregation of condor butts, just mark your best guess for where you think the carcass is in the middle of the action.</p>
+    '''
+
+    markingOther: '''
+      <h3>How to mark ‘other’</h3>
+      <p>With the new added ‘other’ option you can now use this to designate any unusual creature (human or otherwise) you see in the photos! Some of the most common 'other' animals we have seen thus far are:</p>
+      <p>mountain lion, pig, bear, bobcat, cow, human, and rabbit</p>
+      <p>If you see an animal that is not listed and would thus be 'other', mark the other option and then we would appreciate it if you tagged this photo with the name of the animal you see. Please use the following commonly used names so we can easily find and quantify them:</p>
+
+      <ul>
+        <li>#bear</li>
+        <li>#bobcat</li>
+        <li>#cow</li>
+        <li>#human</li>
+        <li>#mountainlion</li>
+        <li>#owl</li>
+        <li>#pig</li>
+        <li>#rabbit</li>
+        <li>#unknownbird</li>
+        <li>#unknownmammal</li>
+      </ul>
+
+      <p>As a side benefit of this study we are interested in understanding what types and how often these other animals use the condor feeding stations, so tagging these photos will be very helpful! Below are some examples of other animals that we have seen:</p>
+
+      <img src="./images/animals/human.jpg" />
+      <p>#human</p>
+
+      <img src="./images/animals/bear.jpg" />
+      <p>#bear</p>
+
+      <img src="./images/animals/pig.jpg" />
+      <p>#pig</p>
+
+      <img src="./images/animals/cow.jpg" />
+      <p>#cow</p>
+    '''
+
+    poisoningRates: '''
+      <h3>The data behind the lead poisoning rates</h3>
+
+      <p>When a bio for a condor comes up, the "poisoning frequency" can be "rarely, occasionally, often, or chronically". We based this categorization on how often these condors are lead poisoned (with a blood lead >45 µg/dL), in periodic blood lead monitoring conducted by the Condor Recovery Team field biologists. We used a blood lead >45 µg/dL as condors are typically taken in for medical management, including chelation therapy if they have a blood lead >45 µg/dL (note that currently the threshold for clinical treatment of condors is a blood lead of >35 µg/dL). Most California condors have their blood lead tested ~2/year. The summaries are as follows:</p>
+
+      <ul>
+        <li><b>rarely:</b> the condor had a blood lead >45 µg/dL <10 % of the time</li>
+        <li><b>occasionally:</b> the condor had a blood lead >45 µg/dL 10-35 % of the time</li>
+        <li><b>often:</b> the condor had a blood lead >45 µg/dL 36-60 % of the time</li>
+        <li><b>chronically:</b> the condor had a blood lead >45 µg/dL 60 % of the time</li>
+      </ul>
+
+      <p>Please note that these summaries are not necessarily up to date and there are some wily condors that haven't been captured, and thus haven’t had their blood lead tested, for greater than two years! So, this information is a summary of the most recent data we have for a bird, but please keep in mind that it might not be representative of the condor’s current lead exposure history.</p>
+    '''
+
     credit: '''
       <p>Text by Zeka Kuspa, Photos courtesy of U.S. Fish and Wildlife Service and Devon Lang Pryor</p>
       <p>Sources:</p>
