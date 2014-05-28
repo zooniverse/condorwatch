@@ -28,7 +28,7 @@
     <% end %>
   </div>
 
-  <div class="content-container">
+  <div class="content-container wing-tags-shortcut">
     <%- translate 'div.tags', 'fieldGuide.tags' %>
   </div>
 

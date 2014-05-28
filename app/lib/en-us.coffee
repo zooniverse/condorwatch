@@ -173,9 +173,10 @@ module.exports =
     condorsHeading: '$count condors'
     condorsExplanation: 'Given our existing data and the information you provided, here is our best guess of the condors in this image.'
     noCondors: 'No condors marked'
-    tagPrefix: 'No.'
-    sure: 'sure'
+    tagPrefix: 'Tag'
+    sureness: 'sure this matches condor'
     bioLink: 'Bio'
+    noBioLink: 'No bio'
     othersHeading: 'Other animals'
     noOthers: 'No other animals marked'
     wantToTalk: 'Do you want to $verb this image?'
@@ -201,6 +202,16 @@ module.exports =
     mateInYear: 'Mate in $year'
     years: 'years'
     stillAlive: 'Still kickin\''
+
+  cantFindBio:
+    title: 'Unidentifed condor'
+    content: '''
+      <p>Sometimes we can't identify a specific bird using the information provided in this interface.</p>
+      <p>Don't worry! <i class="fa fa-smile-o"></i></p>
+      <p>It doesn't necessarily mean you did something incorrectly, it just means we need to take additional data into account before using the your contribution. No problem!</p>
+      <hr />
+      <p>If you need a hand reading wing tags anyway, check the <a href="#/field-guide/wing-tags">field guide to reading wing tags</a>.</p>
+    '''
 
   fieldGuide:
     title: 'Field guide'

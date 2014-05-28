@@ -42,11 +42,13 @@ class ClassificationSummary extends BaseController
       guesses.push guess
 
       guess.then (ids) =>
+        @condorLabels.eq(i).html condor.label || '?' # Show what the user entered, not the actual ID
+
         if ids.length is 0
-          @condorSummaries.eq(i).addClass 'unknown-condor'
+          @condorBioLinks.eq(i).html translate 'span', 'classificationSummary.noBioLink'
+          @condorBioLinks.eq(i).prop 'href', '#/condors/no-bio'
         else
-          @condorLabels.eq(i).html ids[0]
-          @condorLabels.eq(i).attr 'title', "#{Math.floor (1 / ids.length) * 100}% #{translate 'classificationSummary.sure'}"
+          @condorLabels.eq(i).attr 'title', "#{Math.floor (1 / ids.length) * 100}% #{translate 'classificationSummary.sureness'} #{ids[0]}"
           @condorBioLinks.eq(i).prop 'href', "#/condors/#{ids[0]}"
 
     $.when(guesses...).then (idSets...) =>

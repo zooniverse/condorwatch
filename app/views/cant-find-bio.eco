@@ -1,0 +1,11 @@
+<% translate = require 't7e' %>
+
+<div class="content-block">
+  <div class="content-container">
+    <h1>
+      <%- translate 'span', 'cantFindBio.title' %>
+      <i class="fa fa-frown-o"></i>
+    </h1>
+    <%- translate 'div', 'cantFindBio.content' %>
+  </div>
+</div>
