@@ -67,6 +67,8 @@ guessCondor = (givens, callback) ->
           return false unless givenValue in values[key]
         else if typeof givenValue is 'function'
           return false unless givenValue.call this, values[key]
+        else if typeof givenValue is 'string'
+          return false unless values[key]?.replace?(/\W/, '') is givenValue.replace(/\W/, '')
         else
           return false unless values[key] is givenValue
 
