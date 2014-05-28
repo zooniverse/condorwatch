@@ -7,9 +7,14 @@
     <div class="image-container">
       <div class="subject-options">
         <button name="favorite" class="subject-option" data-t7e-key="" data-t7e-attr-title="classifier.favorite"><i class="fa fa-star"></i></button>
-        <!-- <a class="talk-link subject-option" data-t7e-key="" data-t7e-attr-title="classifier.discuss"><i class="fa fa-comments"></i></a> -->
         <a class="field-guide-link subject-option" href="#/field-guide/from-classify" data-t7e-key="" data-t7e-attr-title="classifier.fieldGuide"><i class="fa fa-book"></i></a>
         <button name="start-tutorial" class="subject-option" data-t7e-key="" data-t7e-attr-title="classifier.startTutorial"><i class="fa fa-question"></i></button>
+      </div>
+      <div class="subject-options">
+        <button name="finish-subject" title="[SHIFT-ENTER]" class="subject-option not-square">
+          <%- translate 'span', 'classifier.finishSubject' %>
+          <i class="fa fa-chevron-right"></i>
+        </button>
       </div>
     </div>
 
@@ -21,7 +26,6 @@
         <%- translate 'p', 'classifier.makeSelection' %>
 
         <div class="finish-subject">
-          <p><%- translate 'button', 'classifier.finishSubject', name: 'finish-subject', title: '[SHIFT-ENTER]' %></p>
           <%- translate 'p.incomplete-marks', 'classifier.incomplete' %>
         </div>
       </div>

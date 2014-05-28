@@ -37,6 +37,10 @@ TAG_COLORS = black white red orange yellow green blue purple
   .subject-options
     margin-top: 5px
     text-align: center
+    float: left
+
+    & + .subject-options
+      float: right
 
   .subject-option
     SIZE = 30px
@@ -60,6 +64,14 @@ TAG_COLORS = black white red orange yellow green blue purple
 
     &.selected
       color: yellow
+
+    &.not-square
+      border-radius: 5px
+      font-size: 14px
+      text-transform: uppercase
+      letter-spacing: 1px
+      padding: 0 1em
+      width: auto
 
   .details-editor
     box-shadow: -20px 0 10px -20px rgba(black, 0.25)
@@ -139,7 +151,7 @@ TAG_COLORS = black white red orange yellow green blue purple
       font-size: 16px
       margin-top: 1em
 
-  button[name="finish-subject"],
+  // button[name="finish-subject"],
   button[name="finish-selection"],
   button[name="confirm-animal"]
     @extends #_STANDARD_BUTTON
@@ -155,10 +167,10 @@ TAG_COLORS = black white red orange yellow green blue purple
     // transform: translateX(-50%)
     width: 80% // Eyeball this against the animal buttons
 
-  button[name="finish-subject"]
-    background: white
-    border: 1px solid
-    color: BLUEISH
+  // button[name="finish-subject"]
+  //   background: white
+  //   border: 1px solid
+  //   color: BLUEISH
 
   button[name="animal"]
     @extends #_STANDARD_BUTTON
