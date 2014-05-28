@@ -31,6 +31,26 @@
   <div class="content-container">
     <%- translate 'div.tags', 'fieldGuide.tags' %>
   </div>
+
+  <div class="content-container">
+    <%- translate 'div.ambiguousTags', 'fieldGuide.ambiguousTags' %>
+  </div>
+
+  <div class="content-container">
+    <%- translate 'div.condorOrVulture', 'fieldGuide.condorOrVulture' %>
+  </div>
+
+  <div class="content-container">
+    <%- translate 'div.markingTheCarcass', 'fieldGuide.markingTheCarcass' %>
+  </div>
+
+  <div class="content-container">
+    <%- translate 'div.markingOther', 'fieldGuide.markingOther' %>
+  </div>
+
+  <div class="content-container">
+    <%- translate 'div.poisoningRates', 'fieldGuide.poisoningRates' %>
+  </div>
 </div>
 
 <div class="content-block">
