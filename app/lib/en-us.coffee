@@ -49,7 +49,7 @@ module.exports =
 
   classifier:
     favorite: 'Favorite'
-    discuss: 'Dicuss'
+    discuss: 'Discuss'
     fieldGuide: 'Field guide'
     startTutorial: 'Start tutorial'
     share: 'Share'
