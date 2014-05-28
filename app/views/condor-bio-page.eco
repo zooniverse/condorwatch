@@ -9,6 +9,10 @@
       <div class="info">
         <%- translate 'div', 'condorBio.tagPrefix' %>
         <div class="heading"><%- @id %></div>
+        <div>
+          <%- translate 'span', 'condorBio.tagged' %>
+          <%= @labels.map((label) -> "“#{label}”").join ',' %>
+        </div>
         <% if @sex?: %>
           <span class="detail"><%- @sex %></span>
         <% end %>

@@ -189,6 +189,7 @@ module.exports =
 
   condorBio:
     tagPrefix: 'No.'
+    tagged: 'Tagged as'
     sex: 'Sex'
     hatched: 'Hatched'
     rearedBy: 'Reared by'
