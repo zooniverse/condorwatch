@@ -43,9 +43,9 @@ module.exports =
     coyote:
       label: 'Coyote'
       image: './images/animals/coyote.jpg'
-    carcassOrScale:
-      label: 'Carcass/&#8203;scale'
-      image: './images/animals/carcass-or-scale.jpg'
+    carcass:
+      label: 'Carcass'
+      image: './images/animals/carcass.jpg'
 
   classifier:
     favorite: 'Favorite'
@@ -79,7 +79,7 @@ module.exports =
     underlined: 'Underlined'
     juvenile: 'Juvenile'
     adult: 'Adult'
-    proximity: 'How close is this animal to the carcass or scale?'
+    proximity: 'How close is this animal to the carcass?'
     proximities:
       withinReach: 'Within reach'
       withinTwo: 'Within two body lengths'
@@ -151,7 +151,7 @@ module.exports =
     completeMark:
       header: 'Complete this mark'
       content: '''
-        To complete a mark, select how far the animal is from the carcass or scale, then click "Done".
+        To complete a mark, select how far the animal is from the carcass, then click "Done".
       '''
       instruction: '''
         Click "Within reach", then click "Done"
@@ -243,8 +243,8 @@ module.exports =
       <p>If you are lucky you may catch a mammal on the condor cam. When you do, it will most likely be the coyote, a member of the Canidae family which is both predator and scavenger. Interestingly, this species, once deceased, becomes a food source for the California condor!</p>
     '''
 
-    carcassOrScale: '''
-      <p>For this project we also ask that you locate the carcass and the scale within photographs. This will help us understand how far each bird is from the carcass, and ultimately decode the dominance hierarchy within condor flocks as well as further our understanding of condor feeding behavior. Carcasses are generally dairy calves colored white, black, and brown. Occasionally condors will be offered a wild boar or rabbit. The scale is used to collect data on individual condor weights, an indicator of overall health.</p>
+    carcass: '''
+      <p>For this project we also ask that you locate the carcass within photographs. This will help us understand how far each bird is from the carcass, and ultimately decode the dominance hierarchy within condor flocks as well as further our understanding of condor feeding behavior. Carcasses are generally dairy calves colored white, black, and brown. Occasionally condors will be offered a wild boar or rabbit.</p>
     '''
 
     tags: '''

@@ -4,5 +4,5 @@ module.exports = [
   'goldenEagle'
   'raven'
   'coyote'
-  'carcassOrScale'
+  'carcass'
 ]
