@@ -261,9 +261,8 @@ module.exports =
       <p>If you are lucky you may catch a mammal on the condor cam. When you do, it will most likely be the coyote, a member of the Canidae family which is both predator and scavenger. Interestingly, this species, once deceased, becomes a food source for the California condor!</p>
     '''
 
-    # TODO: What other animals will we see?
     other: '''
-      <p>Anything else you might see: some hungry mountain lions and bears out for a stroll, perhaps?</p>
+      <p>Anything else you might see: some hungry mountain lions and bears out for a stroll, perhaps? Read more below for details on how to mark things that aren't on our list.</p>
     '''
 
     carcass: '''
