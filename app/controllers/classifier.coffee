@@ -249,7 +249,7 @@ class Classifier extends BaseController
     @colorButtons.removeClass 'selected'
     @colorButtons.filter("[value='#{tool.mark.color}']").addClass 'selected'
 
-    valuedDotsButtons = @dotsButtons.filter '[value]'
+    valuedDotsButtons = @dotsButtons.filter '.non-zero'
     valuedDotsButtons.removeClass 'selected'
     valuedDotsButtons.slice(0, tool.mark.dots || 0).addClass 'selected'
 
