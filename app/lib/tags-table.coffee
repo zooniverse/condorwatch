@@ -29,11 +29,11 @@ module.exports = $.get('./condor-tags.tsv').pipe (tabSeparated) ->
     object.underlined = underlined
 
     dots = if noPattern or underlined
-      '0'
+      0
     else
-      pattern.match(/(\d+) dot/i)?[1] ? null
+      parseFloat pattern.match(/(\d+) dot/i)?[1]
 
-    object.dots = dots
+    object.dots = dots ? null
 
     leftColor = values.shift().toLowerCase()
     object.color.push leftColor if leftColor in possibleTagColors
