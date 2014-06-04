@@ -22,15 +22,18 @@ module.exports = $.get('./condor-tags.tsv').pipe (tabSeparated) ->
     color = values.shift().toLowerCase()
     object.color.push color if color in possibleTagColors
 
-    patterns = values.shift().toUpperCase()
+    pattern = values.shift()
+    noPattern = !!pattern.match(/none/i)?
 
-    dots = parseFloat patterns.match(/(\d+) dot/i)?[1]
-    dots = null if isNaN dots
-    dots = 0 if patterns is 'NONE'
-    object.dots = dots
-
-    underlined = !!patterns.match(/underline/i)?
+    underlined = !!pattern.match(/underline/i)?
     object.underlined = underlined
+
+    dots = if noPattern or underlined
+      '0'
+    else
+      pattern.match(/(\d+) dot/i)?[1] ? null
+
+    object.dots = dots
 
     leftColor = values.shift().toLowerCase()
     object.color.push leftColor if leftColor in possibleTagColors

@@ -7,21 +7,31 @@ guessCondor = (givens, callback) ->
       reducedGivens[property] = value
 
   tagsTable.then (tags) ->
-    console?.group 'Searching for condor given', JSON.stringify reducedGivens
+    console?.group 'Searching for condor given', reducedGivens
 
-    matches = tags.filter (values) ->
+    matches = tags.filter (tagValues) ->
       for key, givenValue of reducedGivens
-        unless values[key]?
+        # Ignore things that aren't defined in a tag.
+        unless tagValues[key]?
           continue
 
-        if values[key] instanceof Array
-          return false unless givenValue in values[key]
+        if tagValues[key] instanceof Array
+          # Colors are stored in an array.
+          unless givenValue in tagValues[key]
+            return false
         else if typeof givenValue is 'function'
-          return false unless givenValue.call this, values[key]
+          # Site ("source") can be Socal (given as a string)
+          # or not Socal (given as a function filtering out Socal)
+          unless givenValue.call this, tagValues[key]
+            return false
         else if typeof givenValue is 'string'
-          return false unless values[key]?.replace?(/\W/, '') is givenValue.replace(/\W/, '')
+          # Ignore non-word characters for the label.
+          unless tagValues[key]?.replace?(/\W/, '') is givenValue.replace(/\W/, '')
+            return false
         else
-          return false unless values[key] is givenValue
+          # For everything else make sure it matches.
+          unless tagValues[key] is givenValue
+            return false
 
       return true
 
@@ -29,9 +39,6 @@ guessCondor = (givens, callback) ->
       unless match.id in reduced
         reduced.push match.id
       reduced
-
-    unless reducedGivens.label
-      ids = []
 
     console?.log "Found #{ids.length} condor(s)", JSON.stringify ids
     console?.groupEnd()

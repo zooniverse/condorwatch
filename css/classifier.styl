@@ -224,14 +224,14 @@ TAG_COLORS = black white red orange yellow green blue purple
     vertical-align: middle
     width: 15px
 
-    &:not([value])
+    &.clear
       font-size: 20px
 
-    &[value]
+    &:not(.clear)
       color: transparent
 
   button[name="color"]
-    &[value].selected
+    &:not(.clear).selected
         transform: scale(1.5)
 
     for name, i in TAG_COLOR_NAMES
@@ -242,7 +242,7 @@ TAG_COLORS = black white red orange yellow green blue purple
       border: 1px solid LIGHT_GRAY
 
   button[name="dots"]
-    &[value]
+    &.non-zero
       border: 2px solid LIGHT_GRAY
 
       &.selected

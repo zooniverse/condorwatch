@@ -85,7 +85,7 @@
 
         <fieldset>
           <%- translate 'span.legend', 'classifier.color' %>
-          <%- translate 'button', '&times;', name: 'color', title: '$title [Q]', $title: 'classifier.colors.clear' %>
+          <%- translate 'button.clear', '&times;', name: 'color', title: '$title [Q]', $title: 'classifier.colors.clear' %>
           <% COLOR_SHORTCUTS = 'WERTYUIO'.split '' %>
           <% for tagColor, i in possibleTagColors: %>
             <%- translate 'button', "classifier.colors.#{tagColor}", name: 'color', value: tagColor, title: '$color [$shortcut]', $color: "classifier.colors.#{tagColor}", $shortcut: COLOR_SHORTCUTS[i] %>
@@ -94,9 +94,9 @@
 
         <fieldset>
           <%- translate 'span.legend', 'classifier.dots' %>
-          <%- translate 'button', '×', name: 'dots', title: '$title [0]', $title: 'classifier.noDots' %>
+          <%- translate 'button.zero.clear', '×', name: 'dots', value: 0, title: '$title [0]', $title: 'classifier.noDots' %>
           <% for i in [1..5]: %>
-            <%- translate 'button', "#{i}", name: 'dots', value: i, title: '$title [$shortcut]', $title: 'classifier.someDots', $n: i, $shortcut: i %>
+            <%- translate 'button.non-zero', "#{i}", name: 'dots', value: i, title: '$title [$shortcut]', $title: 'classifier.someDots', $n: i, $shortcut: i %>
           <% end %>
         </fieldset>
 
