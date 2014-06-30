@@ -251,7 +251,7 @@ class Classifier extends BaseController
 
     valuedDotsButtons = @dotsButtons.filter '.non-zero'
     valuedDotsButtons.removeClass 'selected'
-    valuedDotsButtons.slice(0, tool.mark.dots || 0).addClass 'selected'
+    valuedDotsButtons.slice(0, tool.mark.dots).addClass 'selected'
 
     @underlinedCheckbox.prop 'checked', !!tool.mark.underlined
     @juvenileCheckbox.prop 'checked', !!tool.mark.juvenile
@@ -312,6 +312,10 @@ class Classifier extends BaseController
     'click button[name="animal"]': (e) ->
       @selectedTool.mark.set e.currentTarget.name, e.currentTarget.value
 
+      # Default to zero dots.
+      if e.currentTarget.value is 'condor'
+        @selectedTool.mark.set 'dots', @selectedTool.mark.dots ? 0
+
     'click button[name="confirm-animal"]': ->
       @onSelectTool @selectedTool
 
@@ -323,7 +327,6 @@ class Classifier extends BaseController
 
     'click button[name="dots"]': (e) ->
       value = parseFloat e.currentTarget.value
-      value = null if isNaN value
       @selectedTool.mark.set e.currentTarget.name, value
 
     'change input[name="underlined"]': (e) ->
