@@ -389,7 +389,6 @@ Studbook	Year	Vinyl Tag ID	Tag Color	Shapes/Patterns on tag	L-tag color	R- tag c
 262	2013	62	Yellow	None	No tag	Yellow	None	GPS	Socal		Yes
 278	2006	78	Black	2 dots	NA	NA	NA	NA	Socal	Mostly VWS bird but rare forays to Socal possible so listed in both 	Yes
 278	2006	78	Black	2 dots	NA	NA	NA	NA	VWS	Mostly VWS bird but rare forays to Socal possible so listed in both 	Yes
-278	2006	78	White	None	NA	NA	NA	NA	VWS		Yes
 278	2007	78	Black	2 dots	NA	NA	NA	NA	Socal	Mostly VWS bird but rare forays to Socal possible so listed in both 	Yes
 278	2007	78	Black	2 dots	NA	NA	NA	NA	VWS	Mostly VWS bird but rare forays to Socal possible so listed in both 	Yes
 278	2008	78	Black	2 dots	NA	NA	NA	NA	Socal	Mostly VWS bird but rare forays to Socal possible so listed in both 	Yes
@@ -439,7 +438,6 @@ Studbook	Year	Vinyl Tag ID	Tag Color	Shapes/Patterns on tag	L-tag color	R- tag c
 298	2012	98	Yellow	None	NA	NA	NA	NA	VWS	Mostly VWS bird but rare forays to Socal possible so listed in both 	Yes
 301	2006	1	Black	3 dots	NA	NA	NA	NA	Socal	Mostly VWS bird but rare forays to Socal possible so listed in both 	Yes
 301	2006	1	Black	3 dots	NA	NA	NA	NA	VWS	Mostly VWS bird but rare forays to Socal possible so listed in both 	Yes
-301	2006	1	White	None	NA	NA	NA	NA	VWS		Yes
 301	2007	1	Black	3 dots	NA	NA	NA	NA	Socal	Mostly VWS bird but rare forays to Socal possible so listed in both 	Yes
 301	2007	1	Black	3 dots	NA	NA	NA	NA	VWS	Mostly VWS bird but rare forays to Socal possible so listed in both 	Yes
 303	2006	3	Black	3 dots	NA	NA	NA	NA	Socal	Mostly VWS bird but rare forays to Socal possible so listed in both 	Yes
@@ -495,7 +493,6 @@ Studbook	Year	Vinyl Tag ID	Tag Color	Shapes/Patterns on tag	L-tag color	R- tag c
 310	2013	10	Black	3 dots	Black	Black	NA	NA	Socal	Mostly PNP bird but rare forays to Socal possible so listed in both 	Yes
 311	2006	11	Black	3 dots	NA	NA	NA	NA	Socal	Mostly VWS bird but rare forays to Socal possible so listed in both 	Yes
 311	2006	11	Black	3 dots	NA	NA	NA	NA	VWS	Mostly VWS bird but rare forays to Socal possible so listed in both 	Yes
-311	2006	11	White	None	NA	NA	NA	NA	VWS		Yes
 311	2007	11	Black	3 dots	NA	NA	NA	NA	Socal	Mostly VWS bird but rare forays to Socal possible so listed in both 	Yes
 311	2007	11	Black	3 dots	NA	NA	NA	NA	VWS	Mostly VWS bird but rare forays to Socal possible so listed in both 	Yes
 311	2008	11	Black	3 dots	NA	NA	NA	NA	Socal	Mostly VWS bird but rare forays to Socal possible so listed in both 	Yes
@@ -543,7 +540,6 @@ Studbook	Year	Vinyl Tag ID	Tag Color	Shapes/Patterns on tag	L-tag color	R- tag c
 317	2011	17	Black	3 dots	No tag	Black	NA	NA	PNP	Mostly PNP bird but rare forays to Socal possible so listed in both 	Yes
 317	2011	17	Black	3 dots	No tag	Black	NA	NA	Socal	Mostly PNP bird but rare forays to Socal possible so listed in both 	Yes
 318	2006	18	Black	3 dots	NA	NA	NA	NA	VWS	Overlap with 518 so not listed as possible vagrant to Socal	Yes
-318	2006	18	White	None	NA	NA	NA	NA	VWS		Yes
 318	2007	18	Black	3 dots	NA	NA	NA	NA	VWS	Overlap with 518 so not listed as possible vagrant to Socal	Yes
 318	2008	18	Black	3 dots	NA	NA	NA	NA	VWS	Overlap with 518 so not listed as possible vagrant to Socal	Yes
 318	2009	18	Black	3 dots	NA	NA	NA	NA	VWS	Overlap with 518 so not listed as possible vagrant to Socal	Yes
