@@ -1,5 +1,5 @@
-					Tag Details						
-Studbook	Year	Vinyl Tag ID	Tag Color	Shapes/Patterns on tag	L-tag color	R- tag color	L-wing transmitter	R-wing transmitter	Data source	Other Notes	Bio data compiled?
+					Tag Details
+Studbook	Year	Vinyl Tag ID	Tag Color	Shapes/Patterns on tag	L-tag color	R- tag color	L-wing transmitter	R-wing transmitter	Data source	Notes	Bio data compiled?	Notes2
 21	2008	21	White	None	White	No tag	None	None	Socal		Yes
 21	2009	21	Orange	None	Orange	No tag	GPS	None	Socal		Yes
 21	2010	21	Orange	None	No tag	Orange	None	GPS	Socal		Yes
@@ -34,12 +34,12 @@ Studbook	Year	Vinyl Tag ID	Tag Color	Shapes/Patterns on tag	L-tag color	R- tag c
 111	2012	11	Red	None	Red	No tag	None	None	Socal		Yes
 111	2013	11	Red	None	Red	No tag	None	None	Socal		Yes
 112	2009	12	Black	1 dot	Black	Black	NA	NA	PNP	Forays possible so listed in both sites	Yes
-112	2009	12	Black	1 dot	Black	Black	NA	NA	PNP	Forays possible so listed in both sites	Yes
+112	2009	12	Black	1 dot	Black	Black	NA	NA	Socal	Forays possible so listed in both sites	Yes
+112	2010	12	Red	None	No tag	Red	None	GPS	PNP	Forays possible so listed in both sites	Yes
 112	2010	12	Red	None	No tag	Red	None	GPS	Socal	Forays possible so listed in both sites	Yes
-112	2010	12	Red	None	No tag	Red	None	GPS	Socal	Forays possible so listed in both sites	Yes
+112	2011	12	Red	None	No tag	Red	None	GPS	PNP	Forays possible so listed in both sites	Yes
 112	2011	12	Red	None	No tag	Red	None	GPS	Socal	Forays possible so listed in both sites	Yes
-112	2011	12	Red	None	No tag	Red	None	GPS	Socal	Forays possible so listed in both sites	Yes
-125	2008	25	Yellow	1 dot	No tag	Yellow	None	Sat	Socal	Forays possible so listed in both sites	Yes
+125	2008	25	Yellow	1 dot	No tag	Yellow	None	Sat	Socal		Yes
 125	2009	25	Red	None	No tag	Red	None	None	Socal		Yes
 125	2010	25	Red	None	No tag	Red	None	None	Socal		Yes
 125	2011	25	Red	None	No tag	Red	None	None	Socal		Yes
@@ -426,6 +426,8 @@ Studbook	Year	Vinyl Tag ID	Tag Color	Shapes/Patterns on tag	L-tag color	R- tag c
 298	2006	98	White	None	NA	NA	NA	NA	VWS		Yes
 298	2007	98	Black	2 dots	NA	NA	NA	NA	Socal	Mostly VWS bird but rare forays to Socal possible so listed in both 	Yes
 298	2007	98	Black	2 dots	NA	NA	NA	NA	VWS	Mostly VWS bird but rare forays to Socal possible so listed in both 	Yes
+298	2008	98	Yellow	2 dots	NA	NA	NA	NA	Socal	Mostly VWS bird but rare forays to Socal possible so listed in both 	Yes	Added 7/20/14 based on photo observation (black may be wrong)
+298	2008	98	Yellow	2 dots	NA	NA	NA	NA	VWS	Mostly VWS bird but rare forays to Socal possible so listed in both 	Yes	Added 7/20/14 based on photo observation (black may be wrong)
 298	2008	98	Black	2 dots	NA	NA	NA	NA	Socal	Mostly VWS bird but rare forays to Socal possible so listed in both 	Yes
 298	2008	98	Black	2 dots	NA	NA	NA	NA	VWS	Mostly VWS bird but rare forays to Socal possible so listed in both 	Yes
 298	2009	98	Black	2 dots	NA	NA	NA	NA	Socal	Mostly VWS bird but rare forays to Socal possible so listed in both 	Yes
@@ -539,6 +541,7 @@ Studbook	Year	Vinyl Tag ID	Tag Color	Shapes/Patterns on tag	L-tag color	R- tag c
 317	2010	17	Black	3 dots	Black	Black	NA	NA	Socal	Mostly PNP bird but rare forays to Socal possible so listed in both 	Yes
 317	2011	17	Black	3 dots	No tag	Black	NA	NA	PNP	Mostly PNP bird but rare forays to Socal possible so listed in both 	Yes
 317	2011	17	Black	3 dots	No tag	Black	NA	NA	Socal	Mostly PNP bird but rare forays to Socal possible so listed in both 	Yes
+318	2006	18	White	3 dots	NA	NA	NA	NA	VWS	Overlap with 518 so not listed as possible vagrant to Socal	Yes	Added 7/20/14 based on photo observation (black may be wrong)
 318	2006	18	Black	3 dots	NA	NA	NA	NA	VWS	Overlap with 518 so not listed as possible vagrant to Socal	Yes
 318	2007	18	Black	3 dots	NA	NA	NA	NA	VWS	Overlap with 518 so not listed as possible vagrant to Socal	Yes
 318	2008	18	Black	3 dots	NA	NA	NA	NA	VWS	Overlap with 518 so not listed as possible vagrant to Socal	Yes
@@ -803,13 +806,14 @@ Studbook	Year	Vinyl Tag ID	Tag Color	Shapes/Patterns on tag	L-tag color	R- tag c
 438	2011	38	White	None	White	White	NA	NA	PNP		Yes
 438	2012	38	White	None	White	No tag	NA	NA	PNP		Yes
 438	2013	38	White	None	White	No tag	NA	NA	PNP		Yes
-444	2007	44	white	None	No tag	White	NA	NA	VWS	Hatched in wild	Yes
-444	2008	44	white	None	No tag	White	NA	NA	VWS		Yes
-444	2009	44	white	None	No tag	White	NA	NA	VWS		Yes
-444	2010	44	white	None	No tag	White	NA	NA	VWS		Yes
-444	2011	44	white	None	No tag	White	NA	NA	VWS		Yes
-444	2012	44	white	None	No tag	White	NA	NA	VWS		Yes
-444	2013	44	white	None	No tag	White	NA	NA	VWS		Yes
+444	2007	44	White	None	No tag	White	NA	NA	VWS	Hatched in wild	Yes
+444	2008	44	White	None	No tag	White	NA	NA	VWS		Yes
+444	2009	44	White	None	No tag	White	NA	NA	VWS		Yes
+444	2010	44	White	None	No tag	White	NA	NA	VWS		Yes
+444	2010	44	Black	None	No tag	White	NA	NA	VWS		Yes	added 7/22/14 based on photo obs and email from R Wohlstenholme. Black tag may have been worn in more years than this, but definitely in this year, which should resolve CW IDs
+444	2011	44	White	None	No tag	White	NA	NA	VWS		Yes
+444	2012	44	White	None	No tag	White	NA	NA	VWS		Yes
+444	2013	44	White	None	No tag	White	NA	NA	VWS		Yes
 448	2008	48	Black	underline	NA	NA	NA	NA	PNP	Released 1/6/08	Yes
 448	2009	48	Black	underline	Black	Black	NA	NA	PNP		Yes
 448	2010	48	Black	underline	Black	Black	NA	NA	PNP		Yes
@@ -869,21 +873,21 @@ Studbook	Year	Vinyl Tag ID	Tag Color	Shapes/Patterns on tag	L-tag color	R- tag c
 467	2011	67	White	None	White	No tag	None	None	Socal		Yes
 467	2012	67	White	None	White	No tag	None	None	Socal		Yes
 467	2013	67	White	None	No tag	White	None	None	Socal		Yes
-470	2008	70	white	None	No tag	White	NA	NA	VWS	Hatched in wild	Yes
-470	2009	70	white	None	No tag	White	NA	NA	VWS		Yes
-470	2010	70	white	None	No tag	White	NA	NA	VWS		Yes
-470	2011	70	white	None	No tag	White	NA	NA	VWS		Yes
-470	2012	70	white	None	No tag	White	NA	NA	VWS		Yes
-470	2013	70	white	None	No tag	White	NA	NA	VWS		Yes
+470	2008	70	White	None	No tag	White	NA	NA	VWS	Hatched in wild	Yes
+470	2009	70	White	None	No tag	White	NA	NA	VWS		Yes
+470	2010	70	White	None	No tag	White	NA	NA	VWS		Yes
+470	2011	70	White	None	No tag	White	NA	NA	VWS		Yes
+470	2012	70	White	None	No tag	White	NA	NA	VWS		Yes
+470	2013	70	White	None	No tag	White	NA	NA	VWS		Yes
 474	2008	"2 ""huya"""	Black	"2 ""huya"""	Black	No tag	VHF	None	Socal	Hatched in wild	Yes
 474	2009	"2 ""huya"""	Black	"2 ""huya"""	Black	No tag	VHF	None	Socal		Yes
 475	2008	75	White	NA	NA	NA	NA	NA	VWS	Hatched in wild	Yes
-477	2008	77	white	None	No tag	White	NA	NA	VWS	Hatched in wild	Yes
-477	2009	77	white	None	No tag	White	NA	NA	VWS		Yes
-477	2010	77	white	None	No tag	White	NA	NA	VWS		Yes
-477	2011	77	white	None	No tag	White	NA	NA	VWS		Yes
-477	2012	77	white	None	No tag	White	NA	NA	VWS		Yes
-477	2013	77	white	None	No tag	White	NA	NA	VWS		Yes
+477	2008	77	White	None	No tag	White	NA	NA	VWS	Hatched in wild	Yes
+477	2009	77	White	None	No tag	White	NA	NA	VWS		Yes
+477	2010	77	White	None	No tag	White	NA	NA	VWS		Yes
+477	2011	77	White	None	No tag	White	NA	NA	VWS		Yes
+477	2012	77	White	None	No tag	White	NA	NA	VWS		Yes
+477	2013	77	White	None	No tag	White	NA	NA	VWS		Yes
 478	2009	78	Black	underline	Black	No tag	NA	NA	PNP	Released 10/3/09	Yes
 478	2010	78	Black	underline	Black	No tag	NA	NA	PNP		Yes
 478	2010	78	White	None	White	White	NA	NA	PNP		Yes
@@ -927,9 +931,9 @@ Studbook	Year	Vinyl Tag ID	Tag Color	Shapes/Patterns on tag	L-tag color	R- tag c
 493	2011	93	White	None	White	No tag	None	None	Socal		Yes
 493	2012	93	White	None	White	No tag	None	None	Socal		Yes
 493	2013	93	White	None	White	No tag	None	None	Socal		Yes
-499	2009	99	white	None	NA	NA	NA	NA	VWS	Hatched in wild	Yes
-499	2010	99	white	None	NA	NA	NA	NA	VWS		Yes
-499	2011	99	white	None	NA	NA	NA	NA	VWS		Yes
+499	2009	99	White	None	NA	NA	NA	NA	VWS	Hatched in wild	Yes
+499	2010	99	White	None	NA	NA	NA	NA	VWS		Yes
+499	2011	99	White	None	NA	NA	NA	NA	VWS		Yes
 501	2009	1	Black	None	No tag	Black	NA	NA	VWS	Hatched in wild	Yes
 501	2010	1	Black	None	No tag	Black	NA	NA	VWS		Yes
 501	2011	1	Black	None	No tag	Black	NA	NA	VWS		Yes
