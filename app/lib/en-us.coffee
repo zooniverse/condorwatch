@@ -1,6 +1,5 @@
 module.exports =
   siteNavigation:
-    projectName: 'Condor Watch'
     home: 'Home'
     classify: 'Classify'
     fieldGuide: 'Field guide'

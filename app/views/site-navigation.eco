@@ -1,7 +1,7 @@
 <% translate = require 't7e' %>
 
 <div class="all-links content-container">
-  <%- translate 'a.logo', 'siteNavigation.projectName', href: '#/' %>
+  <a href="#/" class="logo">Condor Watch</a>
 
   <div class="links">
     <%- translate 'a', 'siteNavigation.home', href: '#/' %>
