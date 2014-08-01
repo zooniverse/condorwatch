@@ -15,6 +15,7 @@
   "scripts": {
     "start": "haw serve --verbose --port 3416",
     "stage": "haw build ./build --force && publisssh ./build zooniverse-demo/condors && rm -rf ./build",
+    "beta": "haw build ./build --force && publisssh ./build zooniverse-static/www.condorwatch.org/beta && rm -rf ./build",
     "deploy": "haw build ./build --force && publisssh ./build zooniverse-static/www.condorwatch.org && rm -rf ./build",
     "stage-locale": "seed-translation --project condor --env staging --deploy-path dev-translations",
     "deploy-locale":"seed-translation --project condor --env production"
