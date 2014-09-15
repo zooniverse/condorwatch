@@ -97,7 +97,9 @@
         <%- translate 'div.title', 'condorBio.died' %>
         <% if @diedAt?: %>
           <%- formatDate @diedAt %>
-          <span class="minor"><%- @deathAge %> <%- translate 'condorBio.years' %></span>
+          <% unless isNaN @deathAge: %>
+            <span class="minor"><%- @deathAge %> <%- translate 'condorBio.years' %></span>
+          <% end %>
           <% if @deathCause?: %>
             <br />
             <%- @deathCause %>
