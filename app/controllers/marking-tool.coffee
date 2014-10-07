@@ -58,11 +58,14 @@ class MarkingTool extends MagnifierPointTool
       if @collapsed then @collapse() else @expand()
 
     super
+    unless @image.el.parentNode
+      @group.el.appendChild @image.el
     @disc.attr r: @radius
     @clipCircle.attr r: @radius
 
   deselect: ->
     super
+    @image.remove()
     @disc.attr r: 7, strokeDasharray: []
     @clipCircle.attr r: 7
 
@@ -75,7 +78,7 @@ class MarkingTool extends MagnifierPointTool
 
   collapse: ->
     @root.toggleClass 'collapsed', true
-    @image.attr 'opacity', 0
+    #@image.attr 'opacity', 0
     @disc.attr strokeDasharray: [@strokeWidth, @strokeWidth]
     @collapsed = true
     @trigger 'collapse'
