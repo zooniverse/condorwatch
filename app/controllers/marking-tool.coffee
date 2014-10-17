@@ -78,7 +78,7 @@ class MarkingTool extends MagnifierPointTool
 
   collapse: ->
     @root.toggleClass 'collapsed', true
-    #@image.attr 'opacity', 0
+    @image.attr 'opacity', 0
     @disc.attr strokeDasharray: [@strokeWidth, @strokeWidth]
     @collapsed = true
     @trigger 'collapse'
