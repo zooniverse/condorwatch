@@ -1,7 +1,7 @@
 $ = window.jQuery
 
 nullify = (value) ->
-  if value in ['', '#N/A'] or (value instanceof Date and isNaN value)
+  if value in ['', '#N/A', '#ERROR!'] or (value instanceof Date and isNaN value)
     null
   else
     value
