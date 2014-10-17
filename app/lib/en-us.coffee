@@ -207,7 +207,7 @@ module.exports =
     chicks: 'Chicks contributed'
     mateInYear: 'Mate in $year'
     years: 'years'
-    stillAlive: 'Still kickin\''
+    stillAlive: 'Still carrion on!'
 
   cantFindBio:
     title: 'Unidentifed condor'
