@@ -90,6 +90,8 @@ class Classifier extends BaseController
       doneLabel: translate 'span', 'tutorial.doneLabel'
       parent: @el.get 0
       steps: tutorialSteps
+      onLoadStep: ->
+        translate.refresh @el
 
     @el.on StackOfPages::activateEvent, @activate
 
