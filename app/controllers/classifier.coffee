@@ -95,7 +95,8 @@ class Classifier extends BaseController
       onLoadStep: ->
         translate.refresh @el
 
-    @el.on StackOfPages::activateEvent, @activate
+    @targetSubjectID = ''
+    @el.on StackOfPages::activateEvent, => @onActivate arguments...
 
     User.on 'change', @onUserChange
     Subject.on 'get-next', @onGettingNextSubject
@@ -109,19 +110,10 @@ class Classifier extends BaseController
     @onSelectTool()
 
     @loadLocallyStoredSubject()
-    
-    @targetSubjectID = ''
-    @el.on StackOfPages::activateEvent, => @onActivate arguments...
-
-    #@srallen = 'srallen086'
-
-  activate: =>
-    @rescale()
 
   isUserScientist: ->
     result = new $.Deferred
     if User.current?
-      # TODO: Cache some of this? Pretty nasty.
       project = Api.current.get "/projects/#{Api.current.project}"
       talkUser = Api.current.get "/projects/#{Api.current.project}/talk/users/#{User.current.name}"
       $.when(project, talkUser).then (project, talkUser) =>
@@ -138,7 +130,9 @@ class Classifier extends BaseController
       result.resolve false
     result.promise()
 
-  onActivate: (e) ->
+  onActivate: (e) =>
+    @rescale()
+
     @targetSubjectID = e.originalEvent.detail.subjectID
     if @classification?
       unless @targetSubjectID is @classification?.subject.zooniverse_id
@@ -146,6 +140,7 @@ class Classifier extends BaseController
 
   getNextSubject: ->
     if @targetSubjectID
+      @tutorial.end()
       @isUserScientist().then (theyAre) =>
         if theyAre
           request = Api.current.get "/projects/#{Api.current.project}/subjects/#{@targetSubjectID}"
@@ -182,14 +177,15 @@ class Classifier extends BaseController
     tutorialSplit = location.search.match(/tutorial-split=(\w)/)?[1]
     tutorialSplit ?= user?.project?.splits?.tutorial
 
-    if tutorialDone or tutorialSplit is 'c'
-      Subject.next() unless @classification?
-    else if tutorialSplit is 'b'
-      @tutorial.first = 'prompt'
-      @startTutorial()
-    else # if tutorialSplit is 'a' or not tutorialSplit?
-      @tutorial.first = 'welcome'
-      @startTutorial()
+    if @targetSubjectID is ''
+      if tutorialDone or tutorialSplit is 'c'
+        Subject.next() unless @classification?
+      else if tutorialSplit is 'b'
+        @tutorial.first = 'prompt'
+        @startTutorial()
+      else # if tutorialSplit is 'a' or not tutorialSplit?
+        @tutorial.first = 'welcome'
+        @startTutorial()
 
   onGettingNextSubject: =>
     @loader.fadeIn()
