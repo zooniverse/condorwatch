@@ -14,6 +14,8 @@ possibleAnimals = require '../lib/possible-animals'
 ClassificationSummary = require './classification-summary'
 TitleShortcutHandler = require 'title-shortcut-handler'
 GoogleAnalytics = require 'zooniverse/lib/google-analytics'
+$ = window.jQuery
+Api = require 'zooniverse/lib/api'
 
 class Classifier extends BaseController
   className: 'classifier'
@@ -93,7 +95,8 @@ class Classifier extends BaseController
       onLoadStep: ->
         translate.refresh @el
 
-    @el.on StackOfPages::activateEvent, @activate
+    @targetSubjectID = ''
+    @el.on StackOfPages::activateEvent, => @onActivate arguments...
 
     User.on 'change', @onUserChange
     Subject.on 'get-next', @onGettingNextSubject
@@ -108,8 +111,49 @@ class Classifier extends BaseController
 
     @loadLocallyStoredSubject()
 
-  activate: =>
+  isUserScientist: ->
+    result = new $.Deferred
+    if User.current?
+      project = Api.current.get "/projects/#{Api.current.project}"
+      talkUser = Api.current.get "/projects/#{Api.current.project}/talk/users/#{User.current.name}"
+      $.when(project, talkUser).then (project, talkUser) =>
+        projectRoles = talkUser.talk?.roles?[project.id] ? []
+        details =
+          project: project.id
+          roles: projectRoles
+          scientist: 'scientist' in projectRoles
+          admin: 'admin' in projectRoles
+          'srallen086': talkUser.name is 'srallen086'
+        console?.log 'Can you pick your own subject?', JSON.stringify details, null, 2
+        result.resolve 'scientist' in projectRoles or 'admin' in projectRoles or talkUser.name is 'srallen086'
+    else
+      result.resolve false
+    result.promise()
+
+  onActivate: (e) =>
     @rescale()
+
+    @targetSubjectID = e.originalEvent.detail.subjectID
+    if @classification?
+      unless @targetSubjectID is @classification?.subject.zooniverse_id
+        @getNextSubject()
+
+  getNextSubject: ->
+    if @targetSubjectID
+      @tutorial.end()
+      @isUserScientist().then (theyAre) =>
+        if theyAre
+          request = Api.current.get "/projects/#{Api.current.project}/subjects/#{@targetSubjectID}"
+          request.then (data) =>
+            subject = new Subject data
+            subject.select()
+          request.fail =>
+            alert "There's no subject with the ID #{@targetSubjectID}."
+        else
+          alert 'Sorry, only science team members can choose the subjects they classify.'
+          Subject.next()
+    else
+      Subject.next()
 
   loadLocallyStoredSubject: ->
     subjectData = JSON.parse localStorage.getItem 'currentSubject'
@@ -133,14 +177,15 @@ class Classifier extends BaseController
     tutorialSplit = location.search.match(/tutorial-split=(\w)/)?[1]
     tutorialSplit ?= user?.project?.splits?.tutorial
 
-    if tutorialDone or tutorialSplit is 'c'
-      Subject.next() unless @classification?
-    else if tutorialSplit is 'b'
-      @tutorial.first = 'prompt'
-      @startTutorial()
-    else # if tutorialSplit is 'a' or not tutorialSplit?
-      @tutorial.first = 'welcome'
-      @startTutorial()
+    if @targetSubjectID is ''
+      if tutorialDone or tutorialSplit is 'c'
+        Subject.next() unless @classification?
+      else if tutorialSplit is 'b'
+        @tutorial.first = 'prompt'
+        @startTutorial()
+      else # if tutorialSplit is 'a' or not tutorialSplit?
+        @tutorial.first = 'welcome'
+        @startTutorial()
 
   onGettingNextSubject: =>
     @loader.fadeIn()
