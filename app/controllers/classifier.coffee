@@ -109,8 +109,6 @@ class Classifier extends BaseController
     addEventListener 'resize', @rescale, false
     @onSelectTool()
 
-    @loadLocallyStoredSubject()
-
   isUserScientist: ->
     result = new $.Deferred
     if User.current?
@@ -134,13 +132,12 @@ class Classifier extends BaseController
     @rescale()
 
     @targetSubjectID = e.originalEvent.detail.subjectID
-    if @classification?
-      unless @targetSubjectID is @classification?.subject.zooniverse_id
-        @getNextSubject()
+    if @targetSubjectID
+      @tutorial.end()
+      @getNextSubject() unless @targetSubjectID is Subject.current?.zooniverse_id
 
   getNextSubject: ->
     if @targetSubjectID
-      @tutorial.end()
       @isUserScientist().then (theyAre) =>
         if theyAre
           request = Api.current.get "/projects/#{Api.current.project}/subjects/#{@targetSubjectID}"
@@ -177,15 +174,20 @@ class Classifier extends BaseController
     tutorialSplit = location.search.match(/tutorial-split=(\w)/)?[1]
     tutorialSplit ?= user?.project?.splits?.tutorial
 
-    if @targetSubjectID is ''
+    if user
       if tutorialDone or tutorialSplit is 'c'
         Subject.next() unless @classification?
       else if tutorialSplit is 'b'
         @tutorial.first = 'prompt'
         @startTutorial()
-      else # if tutorialSplit is 'a' or not tutorialSplit?
+      else if tutorialSplit is 'a'
         @tutorial.first = 'welcome'
         @startTutorial()
+      else
+        @loadLocallyStoredSubject()
+
+    @tutorial.first = 'welcome'
+    @startTutorial()
 
   onGettingNextSubject: =>
     @loader.fadeIn()
@@ -202,6 +204,9 @@ class Classifier extends BaseController
     @onSelectTool null
 
     @classification = new Classification {subject}
+    if subject.zooniverse_id is @targetSubjectID
+      @classification.set 'chosen_subject', true
+
     @favoriteButton.prop 'disabled', false
     @talkLink.prop 'href', subject.talkHref()
 
@@ -403,6 +408,7 @@ class Classifier extends BaseController
         @sendClassification()
 
       classificationSummary.on 'destroying', =>
+        @targetSubjectID = ''
         Subject.next()
 
     'keydown': TitleShortcutHandler
