@@ -185,9 +185,9 @@ class Classifier extends BaseController
         @startTutorial()
       else
         @loadLocallyStoredSubject()
-
-    @tutorial.first = 'welcome'
-    @startTutorial()
+    else
+      @tutorial.first = 'welcome'
+      @startTutorial()
 
   onGettingNextSubject: =>
     @loader.fadeIn()
