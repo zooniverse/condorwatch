@@ -176,7 +176,6 @@ class Classifier extends BaseController
 
     if user
       if tutorialDone or tutorialSplit is 'c'
-        console.log @classification
         @tutorial.end()
         Subject.next()
       else if tutorialSplit is 'b'
