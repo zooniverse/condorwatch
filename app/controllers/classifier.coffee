@@ -290,7 +290,7 @@ class Classifier extends BaseController
       @animalPreview.attr 'src', translate "animals.#{tool.mark.animal}.image"
       @animalLabel.html translate "animals.#{tool.mark.animal}.label"
     else
-      @animalPreview.attr 'src', '//placehold.it/100.png&text=Choose'
+      @animalPreview.attr 'src', '//placeholdit.imgix.net/~text?txtsize=19&txt=Choose&w=150&h=150'
       @animalLabel.html '· · ·'
 
     @animalButtons.removeClass 'selected'
