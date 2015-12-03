@@ -18,7 +18,10 @@ languageManager.on 'change-language', (e, code, strings) ->
   t7e.refresh()
 
 Api = require 'zooniverse/lib/api'
-api = new Api project: 'condor'
+api = if window.location.hostname is 'www.condorwatch.org'
+  new Api project: 'condor', host: 'http://www.condorwatch.org', path: '/_ouroboros_api/proxy'
+else
+  new Api project: 'condor'
 
 SiteNavigation = require './controllers/site-navigation'
 siteNavigation = new SiteNavigation
