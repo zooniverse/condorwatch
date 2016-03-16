@@ -11,7 +11,7 @@
     <%- translate 'a', 'siteNavigation.about', href: '#/about' %>
     <%- translate 'a', 'siteNavigation.profile', href: '#/profile' %>
     <%- translate 'a', 'siteNavigation.education', href: '#/education' %>
-    <%- translate 'a', 'siteNavigation.talk', href: 'http://talk.condorwatch.org/' %>
+    <%- translate 'a', 'siteNavigation.talk', href: 'https://talk.condorwatch.org/' %>
     <%- translate 'a', 'siteNavigation.blog', href: 'http://blog.condorwatch.org/' %>
   </div>
 </div>
