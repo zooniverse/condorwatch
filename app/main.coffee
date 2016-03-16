@@ -19,7 +19,7 @@ languageManager.on 'change-language', (e, code, strings) ->
 
 Api = require 'zooniverse/lib/api'
 api = if window.location.hostname is 'www.condorwatch.org'
-  new Api project: 'condor', host: 'http://www.condorwatch.org', path: '/_ouroboros_api/proxy'
+  new Api project: 'condor', host: 'https://www.condorwatch.org', path: '/_ouroboros_api/proxy'
 else
   new Api project: 'condor'
 
