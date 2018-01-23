@@ -20,5 +20,7 @@
     "stage-locale": "seed-translation --project condor --env staging --deploy-path dev-translations",
     "deploy-locale": "seed-translation --project condor --env production"
   },
-  "node": "~4.6.2"
+  "engines": {
+    "node": "~4.6.2"
+  }
 }
