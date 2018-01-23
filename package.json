@@ -2,9 +2,9 @@
   "name": "condors",
   "version": "0.0.1",
   "dependencies": {
-    "haw": "0.5.1",
+    "haw": "0.6.0",
     "marking-surface": "~0.4.6",
-    "publisssh": "~0.2.1",
+    "publisssh": "~1.1.0",
     "stack-of-pages": "~0.1.2",
     "t7e": "~0.4.0",
     "title-shortcut-handler": "~0.0.1",
@@ -16,8 +16,9 @@
     "start": "haw serve --verbose --port 3416",
     "stage": "haw build ./build --force && publisssh ./build zooniverse-demo/condors && rm -rf ./build",
     "beta": "haw build ./build --force && publisssh ./build zooniverse-static/www.condorwatch.org/beta && rm -rf ./build",
-    "deploy": "haw build ./build --force && publisssh ./build zooniverse-static/www.condorwatch.org && rm -rf ./build",
+    "deploy": "haw build ./build --force && publisssh ./build zooniverse-static/www.condorwatch.org --force && rm -rf ./build",
     "stage-locale": "seed-translation --project condor --env staging --deploy-path dev-translations",
     "deploy-locale": "seed-translation --project condor --env production"
-  }
+  },
+  "node": "~4.6.2"
 }
