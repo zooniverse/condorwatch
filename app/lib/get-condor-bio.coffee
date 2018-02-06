@@ -6,7 +6,7 @@ nullify = (value) ->
   else
     value
 
-getCondors = $.get('./condors.tsv').pipe (tabbed) ->
+getCondors = $.get('./condors.tsv').then (tabbed) ->
   rows = tabbed.split('\n').filter Boolean
   rows.shift() # Throw away the header.
 
